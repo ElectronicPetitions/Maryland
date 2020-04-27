@@ -122,6 +122,8 @@
 
         // Check that we have a valid context to draw on/with before adding event handlers
         if (ctx) {
+            var img = document.getElementById("petition");
+            ctx.drawImage(img, 10, 10);
             // React to mouse events on the canvas, and mouseup on the entire document
             canvas.addEventListener('mousedown', sketchpad_mouseDown, false);
             canvas.addEventListener('mousemove', sketchpad_mouseMove, false);
@@ -131,10 +133,7 @@
             canvas.addEventListener('touchstart', sketchpad_touchStart, false);
             canvas.addEventListener('touchmove', sketchpad_touchMove, false);
         }
-        var c = document.getElementById("sketchpad");
-        var ctx = c.getContext("2d");
-        var img = document.getElementById("petition");
-        ctx.drawImage(img, 10, 10);
+       
     }
     function saveCanvas(canvas,ctx) {
          var link = document.getElementById('link');
