@@ -8,7 +8,7 @@
 ## Security
 * If you suspect the html file has been tampered with check the MD5 checksum 
 * http://onlinemd5.com/
-* MD5 Checksum: B346E705997EEA2FBBE2C39FDB238802
+* MD5 Checksum: Green-Party-petition.html B346E705997EEA2FBBE2C39FDB238802
 
 ## SBE Policy 2020-01: Temporary Electronic Petition Signature Acceptance
 <pre>
