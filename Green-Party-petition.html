@@ -31,6 +31,8 @@
     // Clear the canvas context using the canvas width and height
     function clearCanvas(canvas,ctx) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        var img = document.getElementById("petition");
+        ctx.drawImage(img, 10, 10);
     }
 
     // Keep track of the mouse button being pressed and draw a dot at current location
