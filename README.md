@@ -5,6 +5,11 @@
 * Click the save to send button.
 * From your device send the completed form to the address listed in the petition.
 
+## Security
+* If you suspect the html file has been tampered with check the MD5 checksum 
+* http://onlinemd5.com/
+* MD5 Checksum: B346E705997EEA2FBBE2C39FDB238802
+
 ## SBE Policy 2020-01: Temporary Electronic Petition Signature Acceptance
 <pre>
 Adopted: April 22, 2020
