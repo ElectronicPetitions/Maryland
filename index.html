@@ -133,6 +133,8 @@
             canvas.addEventListener('touchstart', sketchpad_touchStart, false);
             canvas.addEventListener('touchmove', sketchpad_touchMove, false);
         }
+        document.getElementById("canvasimg").style.display = "none";
+        document.getElementById("canvasimg_bk").style.display = "none";
     }
     function save() {
         document.getElementById("canvasimg").style.border = "2px solid";
