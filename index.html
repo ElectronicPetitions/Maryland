@@ -133,23 +133,7 @@
         }
     }
     
-    // When the user scrolls the page, execute myFunction
-window.onscroll = function() {myFunction()};
 
-// Get the header
-var header = document.getElementById("myHeader");
-
-// Get the offset position of the navbar
-var sticky = header.offsetTop;
-
-// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
-function myFunction() {
-  if (window.pageYOffset > sticky) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
-}
 </script>
 
 <style>
@@ -197,32 +181,23 @@ function myFunction() {
   padding: 10px 16px;
   background: #555;
   color: #f1f1f1;
-}
-
-/* Page content */
-.content {
-  padding: 16px;
-}
-
-/* The sticky class is added to the header with JS when it reaches its scroll position */
-.sticky {
-  position: fixed;
+  position: absolute;
   top: 0;
-  width: 100%
+  left: 0;
+  z-index: 1; /* Doc working with */
 }
-
-/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
-  padding-top: 102px;
-}    
+  
 </style>
 </head>
 
 <body onload="init()">
     <img class="source-image" src="Green-Party-petition.png" alt="" />
     <div class="header" id="myHeader">
-    <h2>Downloaded Local Electronic Petition Signature Tool</h2>
-        <input type="submit" value="CLEAR FORM" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
+    <h2>Downloaded Electronic Petition Signature Tool</h2>
+        <input type="submit" value="CLEAR" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
+        <input type="submit" value="BACK" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
+        <input type="submit" value="NEXT" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
+        <input type="submit" value="SAVE and SHARE" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
     </div>
     <div id="sketchpadapp">
         <div class="rightside">
