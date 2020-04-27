@@ -136,7 +136,7 @@
         document.getElementById("canvasimg").style.display = "none";
         document.getElementById("canvasimg_bk").style.display = "none";
     }
-    function save(canvas,ctx) {
+    function saveCanvas(canvas,ctx) {
         alert('Starting Download');
         //document.getElementById("canvasimg").style.border = "2px solid";
         //document.getElementById("canvasimg_bk").style.border = "2px solid";
@@ -228,10 +228,9 @@
     <div class="header" id="myHeader">
         <input type="submit" value="START" id="nextbutton" onclick="imageZoom("myimage", "myresult");">
         <input type="submit" value="NEXT" id="nextbutton" onclick="clearCanvas(canvas,ctx);">
-        <input type="submit" value="SAVE to SHARE" id="sharebutton" onclick="save(canvas,ctx);">
+        <input type="submit" value="SAVE to SHARE" id="sharebutton" onclick="saveCanvas(canvas,ctx);">
         <input type="submit" value="BACK" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
         <input type="submit" value="CLEAR" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
-        <a id="dl" download="Canvas.png" href="#">Download Canvas</a>
     </div>
     <div id="sketchpadapp">
         <div class="rightside">
