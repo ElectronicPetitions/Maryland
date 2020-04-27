@@ -31,8 +31,6 @@
     // Clear the canvas context using the canvas width and height
     function clearCanvas(canvas,ctx) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        document.getElementById("canvasimg").style.display = "none";
-        document.getElementById("canvasimg_bk").style.display = "none";
     }
 
     // Keep track of the mouse button being pressed and draw a dot at current location
@@ -138,13 +136,10 @@
     }
     function saveCanvas(canvas,ctx) {
         alert('Starting Download');
-        //document.getElementById("canvasimg").style.border = "2px solid";
-        //document.getElementById("canvasimg_bk").style.border = "2px solid";
         //var dataURL = canvas.toDataURL();
         //document.getElementById("canvasimg").src = dataURL;
-        //document.getElementById("canvasimg").style.display = "inline";
-        //document.getElementById("canvasimg_bk").style.display = "inline";
-        var dt = canvas.toDataURL('image/png');
+        //var dt = canvas.toDataURL('image/png');
+        var dt = canvas.toDataURL();
         /* Change MIME type to trick the browser to downlaod the file instead of displaying it */
         dt = dt.replace(/^data:image\/[^;]*/, 'data:application/octet-stream');
         /* In addition to <a>'s "download" attribute, you can define HTTP-style headers */
