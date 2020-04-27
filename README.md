@@ -1,4 +1,10 @@
 # Maryland Electronic Petition Signature Tool
+## Instructions
+* Save https://raw.githubusercontent.com/insidenothing/MarylandElectronicPetitionSignature/master/Green-Party-petition.html to your device and open. If you are completly offline ask that someone send you this file. Think of it as a PDF you can write all over.
+* Using your Phone or Tablet Fill in the required blanks.
+* Click the save to send button.
+* From your device send the completed form to the address listed in the petition.
+
 ## SBE Policy 2020-01: Temporary Electronic Petition Signature Acceptance
 <pre>
 Adopted: April 22, 2020
