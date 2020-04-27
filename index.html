@@ -137,18 +137,18 @@
         document.getElementById("canvasimg_bk").style.display = "none";
     }
     function save() {
-        document.getElementById("canvasimg").style.border = "2px solid";
-        document.getElementById("canvasimg_bk").style.border = "2px solid";
-        var dataURL = canvas.toDataURL();
-        document.getElementById("canvasimg").src = dataURL;
-        document.getElementById("canvasimg").style.display = "inline";
-        document.getElementById("canvasimg_bk").style.display = "inline";
+        //document.getElementById("canvasimg").style.border = "2px solid";
+        //document.getElementById("canvasimg_bk").style.border = "2px solid";
+        //var dataURL = canvas.toDataURL();
+        //document.getElementById("canvasimg").src = dataURL;
+        //document.getElementById("canvasimg").style.display = "inline";
+        //document.getElementById("canvasimg_bk").style.display = "inline";
         var dt = canvas.toDataURL('image/png');
-          /* Change MIME type to trick the browser to downlaod the file instead of displaying it */
-          dt = dt.replace(/^data:image\/[^;]*/, 'data:application/octet-stream');
-          /* In addition to <a>'s "download" attribute, you can define HTTP-style headers */
-          dt = dt.replace(/^data:application\/octet-stream/, 'data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=Canvas.png');
-          this.href = dt;
+        /* Change MIME type to trick the browser to downlaod the file instead of displaying it */
+        dt = dt.replace(/^data:image\/[^;]*/, 'data:application/octet-stream');
+        /* In addition to <a>'s "download" attribute, you can define HTTP-style headers */
+        dt = dt.replace(/^data:application\/octet-stream/, 'data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=Canvas.png');
+        this.href = dt;
     }
 
 
@@ -230,6 +230,7 @@
         <input type="submit" value="SAVE and SHARE" id="sharebutton" onclick="save();">
         <input type="submit" value="BACK" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
         <input type="submit" value="CLEAR" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
+        <a id="dl" download="Canvas.png" href="#">Download Canvas</a>
     </div>
     <div id="sketchpadapp">
         <div class="rightside">
