@@ -31,6 +31,8 @@
     // Clear the canvas context using the canvas width and height
     function clearCanvas(canvas,ctx) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        document.getElementById("canvasimg").style.display = "none";
+        document.getElementById("canvasimg_bk").style.display = "none";
     }
 
     // Keep track of the mouse button being pressed and draw a dot at current location
@@ -134,9 +136,11 @@
     }
     function save() {
         document.getElementById("canvasimg").style.border = "2px solid";
+        document.getElementById("canvasimg_bk").style.border = "2px solid";
         var dataURL = canvas.toDataURL();
         document.getElementById("canvasimg").src = dataURL;
         document.getElementById("canvasimg").style.display = "inline";
+        document.getElementById("canvasimg_bk").style.display = "inline";
     }
 
 </script>
@@ -223,6 +227,7 @@
             </canvas>
         </div>
     </div>
-    <img id="canvasimg" style="position:absolute;top:10%;right:10%;" style="display:none;">
+    <img id="canvasimg" style="position:absolute;top:0;right:0;" style="display:none;">
+    <img id="canvasimg_bk" style="position:absolute;top:0;right:0;" style="display:none;" src="Green-Party-petition.png" alt="" />
 </body>
 </html>
