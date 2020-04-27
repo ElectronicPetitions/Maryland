@@ -131,13 +131,12 @@
             canvas.addEventListener('touchstart', sketchpad_touchStart, false);
             canvas.addEventListener('touchmove', sketchpad_touchMove, false);
         }
-        document.getElementById("canvasimg").style.display = "none";
-        document.getElementById("canvasimg_bk").style.display = "none";
+        var c = document.getElementById("sketchpad");
+        var ctx = c.getContext("2d");
+        var img = document.getElementById("petition");
+        ctx.drawImage(img, 10, 10);
     }
     function saveCanvas(canvas,ctx) {
-        //var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");  
-        // here is the most important part because if you dont replace you will get a DOM 18 exception.
-        //window.location.href=image; // it will save locally
          var link = document.getElementById('link');
          link.setAttribute('download', 'Green-Party-petition.png');
          link.setAttribute('href', canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"));
@@ -217,7 +216,7 @@
 </style>
 </head>
 <body onload="init()">
-    <img class="source-image" src="Green-Party-petition.png" alt="" />
+    <img id="petition" src="Green-Party-petition.png" alt="petition" style='display:none;'>
     <div class="header" id="myHeader">
         <input type="submit" value="START" id="nextbutton" onclick="imageZoom("myimage", "myresult");">
         <input type="submit" value="NEXT" id="nextbutton" onclick="clearCanvas(canvas,ctx);">
