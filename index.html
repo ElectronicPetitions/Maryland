@@ -136,7 +136,7 @@
         document.getElementById("canvasimg").style.display = "none";
         document.getElementById("canvasimg_bk").style.display = "none";
     }
-    function save() {
+    function save(canvas,ctx) {
         //document.getElementById("canvasimg").style.border = "2px solid";
         //document.getElementById("canvasimg_bk").style.border = "2px solid";
         //var dataURL = canvas.toDataURL();
@@ -150,7 +150,7 @@
         dt = dt.replace(/^data:application\/octet-stream/, 'data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=Canvas.png');
         this.href = dt;
     }
-
+    document.getElementById("dl").addEventListener('click', save, false);
 
 
 </script>
@@ -227,7 +227,7 @@
     <div class="header" id="myHeader">
         <input type="submit" value="START" id="nextbutton" onclick="imageZoom("myimage", "myresult");">
         <input type="submit" value="NEXT" id="nextbutton" onclick="clearCanvas(canvas,ctx);">
-        <input type="submit" value="SAVE and SHARE" id="sharebutton" onclick="save();">
+        <input type="submit" value="SAVE and SHARE" id="sharebutton" onclick="save(canvas,ctx);">
         <input type="submit" value="BACK" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
         <input type="submit" value="CLEAR" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
         <a id="dl" download="Canvas.png" href="#">Download Canvas</a>
