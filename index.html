@@ -144,28 +144,17 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    width: 100%;
+    width: 800px;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 0;
 }
-.leftside {
-    float:left;
-    width:220px;
-    height:285px;
-    background-color:#def;
-    padding:10px;
-    border-radius:4px;
-}
-.rightside {
-    float:left;
-    margin-left:10px;
-}
+
 #sketchpad {
     float:left;
-    height:100%;
-    width:100%;
+    height:1035px;
+    width:800px;
     border:2px solid #888;
     border-radius:4px;
     position:relative; /* Necessary for correct mouse co-ords in Firefox */
@@ -178,7 +167,7 @@
     border: 1px solid #888;
 }
 #img.source-image {
-  width: 100%;
+  width: 800px;
   position: absolute;
   top: 0;
   left: 0;
@@ -188,11 +177,11 @@
 </head>
 
 <body onload="init()">
-    <img class="source-image" src="Green-Party-petition-1-page-001.jpg" alt="" />
+    <img class="source-image" src="Green-Party-petition.png" alt="" />
     <input type="submit" value="RESET" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
     <div id="sketchpadapp">
         <div class="rightside">
-            <canvas id="sketchpad" height="100%" width="100%">
+            <canvas id="sketchpad" height="1035" width="800">
             </canvas>
         </div>
     </div>
