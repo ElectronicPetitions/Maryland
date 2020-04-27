@@ -168,6 +168,20 @@
     background: #eee;
     border: 1px solid #888;  
 }
+#nextbutton {
+    font-size: 12px;
+    padding: 5px;
+    -webkit-appearance: none;
+    background: #90ee90;
+    border: 1px solid #888;  
+}
+#sharebutton {
+    font-size: 12px;
+    padding: 5px;
+    -webkit-appearance: none;
+    background: #fed8b1;
+    border: 1px solid #888;  
+}
 #img.source-image {
   width: 800px;
   position: absolute;
@@ -193,10 +207,11 @@
 <body onload="init()">
     <img class="source-image" src="Green-Party-petition.png" alt="" />
     <div class="header" id="myHeader">
-        <input type="submit" value="CLEAR" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
+        <input type="submit" value="START" id="nextbutton" onclick="clearCanvas(canvas,ctx);">
+        <input type="submit" value="NEXT" id="nextbutton" onclick="clearCanvas(canvas,ctx);">
+        <input type="submit" value="SAVE and SHARE" id="sharebutton" onclick="clearCanvas(canvas,ctx);">
         <input type="submit" value="BACK" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
-        <input type="submit" value="NEXT" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
-        <input type="submit" value="SAVE and SHARE" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
+        <input type="submit" value="CLEAR" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
     </div>
     <div id="sketchpadapp">
         <div class="rightside">
