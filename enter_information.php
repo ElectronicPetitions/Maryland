@@ -21,7 +21,7 @@
   
   <div class='col-sm-6'><input> </div>
   
-  <div class='col-sm-12'> <input type='submit'></div>
+  <button type="button" class="btn btn-success">Submit</button>
 
 
 <?PHP include_once('footer.php');
