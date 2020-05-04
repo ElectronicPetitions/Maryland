@@ -14,5 +14,7 @@
   <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/petition.php'){ echo "class='active'"; } ?> ><a href="petition.php">Petition</a></li>
   <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/eligible.php'){ echo "class='active'"; } ?> ><a href="eligible.php">Eligible Petitions</a></li>
 
+<li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/warning_incomplete.php'){ echo "class='active'"; } ?> ><a href="warning_incomplete.php">warning_incomplete</a></li>
+<li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/warning_not_found.php'){ echo "class='active'"; } ?> ><a href="warning_not_found.php">warning_not_found</a></li>
   
   </ul>
