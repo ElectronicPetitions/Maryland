@@ -4,12 +4,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
-<style>
-.container {
-  width: 100%;
-  height: 90%;
-}
-</style>
+
 
 <div class="container"><!--- Open Container -->
   
