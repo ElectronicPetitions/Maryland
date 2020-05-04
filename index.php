@@ -1,8 +1,8 @@
 <?PHP include_once('header.php');  ?>
 
 <div class="container">
-  
-  bootstrap online
+  <h3>Welcome!</h3>
+ Development In Progress -  Please Click Through the Menu to Review 
   
 </div>
 
