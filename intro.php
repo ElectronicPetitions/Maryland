@@ -3,9 +3,9 @@
   
  <div class='col-sm-12'> are you a registeded maryland voter </div>
   
-  <div class='col-sm-6'>yes </div>
+  <div class='col-sm-6'><button type="button" class="btn btn-success">YES</button> </div>
   
-  <div class='col-sm-6'>no </div>
+  <div class='col-sm-6'><button type="button" class="btn btn-danger">NO</button>  </div>
   
   
   
