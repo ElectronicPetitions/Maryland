@@ -7,4 +7,5 @@
   
 <ul class="nav nav-pills">
   <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == 'intro.php'){ echo "class='active'"; } ?> ><a href="intro.php">Intro</a></li>
+  <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == 'not_a_registered_voter.php'){ echo "class='active'"; } ?> ><a href="not_a_registered_voter.php">Not a Registered Voter</a></li>
 </ul>
