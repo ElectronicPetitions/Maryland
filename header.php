@@ -3,6 +3,17 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+
+<style>
+html,
+body,
+.container {
+  width: 100%;
+  height: 100%;
+}
+  
+</style>
+
 <div class="container"><!--- Open Container -->
   
 <ul class="nav nav-pills">
