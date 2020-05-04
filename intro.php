@@ -1,6 +1,5 @@
 <?PHP include_once('header.php');  ?>
 
-<div class="container">
   
  <div class='col-sm-12'> are you a registeded maryland voter </div>
   
@@ -14,6 +13,6 @@
   
   
   
-</div>
+
 
 <?PHP include_once('footer.php');
