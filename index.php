@@ -1,9 +1,4 @@
-<?PHP
-include_once('/var/www/secure.php'); //outside webserver
-
-include_once('header.php');
-
-?>
+<?PHP include_once('header.php');  ?>
 
 <div class="container">
   
