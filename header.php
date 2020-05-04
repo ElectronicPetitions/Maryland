@@ -6,5 +6,5 @@
 <div class="container"><!--- Open Container -->
   
 <ul class="nav nav-pills">
-  <li role='presentation' <?PHP if($_SERVER['REQUEST_URI'] == 'intro.php'){ echo "class='active'"; } ?> ><a href="intro.php">Intro</a></li>
+  <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == 'intro.php'){ echo "class='active'"; } ?> ><a href="intro.php">Intro</a></li>
 </ul>
