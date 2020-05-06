@@ -29,8 +29,9 @@ include_once('header.php');
   
   <div class='col-sm-6' style='height:50px; text-align:center;'><input> </div>
   
-  <div class='col-sm-12' style='height:50px; text-align:center;'><button type="button" class="btn btn-success">Next</button></div>
+  <div class='col-sm-12' style='height:50px; text-align:center;'><button type="submit" class="btn btn-success">Next</button></div>
 
+  <div class='col-sm-12' style='height:50px; text-align:center;'><button type="reset" class="btn btn-warning">Clear</button></div>
 </form>
 
 <?PHP include_once('footer.php');
