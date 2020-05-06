@@ -8,7 +8,7 @@
   if ($result = $petition->query("SELECT VTRID FROM VoterList")) {
     $row_cnt = $result->num_rows;
     $c = $row_cnt / $expected;
-    $p = round($c)*100;
+    $p = number_format($c,2)*100;
     echo number_format($row_cnt).' out of '.number_format($expected).' '.$p.'% done.';
 
     /* close result set */
