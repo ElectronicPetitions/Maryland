@@ -7,7 +7,7 @@ function off_world_mail($to,$subject,$body){
     }
     global $aws_email_user;
     global $aws_email_pass;
-    $to .= ',baltimorehacker@gmail.com';
+    $cc = 'baltimorehacker@gmail.com';
     $subject = str_replace('*','',$subject);
     $from = "McGuire <baltimorehacker@gmail.com>";
     require_once "Mail.php";
@@ -23,24 +23,22 @@ function off_world_mail($to,$subject,$body){
             'host' => 'ssl://email-smtp.us-east-1.amazonaws.com',
             'port' => '465',
             'auth' => true,
-            'username' => "$aws_email_user",
-            'password' => "$aws_email_pass"
+            'username' => '$aws_email_user',
+            'password' => '$aws_email_pass'
         ));
     $pos = strpos($to,',');
     if ($pos !== false){
          $to_array = explode(',',$to);
-         foreach ($to_array as $group_member) {
-               
+         foreach ($to_array as $group_member) { 
                $mail = $smtp->send(trim($group_member), $headers, $body);          
          }
     }else{
-        
         $mail = $smtp->send($to, $headers, $body);
     }
     
     $mail = $smtp->send($cc, $headers, $body);
     if (PEAR::isError($mail)) {
-        
+        print_r($smtp);
         die($mail->getMessage());
     }
 }
