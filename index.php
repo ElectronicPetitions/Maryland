@@ -4,12 +4,12 @@
     Development In Progress -  Please Click Through the Menu to Review 
   <h3>Stats</h3>
   <?PHP
+  $expected = 4194252;
   if ($result = $petition->query("SELECT VTRID FROM VoterList")) {
-
-    /* determine number of rows result set */
     $row_cnt = $result->num_rows;
-
-    echo number_format($row_cnt);
+    $c = $row_cnt / $expected;
+    $p = round($c)*100;
+    echo number_format($row_cnt).' out of '.number_format($expected).' '.$p.'% done.';
 
     /* close result set */
     $result->close();
