@@ -9,7 +9,7 @@
     /* determine number of rows result set */
     $row_cnt = $result->num_rows;
 
-    printf("Result set has %d rows.\n", $row_cnt);
+    echo number_format($row_cnt);
 
     /* close result set */
     $result->close();
