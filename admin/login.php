@@ -10,11 +10,12 @@ function check_user($email,$pass){
 			$salt = $explode[1];
 			$test = md5($pass.$salt);
 			if( $test == $hash && ($user['level'] == 'Operations' || $user['level'] == 'Client' || $user['level'] == 'Gold Member')){
-				      setcookie("id", $user['id']);
+				setcookie("id", $user['id']);
 			        setcookie("name", $user['name']);
 			        setcookie("email", $user['email']);
-			        setcookie("level", $user['level']);
-				      header('Location: index.php');
+			        setcookie("level", $user['sec_level']);
+				setcookie("group_id", $user['group_id']);
+				header('Location: index.php');
 			}elseif($user['level'] != 'Admin' && $user['level'] != 'Manager'){	
 				return "Invalid Security Level.";
 			}else{	
