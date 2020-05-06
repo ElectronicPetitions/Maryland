@@ -10,11 +10,11 @@
   
   <div class='col-sm-2'><input type='checkbox' checked> </div>
   
-  <div class='col-sm-10'>New Party: Libertiarin Green Party </div>
+  <div class='col-sm-10'>New Party: Maryland Libertarian Party </div>
   
   <div class='col-sm-2'><input type='checkbox' checked> </div>
   
-  <div class='col-sm-10'>Charter Amendment: Baltimore Transit Eqiuity Coalision </div>
+  <div class='col-sm-10'>Charter Amendment: Baltimore Transit Equity Coalition </div>
   
   
  <div class='col-sm-12'>  <button type="button" class="btn btn-success">Submit</button> <div>
