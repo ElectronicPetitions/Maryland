@@ -10,7 +10,7 @@ if(isset($_POST['email'])){
           $salt = md5(rand(1000,9999));
           $hash = md5($pass.$salt);
           $encrypted = $hash.':'.$salt;
-          off_world_mail($email,$row['name'],'Login with '.$email.' and your new password '.$pass);
+          off_world_mail($email,$row['name'],'Login with '.$email.' and your new password '.$pass.' at https://www.mdwestserve.com/MarylandElectronicPetitionSignature/admin/login.php');
           $petition->query("update users set pass = '$encrypted' WHERE email = '$email'");
           echo "<h1>Your Password has been Sent.</h1>";
         }else{
