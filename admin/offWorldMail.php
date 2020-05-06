@@ -23,8 +23,8 @@ function off_world_mail($to,$subject,$body){
             'host' => 'ssl://email-smtp.us-east-1.amazonaws.com',
             'port' => '465',
             'auth' => true,
-            'username' => '$aws_email_user',
-            'password' => '$aws_email_pass'
+            'username' => $aws_email_user,
+            'password' => $aws_email_pass
         ));
     $pos = strpos($to,',');
     if ($pos !== false){
@@ -73,8 +73,8 @@ function off_world_attach($to,$subject,$body,$file){
             'host' => 'ssl://email-smtp.us-east-1.amazonaws.com',
             'port' => '465',
             'auth' => true,
-            'username' => '$aws_email_user',
-            'password' => '$aws_email_pass'
+            'username' => $aws_email_user,
+            'password' => $aws_email_pass
         ));
 
  $mail = $smtp->send($to, $headers, $body);
