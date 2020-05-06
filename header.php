@@ -17,5 +17,7 @@
       <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/petition.php'){ echo "class='active'"; } ?> ><a>Step 5</a></li>
       <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/eligible.php'){ echo "class='active'"; } ?> ><a>Step 6</a></li>
       <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/warning_incomplete.php'){ echo "class='active'"; } ?> ><a>Step 7</a></li>
-      <li role='presentation'><a href="reset.php">Not [Name], Click Here</a></li>
+      <?PHP if ($_COOKIE['web_name']){ ?>
+        <li role='presentation'><a href="reset.php">Not <?PHP echo $_COOKIE['web_name'];?>, Click Here</a></li>
+      <?PHP } ?>
     </ul>
