@@ -1,8 +1,8 @@
 <?PHP include_once('header.php');  ?>
-<div class="container">
+<meta http-equiv="refresh" content="60">
   <h3>Welcome!</h3>
     Development In Progress -  Please Click Through the Menu to Review 
-  <h3>Stats</h3>
+  <h3>Stats</h3><h1>
   <?PHP
   $expected = 4194252;
   if ($result = $petition->query("SELECT VTRID FROM VoterList")) {
@@ -16,5 +16,5 @@
 }
   
   ?>
-</div>
+</h1>
 <?PHP include_once('footer.php');
