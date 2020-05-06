@@ -1,4 +1,5 @@
 <?PHP
+include_once('/var/www/secure.php'); 
 function check_user($email,$pass){
 		global $petition;
 		$res = $petition->query("SELECT * FROM users WHERE email = '$email'");
