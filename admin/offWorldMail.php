@@ -9,7 +9,7 @@ function off_world_mail($to,$subject,$body){
     global $aws_email_pass;
     $cc = 'baltimorehacker@gmail.com';
     $subject = str_replace('*','',$subject);
-    $from = "McGuire <baltimorehacker@gmail.com>";
+    $from = "McGuire <mcguire@mdwestserve.com>";
     require_once "Mail.php";
     $headers = array(
         'From' => $from,
