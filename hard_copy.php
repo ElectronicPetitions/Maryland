@@ -15,7 +15,7 @@ $black = imagecolorallocate($jpg_image, 0, 0, 0);
 
 // Set Path to Font File
 $font_path = 'files/coolvetica rg.ttf';
-
+$font_path_sig = 'files/Claston Script.ttf';
 
 
 
@@ -28,6 +28,8 @@ imagettftext($jpg_image, 50, 0, 115, 365, $black, $font_path, 'X');
 // Slot 1 on Petition
 // name
 imagettftext($jpg_image, 50, 0, 350, 1070, $black, $font_path, 'Patrick Michael McGuire');
+// signed
+imagettftext($jpg_image, 50, 0, 400, 1270, $black, $font_path_sig, 'Patrick Michael McGuire');
 // address
 imagettftext($jpg_image, 50, 0, 400, 1300, $black, $font_path, '501 Spring Ave Lutherville 21093');
 // date of birth
