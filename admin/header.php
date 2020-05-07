@@ -15,8 +15,15 @@
       
       <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/admin/report.php'){ echo "class='active'"; } ?> ><a href="report.php">Reports</a></li>
       
+      
       <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/admin/new_admin.php'){ echo "class='active'"; } ?> ><a href="new_admin.php">new_admin</a></li>
+      <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/admin/new_admin.php'){ echo "class='active'"; } ?> ><a href="new_admin.php">manage admin</a></li>
+      
       <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/admin/new_user.php'){ echo "class='active'"; } ?> ><a href="new_user.php">new_user</a></li>
+ <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/admin/new_admin.php'){ echo "class='active'"; } ?> ><a href="new_admin.php">manage users</a></li>
+      
+      <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/admin/new_admin.php'){ echo "class='active'"; } ?> ><a href="new_admin.php">New Petition</a></li>
+      <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/admin/new_user.php'){ echo "class='active'"; } ?> ><a href="new_user.php">Manage Petitions</a></li>
 
       
       
