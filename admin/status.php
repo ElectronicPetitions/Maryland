@@ -4,7 +4,7 @@ include_once('header.php');
 ?>
 
   <?PHP
-  $expected = 4194252;
+  $expected = 4194252 - 1; // remove the header 
   if ($result = $petition->query("SELECT VTRID FROM VoterList")) {
     $row_cnt = $result->num_rows;
     $c = $row_cnt / $expected;
