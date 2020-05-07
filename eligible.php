@@ -29,7 +29,7 @@ if ($d['VTRID'] != ''){
 echo $head;
 
 
-;
+
 
 $available='';
 $q2 = "SELECT * FROM petitions";
