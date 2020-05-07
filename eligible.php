@@ -50,7 +50,7 @@ while($d2 = mysqli_fetch_array($r2)){
 }
 ?>
   <div class='row'>
-   <div class='col-sm-12'>You Are eligible to sign each of these petitions.</div>
+    <div class='col-sm-12' style='height:100px; text-align:center;'><h2>You Are eligible to sign each of these petitions.</h2></div>
   </div>
 
   <?PHP echo $available;?>
