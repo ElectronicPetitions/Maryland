@@ -46,8 +46,8 @@ if ($d['VTRID'] != ''){
   <div class='col-sm-2'>Zip</div><div class='col-sm-2'><?PHP echo $RESIDENTIALZIP5;?></div>
 </div>
 <div class='row'>
-  <div class='col-sm-6' style='height:50px; text-align:center;'><button type="button" class="btn btn-success">YES</button></div>
-  <div class='col-sm-6' style='height:50px; text-align:center;'><button type="button" class="btn btn-danger">NO</button></div>
+  <div class='col-sm-6' style='height:50px; text-align:center;'><button type="button" class="btn btn-success onclick="window.location.href='eligible.php'"">YES</button></div>
+  <div class='col-sm-6' style='height:50px; text-align:center;'><button type="button" class="btn btn-danger" onclick="window.location.href='reset.php'">NO</button></div>
 </div>
   
   
