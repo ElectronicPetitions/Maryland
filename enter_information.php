@@ -1,5 +1,5 @@
 <?PHP
-if (isset($_POST)){
+if (isset($_POST['web_first_name'])){
   $web_first_name='';
   if (isset($_POST['web_first_name'])){
     if ($_POST['web_first_name'] != ''){
@@ -31,7 +31,7 @@ if (isset($_POST)){
      setcookie("web_zip_code", $web_zip_code);
     }
   }
-  //header('Location: is_the_information_correct.php');
+  header('Location: is_the_information_correct.php');
 }
 include_once('header.php');
 ?>
