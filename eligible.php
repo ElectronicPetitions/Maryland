@@ -44,7 +44,7 @@ while($d2 = mysqli_fetch_array($r2)){
   $available .= "<div class='row'>
   <div class='col-sm-2'>Already Signed</div>
   <div class='col-sm-6'><del>$d2[petition_name]</del></div>
-  <div class='col-sm-4'>$field != $pass</div>
+  <div class='col-sm-4'>$field == $pass</div>
     </div>"; 
  }elseif($d[$field] == $pass){
   $available .= "<div class='row'>
