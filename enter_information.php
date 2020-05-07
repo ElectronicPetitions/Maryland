@@ -73,9 +73,7 @@ include_once('header.php');
   
   
   <div class='row'>
-   <div class='col-sm-6' style='height:50px; text-align:center;'>Date of Birth</div>
-  
-   <div class='col-sm-6' style='height:50px; text-align:center;'><input name='DOB' type="date"> </div>
+    <div class='col-sm-12' style='height:50px; text-align:center;'><h3>Date of Birth</h3> <input name='DOB' type="date"> </div>
   </div>
   
   
