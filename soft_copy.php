@@ -10,6 +10,8 @@ $DOB    = $d['date_of_birth'];
 $SIGNED = $d['date_time_signed'];
 $PETITION_ID = $d['petition_id'];
 
+die($d['VTRID']);
+
 $q2 = "select * from VoterList where VTRID = '$d[VTRID]' ";
 $r2 = $petition->query($q2);
 $d2 = mysqli_fetch_array($r2);
@@ -21,6 +23,7 @@ $d2 = mysqli_fetch_array($r2);
  $RESIDENTIALZIP5   = $d2['RESIDENTIALZIP5'];
  $full_name = "$FIRSTNAME $MIDDLENAME $LASTNAME";
  $address =  "$ADDRESS $RESIDENTIALCITY $RESIDENTIALZIP5";
+
 
 
 // imagettftext ( resource $image , float $size , float $angle , int $x , int $y , int $color , string $fontfile , string $text ) 
