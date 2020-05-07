@@ -11,4 +11,4 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
 }
 $date_of_birth = $_COOKIE['pDOB'];
 $petition->query("insert into signatures (VTRID,ip_address,date_of_birth,date_time_signed,petition_id) values ('$VTRID','$ip','$date_of_birth',NOW(),'$petition_id')");
-header('Location: elegible.php');
+header('Location: eligible.php');
