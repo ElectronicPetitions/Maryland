@@ -39,7 +39,7 @@ if (isset($_POST['petition'])){
         <span class="sig"><?PHP echo $_COOKIE['pNAME'];?></span>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Sign and Submit</button>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='sign.php'">Sign and Submit</button>
       </div>
     </div>
   </div>
