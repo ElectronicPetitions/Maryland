@@ -25,19 +25,16 @@ if ( $_COOKIE['pCOUNTY'] == 'Baltimore City'){
   imagettftext($jpg_image, 50, 0, 220, 260, $black, $font_path, str_replace('County','',$_COOKIE['pCOUNTY']) );
 }
 
-// Slot 1 on Petition
 // name
 imagettftext($jpg_image, 50, 0, 350, 1070, $black, $font_path, $_COOKIE['pNAME']);
 // signed
-imagettftext($jpg_image, 80, 0, 400, 1190, $black, $font_path_sig, $_COOKIE['pNAME']);
+imagettftext($jpg_image, 60, 0, 400, 1180, $black, $font_path_sig, $_COOKIE['pNAME']);
 // address
 imagettftext($jpg_image, 50, 0, 400, 1300, $black, $font_path,  $_COOKIE['pADDRESS']);
 // date of birth 
 imagettftext($jpg_image, 50, 0, 1800, 1070, $black, $font_path, $_COOKIE['pDOB']);
 // date signed
 imagettftext($jpg_image, 50, 0, 1800, 1200, $black, $font_path, date('M D Y'));
-
-
 
 // Send Image to Browser
 imagejpeg($jpg_image);
