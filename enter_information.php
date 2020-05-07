@@ -14,6 +14,9 @@ if (isset($_POST)){
      setcookie("web_last_name", $web_last_name);
     }
   }
+  if(isset($_POST['web_last_name']) && isset($_POST['web_first_name'])){
+     setcookie("web_name", $web_first_name.' '.$web_last_name); 
+  }
   $web_house_number='';
   if (isset($_POST['web_house_number'])){
     if ($_POST['web_house_number'] != ''){
@@ -28,7 +31,6 @@ if (isset($_POST)){
      setcookie("web_zip_code", $web_zip_code);
     }
   }
-  setcookie("web_name", $web_first_name.' '.$web_last_name);
   //header('Location: is_the_information_correct.php');
 }
 include_once('header.php');
