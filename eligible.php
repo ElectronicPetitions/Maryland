@@ -2,7 +2,6 @@
 ob_start();
 include_once('header.php'); 
 $head = ob_get_clean();
-
 $web_first_name   = $_COOKIE['web_first_name'];
 $web_last_name    = $_COOKIE['web_last_name'];
 $web_house_number = $_COOKIE['web_house_number'];
@@ -30,7 +29,7 @@ if ($d['VTRID'] != ''){
 echo $head;
 
 
-$q2 = "select * from from petitions";
+$q2 = "SELECT * FROM petitions";
 $r2 = $petition->query($q2);
 while($d2 = mysqli_fetch_array($r2)){
  $field = $d2['eligibleVoterListField'];
@@ -47,7 +46,7 @@ while($d2 = mysqli_fetch_array($r2)){
 
 ?>
 <div class='row'>
- <div class='col-sm-12'> are you also eligible to sign each of these petitions [location name] </div>
+ <div class='col-sm-12'> You Are also eligible to sign each of these petitions [location name] </div>
 </div>
 <div class='row'>
   <div class='col-sm-2'><input type="radio" id="p1" name="petition" value="p1"> </div>
