@@ -49,6 +49,8 @@ while($d2 = mysqli_fetch_array($r2)){
  }
 }
 ?>
+<form method='POST' action='petition.php'>
+  
   <div class='row'>
     <div class='col-sm-12' style='height:100px; text-align:center;'><h2>Active Petitions and Eligiblity Requirements to Sign.</h2></div>
   </div>
@@ -62,8 +64,9 @@ while($d2 = mysqli_fetch_array($r2)){
   <?PHP echo $available;?>
 
   <div class='row'>
-    <div class='col-sm-12' style='height:100px; text-align:center;'><button type="button" class="btn btn-success">Next</button><div>
+    <div class='col-sm-12' style='height:100px; text-align:center;'><button type="submit" class="btn btn-success">Next</button><div>
   </div>
-
+      
+</form>
 
 <?PHP include_once('footer.php');
