@@ -47,7 +47,7 @@ if ($d['VTRID'] != ''){
 </div>
 <div class='row'>
   <div class='col-sm-6' style='height:50px; text-align:center;'><button type="button" class="btn btn-success">YES</button></div>
-  <div class='col-sm-6'><button type="button" class="btn btn-danger">NO</button></div>
+  <div class='col-sm-6' style='height:50px; text-align:center;'><button type="button" class="btn btn-danger">NO</button></div>
 </div>
   
   
