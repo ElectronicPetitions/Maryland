@@ -1,6 +1,4 @@
 <?PHP
-include_once('header.php');
-
 if (isset($_POST)){
   $web_first_name='';
   if (isset($_POST['web_first_name'])){
@@ -22,18 +20,10 @@ if (isset($_POST)){
      $web_zip_code = $_POST['web_zip_code'];
      setcookie("web_zip_code", $web_zip_code, time()+300);
   }
-  
-  
   setcookie("web_name", $web_first_name.' '.$web_last_name, time()+300);
+  header('is_the_information_correct.php');
 }
-
-
-// if found send to is_the_information_correct.php
-
-// if not found send to warning_not_found.php
-
-// if missing data send to warning_incomplete.php
-
+include_once('header.php');
 ?>
 
 <form method='POST'>
