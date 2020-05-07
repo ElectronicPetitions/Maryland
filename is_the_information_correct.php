@@ -9,7 +9,7 @@ if ($web_first_name != '' && $web_last_name != '' && $web_house_number != '' && 
   //header('Location: warning_incomplete.php');
 }
 include_once('header.php'); 
-$q = "select VTRID from VoterList where LASTNAME = '$web_last_name' and FIRSTNAME = '$web_first_name' and HOUSE_NUMBER = '$web_house_number' and MAILINGZIP5 = '$web_zip_code'";
+$q = "select VTRID from VoterList where LASTNAME = '$web_last_name' and FIRSTNAME = '$web_first_name' and HOUSE_NUMBER = '$web_house_number' and RESIDENTIALZIP5 = '$web_zip_code'";
 $r = $petition->query($q);
 $d = mysqli_fetch_array($r);
 if ($d['VTRID'] != ''){
