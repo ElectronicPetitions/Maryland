@@ -1,5 +1,8 @@
-<?PHP include_once('../header.php');  ?>
-<meta http-equiv="refresh" content="5">
+<?PHP 
+include_once('security.php');
+include_once('header.php');
+?>
+
   <?PHP
   $expected = 4194252;
   if ($result = $petition->query("SELECT VTRID FROM VoterList")) {
@@ -8,4 +11,4 @@
     $p = number_format($c,2)*100;
     echo '<h1>'.date('r').'</h1><h1>'.number_format($row_cnt).' out of '.number_format($expected).' '.$p.'% done</h1><title>'.$p.'% done</title>';
 } 
-include_once('../footer.php');  ?>
+include_once('footer.php');  ?>
