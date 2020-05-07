@@ -23,6 +23,10 @@ if (isset($_POST['petition'])){
    $(document).ready(function(){
          $('#exampleModalCenter').modal('show');
     });
+  function addText()
+  {
+      document.getElementById('text2').innerHTML = document.getElementById('myText').value;
+  }
 </script>
 
 <!-- Modal -->
@@ -30,13 +34,14 @@ if (isset($_POST['petition'])){
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Adopt Digital Signature</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Type Your Signature</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <span class="sig"><?PHP echo $_COOKIE['pNAME'];?></span>
+        <input type="text" id="myText" onkeyup="addText()">
+        <div id="text2" class="sig"></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" onclick="window.location.href='sign.php'">Sign and Submit</button>
