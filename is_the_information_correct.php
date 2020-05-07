@@ -32,21 +32,21 @@ if ($d['VTRID'] != ''){
   <div class='col-sm-6' style='height:50px; text-align:center;'>First Name</div><div class='col-sm-6' style='height:50px; text-align:center;'><?PHP echo $FIRSTNAME;?></div>
 </div>
  <div class='row'>
-  <div class='col-sm-6'>Middle Name </div><div class='col-sm-6'>Edward</div>
+  <div class='col-sm-6' style='height:50px; text-align:center;'>Middle Name </div><div class='col-sm-6' style='height:50px; text-align:center;'><?PHP echo $MIDDLENAME;?></div>
 </div>
  <div class='row'>
-  <div class='col-sm-6'>Last Name </div><div class='col-sm-6'>Smith</div>
+  <div class='col-sm-6' style='height:50px; text-align:center;'>Last Name </div><div class='col-sm-6' style='height:50px; text-align:center;'><?PHP echo $LASTNAME;?></div>
 </div>
  <div class='row'>
-  <div class='col-sm-6'>Full Addresss </div><div class='col-sm-6'>1232 Roadly Ct.</div>
+  <div class='col-sm-6' style='height:50px; text-align:center;'>Full Addresss </div><div class='col-sm-6' style='height:50px; text-align:center;'><?PHP echo $ADDRESS;?></div>
 </div>
  <div class='row'>
-  <div class='col-sm-2'>City</div><div class='col-sm-2'>Baltimore</div>
-  <div class='col-sm-2'>County</div><div class='col-sm-2'>Baltimore City</div>
-  <div class='col-sm-2'>Zip</div><div class='col-sm-2'>21204</div>
+  <div class='col-sm-2' style='height:50px; text-align:center;'>City</div><div class='col-sm-2'><?PHP echo $RESIDENTIALCITY;?></div>
+  <div class='col-sm-2'>County</div><div class='col-sm-2'><?PHP echo $COUNTY;?></div>
+  <div class='col-sm-2'>Zip</div><div class='col-sm-2'><?PHP echo $RESIDENTIALZIP5;?></div>
 </div>
 <div class='row'>
-  <div class='col-sm-6'><button type="button" class="btn btn-success">YES</button></div>
+  <div class='col-sm-6' style='height:50px; text-align:center;'><button type="button" class="btn btn-success">YES</button></div>
   <div class='col-sm-6'><button type="button" class="btn btn-danger">NO</button></div>
 </div>
   
