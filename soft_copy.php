@@ -20,12 +20,12 @@ $d2 = mysqli_fetch_array($r2);
  $FIRSTNAME         = $d2['FIRSTNAME'];
  $MIDDLENAME        = $d2['MIDDLENAME'];
  $LASTNAME          = $d2['LASTNAME'];
- $ADDRESS           = $d['ADDRESS'];
+ $ADDRESS           = $d2['ADDRESS'];
  $RESIDENTIALCITY   = $d2['RESIDENTIALCITY'];
  $COUNTY            = $d2['COUNTY'];
  $RESIDENTIALZIP5   = $d2['RESIDENTIALZIP5'];
  $full_name         = "$FIRSTNAME $MIDDLENAME $LASTNAME";
- $address           =  "$ADDRESS $RESIDENTIALCITY $RESIDENTIALZIP5";
+ $address           = "$ADDRESS $RESIDENTIALCITY $RESIDENTIALZIP5";
  
 
 
