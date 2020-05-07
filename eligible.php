@@ -27,6 +27,8 @@ if ($d['VTRID'] != ''){
 }else{
    header('Location: warning_not_found.php');
 }
+echo $head;
+
 
 $q2 = "select * from from petitions";
 $r2 = $petition->query($q2);
@@ -42,7 +44,7 @@ while($d2 = mysqli_fetch_array($r2)){
 }
 
 
-echo $head;
+
 ?>
 <div class='row'>
  <div class='col-sm-12'> are you also eligible to sign each of these petitions [location name] </div>
