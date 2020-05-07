@@ -14,6 +14,7 @@ if (isset($_POST['petition'])){
 }
 .sig {
     font-family: "myFirstFont";
+    font-size: 40px;
 }
 </style>
 
