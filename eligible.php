@@ -28,16 +28,18 @@ if ($d['VTRID'] != ''){
 }
 echo $head;
 
-
+$available='';
 $q2 = "SELECT * FROM petitions";
 $r2 = $petition->query($q2);
 while($d2 = mysqli_fetch_array($r2)){
  $field = $d2['eligibleVoterListField'];
  $pass = $d2['eligibleVoterListEquals'];
  if ($d[$field] == $pass){
-   echo "<li>$d2[petition_name] ".$d[$field]." == $pass</li>";
- }else{
-   echo "<li>$d2[petition_name] ".$d[$field]." != $pass</li>";
+   $available .= "<div class='row'>
+  <div class='col-sm-2'><input type='radio' id='petition' name='petition" value='$d2[petition_id]'"> </div>
+  <div class='col-sm-8'>$d2[petition_name]</div>
+  <div class='col-sm-2'>$field == $pass</div>
+    </div>";
  }
  
 }
@@ -48,21 +50,9 @@ while($d2 = mysqli_fetch_array($r2)){
 <div class='row'>
  <div class='col-sm-12'> You Are also eligible to sign each of these petitions [location name] </div>
 </div>
-<div class='row'>
-  <div class='col-sm-2'><input type="radio" id="p1" name="petition" value="p1"> </div>
-  
-  <div class='col-sm-10'>New Party: Maryland Green Party </div>
-</div>
-  <div class='row'>
-  <div class='col-sm-2'><input type="radio" id="p2" name="petition" value="p2"> </div>
-  
-  <div class='col-sm-10'>New Party: Maryland Libertarian Party </div>
-</div>
-<div class='row'>
-  <div class='col-sm-2'><input type="radio" id="p3" name="petition" value="p3"> </div>
-  
-  <div class='col-sm-10'>Charter Amendment: Baltimore Transit Equity Coalition </div>
-</div>
+
+<?PHP echo $available;?>
+
   <div class='row'>
     <div class='col-sm-12'>  <button type="button" class="btn btn-success">Next</button> <div>
    </div>
