@@ -18,26 +18,30 @@ if ($d['VTRID'] != ''){
    //header('Location: warning_not_found.php');
 }
 ?>
-  
-  <div class='col-sm-12' style='height:100px; text-align:center;'><h2>Is this information correct? (<?PHP echo $VTRID;?>)</h2></div>
-  
+  <div class='row'>
+    <div class='col-sm-12' style='height:100px; text-align:center;'><h2>Is this information correct? (<?PHP echo $VTRID.' - '.$q;?>)</h2></div>
+  </div>
+ <div class='row'>
   <div class='col-sm-6'>First Name </div><div class='col-sm-6'></div>
-  
+</div>
+ <div class='row'>
   <div class='col-sm-6'>Middle Name </div><div class='col-sm-6'>Edward</div>
-  
+</div>
+ <div class='row'>
   <div class='col-sm-6'>Last Name </div><div class='col-sm-6'>Smith</div>
-  
+</div>
+ <div class='row'>
   <div class='col-sm-6'>Full Addresss </div><div class='col-sm-6'>1232 Roadly Ct.</div>
-  
+</div>
+ <div class='row'>
   <div class='col-sm-2'>City</div><div class='col-sm-2'>Baltimore</div>
   <div class='col-sm-2'>County</div><div class='col-sm-2'>Baltimore City</div>
   <div class='col-sm-2'>Zip</div><div class='col-sm-2'>21204</div>
-
-  
-  <div class='col-sm-6'><button type="button" class="btn btn-success">YES</button> </div>
-  
-  <div class='col-sm-6'><button type="button" class="btn btn-danger">NO</button>  </div>
-  
+</div>
+<div class='row'>
+  <div class='col-sm-6'><button type="button" class="btn btn-success">YES</button></div>
+  <div class='col-sm-6'><button type="button" class="btn btn-danger">NO</button></div>
+</div>
   
   
   
