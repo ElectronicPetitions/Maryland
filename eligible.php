@@ -28,13 +28,25 @@ if ($d['VTRID'] != ''){
 }
 echo $head;
 
+
+;
+
 $available='';
 $q2 = "SELECT * FROM petitions";
 $r2 = $petition->query($q2);
 while($d2 = mysqli_fetch_array($r2)){
  $field = $d2['eligibleVoterListField'];
  $pass = $d2['eligibleVoterListEquals'];
- if ($d[$field] == $pass){
+ $q4 = "select * from signatures where VTRID = '$VTRID' and petition_id = '$d2[petition_id]' ";
+ $r4 = $petition->query($q4);
+ $d4 = mysqli_fetch_array($r4)
+ if ($d4['id'] > 0){
+  $available .= "<div class='row'>
+  <div class='col-sm-2'>Already Signed</div>
+  <div class='col-sm-6'><del>$d2[petition_name]</del></div>
+  <div class='col-sm-4'>$field != $pass</div>
+    </div>"; 
+ }elseif($d[$field] == $pass){
   $available .= "<div class='row'>
   <div class='col-sm-2'><input type='radio' id='petition' name='petition' value='$d2[petition_id]'> </div>
   <div class='col-sm-6'>$d2[petition_name]</div>
