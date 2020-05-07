@@ -3,6 +3,7 @@ $web_first_name   = $_COOKIE['web_first_name'];
 $web_last_name    = $_COOKIE['web_last_name'];
 $web_house_number = $_COOKIE['web_house_number'];
 $web_zip_code     = $_COOKIE['web_zip_code'];
+$DOB              = $_COOKIE['pDOB'];
 if ($web_first_name != '' && $web_last_name != '' && $web_house_number != '' && $web_zip_code != ''){
   // ok to check for records
 }else{
@@ -21,6 +22,10 @@ if ($d['VTRID'] != ''){
    $RESIDENTIALCITY   = $d['RESIDENTIALCITY'];
    $COUNTY            = $d['COUNTY'];
    $RESIDENTIALZIP5   = $d['RESIDENTIALZIP5'];
+  // set cookies for hard_copy.php
+  setcookie("pCOUNTY", $COUNTY);
+  setcookie("pNAME", "$FIRSTNAME $MIDDLENAME $LASTNAME");
+  setcookie("pADDRESS", "$ADDRESS $RESIDENTIALCITY $RESIDENTIALZIP5");
 }else{
    header('Location: warning_not_found.php');
 }
@@ -36,6 +41,9 @@ if ($d['VTRID'] != ''){
 </div>
  <div class='row'>
   <div class='col-sm-6' style='height:50px; text-align:center;'>Last Name </div><div class='col-sm-6' style='height:50px; text-align:center;'><?PHP echo $LASTNAME;?></div>
+</div>
+ <div class='row'>
+  <div class='col-sm-6' style='height:50px; text-align:center;'>Date of Birth </div><div class='col-sm-6' style='height:50px; text-align:center;'><?PHP echo $DOB;?></div>
 </div>
  <div class='row'>
   <div class='col-sm-6' style='height:50px; text-align:center;'>Full Addresss </div><div class='col-sm-6' style='height:50px; text-align:center;'><?PHP echo $ADDRESS;?></div>
