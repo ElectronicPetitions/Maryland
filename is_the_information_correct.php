@@ -26,6 +26,7 @@ if ($d['VTRID'] != ''){
   setcookie("pCOUNTY", $COUNTY);
   setcookie("pNAME", "$FIRSTNAME $MIDDLENAME $LASTNAME");
   setcookie("pADDRESS", "$ADDRESS $RESIDENTIALCITY $RESIDENTIALZIP5");
+  setcookie("pVTRID", $VTRID);
 }else{
    header('Location: warning_not_found.php');
 }
