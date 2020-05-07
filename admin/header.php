@@ -11,6 +11,9 @@
   <div class="container">
     <ul class="nav nav-pills">
       <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/admin/index.php'){ echo "class='active'"; } ?> ><a href="index.php">Admin Home</a></li>
+     
+       <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/admin/new_admin.php'){ echo "class='active'"; } ?> ><a href="new_admin.php">new_admin</a></li>
+      
       <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/admin/status.php'){ echo "class='active'"; } ?> ><a href="status.php">Voter Data File Status</a></li>
       
       <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/admin/report.php'){ echo "class='active'"; } ?> ><a href="report.php">Reports</a></li>
