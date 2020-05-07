@@ -1,9 +1,27 @@
-<?PHP include_once('header.php');  ?>
-
+<?PHP
+$web_first_name   = $_COOKIE['web_first_name'];
+$web_last_name    = $_COOKIE['web_last_name'];
+$web_house_number = $_COOKIE['web_house_number'];
+$web_zip_code     = $_COOKIE['web_zip_code'];
+if ($web_first_name != '' && $web_last_name != '' && $web_house_number != '' && $web_zip_code != ''){
+  // ok to check for records
+}else{
+  header('warning_incomplete.php');
+}
+include_once('header.php'); 
+$q = "select VTRID from VoterList where LASTNAME = '$web_last_name' and FIRSTNAME = '$web_first_name' and HOUSE_NUMBER = '$web_house_number' and MAILINGZIP5 = '$web_zip_code'";
+$r = $petition->query($q);
+$d = mysqli_fetch_array($r);
+if ($d['VTRID'] > -1){
+   $VTRID = $d['VTRID'];
+}else{
+   header('warning_not_found.php');
+}
+?>
   
- <div class='col-sm-12'>is this information correct </div>
+  <div class='col-sm-12' style='height:100px; text-align:center;'><h2>Is this information correct? (<?PHP echo $VTRID;?>)</h2></div>
   
-  <div class='col-sm-6'>First Name </div><div class='col-sm-6'>Bob</div>
+  <div class='col-sm-6'>First Name </div><div class='col-sm-6'></div>
   
   <div class='col-sm-6'>Middle Name </div><div class='col-sm-6'>Edward</div>
   
