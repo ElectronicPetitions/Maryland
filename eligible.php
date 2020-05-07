@@ -34,7 +34,9 @@ while($d2 = mysqli_fetch_array($r2)){
  $field = $d2['eligibleVoterListField'];
  $pass = $d2['eligibleVoterListEquals'];
  if ($d[$field] == $pass){
-  echo "<li>$d2[petition_name] ".$d[$field]." $pass</li>";
+   echo "<li>$d2[petition_name] ".$d[$field]." == $pass</li>";
+ }else{
+   echo "<li>$d2[petition_name] ".$d[$field]." != $pass</li>";
  }
  
 }
