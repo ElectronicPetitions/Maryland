@@ -6,16 +6,16 @@ $web_zip_code     = $_COOKIE['web_zip_code'];
 if ($web_first_name != '' && $web_last_name != '' && $web_house_number != '' && $web_zip_code != ''){
   // ok to check for records
 }else{
-  header('warning_incomplete.php');
+  header('Location: warning_incomplete.php');
 }
 include_once('header.php'); 
 $q = "select VTRID from VoterList where LASTNAME = '$web_last_name' and FIRSTNAME = '$web_first_name' and HOUSE_NUMBER = '$web_house_number' and MAILINGZIP5 = '$web_zip_code'";
 $r = $petition->query($q);
 $d = mysqli_fetch_array($r);
-if ($d['VTRID'] > -1){
+if ($d['VTRID'] != ''){
    $VTRID = $d['VTRID'];
 }else{
-   header('warning_not_found.php');
+   header('Location: warning_not_found.php');
 }
 ?>
   
