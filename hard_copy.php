@@ -20,20 +20,20 @@ $font_path = 'files/coolvetica rg.ttf';
 
 
 // County on Petition
-imagettftext($jpg_image, 50, 0, 200, 260, $black, $font_path, 'Baltimore');
+imagettftext($jpg_image, 50, 0, 220, 260, $black, $font_path, 'Baltimore');
 // OR
 // City Checkbox
 imagettftext($jpg_image, 50, 0, 115, 365, $black, $font_path, 'X');
 
 // Slot 1 on Petition
 // name
-imagettftext($jpg_image, 50, 0, 300, 1250, $black, $font_path, 'Patrick Michael McGuire');
+imagettftext($jpg_image, 50, 0, 300, 1050, $black, $font_path, 'Patrick Michael McGuire');
 // address
-imagettftext($jpg_image, 50, 0, 300, 1550, $black, $font_path, '501 Spring Ave Lutherville 21093');
+imagettftext($jpg_image, 50, 0, 300, 1350, $black, $font_path, '501 Spring Ave Lutherville 21093');
 // date of birth
-imagettftext($jpg_image, 50, 0, 600, 1250, $black, $font_path, '02 09 1980');
+imagettftext($jpg_image, 50, 0, 1200, 1050, $black, $font_path, '02 09 1980');
 // date signed
-imagettftext($jpg_image, 50, 0, 600, 1450, $black, $font_path, '05 07 2020');
+imagettftext($jpg_image, 50, 0, 1200, 1450, $black, $font_path, '05 07 2020');
 
 
 
