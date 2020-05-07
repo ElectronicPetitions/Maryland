@@ -29,7 +29,7 @@ imagettftext($jpg_image, 50, 0, 115, 365, $black, $font_path, 'X');
 // name
 imagettftext($jpg_image, 50, 0, 350, 1070, $black, $font_path, 'Patrick Michael McGuire');
 // signed
-imagettftext($jpg_image, 50, 0, 400, 1100, $black, $font_path_sig, 'Patrick Michael McGuire');
+imagettftext($jpg_image, 75, 0, 400, 1200, $black, $font_path_sig, 'Patrick Michael McGuire');
 // address
 imagettftext($jpg_image, 50, 0, 400, 1300, $black, $font_path, '501 Spring Ave Lutherville 21093');
 // date of birth
