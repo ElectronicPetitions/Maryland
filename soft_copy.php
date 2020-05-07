@@ -10,7 +10,9 @@ $DOB    = $d['date_of_birth'];
 $SIGNED = $d['date_time_signed'];
 $PETITION_ID = $d['petition_id'];
 
-//die($d['VTRID']);
+if ($_COOKIE['pVTRID'] != $d['VTRID']){
+ die('Error #294');
+}
 
 $q2 = "select * from VoterList where VTRID = '$d[VTRID]' ";
 $r2 = $petition->query($q2);
