@@ -30,7 +30,7 @@ if (isset($_POST['petition'])){
     </div>
   </div>
 </div>
-<div class='col-sm-12'><img class="img-responsive" src='<?PHP echo $d['petition_jpg'];?>'></div>
+<div class='col-sm-12'><img class="img-responsive" src='hard_copy.php'></div>
 
 
 <?PHP include_once('footer.php');
