@@ -1,4 +1,10 @@
 <?PHP include_once('header.php');  ?>
+  
+<style>
+  .btn {
+   font-size:25; 
+  }
+</style>
 
   <div class='col-sm-12' style='height:100px; text-align:center;'><h2>Are you a Registered Maryland Voter?</h2></div>
   
