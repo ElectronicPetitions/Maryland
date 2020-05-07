@@ -27,13 +27,13 @@ imagettftext($jpg_image, 50, 0, 115, 365, $black, $font_path, 'X');
 
 // Slot 1 on Petition
 // name
-imagettftext($jpg_image, 50, 0, 300, 1100, $black, $font_path, 'Patrick Michael McGuire');
+imagettftext($jpg_image, 50, 0, 350, 1050, $black, $font_path, 'Patrick Michael McGuire');
 // address
-imagettftext($jpg_image, 50, 0, 300, 1200, $black, $font_path, '501 Spring Ave Lutherville 21093');
+imagettftext($jpg_image, 50, 0, 350, 1200, $black, $font_path, '501 Spring Ave Lutherville 21093');
 // date of birth
-imagettftext($jpg_image, 50, 0, 2000, 1100, $black, $font_path, '02 09 1980');
+imagettftext($jpg_image, 50, 0, 1800, 1050, $black, $font_path, '02 09 1980');
 // date signed
-imagettftext($jpg_image, 50, 0, 2000, 1300, $black, $font_path, '05 07 2020');
+imagettftext($jpg_image, 50, 0, 1800, 1250, $black, $font_path, '05 07 2020');
 
 
 
