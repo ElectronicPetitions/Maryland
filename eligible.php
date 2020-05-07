@@ -35,8 +35,8 @@ while($d2 = mysqli_fetch_array($r2)){
  $field = $d2['eligibleVoterListField'];
  $pass = $d2['eligibleVoterListEquals'];
  if ($d[$field] == $pass){
-   $available .= "<div class='row'>
-  <div class='col-sm-2'><input type='radio' id='petition' name='petition" value='$d2[petition_id]'"> </div>
+  $available .= "<div class='row'>
+  <div class='col-sm-2'><input type='radio' id='petition' name='petition' value='$d2[petition_id]'> </div>
   <div class='col-sm-8'>$d2[petition_name]</div>
   <div class='col-sm-2'>$field == $pass</div>
     </div>";
