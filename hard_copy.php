@@ -32,9 +32,9 @@ imagettftext($jpg_image, 60, 0, 400, 1180, $black, $font_path_sig, $_COOKIE['pNA
 // address
 imagettftext($jpg_image, 50, 0, 400, 1300, $black, $font_path,  $_COOKIE['pADDRESS']);
 // date of birth 
-imagettftext($jpg_image, 50, 0, 1800, 1070, $black, $font_path, $_COOKIE['pDOB']);
+imagettftext($jpg_image, 50, 0, 1800, 1070, $black, $font_path, date('m     d     Y',strtotime( $_COOKIE['pDOB'])));
 // date signed
-imagettftext($jpg_image, 50, 0, 1800, 1200, $black, $font_path, date('M D Y'));
+imagettftext($jpg_image, 50, 0, 1800, 1200, $black, $font_path, date('m     d     Y'));
 
 // Send Image to Browser
 imagejpeg($jpg_image);
