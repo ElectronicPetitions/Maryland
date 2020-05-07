@@ -6,16 +6,16 @@ header('Content-type: image/jpeg');
 $jpg_image = imagecreatefromjpeg('files/Green-Party-petition-1-page-001.jpg');
 
 // Allocate A Color For The Text
-$white = imagecolorallocate($jpg_image, 255, 255, 255);
+$black = imagecolorallocate($jpg_image, 0, 0, 0);
 
 // Set Path to Font File
 $font_path = 'files/coolvetica rg.ttf';
 
 // Set Text to Be Printed On Image
-$text = "Sign My Name";
+$text = "Signed My Name";
 
 // Print Text On Image
-imagettftext($jpg_image, 25, 0, 75, 300, $white, $font_path, $text);
+imagettftext($jpg_image, 25, 0, 75, 300, $black, $font_path, $text);
 
 // Send Image to Browser
 imagejpeg($jpg_image);
