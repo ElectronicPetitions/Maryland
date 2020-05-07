@@ -1,5 +1,12 @@
 <?PHP
 if (isset($_POST['web_first_name'])){
+  $DOB='';
+  if (isset($_POST['DOB'])){
+    if ($_POST['DOB'] != ''){
+     $DOB = $_POST['DOB'];
+     setcookie("pDOB", $DOB);
+    }
+  }
   $web_first_name='';
   if (isset($_POST['web_first_name'])){
     if ($_POST['web_first_name'] != ''){
@@ -37,28 +44,50 @@ include_once('header.php');
 ?>
 
 <form method='POST'>
-  
+  <div class='row'>
   <div class='col-sm-12' style='height:100px; text-align:center;'><h3>Please enter your Name and ZIP Code as it appears on your Maryland Voter Registration</h3></div>
-  
+  </div>
+  <div class='row'>
   <div class='col-sm-6' style='height:50px; text-align:center;'><h3>First Name</h3></div>
   
   <div class='col-sm-6' style='height:50px; text-align:center;'><h3>Last Name</h3></div>
+  </div>
+  <div class='row'>
   
   <div class='col-sm-6' style='height:50px; text-align:center;'><input name='web_first_name'> </div>
   
   <div class='col-sm-6' style='height:50px; text-align:center;'><input name='web_last_name'> </div>
-  
+    </div>
+  <div class='row'>
+
   <div class='col-sm-6' style='height:50px; text-align:center;'><h3>House Number</h3></div>
   
   <div class='col-sm-6' style='height:50px; text-align:center;'><h3>ZIP Code</h3></div>
-  
+    </div>
+  <div class='row'>
+
   <div class='col-sm-6' style='height:50px; text-align:center;'><input name='web_house_number'> </div>
   
   <div class='col-sm-6' style='height:50px; text-align:center;'><input name='web_zip_code'> </div>
+    </div>
   
+  
+  <div class='row'>
+   <div class='col-sm-6' style='height:50px; text-align:center;'>Date of Birth</div>
+  
+   <div class='col-sm-6' style='height:50px; text-align:center;'><input name='DOB' type="date"> </div>
+  </div>
+  
+  
+  <div class='row'>
+
   <div class='col-sm-12' style='height:50px; text-align:center;'><button type="submit" class="btn btn-success">Next</button></div>
+  </div>
+  <div class='row'>
 
   <div class='col-sm-12' style='height:50px; text-align:center;'><button type="reset" class="btn btn-warning">Clear</button></div>
+  </div>
+  
 
 </form>
 
