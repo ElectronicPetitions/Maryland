@@ -53,6 +53,12 @@ while($d2 = mysqli_fetch_array($r2)){
     <div class='col-sm-12' style='height:100px; text-align:center;'><h2>You Are eligible to sign each of these petitions.</h2></div>
   </div>
 
+  <div class='row'>
+    <div class='col-sm-2'><h3>Pick One</h3></div>
+    <div class='col-sm-6'><h3>Petition Name</h3></div>
+    <div class='col-sm-4'><h3>Requirements</h3></div>
+  </div>
+
   <?PHP echo $available;?>
 
   <div class='row'>
