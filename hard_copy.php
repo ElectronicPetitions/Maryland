@@ -22,7 +22,7 @@ if ( $_COOKIE['pCOUNTY'] == 'Baltimore City'){
   imagettftext($jpg_image, 50, 0, 115, 365, $black, $font_path, 'X');
 }else{
   // County on Petition
-  imagettftext($jpg_image, 50, 0, 220, 260, $black, $font_path, $_COOKIE['pCOUNTY']);
+  imagettftext($jpg_image, 50, 0, 220, 260, $black, $font_path, str_replace('County','',$_COOKIE['pCOUNTY']) );
 }
 
 // Slot 1 on Petition
