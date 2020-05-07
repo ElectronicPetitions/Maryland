@@ -40,6 +40,13 @@ while($d2 = mysqli_fetch_array($r2)){
   <div class='col-sm-6'>$d2[petition_name]</div>
   <div class='col-sm-4'>$field == $pass</div>
     </div>";
+ }else{
+  $available .= "<div class='row'>
+  <div class='col-sm-2'> </div>
+  <div class='col-sm-6'>$d2[petition_name]</div>
+  <div class='col-sm-4'>$field != $pass</div>
+    </div>";
+  
  }
  
 }
