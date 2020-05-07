@@ -10,7 +10,7 @@ if (isset($_POST['petition'])){
 <style>
 @font-face {
     font-family: "myFirstFont";
-    src: url("files\Claston Script.ttf");
+    src: url("files/Claston Script.ttf");
 }
 .sig {
     font-family: "myFirstFont";
