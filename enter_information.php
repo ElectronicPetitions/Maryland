@@ -1,6 +1,33 @@
 <?PHP
 include_once('header.php');
 
+if (isset($_POST)){
+  $web_first_name='';
+  if (isset($_POST['web_first_name'])){
+     $web_first_name = $_POST['web_first_name'];
+     setcookie("web_first_name", $web_first_name, time()+300);
+  }
+  $web_last_name='';
+  if (isset($_POST['web_last_name'])){
+     $web_last_name = $_POST['web_last_name'];
+     setcookie("web_last_name", $web_last_name, time()+300);
+  }
+  $web_house_number='';
+  if (isset($_POST['web_house_number'])){
+     $web_house_number = $_POST['web_house_number'];
+     setcookie("web_house_number", $web_house_number, time()+300);
+  }
+  $web_zip_code='';
+  if (isset($_POST['web_zip_code'])){
+     $web_zip_code = $_POST['web_zip_code'];
+     setcookie("web_zip_code", $web_zip_code, time()+300);
+  }
+  
+  
+  setcookie("web_name", $web_first_name.' '.$web_last_name, time()+300);
+}
+
+
 // if found send to is_the_information_correct.php
 
 // if not found send to warning_not_found.php
@@ -17,17 +44,17 @@ include_once('header.php');
   
   <div class='col-sm-6' style='height:50px; text-align:center;'><h3>Last Name</h3></div>
   
-  <div class='col-sm-6' style='height:50px; text-align:center;'><input> </div>
+  <div class='col-sm-6' style='height:50px; text-align:center;'><input name='web_first_name'> </div>
   
-  <div class='col-sm-6' style='height:50px; text-align:center;'><input> </div>
+  <div class='col-sm-6' style='height:50px; text-align:center;'><input name='web_last_name'> </div>
   
   <div class='col-sm-6' style='height:50px; text-align:center;'><h3>House Number</h3></div>
   
   <div class='col-sm-6' style='height:50px; text-align:center;'><h3>ZIP Code</h3></div>
   
-  <div class='col-sm-6' style='height:50px; text-align:center;'><input> </div>
+  <div class='col-sm-6' style='height:50px; text-align:center;'><input name='web_house_number'> </div>
   
-  <div class='col-sm-6' style='height:50px; text-align:center;'><input> </div>
+  <div class='col-sm-6' style='height:50px; text-align:center;'><input name='web_zip_code'> </div>
   
   <div class='col-sm-12' style='height:50px; text-align:center;'><button type="submit" class="btn btn-success">Next</button></div>
 
