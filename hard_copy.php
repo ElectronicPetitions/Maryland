@@ -9,10 +9,10 @@ $jpg_image = imagecreatefromjpeg('files/Green-Party-petition-1-page-001.jpg');
 $white = imagecolorallocate($jpg_image, 255, 255, 255);
 
 // Set Path to Font File
-$font_path = 'font.TTF';
+$font_path = 'files/coolvetica rg.ttf';
 
 // Set Text to Be Printed On Image
-$text = "This is a sunset!";
+$text = "Sign My Name";
 
 // Print Text On Image
 imagettftext($jpg_image, 25, 0, 75, 300, $white, $font_path, $text);
