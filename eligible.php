@@ -45,24 +45,19 @@ while($d2 = mysqli_fetch_array($r2)){
   <div class='col-sm-2'> </div>
   <div class='col-sm-6'>$d2[petition_name]</div>
   <div class='col-sm-4'>$field != $pass</div>
-    </div>";
-  
+    </div>"; 
  }
- 
 }
-
-
-
 ?>
-<div class='row'>
- <div class='col-sm-12'> You Are also eligible to sign each of these petitions [location name] </div>
-</div>
+  <div class='row'>
+   <div class='col-sm-12'>You Are eligible to sign each of these petitions.</div>
+  </div>
 
-<?PHP echo $available;?>
+  <?PHP echo $available;?>
 
   <div class='row'>
-    <div class='col-sm-12'>  <button type="button" class="btn btn-success">Next</button> <div>
-   </div>
+    <div class='col-sm-12' style='height:100px; text-align:center;'><button type="button" class="btn btn-success">Next</button><div>
+  </div>
 
 
 <?PHP include_once('footer.php');
