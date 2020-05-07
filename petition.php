@@ -2,6 +2,7 @@
 include_once('header.php'); 
 if (isset($_POST['petition'])){
   $id = $_POST['petition'];
+  setcookie("pID", $id);
   $q = "select * from petitions where petition_id = '$id'";
   $r = $petition->query($q);
   $d = mysqli_fetch_array($r);
