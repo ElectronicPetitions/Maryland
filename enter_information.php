@@ -21,7 +21,7 @@ if (isset($_POST)){
      setcookie("web_zip_code", $web_zip_code, time()+300);
   }
   setcookie("web_name", $web_first_name.' '.$web_last_name, time()+300);
-  header('is_the_information_correct.php');
+  header('Location: is_the_information_correct.php');
 }
 include_once('header.php');
 ?>
