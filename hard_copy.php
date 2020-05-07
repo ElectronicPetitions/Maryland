@@ -20,10 +20,10 @@ $font_path = 'files/coolvetica rg.ttf';
 
 
 // County on Petition
-imagettftext($jpg_image, 40, 0, 90, 200, $black, $font_path, 'Baltimore');
+imagettftext($jpg_image, 50, 0, 150, 220, $black, $font_path, 'Baltimore');
 // OR
 // City Checkbox
-imagettftext($jpg_image, 25, 0, 85, 350, $black, $font_path, 'X');
+imagettftext($jpg_image, 40, 0, 85, 350, $black, $font_path, 'X');
 
 
 
