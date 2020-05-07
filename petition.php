@@ -7,6 +7,16 @@ if (isset($_POST['petition'])){
   $d = mysqli_fetch_array($r);
 }
 ?>
+<style>
+@font-face {
+    font-family: "myFirstFont";
+    src: url("files\Claston Script.ttf");
+}
+.sig {
+    font-family: "myFirstFont";
+}
+</style>
+
 <script>
   $('#exampleModalCenterTitle').modal('show');
 </script>
@@ -26,7 +36,7 @@ if (isset($_POST['petition'])){
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <span class="sig"><?PHP echo $_COOKIE['pNAME'];?></span>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary">Sign and Submit</button>
