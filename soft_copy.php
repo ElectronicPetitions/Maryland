@@ -1,14 +1,14 @@
 <?php
 include_once('/var/www/secure.php'); 
 
-$id = $_GET['uid'];
+$id = $_GET['id'];
 $q = "select * from signatures where id = 'id' ";
 $r = $petition->query($q);
 $d = mysqli_fetch_array($r);
 
 $DOB    = $d['date_of_birth'];
 $SIGNED = $d['date_time_signed'];
-
+$PETITION_ID = $d['petition_id'];
 
 $q2 = "select * from VoterList where VTRID = '$d[VTRID]' ";
 $r2 = $petition->query($q2);
