@@ -39,13 +39,15 @@ if (isset($_POST['petition'])){
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <input type="text" id="myText" onkeyup="addText()">
-        <div id="text2" class="sig"></div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" onclick="window.location.href='sign.php'">Sign and Submit</button>
-      </div>
+      <form action='sign.php' method='POST'>
+        <div class="modal-body">
+          <input type="text" id="myText" onkeyup="addText()">
+          <div id="text2" class="sig"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Sign and Submit</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
