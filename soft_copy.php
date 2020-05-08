@@ -75,9 +75,9 @@ imagettftext($jpg_image, 50, 0, 1900, 1200, $black, $font_path, date('m     d   
 
 
 // signed
-imagettftext($jpg_image, 30, 0, 1500, 3000, $black, $font_path_sig, $signed_name_as);
+imagettftext($jpg_image, 40, 0, 1300, 3100, $black, $font_path_sig, $signed_name_as);
 // date signed
-imagettftext($jpg_image, 30, 0, 1900, 3000, $black, $font_path, date('m     d     Y',strtotime($SIGNED)));
+imagettftext($jpg_image, 40, 0, 2100, 3100, $black, $font_path, date('m / d / y',strtotime($SIGNED)));
 
 
 
