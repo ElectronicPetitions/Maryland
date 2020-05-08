@@ -71,7 +71,7 @@ while($d2 = mysqli_fetch_array($r2)){
 <form method='POST' action='petition.php' id='form'>
   
   <div class='row'>
-    <div class='col-sm-12' style='height:100px; text-align:center;'><h2>Active Petitions and Eligiblity Requirements to Sign.</h2></div>
+    <div class='col-sm-12' style='height:100px; text-align:center;'><h2>Active Petitions and Eligiblity Requirements to Sign. <?PHP echo $_COOKIE['invite'];?></h2></div>
   </div>
 
   <div class='row'>
