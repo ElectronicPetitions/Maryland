@@ -9,6 +9,7 @@ $d = mysqli_fetch_array($r);
 $DOB    = $d['date_of_birth'];
 $SIGNED = $d['date_time_signed'];
 $PETITION_ID = $d['petition_id'];
+$signed_name_as = $d['signed_name_as'];
 
 if ($_COOKIE['pVTRID'] != $d['VTRID']){
  die('Error #294');
@@ -58,7 +59,7 @@ if ( $COUNTY == 'Baltimore City'){
 // name
 imagettftext($jpg_image, 50, 0, 350, 1070, $black, $font_path, $full_name);
 // signed
-imagettftext($jpg_image, 60, 0, 400, 1180, $black, $font_path_sig, $full_name);
+imagettftext($jpg_image, 60, 0, 400, 1180, $black, $font_path_sig, $signed_name_as);
 // address
 imagettftext($jpg_image, 50, 0, 400, 1300, $black, $font_path, $address);
 // date of birth 
