@@ -71,9 +71,14 @@ if($DOB != ''){
 imagettftext($jpg_image, 50, 0, 1900, 1200, $black, $font_path, date('m     d     Y',strtotime($SIGNED)));
 
 
-
-
-
+// name
+imagettftext($jpg_image, 40, 0, 50, 3050, $black, $font_path_sig, $signed_name_as);
+// address
+imagettftext($jpg_image, 40, 0, 50, 3100, $black, $font_path_sig, $ADDRESS);
+// city state zip
+imagettftext($jpg_image, 40, 0, 50, 3120, $black, $font_path_sig, "$RESIDENTIALCITY MD $RESIDENTIALZIP5");
+// phone
+imagettftext($jpg_image, 40, 0, 50, 3150, $black, $font_path_sig, '111-222-3333');
 // signed
 imagettftext($jpg_image, 40, 0, 1290, 3150, $black, $font_path_sig, $signed_name_as);
 // date signed
