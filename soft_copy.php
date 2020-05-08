@@ -62,10 +62,24 @@ imagettftext($jpg_image, 50, 0, 350, 1070, $black, $font_path, $full_name);
 imagettftext($jpg_image, 60, 0, 400, 1180, $black, $font_path_sig, $signed_name_as);
 // address
 imagettftext($jpg_image, 50, 0, 400, 1300, $black, $font_path, $address);
+
 // date of birth 
-imagettftext($jpg_image, 50, 0, 1900, 1070, $black, $font_path, date('m     d     Y',strtotime($DOB)));
+if($DOB != ''){
+ imagettftext($jpg_image, 50, 0, 1900, 1070, $black, $font_path, date('m     d     Y',strtotime($DOB)));
+}
 // date signed
 imagettftext($jpg_image, 50, 0, 1900, 1200, $black, $font_path, date('m     d     Y',strtotime($SIGNED)));
+
+
+
+
+
+// signed
+imagettftext($jpg_image, 30, 0, 1500, 3000, $black, $font_path_sig, $signed_name_as);
+// date signed
+imagettftext($jpg_image, 30, 0, 1900, 3000, $black, $font_path, date('m     d     Y',strtotime($SIGNED)));
+
+
 
 // Send Image to Browser
 imagejpeg($jpg_image);
