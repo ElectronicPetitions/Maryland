@@ -43,16 +43,19 @@ while($d2 = mysqli_fetch_array($r2)){
  if ($d4['id'] > 0){
   $available .= "<div class='row'>
   <div class='col-sm-2'><a target='_Blank' href='soft_copy.php?id=$d4[id]'>Already Signed - View</a></div>
-  <div class='col-sm-6'><del>$d2[petition_name]</del></div>
+  <div class='col-sm-6'><del>$d2[petition_name]  ($d2[web_short_name])</del></div>
   <div class='col-sm-4'>$field == $pass</div>
     </div>"; 
  }elseif($d[$field] == $pass){
    if($_COOKIE['invite'] != '' && $_COOKIE['invite'] == $d2['web_short_name']){
      $available .= '<script>document.getElementById("form").submit();</script>';
+     $checked = 'checked';
+   }else{
+     $checked = '';
    }
   $available .= "<div class='row'>
-  <div class='col-sm-2'><input type='radio' id='petition' name='petition' value='$d2[petition_id]' > </div>
-  <div class='col-sm-6'>$d2[petition_name]</div>
+  <div class='col-sm-2'><input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked> </div>
+  <div class='col-sm-6'>$d2[petition_name] ($d2[web_short_name])</div>
   <div class='col-sm-4'>$field == $pass</div>
     </div>";
  }else{
@@ -62,7 +65,7 @@ while($d2 = mysqli_fetch_array($r2)){
    }
   $available .= "<div class='row'>
   <div class='col-sm-2'><input type='radio' id='petition' name='petition' value='$d2[petition_id]' > </div>
-  <div class='col-sm-6'><del>$d2[petition_name]</del></div>
+  <div class='col-sm-6'><del>$d2[petition_name]  ($d2[web_short_name])</del></div>
   <div class='col-sm-4'>$field != $pass</div>
     </div>"; 
  }
