@@ -47,21 +47,28 @@ while($d2 = mysqli_fetch_array($r2)){
   <div class='col-sm-4'>$field == $pass</div>
     </div>"; 
  }elseif($d[$field] == $pass){
+   if($_COOKIE['invite'] != '' && $_COOKIE['invite'] == $d2['web_short_name']){
+     $available .= '<script>document.getElementById("form").submit();</script>';
+   }
   $available .= "<div class='row'>
-  <div class='col-sm-2'><input type='radio' id='petition' name='petition' value='$d2[petition_id]'> </div>
+  <div class='col-sm-2'><input type='radio' id='petition' name='petition' value='$d2[petition_id]' > </div>
   <div class='col-sm-6'>$d2[petition_name]</div>
   <div class='col-sm-4'>$field == $pass</div>
     </div>";
  }else{
+   if($_COOKIE['invite'] != '' && $_COOKIE['invite'] == $d2['web_short_name']){
+     $available .= '<script>document.getElementById("form").submit();</script>';
+     // warn and allow access
+   }
   $available .= "<div class='row'>
-  <div class='col-sm-2'> </div>
+  <div class='col-sm-2'><input type='radio' id='petition' name='petition' value='$d2[petition_id]' > </div>
   <div class='col-sm-6'><del>$d2[petition_name]</del></div>
   <div class='col-sm-4'>$field != $pass</div>
     </div>"; 
  }
 }
 ?>
-<form method='POST' action='petition.php'>
+<form method='POST' action='petition.php' id='form'>
   
   <div class='row'>
     <div class='col-sm-12' style='height:100px; text-align:center;'><h2>Active Petitions and Eligiblity Requirements to Sign.</h2></div>
