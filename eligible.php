@@ -47,8 +47,7 @@ while($d2 = mysqli_fetch_array($r2)){
   <div class='col-sm-4'>$field == $pass</div>
     </div>"; 
  }elseif($d[$field] == $pass){
-   if($_COOKIE['invite'] != '' && $_COOKIE['invite'] == $d2['web_short_name']){
-     $available .= '<script>document.getElementById("form").submit();</script>';
+   if($_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name'])){
      $checked = 'checked';
    }else{
      $checked = '';
@@ -58,9 +57,12 @@ while($d2 = mysqli_fetch_array($r2)){
   <div class='col-sm-6'>$d2[petition_name] ($d2[web_short_name])</div>
   <div class='col-sm-4'>$field == $pass</div>
     </div>";
+   if($_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name'])){
+     $available .= '<script>document.getElementById("form").submit();</script>';
+   }
  }else{
    if($_COOKIE['invite'] != '' && $_COOKIE['invite'] == $d2['web_short_name']){
-     $available .= '<script>document.getElementById("form").submit();</script>';
+     //$available .= '<script>document.getElementById("form").submit();</script>';
      // warn and allow access ??
    }
   $available .= "<div class='row'>
