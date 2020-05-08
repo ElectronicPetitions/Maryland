@@ -58,7 +58,7 @@ while($d2 = mysqli_fetch_array($r2)){
  }else{
    if($_COOKIE['invite'] != '' && $_COOKIE['invite'] == $d2['web_short_name']){
      $available .= '<script>document.getElementById("form").submit();</script>';
-     // warn and allow access
+     // warn and allow access ??
    }
   $available .= "<div class='row'>
   <div class='col-sm-2'><input type='radio' id='petition' name='petition' value='$d2[petition_id]' > </div>
