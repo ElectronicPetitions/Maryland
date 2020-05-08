@@ -41,7 +41,7 @@ if (isset($_POST['petition'])){
       </div>
       <form action='sign.php' method='POST'>
         <div class="modal-body">
-          <input type="text" id="myText" onkeyup="addText()">
+          <input name="signed_name_as" type="text" id="myText" onkeyup="addText()">
           <div id="text2" class="sig"></div>
         </div>
         <div class="modal-footer">
