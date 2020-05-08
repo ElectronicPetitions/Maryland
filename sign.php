@@ -9,6 +9,7 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
 } else {
     $ip = $_SERVER['REMOTE_ADDR'];
 }
+$signed_name_as = $_POST['signed_name_as'];
 $date_of_birth = $_COOKIE['pDOB'];
-$petition->query("insert into signatures (VTRID,ip_address,date_of_birth,date_time_signed,petition_id) values ('$VTRID','$ip','$date_of_birth',NOW(),'$petition_id')");
+$petition->query("insert into signatures (VTRID,ip_address,date_of_birth,date_time_signed,petition_id,signed_name_as) values ('$VTRID','$ip','$date_of_birth',NOW(),'$petition_id','$signed_name_as')");
 header('Location: eligible.php');
