@@ -1,3 +1,13 @@
+<?PHP 
+if ($_GET['debug'] == 'on'){ 
+  setcookie("debug", 'on'); 
+  header('Location: index.php'); 
+} 
+if ($_GET['debug'] == 'off'){ 
+  setcookie("debug", 'off'); 
+  header('Location: index.php'); 
+} 
+?>
 <!DOCTYPE html>
 <html lang="en">  
 <head>
