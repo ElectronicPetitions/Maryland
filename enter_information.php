@@ -45,7 +45,7 @@ if (isset($_POST['web_first_name'])){
   if (isset($_POST['contact_phone'])){
     if ($_POST['contact_phone'] != ''){
      $contact_phone = $_POST['contact_phone'];
-     setcookie("contact_phone", $contact_phone);
+     setcookie("pPHONE", $contact_phone);
     }
   }
   header('Location: is_the_information_correct.php');
