@@ -42,7 +42,7 @@ while($d2 = mysqli_fetch_array($r2)){
  $d4 = mysqli_fetch_array($r4);
  if ($d4['id'] > 0){
   $available .= "<div class='row'>
-  <div class='col-sm-2'><a target='_Blank' href='soft_copy.php?id=$d4[id]'>Already Signed - View</a></div>
+  <div class='col-sm-2'><a target='_Blank' href='soft_copy.php?id=$d4[id]'>Already Signed - View</a> or <a target='_Blank' href='?remove=$d4[id]'>Remove</a></div>
   <div class='col-sm-6'><del>$d2[petition_name]</del></div>
   <div class='col-sm-4'>$field == $pass</div>
     </div>"; 
