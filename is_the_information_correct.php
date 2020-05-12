@@ -15,7 +15,7 @@ $q = "select * from VoterList where LASTNAME = '$web_last_name' and FIRSTNAME = 
 $r = $petition->query($q);
 $d = mysqli_fetch_array($r);
 if ($d['VTRID'] != ''){
-   $_COOKIE['signature_status'] = 'verified';
+    = '';
    $VTRID      = $d['VTRID'];
    $FIRSTNAME  = $d['FIRSTNAME'];
    $MIDDLENAME = $d['MIDDLENAME'];
@@ -31,8 +31,9 @@ if ($d['VTRID'] != ''){
   setcookie("pADDRESS1", "$ADDRESS");
   setcookie("pADDRESS2", "$RESIDENTIALCITY MD $RESIDENTIALZIP5");
   setcookie("pVTRID", $VTRID);
+  setcookie("signature_status", 'verified');
 }else{
-   $_COOKIE['signature_status'] = 'invalid';
+   setcookie("signature_status", 'notfound');
    header('Location: warning_not_found.php');
 }
 ?>
