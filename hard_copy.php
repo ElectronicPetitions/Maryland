@@ -39,17 +39,16 @@ imagettftext($jpg_image, 50, 0, 1900, 1200, $black, $font_path, date('m     d   
 
 
 // name
-imagettftext($jpg_image, 40, 0, 50, 3050, $black, $font_path_sig, $signed_name_as);
+imagettftext($jpg_image, 40, 0, 50, 3050, $black, $font_path_sig, $_COOKIE['pNAME']);
 // address
-imagettftext($jpg_image, 40, 0, 50, 3100, $black, $font_path_sig, $ADDRESS);
+imagettftext($jpg_image, 40, 0, 50, 3100, $black, $font_path_sig, $_COOKIE['pADDRESS1']);
 // city state zip
-imagettftext($jpg_image, 40, 0, 50, 3120, $black, $font_path_sig, "$RESIDENTIALCITY MD $RESIDENTIALZIP5");
+imagettftext($jpg_image, 40, 0, 50, 3120, $black, $font_path_sig, $_COOKIE['pADDRESS2']);
 // phone
-imagettftext($jpg_image, 40, 0, 50, 3150, $black, $font_path_sig, '111-222-3333');
-// signed
-imagettftext($jpg_image, 40, 0, 1290, 3150, $black, $font_path_sig, $signed_name_as);
+imagettftext($jpg_image, 40, 0, 50, 3150, $black, $font_path_sig, $_COOKIE['pPHONE']);
+
 // date signed
-imagettftext($jpg_image, 40, 0, 2150, 3150, $black, $font_path, date('m / d / y',strtotime($SIGNED)));
+imagettftext($jpg_image, 40, 0, 2150, 3150, $black, $font_path, date('m / d / y'));
 
 
 // Send Image to Browser
