@@ -87,7 +87,7 @@ if (isset($_POST['signed_name_as'])){
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action='sign.php' method='POST'>
+      <form action='sign.php' method='POST'><input type='hidden' value='<?PHP echo $_POST['signed_name_as'];?>' name='signed_name_as'>
         <div class="modal-body">
           <input name="signed_name_as_circulator" type="text" id="myTextb" onkeyup="addTextb()">
           <div id="text2b" class="sig"></div>
