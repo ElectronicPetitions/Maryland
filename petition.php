@@ -29,8 +29,9 @@ if (isset($_POST['petition'])){
 if (isset($_POST['signed_name_as'])){
 ?>
 <script>
-   $(document).ready(function(){
-         $('#exampleModalLower').modal('show');
+   $(document).ready(function(){   
+     window.scrollTo(0,document.body.scrollHeight);
+     $('#exampleModalLower').modal('show');
     });
   function addTextb()
   {
