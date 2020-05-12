@@ -45,7 +45,7 @@ $r2 = $petition->query($q2);
 while($d2 = mysqli_fetch_array($r2)){
  $field = $d2['eligibleVoterListField'];
  $pass = $d2['eligibleVoterListEquals'];
- $q4 = "select * from signatures where VTRID = '$VTRID' and petition_id = '$d2[petition_id]' and signature_status <> 'removed' )";
+ $q4 = "select * from signatures where VTRID = '$VTRID' and petition_id = '$d2[petition_id]' )";
  $r4 = $petition->query($q4);
  $d4 = mysqli_fetch_array($r4);
  if ($d4['id'] > 0){
