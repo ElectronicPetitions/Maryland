@@ -38,6 +38,13 @@ if (isset($_POST['web_first_name'])){
      setcookie("web_zip_code", $web_zip_code);
     }
   }
+  $contact_phone='';
+  if (isset($_POST['contact_phone'])){
+    if ($_POST['contact_phone'] != ''){
+     $contact_phone = $_POST['contact_phone'];
+     setcookie("contact_phone", $contact_phone);
+    }
+  }
   header('Location: is_the_information_correct.php');
 }
 include_once('header.php');
@@ -57,12 +64,14 @@ include_once('header.php');
     <div class='col-sm-4' style='height:50px; text-align:center;'><input name='DOB' type="date"></div>
     </div>
   <div class='row'>
-    <div class='col-sm-6' style='height:50px; text-align:center;'><h3>House Number</h3></div>
-    <div class='col-sm-6' style='height:50px; text-align:center;'><h3>ZIP Code</h3></div>
+    <div class='col-sm-4' style='height:50px; text-align:center;'><h3>House Number</h3></div>
+    <div class='col-sm-4' style='height:50px; text-align:center;'><h3>ZIP Code</h3></div>
+    <div class='col-sm-4' style='height:50px; text-align:center;'><h3>Phone Number</h3></div>
   </div>
   <div class='row'>
-    <div class='col-sm-6' style='height:50px; text-align:center;'><input name='web_house_number'> </div>
-    <div class='col-sm-6' style='height:50px; text-align:center;'><input name='web_zip_code'> </div>
+    <div class='col-sm-4' style='height:50px; text-align:center;'><input name='web_house_number'> </div>
+    <div class='col-sm-4' style='height:50px; text-align:center;'><input name='web_zip_code'> </div>
+    <div class='col-sm-4' style='height:50px; text-align:center;'><input name='contact_phone'> </div>
   </div>
   <div class='row'>
     <div class='col-sm-12' style='height:50px; text-align:center;'><button type="submit" class="btn btn-success">Next</button></div>
