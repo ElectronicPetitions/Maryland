@@ -76,7 +76,7 @@ if (isset($_POST['signed_name_as'])){
   </div>
 </div>
 
-<!-- TOP Modal -->
+<!-- Lower Modal -->
 <div class="modal fade" id="exampleModalLower" tabindex="-1" role="dialog" aria-labelledby="exampleModalLowerTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
