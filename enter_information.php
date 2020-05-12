@@ -1,4 +1,7 @@
 <?PHP
+if (empty($_COOKIE['signature_status'])){
+   setcookie("signature_status", 'unverified');
+}
 if (isset($_POST['web_first_name'])){
   $DOB='';
   if (isset($_POST['DOB'])){
