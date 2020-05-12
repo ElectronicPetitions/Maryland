@@ -4,6 +4,7 @@ $web_last_name    = $_COOKIE['web_last_name'];
 $web_house_number = $_COOKIE['web_house_number'];
 $web_zip_code     = $_COOKIE['web_zip_code'];
 $DOB              = $_COOKIE['pDOB'];
+$PHONE             = $_COOKIE['pPHONE'];
 if ($web_first_name != '' && $web_last_name != '' && $web_house_number != '' && $web_zip_code != ''){
   // ok to check for records
 }else{
@@ -35,25 +36,28 @@ if ($d['VTRID'] != ''){
    header('Location: warning_not_found.php');
 }
 ?>
-  <div class='row'>
+<div class='row'>
     <div class='col-sm-12' style='height:100px; text-align:center;'><h2>Is this information correct?</h2></div>
-  </div>
- <div class='row'>
+</div>
+<div class='row'>
   <div class='col-sm-6' style='height:50px; text-align:center;'>First Name</div><div class='col-sm-6' style='height:50px; text-align:center;'><?PHP echo $FIRSTNAME;?></div>
 </div>
- <div class='row'>
+<div class='row'>
   <div class='col-sm-6' style='height:50px; text-align:center;'>Middle Name </div><div class='col-sm-6' style='height:50px; text-align:center;'><?PHP echo $MIDDLENAME;?></div>
 </div>
- <div class='row'>
+<div class='row'>
   <div class='col-sm-6' style='height:50px; text-align:center;'>Last Name </div><div class='col-sm-6' style='height:50px; text-align:center;'><?PHP echo $LASTNAME;?></div>
 </div>
- <div class='row'>
+<div class='row'>
   <div class='col-sm-6' style='height:50px; text-align:center;'>Date of Birth </div><div class='col-sm-6' style='height:50px; text-align:center;'><?PHP echo $DOB;?></div>
 </div>
- <div class='row'>
+<div class='row'>
   <div class='col-sm-6' style='height:50px; text-align:center;'>Full Addresss </div><div class='col-sm-6' style='height:50px; text-align:center;'><?PHP echo $ADDRESS;?></div>
 </div>
- <div class='row'>
+<div class='row'>
+  <div class='col-sm-6' style='height:50px; text-align:center;'>Phone </div><div class='col-sm-6' style='height:50px; text-align:center;'><?PHP echo $PHONE;?></div>
+</div>
+<div class='row'>
   <div class='col-sm-2' style='height:50px; text-align:center;'>City</div><div class='col-sm-2'><?PHP echo $RESIDENTIALCITY;?></div>
   <div class='col-sm-2'>County</div><div class='col-sm-2'><?PHP echo $COUNTY;?></div>
   <div class='col-sm-2'>Zip</div><div class='col-sm-2'><?PHP echo $RESIDENTIALZIP5;?></div>
