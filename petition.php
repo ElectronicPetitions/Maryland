@@ -32,9 +32,9 @@ if (isset($_POST['signed_name_as'])){
    $(document).ready(function(){
          $('#exampleModalLower').modal('show');
     });
-  function addText()
+  function addTextb()
   {
-      document.getElementById('text2').innerHTML = document.getElementById('myText').value;
+      document.getElementById('text2b').innerHTML = document.getElementById('myTextb').value;
   }
 </script>
 <?PHP
@@ -88,8 +88,8 @@ if (isset($_POST['signed_name_as'])){
       </div>
       <form action='sign.php' method='POST'>
         <div class="modal-body">
-          <input name="signed_name_as" type="text" id="myText" onkeyup="addText()">
-          <div id="text2" class="sig"></div>
+          <input name="signed_name_as" type="text" id="myTextb" onkeyup="addTextb()">
+          <div id="text2b" class="sig"></div>
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">Sign and Submit</button>
