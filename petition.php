@@ -88,7 +88,7 @@ if (isset($_POST['signed_name_as'])){
       </div>
       <form action='sign.php' method='POST'>
         <div class="modal-body">
-          <input name="signed_name_as" type="text" id="myTextb" onkeyup="addTextb()">
+          <input name="signed_name_as_circulator" type="text" id="myTextb" onkeyup="addTextb()">
           <div id="text2b" class="sig"></div>
         </div>
         <div class="modal-footer">
