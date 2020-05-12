@@ -17,6 +17,10 @@ $black = imagecolorallocate($jpg_image, 0, 0, 0);
 $font_path = 'files/coolvetica rg.ttf';
 $font_path_sig = 'files/Claston Script.ttf';
 
+
+$DOB = '';
+$SIGNED = date('Y-m-d');
+
 if ( $_COOKIE['pCOUNTY'] == 'Baltimore City'){
   // City Checkbox
   imagettftext($jpg_image, 50, 0, 115, 365, $black, $font_path, 'X');
@@ -39,16 +43,16 @@ imagettftext($jpg_image, 50, 0, 1900, 1200, $black, $font_path, date('m     d   
 
 
 // name
-imagettftext($jpg_image, 40, 0, 50, 3050, $black, $font_path_sig, $_COOKIE['pNAME']);
+imagettftext($jpg_image, 40, 0, 50, 3050, $black, $font_path, $_COOKIE['pNAME']);
 // address
-imagettftext($jpg_image, 40, 0, 50, 3100, $black, $font_path_sig, $_COOKIE['pADDRESS1']);
+imagettftext($jpg_image, 40, 0, 50, 3100, $black, $font_path, $_COOKIE['pADDRESS1']);
 // city state zip
-imagettftext($jpg_image, 40, 0, 50, 3120, $black, $font_path_sig, $_COOKIE['pADDRESS2']);
+imagettftext($jpg_image, 40, 0, 50, 3120, $black, $font_path, $_COOKIE['pADDRESS2']);
 // phone
-imagettftext($jpg_image, 40, 0, 50, 3150, $black, $font_path_sig, $_COOKIE['pPHONE']);
+imagettftext($jpg_image, 40, 0, 50, 3150, $black, $font_path, $_COOKIE['pPHONE']);
 
 // date signed
-imagettftext($jpg_image, 40, 0, 2150, 3150, $black, $font_path, date('m / d / y'));
+imagettftext($jpg_image, 40, 0, 2150, 3150, $black, $font_path, date('m / d / y',strtotime($SIGNED)));
 
 
 // Send Image to Browser
