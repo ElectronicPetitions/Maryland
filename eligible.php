@@ -26,6 +26,14 @@ if ($d['VTRID'] != ''){
 }else{
    header('Location: warning_not_found.php');
 }
+
+if (isset($_GET['remove'])){
+  $id = $_GET['remove'];
+  $q = "update signatures set signature_status = 'removed' where id = '$id'";
+  $petition->query($q);
+  header('Location: eligible.php');
+}
+
 echo $head;
 
 
