@@ -1,8 +1,9 @@
 <?PHP 
-include_once('header.php');
 if (isset($_GET['invite'])){
   setcookie("invite", $_GET['invite']);
+  header('Location: index.php');
 }
+include_once('header.php');
 ?>
   
   <div class='col-sm-12' style='height:100px; text-align:center;'><h2>Are you a Registered Maryland Voter?</h2></div>
