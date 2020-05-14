@@ -37,8 +37,8 @@ if ($_GET['debug'] == 'off'){
         <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/eligible.php'){ echo "class='active'"; } ?> ><a>5: Select Petition</a></li>
         <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/petition.php'){ echo "class='active'"; } ?> ><a>6: Sign Petition</a></li>
       <?PHP }else{ ?>
-        <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/petition.php'){ echo "class='active'"; } ?> ><a>5: Sign Petition</a></li>
-        <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/eligible.php'){ echo "class='active'"; } ?> ><a>6: Select Petition</a></li>
+        <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/petition.php'){ echo "class='active'"; } ?> ><a>5: Sign <?PHP echo strtoupper($_COOKIE['invite']);?> Petition</a></li>
+        <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/eligible.php'){ echo "class='active'"; } ?> ><a>6: Select Next Petition</a></li>
       <?PHP } ?>
       
       <?PHP if ($_COOKIE['web_name'] != ''){ ?>
