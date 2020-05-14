@@ -36,7 +36,7 @@ if ($d['VTRID'] != ''){
    header('Location: warning_not_found.php');
 }
 
-$qX = "select * from website_text where id = '3'";
+$qX = "select * from website_text where id = '6'";
  $rX = $petition->query($qX);
  $dX = mysqli_fetch_array($rX);
 ?>
