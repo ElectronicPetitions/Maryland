@@ -13,7 +13,6 @@ if ($_COOKIE['invite'] != ''){
    <?PHP } ?>
 </div>
  </div>
-</body>
 <script type="text/javascript">
     window.doorbellOptions = {
         "id": "10512",
@@ -26,3 +25,4 @@ if ($_COOKIE['invite'] != ''){
         if (d.readyState == 'complete') { l(); }
     }(window, document, 'script'));
 </script>
+</body>
