@@ -14,6 +14,7 @@ if (isset($_POST['petition'])){
 }else{
  die('Error #15'); 
 }
+setcookie("pJPG", $d['petition_jpg']);
 ?>
 <script>document.title = "MEPS - Sign <?PHP echo $d['petition_name'];?>";</script>
 <style>
