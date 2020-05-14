@@ -2,7 +2,11 @@
 // imagettftext ( resource $image , float $size , float $angle , int $x , int $y , int $color , string $fontfile , string $text ) 
 // x how far from left
 // y how far from top
-
+include_once('/var/www/secure.php'); 
+$id = $_COOKIE['pID'];
+$q = "select * from petitions where id = '$id'";
+$r = $petition->query($q);
+$d = mysqli_fetch_array($r);
 
 //Set the Content Type
 header('Content-type: image/jpeg');
@@ -24,10 +28,14 @@ $SIGNED = date('Y-m-d');
 
 if ( $_COOKIE['pCOUNTY'] == 'Baltimore City'){
   // City Checkbox
-  imagettftext($jpg_image, 50, 0, 115, 365, $black, $font_path, 'X');
+  $cord = $d['text_cord_county'];
+  $array = explode(",",$cord);
+  imagettftext($jpg_image, $array[0], $array[1], $array[2], $array[3], $black, $font_path, 'X');
 }else{
   // County on Petition
-  imagettftext($jpg_image, 50, 0, 220, 260, $black, $font_path, str_replace('County','',$_COOKIE['pCOUNTY']) );
+  $cord = $d['text_cord_cityX'];
+  $array = explode(",",$cord);
+  imagettftext($jpg_image, $array[0], $array[1], $array[2], $array[3], $black, $font_path, str_replace('County','',$_COOKIE['pCOUNTY']) );
 }
 
 // name
