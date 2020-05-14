@@ -36,6 +36,7 @@ if ($d['VTRID'] != ''){
    header('Location: warning_not_found.php');
 }
 ?>
+<script>document.title = "MEPS - Is the information correct?";</script>
 <div class='row'>
     <div class='col-sm-12' style='height:100px; text-align:center;'><h2>Is this information correct?</h2></div>
 </div>
