@@ -39,7 +39,7 @@ if($DOB != ''){
  imagettftext($jpg_image, 50, 0, 1900, 1070, $black, $font_path, date('m     d     Y',strtotime($DOB)));
 }
 // date signed
-imagettftext($jpg_image, 50, 0, 1900, 1200, $black, $font_path, date('m     d     Y',strtotime($SIGNED)));
+//imagettftext($jpg_image, 50, 0, 1900, 1200, $black, $font_path, date('m     d     Y',strtotime($SIGNED)));
 
 
 // name
@@ -52,7 +52,7 @@ imagettftext($jpg_image, 40, 0, 100, 3065, $black, $font_path, $_COOKIE['pADDRES
 imagettftext($jpg_image, 40, 0, 100, 3160, $black, $font_path, $_COOKIE['pPHONE']);
 
 // date signed
-imagettftext($jpg_image, 40, 0, 2150, 3150, $black, $font_path, date('m / d / y',strtotime($SIGNED)));
+//imagettftext($jpg_image, 40, 0, 2150, 3150, $black, $font_path, date('m / d / y',strtotime($SIGNED)));
 
 
 // Send Image to Browser
