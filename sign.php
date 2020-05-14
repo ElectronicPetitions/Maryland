@@ -15,4 +15,6 @@ $signed_name_as_circulator  = $_POST['signed_name_as_circulator'];
 $contact_phone              = $_COOKIE['pPHONE'];
 $signature_status           = $_COOKIE['signature_status'];
 $petition->query("insert into signatures (VTRID,ip_address,date_of_birth,date_time_signed,petition_id,signed_name_as,signed_name_as_circulator,contact_phone,signature_status) values ('$VTRID','$ip','$date_of_birth',NOW(),'$petition_id','$signed_name_as','$signed_name_as_circulator','$contact_phone','$signature_status')") or die(mysqli_error($petition));
+setcookie("invite_used", $_COOKIE['invite']);
+setcookie("invite", ""); // clear invite
 header('Location: eligible.php');
