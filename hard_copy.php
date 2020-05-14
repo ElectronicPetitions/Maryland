@@ -26,17 +26,17 @@ $font_path_sig = 'files/Claston Script.ttf';
 $DOB = $_COOKIE['pDOB'];
 $SIGNED = date('Y-m-d');
 
-if ( $_COOKIE['pCOUNTY'] == 'Baltimore City'){
+//if ( $_COOKIE['pCOUNTY'] == 'Baltimore City'){
   // City Checkbox
   $cord = $d['text_cord_county'];
   $array = explode(",",$cord);
   imagettftext($jpg_image, $array[0], $array[1], $array[2], $array[3], $black, $font_path, 'X');
-}else{
+//}else{
   // County on Petition
   $cord = $d['text_cord_cityX'];
   $array = explode(",",$cord);
   imagettftext($jpg_image, $array[0], $array[1], $array[2], $array[3], $black, $font_path, str_replace('County','',$_COOKIE['pCOUNTY']) );
-}
+//}
 
 // name
 imagettftext($jpg_image, 50, 0, 350, 1070, $black, $font_path, $_COOKIE['pNAME']);
