@@ -35,10 +35,14 @@ if ($d['VTRID'] != ''){
    setcookie("signature_status", 'notfound');
    header('Location: warning_not_found.php');
 }
+
+$qX = "select * from website_text where id = '3'";
+ $rX = $petition->query($qX);
+ $dX = mysqli_fetch_array($rX);
 ?>
 <script>document.title = "MEPS - Confirm information";</script>
 <div class='row'>
-    <div class='col-sm-12' style='height:100px; text-align:center;'><h2>Is this information correct?</h2></div>
+    <div class='col-sm-12' style='height:100px; text-align:center;'><h2><?PHP echo $dX['text_title'];?></h2><p><?PHP echo $dX['text_block'];?></p></div>
 </div>
 <div class='row'>
   <div class='col-sm-6' style='height:50px; text-align:center;'>First Name</div><div class='col-sm-6' style='height:50px; text-align:center;'><?PHP echo $FIRSTNAME;?></div>
