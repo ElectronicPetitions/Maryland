@@ -49,7 +49,7 @@ while($d2 = mysqli_fetch_array($r2)){
  $d4 = mysqli_fetch_array($r4);
 if ($d4['id'] > 0){
   $available .= "<div class='row'>
-  <div class='col-sm-2'><a target='_Blank' href='soft_copy.php?id=$d4[id]'>Already Signed - View</a> or <a target='_Blank' href='?remove=$d4[id]'>Remove</a></div>
+  <div class='col-sm-2'></div>
   <div class='col-sm-6'>$d2[petition_name]</div>
   <div class='col-sm-4'>$field == $pass</div>
     </div>"; 
@@ -68,13 +68,7 @@ if ($d4['id'] > 0){
    if($_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name'])){
      $available .= '<script>document.getElementById("form").submit();</script>';
    }
- }else{
-   $checked = '';
-   if($_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name'])){
-     $checked = 'checked';
-   }else{
-     $checked = '';
-   }
+ }
   $available .= "<div class='row'>
   <div class='col-sm-2'><input type='radio' id='petition' name='petition' value='$d2[petition_id]' checked > </div>
   <div class='col-sm-6'>$d2[petition_name]</div>
@@ -125,7 +119,7 @@ if ($d4['id'] > 0){
    ?>
    <div class='row'>
     <div class='col-sm-2'><?PHP echo $d['date_time_signed'];?></div>
-    <div class='col-sm-6'><?PHP echo $d['id'];?> <?PHP echo $d['petition_id'];?></div>
+    <div class='col-sm-6'><a target='_Blank' href='soft_copy.php?id=<?PHP echo $d['id'];?>'>Signed - View</a> or <a target='_Blank' href='?remove=<?PHP echo $d['id'];?>'>Remove</a> <?PHP echo $d['petition_id'];?></div>
     <div class='col-sm-4'><?PHP echo $d['signature_status'];?></div>
   </div>
  <?PHP } ?>
