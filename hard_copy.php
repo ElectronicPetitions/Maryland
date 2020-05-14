@@ -18,7 +18,7 @@ $font_path = 'files/coolvetica rg.ttf';
 $font_path_sig = 'files/Claston Script.ttf';
 
 
-$DOB = '';
+$DOB = $_COOKIE['pDOB'];
 $SIGNED = date('Y-m-d');
 
 if ( $_COOKIE['pCOUNTY'] == 'Baltimore City'){
@@ -43,13 +43,13 @@ imagettftext($jpg_image, 50, 0, 1900, 1200, $black, $font_path, date('m     d   
 
 
 // name
-imagettftext($jpg_image, 40, 0, 60, 2950, $black, $font_path, $_COOKIE['pNAME']);
+imagettftext($jpg_image, 40, 0, 70, 2850, $black, $font_path, $_COOKIE['pNAME']);
 // address
-imagettftext($jpg_image, 40, 0, 60, 3000, $black, $font_path, $_COOKIE['pADDRESS1']);
+imagettftext($jpg_image, 40, 0, 70, 3000, $black, $font_path, $_COOKIE['pADDRESS1']);
 // city state zip
-imagettftext($jpg_image, 40, 0, 60, 3050, $black, $font_path, $_COOKIE['pADDRESS2']);
+imagettftext($jpg_image, 40, 0, 70, 3050, $black, $font_path, $_COOKIE['pADDRESS2']);
 // phone
-imagettftext($jpg_image, 40, 0, 60, 3160, $black, $font_path, $_COOKIE['pPHONE']);
+imagettftext($jpg_image, 40, 0, 70, 3160, $black, $font_path, $_COOKIE['pPHONE']);
 
 // date signed
 imagettftext($jpg_image, 40, 0, 2150, 3150, $black, $font_path, date('m / d / y',strtotime($SIGNED)));
