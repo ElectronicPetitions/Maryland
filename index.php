@@ -5,7 +5,7 @@ if (isset($_GET['invite'])){
 }
 $title = 'MEPS - Are you Registered?';
 if ($_COOKIE['invite'] != ''){
- $title = 'MEPS ('.$_COOKIE['invite'].') - Are you Registered?'; 
+ $title = 'MEPS ('.strtoupper($_COOKIE['invite']).') - Are you Registered?'; 
 }
 include_once('header.php');
 ?>
