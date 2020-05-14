@@ -59,7 +59,7 @@ if ( $COUNTY == 'Baltimore City'){
 // name
 imagettftext($jpg_image, 50, 0, 350, 1070, $black, $font_path, $full_name);
 // signed
-imagettftext($jpg_image, 60, 0, 400, 1180, $black, $font_path_sig, $signed_name_as);
+imagettftext($jpg_image, 70, 0, 400, 1180, $black, $font_path_sig, $signed_name_as);
 // address
 imagettftext($jpg_image, 50, 0, 400, 1300, $black, $font_path, $address);
 
@@ -80,7 +80,7 @@ imagettftext($jpg_image, 40, 0, 100, 3065, $black, $font_path, $_COOKIE['pADDRES
 // phone
 imagettftext($jpg_image, 40, 0, 100, 3160, $black, $font_path, $_COOKIE['pPHONE']);
 // signed
-imagettftext($jpg_image, 40, 0, 1290, 3160, $black, $font_path_sig, $signed_name_as);
+imagettftext($jpg_image, 70, 0, 1290, 3160, $black, $font_path_sig, $signed_name_as);
 // date signed
 imagettftext($jpg_image, 50, 0, 2150, 3160, $black, $font_path, date('m / d / y',strtotime($SIGNED)));
 
