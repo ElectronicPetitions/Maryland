@@ -15,6 +15,7 @@ if (isset($_POST['petition'])){
  die('Error #15'); 
 }
 ?>
+<script>document.title = "MEPS - $d[petition_name]";</script>
 <style>
 @font-face {
     font-family: "myFirstFont";
