@@ -4,9 +4,7 @@ if ($_COOKIE['invite'] != ''){
  $copy = 'MEPS - '.strtoupper($_COOKIE['invite']); 
 }  
 ?>
-<div class='row'>
- <div class='col-sm-12' style='text-align:center;'><div class="sharethis-inline-share-buttons"></div></div>
-</div>
+
 <div class='row'>
  <div class='col-sm-12' style='text-align:center;'> &COPY; 2020 <?PHP echo $copy;?></div>
 </div>
