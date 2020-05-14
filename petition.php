@@ -67,7 +67,7 @@ if (isset($_POST['signed_name_as'])){
       </div>
       <form action='petition.php' method='POST'>
         <div class="modal-body">
-          <?PHP echo $d['petition_sign_text_box'];?>
+          1. <?PHP echo $d['petition_sign_text_box'];?>
           <input name="signed_name_as" type="text" id="myText" onkeyup="addText()">
           <div id="text2" class="sig"></div>
         </div>
@@ -91,7 +91,7 @@ if (isset($_POST['signed_name_as'])){
       </div>
       <form action='sign.php' method='POST'><input type='hidden' value='<?PHP echo $_POST['signed_name_as'];?>' name='signed_name_as'>
         <div class="modal-body">
-          <?PHP echo $d['petition_circulator_text_box'];?>
+          2. <?PHP echo $d['petition_circulator_text_box'];?>
           <input name="signed_name_as_circulator" type="text" id="myTextb" onkeyup="addTextb()">
           <div id="text2b" class="sig"></div>
         </div>
