@@ -28,7 +28,7 @@ $d2 = mysqli_fetch_array($r2);
  $full_name         = "$FIRSTNAME $MIDDLENAME $LASTNAME";
  $address           = "$ADDRESS $RESIDENTIALCITY $RESIDENTIALZIP5";
  
-
+$contact_phone            = $d2['contact_phone'];
 
 // imagettftext ( resource $image , float $size , float $angle , int $x , int $y , int $color , string $fontfile , string $text ) 
 // x how far from left
@@ -72,17 +72,17 @@ imagettftext($jpg_image, 50, 0, 1900, 1200, $black, $font_path, date('m     d   
 
 
 // name
-imagettftext($jpg_image, 40, 0, 50, 3050, $black, $font_path_sig, $signed_name_as);
+imagettftext($jpg_image, 40, 0, 100, 2880, $black, $font_path, $_COOKIE['pNAME']);
 // address
-imagettftext($jpg_image, 40, 0, 50, 3100, $black, $font_path_sig, $ADDRESS);
+imagettftext($jpg_image, 40, 0, 100, 2975, $black, $font_path, $_COOKIE['pADDRESS1']);
 // city state zip
-imagettftext($jpg_image, 40, 0, 50, 3120, $black, $font_path_sig, "$RESIDENTIALCITY MD $RESIDENTIALZIP5");
+imagettftext($jpg_image, 40, 0, 100, 3065, $black, $font_path, $_COOKIE['pADDRESS2']);
 // phone
-imagettftext($jpg_image, 40, 0, 50, 3150, $black, $font_path_sig, '111-222-3333');
+imagettftext($jpg_image, 40, 0, 100, 3160, $black, $font_path, $_COOKIE['pPHONE']);
 // signed
-imagettftext($jpg_image, 40, 0, 1290, 3150, $black, $font_path_sig, $signed_name_as);
+imagettftext($jpg_image, 40, 0, 1290, 3160, $black, $font_path_sig, $signed_name_as);
 // date signed
-imagettftext($jpg_image, 40, 0, 2150, 3150, $black, $font_path, date('m / d / y',strtotime($SIGNED)));
+imagettftext($jpg_image, 50, 0, 2150, 3160, $black, $font_path, date('m / d / y',strtotime($SIGNED)));
 
 
 
