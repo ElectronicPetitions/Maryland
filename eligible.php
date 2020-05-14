@@ -37,8 +37,6 @@ if (isset($_GET['remove'])){
 echo $head;
 
 
-
-
 $available='';
 $q2 = "SELECT * FROM petitions";
 $r2 = $petition->query($q2);
@@ -48,7 +46,7 @@ while($d2 = mysqli_fetch_array($r2)){
  $q4 = "select * from signatures where VTRID = '$VTRID' and petition_id = '$d2[petition_id]' )";
  $r4 = $petition->query($q4);
  $d4 = mysqli_fetch_array($r4);
- if ($d4['id'] > 0){
+if ($d4['id'] > 0){
   $available .= "<div class='row'>
   <div class='col-sm-2'><a target='_Blank' href='soft_copy.php?id=$d4[id]'>Already Signed - View</a> or <a target='_Blank' href='?remove=$d4[id]'>Remove</a></div>
   <div class='col-sm-6'><del>$d2[petition_name]</del></div>
@@ -103,6 +101,33 @@ while($d2 = mysqli_fetch_array($r2)){
   <div class='row'>
     <div class='col-sm-12' style='height:100px; text-align:center;'><button type="submit" class="btn btn-success">Next</button><div>
   </div>
+      
+      
+<?PHP if ($VTRID != ''){ ?>
+  <div class='row'>
+    <div class='col-sm-12' style='height:100px; text-align:center;'><h2>Petition History</h2></div>
+  </div>
+      
+      
+   <div class='row'>
+    <div class='col-sm-2'><h3>Date</h3></div>
+    <div class='col-sm-6'><h3>Petition Name</h3></div>
+    <div class='col-sm-4'><h3>Status</h3></div>
+  </div>
+ 
+<?PHP 
+ $q4 = "select * from signatures where VTRID = '$VTRID' )";
+ $r4 = $petition->query($q4);
+ while($d4 = mysqli_fetch_array($r4)){
+   ?>
+   <div class='row'>
+    <div class='col-sm-2'><?PHP echo $d['date_time_signed'];?></div>
+    <div class='col-sm-6'><?PHP echo $d['id'];?> <?PHP echo $d['petition_id'];?></div>
+    <div class='col-sm-4'><?PHP echo $d['signature_status'];?></div>
+  </div>
+ <?PHP } ?>
+      
+    <?PHP } ?>  
       
 </form>
 
