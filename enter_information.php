@@ -58,7 +58,7 @@ include_once('header.php');
 <script>document.title = "MEPS - Enter Information";</script>
 <form method='POST'>
   <div class='row'>
-    <div class='col-sm-12' style='height:100px; text-align:center;'><h3><?PHP echo $dX['text_title'];?></h3><p><?PHP echo $dX['text_block'];?></p></div>
+    <div class='col-sm-12' style='height:100px; text-align:center;'><h2><?PHP echo $dX['text_title'];?></h2><p><?PHP echo $dX['text_block'];?></p></div>
   </div>
   <div class='row'>
     <div class='col-sm-4' style='height:50px; text-align:center;'><h3>First Name</h3></div>
