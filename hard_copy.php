@@ -30,7 +30,7 @@ $SIGNED = date('Y-m-d');
   // City Checkbox
   $cord = $d['text_cord_cityX'];
   $array = explode(",",$cord);
-  $debug = "$cord : $array[0]";
+  $debug = "$id : $cord : $array[0]";
   imagettftext($jpg_image, $array[0], $array[1], $array[2], $array[3], $black, $font_path, 'X');
 //}else{
   // County on Petition
