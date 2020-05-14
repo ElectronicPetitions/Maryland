@@ -106,7 +106,7 @@ if ($d4['id'] > 0){
   </div>
       
       
-<?PHP if ($VTRID != ''){ ?>
+<?PHP /* if ($VTRID != ''){ ?>
   <div class='row'>
     <div class='col-sm-12' style='height:100px; text-align:center;'><h2>Petition History</h2></div>
   </div>
@@ -130,7 +130,8 @@ if ($d4['id'] > 0){
   </div>
  <?PHP } ?>
       
-    <?PHP } ?>  
+    <?PHP } */ 
+      ?>  
       
 </form>
 
