@@ -25,7 +25,9 @@ if ($_GET['debug'] == 'off'){
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <title>MEPS - Maryland Eletronic Petition Software</title>
-  <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5ebd8dd47db58d0012e95fef&product=inline-share-buttons" async="async"></script>
+  
+  <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5ebd8dd47db58d0012e95fef&product=inline-share-buttons&cms=website' async='async'></script>
+  
 </head>
 <body>
   <div class="container">
