@@ -15,7 +15,6 @@ $q = "select * from VoterList where LASTNAME = '$web_last_name' and FIRSTNAME = 
 $r = $petition->query($q);
 $d = mysqli_fetch_array($r);
 if ($d['VTRID'] != ''){
-    = '';
    $VTRID      = $d['VTRID'];
    $FIRSTNAME  = $d['FIRSTNAME'];
    $MIDDLENAME = $d['MIDDLENAME'];
