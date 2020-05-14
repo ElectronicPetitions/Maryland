@@ -52,6 +52,7 @@ if (isset($_POST['web_first_name'])){
 }
 include_once('header.php');
 ?>
+<script>document.title = "MEPS - Enter Information";</script>
 <form method='POST'>
   <div class='row'>
     <div class='col-sm-12' style='height:100px; text-align:center;'><h3>Please enter your Name and ZIP Code as it appears on your Maryland Voter Registration</h3></div>
