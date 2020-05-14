@@ -43,13 +43,13 @@ imagettftext($jpg_image, 50, 0, 1900, 1200, $black, $font_path, date('m     d   
 
 
 // name
-imagettftext($jpg_image, 40, 0, 90, 2890, $black, $font_path, $_COOKIE['pNAME']);
+imagettftext($jpg_image, 40, 0, 100, 2880, $black, $font_path, $_COOKIE['pNAME']);
 // address
-imagettftext($jpg_image, 40, 0, 90, 2990, $black, $font_path, $_COOKIE['pADDRESS1']);
+imagettftext($jpg_image, 40, 0, 100, 2970, $black, $font_path, $_COOKIE['pADDRESS1']);
 // city state zip
-imagettftext($jpg_image, 40, 0, 90, 3060, $black, $font_path, $_COOKIE['pADDRESS2']);
+imagettftext($jpg_image, 40, 0, 100, 3070, $black, $font_path, $_COOKIE['pADDRESS2']);
 // phone
-imagettftext($jpg_image, 40, 0, 90, 3160, $black, $font_path, $_COOKIE['pPHONE']);
+imagettftext($jpg_image, 40, 0, 100, 3160, $black, $font_path, $_COOKIE['pPHONE']);
 
 // date signed
 imagettftext($jpg_image, 40, 0, 2150, 3150, $black, $font_path, date('m / d / y',strtotime($SIGNED)));
