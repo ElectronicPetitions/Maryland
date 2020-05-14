@@ -85,6 +85,7 @@ while($d2 = mysqli_fetch_array($r2)){
  }
 }
 ?>
+<script>document.title = "MEPS - Select Petition";</script>
 <form method='POST' action='petition.php' id='form'>
   
   <div class='row'>
