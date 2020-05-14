@@ -41,6 +41,7 @@ $available='';
 $q2 = "SELECT * FROM petitions";
 $r2 = $petition->query($q2);
 while($d2 = mysqli_fetch_array($r2)){
+ $checked = '';
  $field = $d2['eligibleVoterListField'];
  $pass = $d2['eligibleVoterListEquals'];
  $q4 = "select * from signatures where VTRID = '$VTRID' and petition_id = '$d2[petition_id]' )";
