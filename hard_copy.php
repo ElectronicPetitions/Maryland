@@ -8,7 +8,8 @@
 header('Content-type: image/jpeg');
 
 // Create Image From Existing File -- going to have to make this a reqired size??? 2550x3300
-$jpg_image = imagecreatefromjpeg('files/Green-Party-petition-1-page-001.jpg');
+$JPG = $_COOKIE['pJPG'];
+$jpg_image = imagecreatefromjpeg($JPG);
 
 // Allocate A Color For The Text
 $black = imagecolorallocate($jpg_image, 0, 0, 0);
