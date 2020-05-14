@@ -1,5 +1,5 @@
 <?PHP include_once('header.php');  ?>
-
+<script>document.title = "MEPS - How to Register?";</script>
 <div class='col-sm-12' style='height:75px; text-align:center;'><h2>You must be a registered voter in the State of Maryland to sign this petition.</h2></div>
 
 <div class='col-sm-12' style='height:75px; text-align:center;'><h3>If you are eligible</h3></div>
