@@ -30,6 +30,7 @@ if (isset($_POST['petition'])){
 if (isset($_POST['signed_name_as'])){
 ?>
 <script>
+   window.scrollTo(0,document.body.scrollHeight);
    $(document).ready(function(){   
      window.scrollTo(0,document.body.scrollHeight);
      $('#exampleModalLower').modal('show');
