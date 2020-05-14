@@ -4,7 +4,7 @@
 // y how far from top
 include_once('/var/www/secure.php'); 
 $id = $_COOKIE['pID'];
-$q = "select * from petitions where id = '$id'";
+$q = "select * from petitions where petition_id = '$id'";
 $r = $petition->query($q);
 $d = mysqli_fetch_array($r);
 
@@ -40,8 +40,8 @@ $SIGNED = date('Y-m-d');
 //}
 
 // name
-//imagettftext($jpg_image, 50, 0, 350, 1070, $black, $font_path, $_COOKIE['pNAME']);
-imagettftext($jpg_image, 50, 0, 350, 1070, $black, $font_path, $debug);
+imagettftext($jpg_image, 50, 0, 350, 1070, $black, $font_path, $_COOKIE['pNAME']);
+//imagettftext($jpg_image, 50, 0, 350, 1070, $black, $font_path, $debug);
 
 // address
 imagettftext($jpg_image, 50, 0, 400, 1300, $black, $font_path,  $_COOKIE['pADDRESS']);
