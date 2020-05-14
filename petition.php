@@ -15,7 +15,7 @@ if (isset($_POST['petition'])){
  die('Error #15'); 
 }
 ?>
-<script>document.title = "MEPS - Sign $d[petition_name]";</script>
+<script>document.title = "MEPS - Sign <?PHP echo $d['petition_name'];?>";</script>
 <style>
 @font-face {
     font-family: "myFirstFont";
