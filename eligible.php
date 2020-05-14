@@ -124,9 +124,9 @@ if ($d4['id'] > 0){
  while($d4 = mysqli_fetch_array($r4)){
    ?>
    <div class='row'>
-    <div class='col-sm-2'><?PHP echo $d['date_time_signed'];?></div>
-    <div class='col-sm-6'><a target='_Blank' href='soft_copy.php?id=<?PHP echo $d['id'];?>'>Signed - View</a> or <a target='_Blank' href='?remove=<?PHP echo $d['id'];?>'>Remove</a> <?PHP echo $d['petition_id'];?></div>
-    <div class='col-sm-4'><?PHP echo $d['signature_status'];?></div>
+    <div class='col-sm-2'><?PHP echo $d4['date_time_signed'];?></div>
+    <div class='col-sm-6'><a target='_Blank' href='soft_copy.php?id=<?PHP echo $d4['id'];?>'>Signed - View</a> or <a target='_Blank' href='?remove=<?PHP echo $d4['id'];?>'>Remove</a> <?PHP echo $d4['petition_id'];?></div>
+    <div class='col-sm-4'><?PHP echo $d4['signature_status'];?></div>
   </div>
  <?PHP } ?>
       
