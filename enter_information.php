@@ -81,10 +81,8 @@ include_once('header.php');
     <div class='col-sm-4' style='height:50px; text-align:center;'><input name='contact_phone' type='tel'> </div>
   </div>
   <div class='row'>
-    <div class='col-sm-12' style='height:50px; text-align:center;'><button type="submit" class="btn btn-success">Next</button></div>
-  </div>
-  <div class='row'>
-    <div class='col-sm-12' style='height:50px; text-align:center;'><button type="reset" class="btn btn-warning">Clear</button></div>
+    <div class='col-sm-6' style='height:50px; text-align:center;'><button type="reset" class="btn btn-warning btn-lg btn-block">Clear</button></div>
+    <div class='col-sm-6' style='height:50px; text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">Next</button></div>
   </div>
 </form>
 <?PHP include_once('footer.php');
