@@ -50,7 +50,7 @@ if (isset($_POST['email']) && isset($_POST['password'])){
   		</tr>
   		<tr>	
   			<td>&nbsp;</td>
-  			<td><input type="submit" name="loginGo" value="Log In"  /></td>
+			<td><input type="submit" name="loginGo" value="Log In"  /> or <a href='reset.php'>Reset Password</a></td>
   		</tr>
   	</table>	
   </form>
