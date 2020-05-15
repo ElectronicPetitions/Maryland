@@ -4,12 +4,6 @@ if ($_COOKIE['invite'] != ''){
  $copy = 'MEPS - '.strtoupper($_COOKIE['invite']); 
 }  
 ?>
-
-<div class='row'>
- <div class='col-sm-12' style='text-align:center;'> &COPY; 2020 <?PHP echo $copy;?></div>
-</div>
-
-
   <meta property="og:url"           content="http://md-petition.com/index.php" />
   <meta property="og:type"          content="website" />
   <meta property="og:title"         content="Maryland Electronic Petition Software" />
@@ -27,34 +21,6 @@ if ($_COOKIE['invite'] != ''){
   }(document, 'script', 'facebook-jssdk'));</script>
 
 
-<div class='row'>
- <div class='col-sm-3' style='text-align:center;'> Share MGP
-  <div class="fb-share-button" 
-     data-href="http://md-petition.com/index.php?invite=MGP" 
-     data-layout="button_count">
-   </div>
- </div>
- <div class='col-sm-3' style='text-align:center;'> Share MLP 
-  <div class="fb-share-button" 
-     data-href="http://md-petition.com/index.php?invite=MLP" 
-     data-layout="button_count">
-   </div>
- </div>
- <div class='col-sm-3' style='text-align:center;'> Share BTEC
-  <div class="fb-share-button" 
-     data-href="http://md-petition.com/index.php?invite=BTEC" 
-     data-layout="button_count">
-   </div>
- </div>
- <div class='col-sm-3' style='text-align:center;'> Share PJ
-  <div class="fb-share-button" 
-     data-href="http://md-petition.com/index.php?invite=PJ" 
-     data-layout="button_count">
-   </div>
- </div>
-</div>
-
-
   <div class='col-sm-12' style='text-align:center;'>
    <?PHP if($_COOKIE['debug'] == 'on'){ ?> 
     <pre><?PHP print_r($_GET); ?></pre>
@@ -69,7 +35,21 @@ if ($_COOKIE['invite'] != ''){
 
 
 <footer class="site-footer">
-  Moving footer html here...
+ <center>&COPY; 2020 <?PHP echo $copy;?>< br>
+ <table><tr>
+ <?PHP
+ $q2 = "SELECT * FROM petitions";
+ $r2 = $petition->query($q2);
+ while($d2 = mysqli_fetch_array($r2)){
+  echo "<td>Share $d2[petition_name]<br>
+  <div class=\"fb-share-button\" 
+     data-href=\"http://md-petition.com/index.php?invite=$d2[web_short_name]\" 
+     data-layout=\"button_count\">
+   </div></td>";
+ }
+  ?></tr>
+ </table>
+ </center>
 </footer>
 
 
