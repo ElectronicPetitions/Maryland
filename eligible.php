@@ -48,10 +48,10 @@ while($d2 = mysqli_fetch_array($r2)){
  $r4 = $petition->query($q4);
  $d4 = mysqli_fetch_array($r4);
 if ($d4['id'] > 0){
-  $available .= "<div class='row'>
-  <div class='col-sm-2'><a target='_Blank' href='soft_copy.php?id=$d4[id]'>Already Signed - View</a> or <a href='?remove=$d4[id]'>Remove</a></div>
+  $available .= "<div class='row' style='background-color:yellow;>
+  <div class='col-sm-3'><a target='_Blank' href='soft_copy.php?id=$d4[id]'>Already Signed - View</a> or <a href='?remove=$d4[id]'>Remove</a></div>
   <div class='col-sm-6'>$d2[petition_name]</div>
-  <div class='col-sm-4'>$field == $pass</div>
+  <div class='col-sm-3'>$field == $pass</div>
     </div>"; 
  }elseif($d[$field] == $pass){
   $checked = ''; 
@@ -60,10 +60,10 @@ if ($d4['id'] > 0){
    }else{
      $checked = '';
    }
-  $available .= "<div class='row'>
-  <div class='col-sm-2'><input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked> </div>
+  $available .= "<div class='row' style='background-color:green;>
+  <div class='col-sm-3'><input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked> </div>
   <div class='col-sm-6'>$d2[petition_name]</div>
-  <div class='col-sm-4'>$field == $pass</div>
+  <div class='col-sm-3'>$field == $pass</div>
     </div>";
    if($_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name'])){
      $available .= '<script>document.getElementById("form").submit();</script>';
@@ -75,10 +75,10 @@ if ($d4['id'] > 0){
    }else{
      $checked = '';
    }
-  $available .= "<div class='row'>
-  <div class='col-sm-2'><input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked > </div>
+  $available .= "<div class='row' style='background-color:orange;'>
+  <div class='col-sm-3'><input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked > </div>
   <div class='col-sm-6'>$d2[petition_name]</div>
-  <div class='col-sm-4'>$field != $pass</div>
+  <div class='col-sm-3'>$field != $pass</div>
     </div>"; 
    if($_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name'])){
      $available .= '<script>document.getElementById("form").submit();</script>';
