@@ -26,7 +26,7 @@ if(isset($_POST['email'])){
 		</tr>
 		<tr>	
 			<td>&nbsp;</td>
-			<td><input type="submit" name="resetGo" value="Reset Password"></td>
+			<td><input type="submit" name="resetGo" value="Reset Password"> or <a href='login.php'>Login Here</a></td>
 		</tr>
 	</tbody></table>	
 </form>
