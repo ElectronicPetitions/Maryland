@@ -64,8 +64,8 @@ if ($_COOKIE['invite'] != ''){
   </div>
 
 
-</div>
-
+</div><!-- close container -->
+</div><!-- close page for footer -->
 
 
 <footer class="site-footer">
