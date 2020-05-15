@@ -61,10 +61,11 @@ if ($d4['id'] > 0){
      $checked = '';
    }
   $available .= "<div class='row' style='background-color:lightgreen;'>
-  <div class='col-sm-3'><input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked onClick(\"document.getElementById('form').submit()\")> </div>
+  <div class='col-sm-3'><input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked > </div>
   <div class='col-sm-6'>$d2[petition_name]</div>
   <div class='col-sm-3'>$field == $pass</div>
     </div>";
+  
    if($_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name'])){
      $available .= '<script>document.getElementById("form").submit();</script>';
    }
@@ -76,7 +77,7 @@ if ($d4['id'] > 0){
      $checked = '';
    }
   $available .= "<div class='row' style='background-color:#ffcccb;'>
-  <div class='col-sm-3'><input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked onClick(\"document.getElementById('form').submit()\")> </div>
+  <div class='col-sm-3'><?PHP if ($d2['eligibleVoterListEnforce'] == 'NO'){ ?><input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked > <?PHP } ?></div>
   <div class='col-sm-6'>$d2[petition_name]</div>
   <div class='col-sm-3'>$field != $pass</div>
     </div>"; 
