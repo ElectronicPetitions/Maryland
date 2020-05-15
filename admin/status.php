@@ -4,7 +4,7 @@ include_once('header.php');
 ?>
 <meta http-equiv="refresh" content="60">
   <?PHP
-  $expected = 4194252 - 1; // old data file...
+  $expected = 4313592; // old data file...
   if ($result = $petition->query("SELECT VTRID FROM VoterList")) {
     $row_cnt = $result->num_rows;
     $c = $row_cnt / $expected;
