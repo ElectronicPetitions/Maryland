@@ -48,7 +48,7 @@ while($d2 = mysqli_fetch_array($r2)){
  $r4 = $petition->query($q4);
  $d4 = mysqli_fetch_array($r4);
 if ($d4['id'] > 0){
-  $available .= "<div class='row' style='background-color:yellow;>
+  $available .= "<div class='row' style='background-color:yellow;'>
   <div class='col-sm-3'><a target='_Blank' href='soft_copy.php?id=$d4[id]'>Already Signed - View</a> or <a href='?remove=$d4[id]'>Remove</a></div>
   <div class='col-sm-6'>$d2[petition_name]</div>
   <div class='col-sm-3'>$field == $pass</div>
@@ -60,7 +60,7 @@ if ($d4['id'] > 0){
    }else{
      $checked = '';
    }
-  $available .= "<div class='row' style='background-color:green;>
+  $available .= "<div class='row' style='background-color:green;'>
   <div class='col-sm-3'><input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked> </div>
   <div class='col-sm-6'>$d2[petition_name]</div>
   <div class='col-sm-3'>$field == $pass</div>
