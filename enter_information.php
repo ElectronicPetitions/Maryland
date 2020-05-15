@@ -76,9 +76,9 @@ include_once('header.php');
     <div class='col-sm-4' style='height:50px; text-align:center;'><h3>Phone Number</h3></div>
   </div>
   <div class='row'>
-    <div class='col-sm-4' style='height:50px; text-align:center;'><input name='web_house_number'> </div>
-    <div class='col-sm-4' style='height:50px; text-align:center;'><input name='web_zip_code'> </div>
-    <div class='col-sm-4' style='height:50px; text-align:center;'><input name='contact_phone'> </div>
+    <div class='col-sm-4' style='height:50px; text-align:center;'><input name='web_house_number' type='number'> </div>
+    <div class='col-sm-4' style='height:50px; text-align:center;'><input name='web_zip_code' type='number'> </div>
+    <div class='col-sm-4' style='height:50px; text-align:center;'><input name='contact_phone' type='tel'> </div>
   </div>
   <div class='row'>
     <div class='col-sm-12' style='height:50px; text-align:center;'><button type="submit" class="btn btn-success">Next</button></div>
