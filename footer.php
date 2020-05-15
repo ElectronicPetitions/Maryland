@@ -28,21 +28,27 @@ if ($_COOKIE['invite'] != ''){
 
 
 <div class='row'>
- <div class='col-sm-4' style='text-align:center;'> Share MGP
+ <div class='col-sm-3' style='text-align:center;'> Share MGP
   <div class="fb-share-button" 
      data-href="http://md-petition.com/index.php?invite=MGP" 
      data-layout="button_count">
    </div>
  </div>
- <div class='col-sm-4' style='text-align:center;'> Share MLP 
+ <div class='col-sm-3' style='text-align:center;'> Share MLP 
   <div class="fb-share-button" 
      data-href="http://md-petition.com/index.php?invite=MLP" 
      data-layout="button_count">
    </div>
  </div>
- <div class='col-sm-4' style='text-align:center;'> Share BTEC
+ <div class='col-sm-3' style='text-align:center;'> Share BTEC
   <div class="fb-share-button" 
      data-href="http://md-petition.com/index.php?invite=BTEC" 
+     data-layout="button_count">
+   </div>
+ </div>
+ <div class='col-sm-3' style='text-align:center;'> Share PJ
+  <div class="fb-share-button" 
+     data-href="http://md-petition.com/index.php?invite=PJ" 
      data-layout="button_count">
    </div>
  </div>
