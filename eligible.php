@@ -95,9 +95,9 @@ if ($d4['id'] > 0){
   </div>
 
   <div class='row'>
-    <div class='col-sm-2'><h3>Pick One</h3></div>
+    <div class='col-sm-3'><h3>Pick One</h3></div>
     <div class='col-sm-6'><h3>Petition Name</h3></div>
-    <div class='col-sm-4'><h3>Requirements</h3></div>
+    <div class='col-sm-3'><h3>Requirements</h3></div>
   </div>
 
   <?PHP echo $available;?>
