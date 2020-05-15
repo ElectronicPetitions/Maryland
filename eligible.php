@@ -89,9 +89,13 @@ if ($d4['id'] > 0){
 ?>
 <script>document.title = "MEPS - Select Petition";</script>
 <form method='POST' action='petition.php' id='form'>
-  
+ <?PHP
+ $q = "select * from website_text where id = '7'";
+ $r = $petition->query($q);
+ $d = mysqli_fetch_array($r);
+ ?>
   <div class='row'>
-    <div class='col-sm-12' style='height:100px; text-align:center;'><h2>Active Petitions and Eligiblity Requirements to Sign.</h2></div>
+    <div class='col-sm-12' style='height:100px; text-align:center;'><h2><?PHP echo $d['text_title'];?></h2><p><?PHP echo $d['text_block'];?></p></div>
   </div>
 
   <div class='row'>
