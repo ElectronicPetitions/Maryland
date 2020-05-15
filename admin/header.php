@@ -20,7 +20,14 @@
   <div class="container">
     <ul class="nav nav-pills">
       <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/admin/index.php'){ echo "class='active'"; } ?> ><a href="index.php">Admin Home</a></li>
-     
+      <?PHP if ($_COOKIE['level'] == 'admin'){  include_once('menu_admin.php'); } ?>
+      <?PHP if ($_COOKIE['level'] == 'manager' || $_COOKIE['level'] == 'admin'){  include_once('menu_manager.php'); } ?>
+      <?PHP if ($_COOKIE['level'] == 'user' || $_COOKIE['level'] == 'manager' || $_COOKIE['level'] == 'admin'){  include_once('menu_user.php'); } ?>
+      <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/admin/logout.php'){ echo "class='active'"; } ?> ><a href="logout.php">Log Out</a></li>	
+
+
+      
+      
        <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/admin/manage_petitions.php'){ echo "class='active'"; } ?> ><a href="manage_petitions.php">Manage Petitions</a></li>
       
       <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/admin/status.php'){ echo "class='active'"; } ?> ><a href="status.php">Voter Data File Status</a></li>
@@ -44,7 +51,7 @@
       
       
       
-      <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/MarylandElectronicPetitionSignature/admin/logout.php'){ echo "class='active'"; } ?> ><a href="logout.php">Log Out</a></li>
+     
     
 
 
