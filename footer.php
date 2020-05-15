@@ -36,12 +36,12 @@ if ($_COOKIE['invite'] != ''){
 
 <footer class="site-footer">
  <center>&COPY; 2020 <?PHP echo $copy;?>
- <table border="1" cellpadding="0" cellspacing="0"><tr>
+ <table border="1" cellpadding="2" cellspacing="0"><tr>
  <?PHP
  $q2 = "SELECT * FROM petitions";
  $r2 = $petition->query($q2);
  while($d2 = mysqli_fetch_array($r2)){
-  echo "<td><small>$d2[petition_name]<small><br>
+  echo "<td align='center'><small>$d2[petition_name]<small><br>
   <div class=\"fb-share-button\" 
      data-href=\"http://md-petition.com/index.php?invite=$d2[web_short_name]\" 
      data-layout=\"button_count\">
