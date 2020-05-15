@@ -107,7 +107,7 @@ if ($d4['id'] > 0){
   <?PHP echo $available;?>
 
   <div class='row'>
-    <div class='col-sm-12' style='height:100px; text-align:center;'><button type="submit" class="btn btn-success">Next</button><div>
+    <div class='col-sm-12' style='height:100px; text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">Next</button><div>
   </div>
       
      
