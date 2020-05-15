@@ -61,7 +61,7 @@ if ($d4['id'] > 0){
      $checked = '';
    }
   $available .= "<div class='row' style='background-color:lightgreen;'>
-  <div class='col-sm-3'><input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked onclick('document.getElementById(\"form\").submit()')> </div>
+  <div class='col-sm-3'><input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked onClick(\"document.getElementById('form').submit()\")> </div>
   <div class='col-sm-6'>$d2[petition_name]</div>
   <div class='col-sm-3'>$field == $pass</div>
     </div>";
@@ -75,8 +75,8 @@ if ($d4['id'] > 0){
    }else{
      $checked = '';
    }
-  $available .= "<div class='row' style='background-color:lightorange;'>
-  <div class='col-sm-3'><input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked onclick('document.getElementById(\"form\").submit()')> </div>
+  $available .= "<div class='row' style='background-color:#ffcccb;'>
+  <div class='col-sm-3'><input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked onClick(\"document.getElementById('form').submit()\")> </div>
   <div class='col-sm-6'>$d2[petition_name]</div>
   <div class='col-sm-3'>$field != $pass</div>
     </div>"; 
