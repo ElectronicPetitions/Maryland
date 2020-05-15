@@ -61,35 +61,15 @@ if ($_COOKIE['invite'] != ''){
     <pre><?PHP print_r($_POST); ?></pre> 
     <pre><?PHP print_r($_COOKIE); ?></pre>
    <?PHP } ?>
-</div>
- </div>
+  </div>
 
-<style>
- * {
-  margin: 0;
-}
-html, body {
-  height: 100%;
-}
-.page-wrap {
-  min-height: 100%;
-  /* equal to footer height */
-  margin-bottom: -142px; 
-}
-.page-wrap:after {
-  content: "";
-  display: block;
-}
-.site-footer, .page-wrap:after {
-  height: 142px; 
-}
-.site-footer {
-  background: lightblue;
-}
-</style>
+
+</div>
+
+
 
 <footer class="site-footer">
-  I'm the Sticky Footer.
+  Moving footer html here...
 </footer>
 
 
