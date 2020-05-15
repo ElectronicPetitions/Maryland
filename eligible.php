@@ -77,7 +77,7 @@ if ($d4['id'] > 0){
      $checked = '';
    }
   $available .= "<div class='row' style='background-color:#ffcccb;'>
-  <div class='col-sm-3'>"; if ($d2['eligibleVoterListEnforce'] == 'NO'){ $available .="<input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked >"; } $available .= "</div>
+  <div class='col-sm-3'>"; if ($d2['eligibleVoterListEnforce'] == 'NO'){ $available .="<input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked >"; }else{ $available .= "Constituents Only"; } $available .= "</div>
   <div class='col-sm-6'>$d2[petition_name]</div>
   <div class='col-sm-3'>$field != $pass</div>
     </div>"; 
@@ -106,33 +106,7 @@ if ($d4['id'] > 0){
     <div class='col-sm-12' style='height:100px; text-align:center;'><button type="submit" class="btn btn-success">Next</button><div>
   </div>
       
-      
-<?PHP /* if ($VTRID != ''){ ?>
-  <div class='row'>
-    <div class='col-sm-12' style='height:100px; text-align:center;'><h2>Petition History</h2></div>
-  </div>
-      
-      
-   <div class='row'>
-    <div class='col-sm-2'><h3>Date</h3></div>
-    <div class='col-sm-6'><h3>Petition Name</h3></div>
-    <div class='col-sm-4'><h3>Status</h3></div>
-  </div>
- 
-<?PHP 
- $q4 = "select * from signatures where VTRID = '$VTRID' and signature_status <> 'removed'";
- $r4 = $petition->query($q4);
- while($d4 = mysqli_fetch_array($r4)){
-   ?>
-   <div class='row'>
-    <div class='col-sm-2'><?PHP echo $d4['date_time_signed'];?></div>
-    <div class='col-sm-6'><a target='_Blank' href='soft_copy.php?id=<?PHP echo $d4['id'];?>'>Signed - View</a> or <a href='?remove=<?PHP echo $d4['id'];?>'>Remove</a> <?PHP echo $d4['petition_id'];?></div>
-    <div class='col-sm-4'><?PHP echo $d4['signature_status'];?></div>
-  </div>
- <?PHP } ?>
-      
-    <?PHP } */ 
-      ?>  
+     
       
 </form>
 
