@@ -77,7 +77,7 @@ if ($d4['id'] > 0){
      $checked = '';
    }
   $available .= "<div class='row' style='background-color:#ffcccb;'>
-  <div class='col-sm-3'><?PHP if ($d2['eligibleVoterListEnforce'] == 'NO'){ ?><input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked > <?PHP } ?></div>
+  <div class='col-sm-3'>"; if ($d2['eligibleVoterListEnforce'] == 'NO'){ $available .="<input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked >"; } $available .= "</div>
   <div class='col-sm-6'>$d2[petition_name]</div>
   <div class='col-sm-3'>$field != $pass</div>
     </div>"; 
