@@ -11,7 +11,6 @@ $d = mysqli_fetch_array($r);
 $q2 = "SELECT * FROM petitions";
 $r2 = $petition->query($q2);
 while($d2 = mysqli_fetch_array($r2)){
-  echo "<li><a target='_Blank' href='http://md-petition.com/?invite=$d2[web_short_name]'>http://md-petition.com/?invite=$d2[web_short_name]</a></li>";
+  echo "<li>$d2[petition_name]: <a target='_Blank' href='http://md-petition.com/?invite=$d2[web_short_name]'>http://md-petition.com/?invite=$d2[web_short_name]</a></li>";
 }
-
 include_once('footer.php');
