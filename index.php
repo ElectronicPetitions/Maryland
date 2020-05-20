@@ -8,7 +8,7 @@ if ($_COOKIE['invite'] != ''){
  $title = 'MEPS ('.strtoupper($_COOKIE['invite']).') - Are you Registered?'; 
 }
 include_once('header.php');
-
+slack_general('Home Page Loaded','md-petition');
  $q = "select * from website_text where id = '1'";
  $r = $petition->query($q);
  $d = mysqli_fetch_array($r);
