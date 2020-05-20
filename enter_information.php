@@ -51,6 +51,7 @@ if (isset($_POST['web_first_name'])){
   header('Location: is_the_information_correct.php');
 }
 include_once('header.php');
+slack_general('Entering Information','md-petition');
  $qX = "select * from website_text where id = '2'";
  $rX = $petition->query($qX);
  $dX = mysqli_fetch_array($rX);
