@@ -1,5 +1,7 @@
 <?PHP
 include_once('/var/www/secure.php'); 
+include_once('../slack.php'); 
+
 function check_user($email,$pass){
 		global $petition;
 		$res = $petition->query("SELECT * FROM users WHERE email = '$email'");
@@ -18,15 +20,19 @@ function check_user($email,$pass){
 				setcookie("group_id", $user['group_id']);
 				header('Location: index.php');
 			}else{
+				slack_general('ADMIN: Wrong Password','md-petition');
 				return "Wrong Password.";
 			}
 		}else{
+			slack_general('ADMIN: E-Mail Address Not Found','md-petition');
 			return "E-Mail Address Not Found.";
 		}
 	}
 
 if (isset($_POST['email']) && isset($_POST['password'])){
   $message =  check_user($_POST['email'],$_POST['password']);
+}else{
+	slack_general('ADMIN: Login Page Loaded','md-petition');	
 }
 
 ?>
