@@ -27,7 +27,7 @@ while($d = mysqli_fetch_array($r)){
 ?>
 
 
-<h1>New Manager</h1>
+<h1>New Group</h1>
 <form method='post'>
   group name <input name='name' required>
   <input type='submit'>
