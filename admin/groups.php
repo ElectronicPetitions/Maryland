@@ -10,7 +10,7 @@ if ($_COOKIE['level'] == 'manager'){
   header('Location: manager_home.php');
 }
 include_once('header.php');
-if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['group_id']) ){
+if(isset($_POST['name'])){
   $name = $petition->real_escape_string($_POST['name']);
   $petition->query("insert into groups (name) values ('$name') ");
 }
