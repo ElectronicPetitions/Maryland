@@ -14,7 +14,7 @@ $group_id = $_COOKIE['group_id'];
 $q="SELECT * FROM users where sec_level = 'manager' and group_id = '$group_id'";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
- echo "<li>$d[id] $d[email] $d[name]</li>"; 
+ echo "<li>$d[email] $d[name]</li>"; 
 }
 ?>
 <h1>Users</h1>
@@ -22,7 +22,7 @@ while($d = mysqli_fetch_array($r)){
 $q="SELECT * FROM users where sec_level = 'user' and group_id = '$group_id'";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
- echo "<li>$d[id] $d[email] $d[name]</li>"; 
+ echo "<li>$d[email] $d[name]</li>"; 
 }
 ?>
 
@@ -31,13 +31,8 @@ while($d = mysqli_fetch_array($r)){
 $q="SELECT * FROM petitions where group_id = '$group_id'";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
- echo "<li>$d[petition_id] $d[web_short_name] $d[web_color] $d[group_id] $d[petition_name] $d[eligibleVoterListField] $d[eligibleVoterListEquals] $d[eligibleVoterListEnforce]</li>"; 
+ echo "<li>$d[web_short_name] $d[web_color] $d[group_id] $d[petition_name] $d[eligibleVoterListField] $d[eligibleVoterListEquals] $d[eligibleVoterListEnforce]</li>"; 
 }
-?>
-
-
-
-
 
 
 include_once('footer.php');
