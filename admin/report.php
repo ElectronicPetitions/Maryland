@@ -3,7 +3,7 @@ include_once('security.php');
 include_once('header.php');
 slack_general('ADMIN: Reports Loaded ('.$_COOKIE['name'].') ('.$_COOKIE['level'].')','md-petition');
 $group_id = $_COOKIE['group_id'];
-$hide = array();
+
 ?>
 
 <table border="1" cellpadding='0' cellspacing='5'>
@@ -15,6 +15,8 @@ $hide = array();
   }
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
+  unset($hide);
+  $hide = array();
   echo "<h1>$d[petition_name]</h1>";
   $pID = $d['petition_id'];
   $q2="SELECT * FROM signatures where petition_id = '$pID' order by id desc";
