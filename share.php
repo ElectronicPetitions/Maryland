@@ -1,6 +1,7 @@
 <?PHP 
 $title = 'MEPS - Invite Links';
 include_once('header.php');
+slack_general('Share Links Loaded ('.$_COOKIE['invite'].')','md-petition');
 $q = "select * from website_text where id = '8'";
 $r = $petition->query($q);
 $d = mysqli_fetch_array($r);
