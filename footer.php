@@ -28,7 +28,7 @@ if ($_COOKIE['invite'] != ''){
 </div>
 
 </div><!-- close container -->
-</div><!-- close page for footer -->
+
 
 <?PHP /*
 <footer class="site-footer">

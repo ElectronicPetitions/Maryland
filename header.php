@@ -62,7 +62,7 @@ html, body {
 */ ?>
 </head>
 <body>
-  <div class="page-wrap">
+ 
   <div class="container-fluid">
     <?PHP /*
     <ul class="nav nav-pills">
