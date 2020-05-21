@@ -70,19 +70,19 @@ slack_general('Entering Information','md-petition');
    
   <div class='row'>
     <div class='col-sm-3' style='text-align:right;'><h2>First Name</h2></div>
-    <div class='col-sm-7' style='text-align:left;'><input class="form-control input-lg" name='web_first_name'></div>
+    <div class='col-sm-7' style='text-align:left;'><input class="form-control input-lg" name='web_first_name' required></div>
   </div>  
    
   <div class='row'>
      <div class='col-sm-3' style='text-align:right;'><h2>Last Name</h2></div>
-     <div class='col-sm-7' style='text-align:left;'><input class="form-control input-lg" name='web_last_name'></div> 
+     <div class='col-sm-7' style='text-align:left;'><input class="form-control input-lg" name='web_last_name' required></div> 
   </div> 
    
   <div class='row'>
      <div class='col-sm-3' style='text-align:right;'><h2>Date of Birth</h2></div>
      <div class='col-sm-7'>
             <div class="input-group date">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span><input name='DOB' type="text" class="form-control">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span><input name='DOB' type="text" class="form-control" required>
             </div>
          <script>
                var $d = jQuery.noConflict();
@@ -101,12 +101,12 @@ slack_general('Entering Information','md-petition');
    
   <div class='row'>
     <div class='col-sm-3' style='text-align:right;'><h2>House Number</h2></div>
-    <div class='col-sm-7' style='text-align:left;'><input class="form-control input-lg" name='web_house_number' type='number'> </div>
+    <div class='col-sm-7' style='text-align:left;'><input class="form-control input-lg" name='web_house_number' type='number' required> </div>
  </div>  
       
   <div class='row'>
      <div class='col-sm-3' style='text-align:right;'><h2>ZIP Code</h2></div>
-     <div class='col-sm-7' style='text-align:left;'><input class="form-control input-lg" name='web_zip_code' type='number'> </div>
+     <div class='col-sm-7' style='text-align:left;'><input class="form-control input-lg" name='web_zip_code' type='number' required> </div>
   </div>
    
    
