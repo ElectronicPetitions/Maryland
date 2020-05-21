@@ -35,7 +35,7 @@ $d = mysqli_fetch_array($r);
   alert("Copied the Link: " + copyText.value);
 }
 </script>
-
+<center>
  <table border="1" cellpadding="2" cellspacing="0">
  <?PHP
  $q2 = "SELECT * FROM petitions";
@@ -45,12 +45,12 @@ $d = mysqli_fetch_array($r);
   <td align='center'><small>$d2[petition_name]<small></td>
   <td><div class=\"fb-share-button\" 
      data-href=\"http://md-petition.com/index.php?invite=$d2[web_short_name]\" 
-     data-layout=\"button_count\">
+     data-layout=\"box_count\" data-size=\"large\">
    </div></td>
    <td><input type='text' size='35' value='http://md-petition.com/?invite=$d2[web_short_name]' id='$d2[web_short_name]'><button onclick='myFunction(\"$d2[web_short_name]\")'>Copy Link</button></td>
    </tr>";
  }
   ?>
  </table>
-
+</center>
 <?PHP include_once('footer.php');
