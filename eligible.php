@@ -7,8 +7,15 @@ $web_last_name    = $_COOKIE['web_last_name'];
 $web_house_number = $_COOKIE['web_house_number'];
 $web_zip_code     = $_COOKIE['web_zip_code'];
 if ($web_first_name != '' && $web_last_name != '' && $web_house_number != '' && $web_zip_code != ''){
-  // ok to check for records
+  include_once('header.php'); 
+  $web_first_name   = $petition->real_escape_string($web_first_name);
+  $web_last_name    = $petition->real_escape_string($web_last_name);
+  $web_house_number = $petition->real_escape_string($web_house_number);
+  $web_zip_code     = $petition->real_escape_string($web_zip_code);
+  $DOB              = $petition->real_escape_string($DOB);
+  $PHONE            = $petition->real_escape_string($PHONE);
 }else{
+  // we should NEVER hit this page anymore
   header('Location: warning_incomplete.php');
 }
 $q = "select * from VoterList where LASTNAME = '$web_last_name' and FIRSTNAME = '$web_first_name' and HOUSE_NUMBER = '$web_house_number' and RESIDENTIALZIP5 = '$web_zip_code'";
@@ -23,14 +30,17 @@ if ($d['VTRID'] != ''){
    $RESIDENTIALCITY   = $d['RESIDENTIALCITY'];
    $COUNTY            = $d['COUNTY'];
    $RESIDENTIALZIP5   = $d['RESIDENTIALZIP5'];
+  slack_general('MATCH: eligible ('.$FIRSTNAME.' '.$LASTNAME.' '.$RESIDENTIALCITY.') ('.$_COOKIE['invite'].')','md-petition');
 }else{
-   header('Location: warning_not_found.php');
+  slack_general('MISS: eligible ('.$web_first_name.' '.$web_last_name.' '.$PHONE.') ('.$_COOKIE['invite'].')','md-petition');
+  header('Location: warning_not_found.php');
 }
 
 if (isset($_GET['remove'])){
   $id = $_GET['remove'];
   $q = "update signatures set signature_status = 'removed' where id = '$id'";
   $petition->query($q);
+  slack_general('SQL: eligible ('.$q.') ('.$_COOKIE['invite'].')','md-petition');
   header('Location: eligible.php');
 }
 
@@ -47,15 +57,21 @@ while($d2 = mysqli_fetch_array($r2)){
  $q4 = "select * from signatures where VTRID = '$VTRID' and petition_id = '$d2[petition_id]' and signature_status <> 'removed' ";
  $r4 = $petition->query($q4);
  $d4 = mysqli_fetch_array($r4);
+  if ($d4['id'] > 0){
+    slack_general($VTRID.' Already Signed '.$d2[petition_id].' ('.$_COOKIE['invite'].')','md-petition');
+  }
+  /*
 if ($d4['id'] > 0){
   $available .= "<div class='row' style='background-color:lightyellow;'>
   <div class='col-sm-3'>Already Signed, <a target='_Blank' href='soft_copy.php?id=$d4[id]'>View</a> or <a href='?remove=$d4[id]'>Remove</a></div>
   <div class='col-sm-6'>$d2[petition_name]</div>
   <div class='col-sm-3'>$field == $pass</div>
     </div>"; 
- }elseif($d[$field] == $pass){
-  $checked = ''; 
-  if($_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name'])){
+ }else */
+  
+  if($d[$field] == $pass){
+   $checked = ''; 
+   if($_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name'])){
      $checked = 'checked';
    }else{
      $checked = '';
@@ -95,19 +111,19 @@ if ($d4['id'] > 0){
  $d = mysqli_fetch_array($r);
  ?>
   <div class='row'>
-    <div class='col-sm-12' style='height:100px; text-align:center;'><h2><?PHP echo $d['text_title'];?></h2><p><?PHP echo $d['text_block'];?></p></div>
+    <div class='col-sm-1' style='height:100px; text-align:center;'><h1><?PHP echo $d['text_title'];?></h1><h2><?PHP echo $d['text_block'];?></h2></div>
   </div>
 
   <div class='row'>
-    <div class='col-sm-3'><h3>Pick One</h3></div>
+    <div class='col-sm-2'><h3>Pick One</h3></div>
     <div class='col-sm-6'><h3>Petition Name</h3></div>
-    <div class='col-sm-3'><h3>Requirements</h3></div>
+    <div class='col-sm-2'><h3>Requirements</h3></div>
   </div>
 
   <?PHP echo $available;?>
 
   <div class='row'>
-    <div class='col-sm-12' style='height:100px; text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">Next</button><div>
+    <div class='col-sm-10' style='height:100px; text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">Next</button><div>
   </div>
       
      
