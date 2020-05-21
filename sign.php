@@ -21,7 +21,7 @@ setcookie("invite_used", $_COOKIE['invite']);
 setcookie("invite", ""); // clear invite
 //header('Location: eligible.php');
 include_once('header.php'); 
-slack_general('Warning Not Found ('.$_COOKIE['invite'].')','md-petition');
+slack_general('Petition Signed ('.$_COOKIE['invite'].')','md-petition');
 $qX = "select * from website_text where id = '9'";
 $rX = $petition->query($qX);
 $dX = mysqli_fetch_array($rX);
