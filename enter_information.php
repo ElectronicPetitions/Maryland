@@ -52,6 +52,10 @@ if (isset($_POST['web_first_name'])){
 }
 include_once('header.php');
 slack_general('Entering Information','md-petition');
+?>
+   <link id="bsdp-css" href="files/bootstrap-datepicker3.min.css" rel="stylesheet">
+   <script src="files/bootstrap-datepicker.min.js"></script>
+  <?PHP
  $qX = "select * from website_text where id = '2'";
  $rX = $petition->query($qX);
  $dX = mysqli_fetch_array($rX);
