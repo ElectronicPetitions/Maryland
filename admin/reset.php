@@ -13,9 +13,13 @@ if(isset($_POST['email'])){
           off_world_mail($email,$row['name'],'Login with '.$email.' and your new password '.$pass.' at http://md-petition.com/admin/login.php');
           $petition->query("update users set pass = '$encrypted' WHERE email = '$email'");
           echo "<h1>Your Password has been Sent.</h1>";
+	  slack_general('ADMIN: Reset- Your Password has been Sent','md-petition');
         }else{
           echo "<h1>E-Mail address not found.</h1>";
+	  slack_general('ADMIN: Reset- E-Mail address not found','md-petition');
         }	
+}else{
+	slack_general('ADMIN: reset.php','md-petition');	
 }
 ?>
 
