@@ -6,7 +6,7 @@ $group_id = $_COOKIE['group_id'];
 
 ?>
 
-<table border="1" cellpadding='0' cellspacing='5'>
+
 <?PHP
   if($_COOKIE['level'] == 'admin'){
     $q="SELECT * FROM petitions where admin_status = 'approved'";
@@ -15,6 +15,7 @@ $group_id = $_COOKIE['group_id'];
   }
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
+  echo '<table border="1" cellpadding='0' cellspacing='5'>';
   unset($hide);
   $hide = array();
   echo "<h1>$d[petition_name]</h1>";
@@ -27,9 +28,10 @@ while($d = mysqli_fetch_array($r)){
       echo "<tr><td><input type='checkbox'></td><td>$d2[ip_address]</td><td>$d2[date_time_signed]</td><td>$d2[signed_name_as]</td><td>$d2[signed_name_as_circulator]</td><td>$d2[contact_phone]</td></tr>";
     }
   }
+  echo '</table>';
 }
 ?>
-</table>
+
   <?PHP
 include_once('footer.php');
 ?>
