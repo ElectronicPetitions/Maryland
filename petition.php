@@ -62,19 +62,19 @@ if (isset($_POST['signed_name_as'])){
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Type Your Signature to Sign Petition</h5>
+        <h1 class="modal-title" id="exampleModalLongTitle">Type Your Signature to Sign <?PHP echo $d['petition_name'];?></h1>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <form action='petition.php' method='POST'>
         <div class="modal-body">
-          <div><?PHP echo $d['petition_sign_text_box'];?></div>
-          <input name="signed_name_as" type="text" id="myText" onkeyup="addText()">
+          <h2><?PHP echo $d['petition_sign_text_box'];?></h2>
+          <input class="form-control input-lg" name="signed_name_as" type="text" id="myText" onkeyup="addText()" required>
           <div id="text2" class="sig"></div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Sign and Next</button>
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Sign and Next</button>
         </div>
       </form>
     </div>
@@ -86,19 +86,19 @@ if (isset($_POST['signed_name_as'])){
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitleLower">Type Your Signature to Sign as Circulator</h5>
+        <h1 class="modal-title" id="exampleModalLongTitleLower">Type Your Signature to Sign as Circulator</h1>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <form action='sign.php' method='POST'><input type='hidden' value='<?PHP echo $_POST['signed_name_as'];?>' name='signed_name_as'>
         <div class="modal-body">
-          <div><?PHP echo $d['petition_circulator_text_box'];?></div>
-          <input name="signed_name_as_circulator" type="text" id="myTextb" onkeyup="addTextb()">
+          <h2><?PHP echo $d['petition_circulator_text_box'];?></h2>
+          <input class="form-control input-lg" name="signed_name_as_circulator" type="text" id="myTextb" onkeyup="addTextb()" required>
           <div id="text2b" class="sig"></div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Sign and Submit</button>
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Sign and Submit</button>
         </div>
       </form>
     </div>
