@@ -1,10 +1,11 @@
-<?PHP include_once('header.php');  
+<?PHP 
+include_once('header.php');  
+slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
 $qX = "select * from website_text where id = '5'";
- $rX = $petition->query($qX);
- $dX = mysqli_fetch_array($rX);
+$rX = $petition->query($qX);
+$dX = mysqli_fetch_array($rX);
 ?>
 <script>document.title = "MEPS - Warning Not Found";</script>
- 
 <div class='row'>
  <div class='col-sm-10' style='height:100px; text-align:center;'><h1><?PHP echo $dX['text_title'];?></h1></div>
 </div>
