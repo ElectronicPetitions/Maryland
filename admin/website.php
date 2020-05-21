@@ -17,7 +17,7 @@ slack_general('ADMIN: Website Text Loaded ('.$_COOKIE['name'].') ('.$_COOKIE['le
  $q2 = "SELECT * FROM website_text";
  $r2 = $petition->query($q2);
  while($d2 = mysqli_fetch_array($r2)){
-  echo "<h2>$d2[text_title]</h2><div>$d2[text_block]</div>";
+  echo "<h2>$d2[text_title]</h2><div>".htmlspecialchars($d2['text_block'])."</div>";
 }
 
 
