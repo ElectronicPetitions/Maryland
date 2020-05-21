@@ -13,13 +13,14 @@ include_once('header.php');
 slack_general('ADMIN: managers.php ('.$_COOKIE['name'].') ('.$_COOKIE['level'].')','md-petition');
 ?>
 
-<h1>manager setup</h1>
-
-
-
-<pre>
-<?PHP print_r($_COOKIE); ?>
-</pre>
+<h1>Managers</h1>
+<?PHP
+$q="SELECT * FROM users where level='manager'";
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){
+ echo "<li>$d[id] $d[email] $d[name] $d[group_id] $d[sec_level]</li>"; 
+}
+?>
 
 
 <?PHP
