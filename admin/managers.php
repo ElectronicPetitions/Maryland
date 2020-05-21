@@ -14,7 +14,7 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['group_id']) 
   $name = $petition->real_escape_string($_POST['name']);
   $email = $petition->real_escape_string($_POST['email']);
   $group_id = $petition->real_escape_string($_POST['group_id']);
-  $petition->query("insert into users (email,name,group_id,sec_level) values ('$name','$email','$group_id') ");
+  $petition->query("insert into users (email,name,group_id,sec_level) values ('$name','$email','$group_id','manager') ");
 }
 
 
@@ -23,7 +23,7 @@ slack_general('ADMIN: managers.php ('.$_COOKIE['name'].') ('.$_COOKIE['level'].'
 
 <h1>Managers</h1>
 <?PHP
-$q="SELECT * FROM users where level='manager'";
+$q="SELECT * FROM users where sec_level='manager'";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
  echo "<li>$d[id] $d[email] $d[name] $d[group_id] $d[sec_level]</li>"; 
