@@ -82,7 +82,7 @@ slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
      <div class='col-sm-3' style='text-align:right;'><h2>Date of Birth</h2></div>
      <div class='col-sm-7'>
             <div class="input-group date">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span><input name='DOB' type="text" class="form-control" required>
+              <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span><input name='DOB' type="text" class="form-control input-lg" required>
             </div>
          <script>
                var $d = jQuery.noConflict();
