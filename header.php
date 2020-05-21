@@ -81,7 +81,7 @@ html, body {
     </ul>
     */ 
     if ($_COOKIE['invite'] != ''){ 
-      $invite = $petition->real_escape_string($invite);
+      $invite = $petition->real_escape_string($_COOKIE['invite']);
       $q = "select petition_name from petitions where web_short_name = '$invite'";
       $r = $petition->query($q);
       $d = mysqli_fetch_array($r);
