@@ -55,6 +55,7 @@ html, body {
 <body>
   <div class="page-wrap">
   <div class="container">
+    <?PHP /*
     <ul class="nav nav-pills">
       <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/index.php'){ echo "class='active'"; } ?> ><a href='index.php'>1: Are You Registered?</a></li>
       <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/not_a_registered_voter.php'){ echo "class='active'"; } ?> ><a>2: How to Register?</a></li>
@@ -72,3 +73,4 @@ html, body {
         <li role='presentation'><a href="/reset.php">RESET</a></li>
       <?PHP } ?>
     </ul>
+    */ ?>
