@@ -28,7 +28,6 @@ while($d = mysqli_fetch_array($r)){
  echo "<li>$d[admin_status] $d[petition_id] $d[web_short_name] $d[web_color] $d[group_id] $d[petition_name] $d[eligibleVoterListField] $d[eligibleVoterListEquals] $d[eligibleVoterListEnforce]</li>"; 
 }
 ?>
-
 <h1>New Petition</h1>
 <form method='post'>
   web_short_name <input name='web_short_name' required>
@@ -36,7 +35,7 @@ while($d = mysqli_fetch_array($r)){
   petition_name <input name='petition_name' required>
   <input type='submit'>
 </form>
-
+<br><br><br>
 <?PHP
 include_once('footer.php');
 ?>
