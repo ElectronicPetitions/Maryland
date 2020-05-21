@@ -12,7 +12,9 @@ if (isset($_POST['petition'])){
   $r = $petition->query($q);
   $d = mysqli_fetch_array($r);
 }else{
- die('Error #15'); 
+  slack_general('MAJOR ERROR: petition.php ('.$_COOKIE['invite'].')','md-petition');
+  header('Location: reset.php');
+  die('Error #15'); 
 }
 setcookie("pJPG", $d['petition_jpg']);
 ?>
@@ -107,4 +109,8 @@ if (isset($_POST['signed_name_as'])){
 <div class='col-sm-12'><img class="img-responsive" src='hard_copy.php'></div>
 
 
-<?PHP include_once('footer.php');
+<?PHP 
+if(isset($_POST['signed_name_as'])){
+ slack_general('petition.php ('.$_POST['signed_name_as'].') ('.$_COOKIE['invite'].')','md-petition');
+}
+include_once('footer.php');
