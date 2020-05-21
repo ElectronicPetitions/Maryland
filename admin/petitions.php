@@ -18,10 +18,14 @@ if(isset($_POST['web_short_name']) && isset($_POST['web_color']) && isset($_POST
 
 <h1>Petitions</h1>
 <?PHP
-$q="SELECT * FROM petitions where group_id = '$group_id'";
+if($_COOKIE['level'] == 'admin'){
+  $q="SELECT * FROM petitions";
+}else{
+  $q="SELECT * FROM petitions where group_id = '$group_id'";
+}
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
- echo "<li>$d[petition_id] $d[web_short_name] $d[web_color] $d[group_id] $d[petition_name] $d[eligibleVoterListField] $d[eligibleVoterListEquals] $d[eligibleVoterListEnforce]</li>"; 
+ echo "<li>$d[admin_status] $d[petition_id] $d[web_short_name] $d[web_color] $d[group_id] $d[petition_name] $d[eligibleVoterListField] $d[eligibleVoterListEquals] $d[eligibleVoterListEnforce]</li>"; 
 }
 ?>
 
