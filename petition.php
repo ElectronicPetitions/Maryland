@@ -24,7 +24,6 @@ setcookie("pJPG", $d['petition_jpg']);
 }
 .sig {
     font-family: "myFirstFont";
-    font-size: 40px;
 }
 </style>
 <?PHP
@@ -71,7 +70,7 @@ if (isset($_POST['signed_name_as'])){
         <div class="modal-body">
           <h2><?PHP echo $d['petition_sign_text_box'];?></h2>
           <input class="form-control input-lg" name="signed_name_as" type="text" id="myText" onkeyup="addText()" required>
-          <div id="text2" class="sig"></div>
+          <h1 id="text2" class="sig"></h1>
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary btn-lg btn-block">Sign and Next</button>
@@ -95,7 +94,7 @@ if (isset($_POST['signed_name_as'])){
         <div class="modal-body">
           <h2><?PHP echo $d['petition_circulator_text_box'];?></h2>
           <input class="form-control input-lg" name="signed_name_as_circulator" type="text" id="myTextb" onkeyup="addTextb()" required>
-          <div id="text2b" class="sig"></div>
+          <h1 id="text2b" class="sig"></h1>
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary btn-lg btn-block">Sign and Submit</button>
