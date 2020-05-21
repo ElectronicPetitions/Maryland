@@ -78,8 +78,32 @@ slack_general('Entering Information','md-petition');
      <div class='col-sm-6' style='height:50px; text-align:center;'><h2>Phone Number</h2></div>
   </div> 
    
-  <div class='row'> 
-    <div class='col-sm-6' style='height:50px; text-align:center;'><input name='DOB' type="date"></div>
+ 
+      <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker3'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker3').datetimepicker({
+                    format: 'LT'
+                });
+            });
+        </script>
+
+     
+     
+     
+     
+     
+     
     <div class='col-sm-6' style='height:50px; text-align:center;'><input name='contact_phone' type='tel'> </div>
   </div>
    
