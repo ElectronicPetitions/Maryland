@@ -1,10 +1,17 @@
 <?PHP
 include_once('/var/www/secure.php');
 function slack_general($msg,$room){
+	if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+    $ip = $_SERVER['HTTP_CLIENT_IP'];
+} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+} else {
+    $ip = $_SERVER['REMOTE_ADDR'];
+}
     global $slack_api;
 		$room = str_replace("'",'-',strtolower(str_replace(' ','-',$room)));
 		$thisroom = $room;
-		$add = "[".$_SERVER['PHP_SELF']."] ";
+		$add = "[".$ip."][".$_SERVER['PHP_SELF']."] ";
 
 		$msg = $add.$msg;
 		//$version = "[".getenv('RELEASE')."] ";
