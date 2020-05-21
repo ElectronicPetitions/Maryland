@@ -3,7 +3,7 @@ include_once('security.php');
 include_once('header.php');
 ?>
 
-manage_petitions.php
+petitions.php
 
 
 <?PHP
