@@ -11,7 +11,7 @@ $group_id = $_COOKIE['group_id'];
 if(isset($_POST['name']) && isset($_POST['email']) ){
   $name = $petition->real_escape_string($_POST['name']);
   $email = $petition->real_escape_string($_POST['email']);
-  $petition->query("insert into users (email,name,group_id,sec_level) values ('$name','$email','$group_id','user') ");
+  $petition->query("insert into users (name,email,group_id,sec_level) values ('$name','$email','$group_id','user') ");
 }
 ?>
 
