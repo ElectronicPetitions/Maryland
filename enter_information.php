@@ -81,7 +81,8 @@ slack_general('Entering Information','md-petition');
               <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span><input name='DOB' type="text" class="form-control">
             </div>
          <script>
-               $('.input-group.date').datepicker({
+               var $d = jQuery.noConflict();
+               $d('.input-group.date').datepicker({
                    format: "mm/dd/yyyy",
                    clearBtn: true
                });
