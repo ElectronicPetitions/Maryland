@@ -11,7 +11,10 @@ if ($_COOKIE['level'] == 'manager'){
 }
 
 include_once('header.php');
-
+if(isset($_GET['approve'])){
+  $id = $_GET['approve'];
+  $petition->query("update petitions set admin_status = 'approved' where petition_id = '$id' ");
+}
 slack_general('ADMIN: Home Page Loaded ('.$_COOKIE['name'].') ('.$_COOKIE['level'].')','md-petition');
 ?>
 
@@ -26,6 +29,26 @@ while($d = mysqli_fetch_array($r)){
 }
 ?>
 
+<h1>New Petitions</h1>
+<?PHP
+$q="SELECT * FROM petitions where admin_status='new'";
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){
+ echo "<li><a href='?approve=$d[petition_id]'>$d[petition_id] $d[web_short_name] $d[web_color] $d[group_id] $d[petition_name] $d[eligibleVoterListField] $d[eligibleVoterListEquals] $d[eligibleVoterListEnforce]</a></li>"; 
+}
+?>
+
+
+<h1>Approved Petitions</h1>
+<?PHP
+$q="SELECT * FROM petitions where admin_status = 'approved'";
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){
+ echo "<li>$d[petition_id] $d[web_short_name] $d[web_color] $d[group_id] $d[petition_name] $d[eligibleVoterListField] $d[eligibleVoterListEquals] $d[eligibleVoterListEnforce]</li>"; 
+}
+?>
+
+
 <h1>Groups</h1>
 <?PHP
 $q="SELECT * FROM groups";
@@ -35,14 +58,7 @@ while($d = mysqli_fetch_array($r)){
 }
 ?>
 
-<h1>Petitions</h1>
-<?PHP
-$q="SELECT * FROM petitions";
-$r = $petition->query($q);
-while($d = mysqli_fetch_array($r)){
- echo "<li>$d[petition_id] $d[web_short_name] $d[web_color] $d[group_id] $d[petition_name] $d[eligibleVoterListField] $d[eligibleVoterListEquals] $d[eligibleVoterListEnforce]</li>"; 
-}
-?>
+
 
 
 <h1>Website</h1>
