@@ -4,11 +4,8 @@ if ($_COOKIE['invite'] != ''){
  $copy = 'MEPS - '.strtoupper($_COOKIE['invite']); 
 }  
 ?>
-  <meta property="og:url"           content="http://md-petition.com/index.php" />
-  <meta property="og:type"          content="website" />
-  <meta property="og:title"         content="Maryland Electronic Petition Software" />
-  <meta property="og:description"   content="Socially Distant Petitions" />
-  <meta property="og:image"         content="http://md-petition.com/files/Flag_of_Maryland.svg" />
+  
+
 
 
 <div id="fb-root"></div>
@@ -20,7 +17,7 @@ if ($_COOKIE['invite'] != ''){
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
 
-
+<div class='row'>
   <div class='col-sm-12' style='text-align:center;'>
    <?PHP if($_COOKIE['debug'] == 'on'){ ?> 
     <pre><?PHP print_r($_GET); ?></pre>
@@ -28,12 +25,12 @@ if ($_COOKIE['invite'] != ''){
     <pre><?PHP print_r($_COOKIE); ?></pre>
    <?PHP } ?>
   </div>
-
+</div>
 
 </div><!-- close container -->
 </div><!-- close page for footer -->
 
-
+<?PHP /*
 <footer class="site-footer">
  <center>&COPY; 2020 <?PHP echo $copy;
   /* ?>
@@ -49,7 +46,7 @@ if ($_COOKIE['invite'] != ''){
    </div></td>";
  }
   ?></tr>
- </table><?PHP */ ?>
+ </table><?PHP * / ?>
  </center>
 </footer>
 
@@ -68,4 +65,5 @@ if ($_COOKIE['invite'] != ''){
         if (d.readyState == 'complete') { l(); }
     }(window, document, 'script'));
 </script>
+<?PHP } ?>
 </body>
