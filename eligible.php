@@ -48,7 +48,7 @@ echo $head;
 
 
 $available='';
-$q2 = "SELECT * FROM petitions";
+$q2 = "SELECT * FROM petitions where admin_status = 'approved'";
 $r2 = $petition->query($q2);
 while($d2 = mysqli_fetch_array($r2)){
  $checked = '';
