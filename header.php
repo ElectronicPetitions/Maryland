@@ -34,7 +34,9 @@ if ($_GET['debug'] == 'off'){
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <title>MEPS - Maryland Eletronic Petition Software</title>
-<style>
+<?PHP
+  /*
+  <style>
 * {
   margin: 0;
 }
@@ -43,7 +45,7 @@ html, body {
 }
 .page-wrap {
   min-height: 100%;
-  /* equal to footer height */
+  
   margin-bottom: -100px; 
 }
 .page-wrap:after {
@@ -57,6 +59,7 @@ html, body {
   background: lightblue;
 }
 </style>
+*/ ?>
 </head>
 <body>
   <div class="page-wrap">
@@ -82,9 +85,9 @@ html, body {
     */ 
     if ($_COOKIE['invite'] != ''){ 
       $invite = $petition->real_escape_string($_COOKIE['invite']);
-      $q = "select petition_name from petitions where web_short_name = '$invite'";
+      $q = "select petition_name, web_color from petitions where web_short_name = '$invite'";
       $r = $petition->query($q);
       $d = mysqli_fetch_array($r);
-      echo "<h1 style='text-align:center; background-color:lightgreen;'>$d[petition_name]</h1>";
+      echo "<h1 style='text-align:center; background-color:$d[web_color];'>$d[petition_name]</h1>";
     } 
     ?>
