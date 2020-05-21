@@ -17,7 +17,7 @@ if(isset($_POST['name'])){
 slack_general('ADMIN: Group Manager Loaded ('.$_COOKIE['name'].') ('.$_COOKIE['level'].')','md-petition');
 ?>
 
-<h1>Groups</h1>
+<h1>Current Groups</h1>
 <?PHP
 $q="SELECT * FROM groups";
 $r = $petition->query($q);
@@ -29,10 +29,10 @@ while($d = mysqli_fetch_array($r)){
 
 <h1>New Group</h1>
 <form method='post'>
-  group name <input name='name' required>
+  New Group Name <input name='name' required>
   <input type='submit'>
 </form>
-
+<br><br>
 <?PHP
 include_once('footer.php');
 ?>
