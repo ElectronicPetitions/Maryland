@@ -88,6 +88,6 @@ html, body {
       $q = "select petition_name, web_color from petitions where web_short_name = '$invite'";
       $r = $petition->query($q);
       $d = mysqli_fetch_array($r);
-      echo "<h1 style='text-align:center; background-color:$d[web_color];'>$d[petition_name]</h1>";
+      echo "<div class='row'><div class='col-sm-10' style='text-align:center;'><h1 style='text-align:center; background-color:$d[web_color];'>$d[petition_name]</h1></div></div>";
     } 
     ?>
