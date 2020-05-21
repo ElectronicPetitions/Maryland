@@ -38,7 +38,7 @@ $d = mysqli_fetch_array($r);
 <center>
  <table border="1" cellpadding="2" cellspacing="0">
  <?PHP
- $q2 = "SELECT * FROM petitions";
+ $q2 = "SELECT * FROM petitions where admin_status = 'approved'";
  $r2 = $petition->query($q2);
  while($d2 = mysqli_fetch_array($r2)){
   echo "<tr>
