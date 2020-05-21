@@ -22,7 +22,7 @@ list all users and levels
 
 list all petitions and stats
 </pre>
-
+<h1>Users</h1>
 <?PHP
 $q="SELECT * FROM users";
 $r = $petition->query($q);
@@ -30,9 +30,34 @@ while($d = mysqli_fetch_array($r)){
  echo "<li>$d[id] $d[email] $d[name] $d[group_id] $d[sec_level]</li>"; 
 }
 ?>
-<pre>
-<?PHP print_r($_COOKIE); ?>
-</pre>
+
+<h1>Groups</h1>
+<?PHP
+$q="SELECT * FROM groups";
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){
+ echo "<li>$d[id] $d[name]</li>"; 
+}
+?>
+
+<h1>Petitions</h1>
+<?PHP
+$q="SELECT * FROM petitions";
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){
+ echo "<li>$d[petition_id] $d[web_short_name] $d[web_color] $d[group_id] $d[petition_name] $d[eligibleVoterListField] $d[eligibleVoterListEquals] $d[eligibleVoterListEnforce]</li>"; 
+}
+?>
+
+
+<h1>Website</h1>
+<?PHP
+$q="SELECT * FROM website_text";
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){
+ echo "<li>$d[id] $d[text_title]</li>"; 
+}
+?>
 
 
 <?PHP
