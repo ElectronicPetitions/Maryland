@@ -77,9 +77,9 @@ if ($d4['id'] > 0){
      $checked = '';
    }
   $available .= "<div class='row' style='background-color:lightgreen;'>
-  <div class='col-sm-3'><input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked > </div>
+  <div class='col-sm-2'><input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked > </div>
   <div class='col-sm-6'>$d2[petition_name]</div>
-  <div class='col-sm-3'>$field == $pass</div>
+  <div class='col-sm-2'>$field == $pass</div>
     </div>";
   
    if($_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name'])){
@@ -93,9 +93,9 @@ if ($d4['id'] > 0){
      $checked = '';
    }
   $available .= "<div class='row' style='background-color:#ffcccb;'>
-  <div class='col-sm-3'>"; if ($d2['eligibleVoterListEnforce'] == 'NO'){ $available .="<input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked >"; }else{ $available .= "Constituents Only"; } $available .= "</div>
+  <div class='col-sm-2'>"; if ($d2['eligibleVoterListEnforce'] == 'NO'){ $available .="<input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked >"; }else{ $available .= "Constituents Only"; } $available .= "</div>
   <div class='col-sm-6'>$d2[petition_name]</div>
-  <div class='col-sm-3'>$field != $pass</div>
+  <div class='col-sm-2'>$field != $pass</div>
     </div>"; 
    if($_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name'])){
      $available .= '<script>document.getElementById("form").submit();</script>';
@@ -110,8 +110,10 @@ if ($d4['id'] > 0){
  $r = $petition->query($q);
  $d = mysqli_fetch_array($r);
  ?>
+  
+  
   <div class='row'>
-    <div class='col-sm-1' style='height:100px; text-align:center;'><h1><?PHP echo $d['text_title'];?></h1><h2><?PHP echo $d['text_block'];?></h2></div>
+    <div class='col-sm-10' style='height:100px; text-align:center;'><h1><?PHP echo $d['text_title'];?></h1><h2><?PHP echo $d['text_block'];?></h2></div>
   </div>
 
   <div class='row'>
