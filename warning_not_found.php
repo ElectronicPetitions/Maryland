@@ -4,10 +4,11 @@ $qX = "select * from website_text where id = '5'";
  $dX = mysqli_fetch_array($rX);
 ?>
 <script>document.title = "MEPS - Warning Not Found";</script>
-  <div class='col-sm-12' style='height:100px; text-align:center;'><h2><?PHP echo $dX['text_title'];?></h2></div>
-
-  <div class='col-sm-12' style='height:100px; text-align:center;'>
-    <?PHP echo $dX['text_block'];?>
-  </div>
-
+ 
+<div class='row'>
+ <div class='col-sm-10' style='height:100px; text-align:center;'><h1><?PHP echo $dX['text_title'];?></h1></div>
+</div>
+<div class='row'>
+ <div class='col-sm-10' style='height:100px; text-align:center;'><h2><?PHP echo $dX['text_block'];?></h2></div>
+</div>
 <?PHP include_once('footer.php');
