@@ -35,7 +35,8 @@ if ($_COOKIE['invite'] != ''){
 
 
 <footer class="site-footer">
- <center>&COPY; 2020 <?PHP echo $copy;?>
+ <center>&COPY; 2020 <?PHP echo $copy;
+  /* ?>
  <table border="1" cellpadding="2" cellspacing="0"><tr>
  <?PHP
  $q2 = "SELECT * FROM petitions";
@@ -48,7 +49,7 @@ if ($_COOKIE['invite'] != ''){
    </div></td>";
  }
   ?></tr>
- </table>
+ </table><?PHP */ ?>
  </center>
 </footer>
 
