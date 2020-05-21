@@ -26,6 +26,7 @@ setcookie("pJPG", $d['petition_jpg']);
 }
 .sig {
     font-family: "myFirstFont";
+    font-size: 60px;
 }
 </style>
 <?PHP
