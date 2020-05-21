@@ -42,41 +42,43 @@ $qX = "select * from website_text where id = '6'";
 ?>
 <script>document.title = "MEPS - Confirm information";</script>
 <div class='row'>
-    <div class='col-sm-12' style='height:100px; text-align:center;'><h2><?PHP echo $dX['text_title'];?></h2><p><?PHP echo $dX['text_block'];?></p></div>
+    <div class='col-sm-10' style='height:100px; text-align:center;'><h1><?PHP echo $dX['text_title'];?></h1><h2><?PHP echo $dX['text_block'];?></h2></div>
 </div>
 <div class='row'>
-  <div class='col-sm-6' style='height:50px; text-align:center;'>First Name</div><div class='col-sm-6' style='height:50px; text-align:center;'><?PHP echo $FIRSTNAME;?></div>
+  <div class='col-sm-5' style='text-align:center;'><h2>First Name</h2></div>
+  <div class='col-sm-5' style='text-align:center;'><h2><?PHP echo $FIRSTNAME;?></h2></div>
 </div>
 <div class='row'>
-  <div class='col-sm-6' style='height:50px; text-align:center;'>Middle Name </div><div class='col-sm-6' style='height:50px; text-align:center;'><?PHP echo $MIDDLENAME;?></div>
+  <div class='col-sm-5' style='text-align:center;'><h2>Middle Name</h2></div>
+  <div class='col-sm-5' style='text-align:center;'><h2><?PHP echo $MIDDLENAME;?><h2></div>
 </div>
 <div class='row'>
-  <div class='col-sm-6' style='height:50px; text-align:center;'>Last Name </div><div class='col-sm-6' style='height:50px; text-align:center;'><?PHP echo $LASTNAME;?></div>
+  <div class='col-sm-5' style='text-align:center;'><h2>Last Name</h2></div>
+  <div class='col-sm-5' style='text-align:center;'><h2><?PHP echo $LASTNAME;?></h2></div>
 </div>
 <div class='row'>
-  <div class='col-sm-6' style='height:50px; text-align:center;'>Date of Birth </div><div class='col-sm-6' style='height:50px; text-align:center;'><?PHP echo $DOB;?></div>
+  <div class='col-sm-5' style='text-align:center;'><h2>Date of Birth</h2></div>
+  <div class='col-sm-5' style='text-align:center;'><h2><?PHP echo $DOB;?></h2></div>
 </div>
 <div class='row'>
-  <div class='col-sm-6' style='height:50px; text-align:center;'>Full Addresss </div><div class='col-sm-6' style='height:50px; text-align:center;'><?PHP echo $ADDRESS;?></div>
+  <div class='col-sm-5' style='text-align:center;'><h2>Full Addresss</h2></div>
+  <div class='col-sm-5' style='text-align:center;'><h2><?PHP echo $ADDRESS;?></h2></div>
 </div>
 <div class='row'>
-  <div class='col-sm-6' style='height:50px; text-align:center;'>Phone </div><div class='col-sm-6' style='height:50px; text-align:center;'><?PHP echo $PHONE;?></div>
+  <div class='col-sm-5' style='text-align:center;'><h2>Phone</h2></div>
+  <div class='col-sm-5' style='text-align:center;'><h2><?PHP echo $PHONE;?></h2></div>
 </div>
 <div class='row'>
-  <div class='col-sm-2' style='height:50px; text-align:center;'>City</div><div class='col-sm-2'><?PHP echo $RESIDENTIALCITY;?></div>
-  <div class='col-sm-2'>County</div><div class='col-sm-2'><?PHP echo $COUNTY;?></div>
-  <div class='col-sm-2'>Zip</div><div class='col-sm-2'><?PHP echo $RESIDENTIALZIP5;?></div>
+  <div class='col-sm-2'><h2>City</h2></div>
+  <div class='col-sm-2'><h2><?PHP echo $RESIDENTIALCITY;?></h2></div>
+  <div class='col-sm-2'><h2>County</h2></div>
+  <div class='col-sm-2'><h2><?PHP echo $COUNTY;?></h2></div>
+  <div class='col-sm-1'><h2>Zip</h2></div>
+  <div class='col-sm-1'><h2><?PHP echo $RESIDENTIALZIP5;?></h2></div>
 </div>
 <div class='row'>
-  <div class='col-sm-6' style='height:50px; text-align:center;'><button type="button" class="btn btn-danger btn-lg btn-block" onclick="window.location.href='reset.php'">NO</button></div>
-  <div class='col-sm-6' style='height:50px; text-align:center;'><button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='eligible.php'">YES</button></div>
+  <div class='col-sm-5'><button type="button" class="btn btn-danger btn-lg btn-block" onclick="window.location.href='reset.php'">NO</button></div>
+  <div class='col-sm-5'><button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='eligible.php'">YES</button></div>
 </div>
   
-  
-  
-  
-  
-  
-
-
 <?PHP include_once('footer.php');
