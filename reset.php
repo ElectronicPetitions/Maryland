@@ -1,4 +1,5 @@
 <?PHP
+$save_invite = $_COOKIE['invite'];
 /* delete ALL cookies */
 foreach ( $_COOKIE as $key => $value ){
 	unset($_COOKIE[$key]);
@@ -14,5 +15,6 @@ if (isset($_SERVER['HTTP_COOKIE'])) {
         setcookie($name, '', time()-1000, '/');
     }
 }
+setcookie("invite", $save_invite);
 header('Location: index.php');
 ?>
