@@ -23,7 +23,7 @@
   <div class="container">
     <ul class="nav nav-pills">
       <li role='presentation'><a href="/index.php">Main Website</a></li>
-      <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/admin/index.php'){ echo "class='active'"; } ?> ><a href="index.php">Admin Home</a></li>
+      <li role='presentation' <?PHP if($_SERVER['SCRIPT_NAME'] == '/admin/index.php' || $_SERVER['SCRIPT_NAME'] == '/admin/user_home.php' || $_SERVER['SCRIPT_NAME'] == '/admin/manager_home.php'){ echo "class='active'"; } ?> ><a href="index.php">Home</a></li>
       <?PHP if ($_COOKIE['level'] == 'admin'){  include_once('menu_admin.php'); } ?>
       <?PHP if ($_COOKIE['level'] == 'manager' || $_COOKIE['level'] == 'admin'){  include_once('menu_manager.php'); } ?>
       <?PHP if ($_COOKIE['level'] == 'user' || $_COOKIE['level'] == 'manager' || $_COOKIE['level'] == 'admin'){  include_once('menu_user.php'); } ?>
