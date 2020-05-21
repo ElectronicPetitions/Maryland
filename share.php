@@ -8,13 +8,7 @@ $d = mysqli_fetch_array($r);
 ?>
 <script>document.title = "<?PHP echo $title;?>";</script>
 <div class='col-sm-12' style='height:100px; text-align:center;'><h2><?PHP echo $d['text_title'];?></h2><p><?PHP echo $d['text_block'];?></p></div>
-<?PHP
-$q2 = "SELECT * FROM petitions";
-$r2 = $petition->query($q2);
-while($d2 = mysqli_fetch_array($r2)){
-  echo "<li>$d2[petition_name]: <a target='_Blank' href='http://md-petition.com/?invite=$d2[web_short_name]'>http://md-petition.com/?invite=$d2[web_short_name]</a></li>";
-}
-?>
+
 
 <div id="fb-root"></div>
   <script>(function(d, s, id) {
@@ -25,23 +19,39 @@ while($d2 = mysqli_fetch_array($r2)){
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
 
+<script>
+  function myFunction(short_code) {
+  /* Get the text field */
+  var copyText = document.getElementById(short_code);
 
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
 
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
 
+  /* Alert the copied text */
+  alert("Copied the Link: " + copyText.value);
+}
+</script>
 
  <table border="1" cellpadding="2" cellspacing="0">
  <?PHP
  $q2 = "SELECT * FROM petitions";
  $r2 = $petition->query($q2);
  while($d2 = mysqli_fetch_array($r2)){
-  echo "<tr><td align='center'><small>$d2[petition_name]<small><br>
-  <div class=\"fb-share-button\" 
+  echo "<tr>
+  <td align='center'><small>$d2[petition_name]<small></td>
+  <td><div class=\"fb-share-button\" 
      data-href=\"http://md-petition.com/index.php?invite=$d2[web_short_name]\" 
      data-layout=\"button_count\">
-   </div></td></tr>";
+   </div></td>
+   <td><a target='_Blank' href='http://md-petition.com/?invite=$d2[web_short_name]'>http://md-petition.com/?invite=$d2[web_short_name]</a></td>
+   <td><input type='text' value='http://md-petition.com/?invite=$d2[web_short_name]' id='$d2[web_short_name]'><button onclick='myFunction($d2[web_short_name])'>Copy Link</button></td>
+   </tr>";
  }
   ?>
  </table>
 
-
-include_once('footer.php');
+<?PHP include_once('footer.php');
