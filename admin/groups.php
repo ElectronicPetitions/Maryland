@@ -22,7 +22,7 @@ slack_general('ADMIN: Group Manager Loaded ('.$_COOKIE['name'].') ('.$_COOKIE['l
 $q="SELECT * FROM groups";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
- echo "<li>$d[id] $d[name]</li>"; 
+ echo "<li>$d[name]</li>"; 
 }
 ?>
 
