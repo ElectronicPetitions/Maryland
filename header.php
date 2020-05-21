@@ -11,6 +11,12 @@ if ($_GET['debug'] == 'off'){
 <!DOCTYPE html>
 <html lang="en">  
 <head>
+  <meta property="og:url"           content="http://md-petition.com/index.php" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="Maryland Electronic Petition Software" />
+  <meta property="og:description"   content="Socially Distant Petitions" />
+  <meta property="og:image"         content="http://md-petition.com/files/Flag_of_Maryland.svg" />
+  
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165887820-1"></script>
   <script>
