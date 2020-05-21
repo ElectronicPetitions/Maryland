@@ -18,7 +18,7 @@ while($d = mysqli_fetch_array($r)){
   while($d2 = mysqli_fetch_array($r2)){
     if (!in_array($d2['VTRID'], $hide)) {
       $hide[] = $d2['VTRID'];
-      echo "<tr><td><input type='checkbox'></td><td>$d2[date_time_signed]</td><td>$d2[signed_name_as]</td><td>$d2[signed_name_as_circulator]</td><td>$d2[contact_phone]</td></tr>";
+      echo "<tr><td><input type='checkbox'></td><td>$d2[ip_address]</td><td>$d2[date_time_signed]</td><td>$d2[signed_name_as]</td><td>$d2[signed_name_as_circulator]</td><td>$d2[contact_phone]</td></tr>";
     }
   }
 }
