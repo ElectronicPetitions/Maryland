@@ -77,9 +77,9 @@ if ($d4['id'] > 0){
      $checked = '';
    }
   $available .= "<div class='row' style='background-color:lightgreen;'>
-  <div class='col-sm-2'><input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked > </div>
+  <div class='col-sm-1'><input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked > </div>
   <div class='col-sm-6'><h2>$d2[petition_name]</h2></div>
-  <div class='col-sm-1'><h2>$field == $pass</h2></div>
+  <div class='col-sm-2'><h2>$field == $pass</h2></div>
   <div class='col-sm-1'><h2>$d2[eligibleVoterListEnforce]</h2></div>
     </div>";
   
@@ -94,9 +94,9 @@ if ($d4['id'] > 0){
      $checked = '';
    }
   $available .= "<div class='row' style='background-color:#ffcccb;'>
-  <div class='col-sm-2'>"; if ($d2['eligibleVoterListEnforce'] == 'NO'){ $available .="<input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked >"; }else{ $available .= "Constituents Only"; } $available .= "</div>
+  <div class='col-sm-1'>"; if ($d2['eligibleVoterListEnforce'] == 'NO'){ $available .="<input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked >"; }else{ $available .= "Constituents Only"; } $available .= "</div>
   <div class='col-sm-6'><h2>$d2[petition_name]</h2></div>
-  <div class='col-sm-1'><h2>$field != $pass</h2></div>
+  <div class='col-sm-2'><h2>$field != $pass</h2></div>
   <div class='col-sm-1'><h2>$d2[eligibleVoterListEnforce]</h2></div>
     </div>"; 
    if($_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name'])){
@@ -119,9 +119,9 @@ if ($d4['id'] > 0){
   </div>
 
   <div class='row'>
-    <div class='col-sm-2'><h3>Pick One</h3></div>
+    <div class='col-sm-1'><h3>Pick One</h3></div>
     <div class='col-sm-6'><h3>Petition Name</h3></div>
-    <div class='col-sm-1'><h3>Eligible</h3></div>
+    <div class='col-sm-2'><h3>Eligible</h3></div>
     <div class='col-sm-1'><h3>Locked</h3></div>
   </div>
 
