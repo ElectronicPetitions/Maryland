@@ -1,3 +1,4 @@
+<?PHP
 include_once('../slack.php');
 include_once('security.php');
 if ($_COOKIE['level'] == 'user'){
