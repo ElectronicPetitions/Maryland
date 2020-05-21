@@ -10,10 +10,11 @@ if ($_COOKIE['level'] == 'manager'){
   header('Location: manager_home.php');
 }
 include_once('header.php');
-if(isset($_POST['name']) && isset($_POST['email']) ){
+if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['group_id']) ){
   $name = $petition->real_escape_string($_POST['name']);
   $email = $petition->real_escape_string($_POST['email']);
-  $petition->query("insert into users (email,name,group_id,sec_level) values () ");
+  $group_id = $petition->real_escape_string($_POST['group_id']);
+  $petition->query("insert into users (email,name,group_id,sec_level) values ('$name','$email','$group_id') ");
 }
 
 
@@ -38,9 +39,9 @@ while($d = mysqli_fetch_array($r)){
 ?>
 <h1>New Manager</h1>
 <form method='post'>
-  name <input name='name'>
-  email <input name='email'>
-  group_id <input name='group_id'>
+  name <input name='name' required>
+  email <input name='email' required>
+  group_id <input name='group_id' required>
   <input type='submit'>
 </form>
 
