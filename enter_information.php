@@ -96,7 +96,7 @@ slack_general('Entering Information','md-petition');
       
    <div class='row'>
       <div class='col-sm-3' style='text-align:right;'><h2>Phone Number</h2></div>
-      <div class='col-sm-7' style='text-align:left;'><input name='contact_phone' type="text" class="form-control bfh-phone input-lg" data-format="(ddd)ddd-dddd"></div>
+      <div class='col-sm-7' style='text-align:left;'><input type="tel" id="contact_phone" name="contact_phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required></div>
   </div>
    
   <div class='row'>
