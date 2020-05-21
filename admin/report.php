@@ -8,7 +8,7 @@ $r = $petition->query($q);
 $hide = array();
 ?>
 
-<table>
+<table border="1" cellpadding='0' cellspacing='5'>
 <?PHP
 while($d = mysqli_fetch_array($r)){
   echo "<h1>$d[petition_name]</h1>";
@@ -18,7 +18,7 @@ while($d = mysqli_fetch_array($r)){
   while($d2 = mysqli_fetch_array($r2)){
     if (!in_array($d2['VTRID'], $hide)) {
       $hide[] = $d2['VTRID'];
-      echo "<tr><td>$d2[date_time_signed]</td><td>$d2[signed_name_as]</td><td>$d2[signed_name_as_circulator]</td><td>$d2[contact_phone]</td></tr>";
+      echo "<tr><td><input type='checkbox'></td><td>$d2[date_time_signed]</td><td>$d2[signed_name_as]</td><td>$d2[signed_name_as_circulator]</td><td>$d2[contact_phone]</td></tr>";
     }
   }
 }
