@@ -47,8 +47,7 @@ $d = mysqli_fetch_array($r);
      data-href=\"http://md-petition.com/index.php?invite=$d2[web_short_name]\" 
      data-layout=\"button_count\">
    </div></td>
-   <td><a target='_Blank' href='http://md-petition.com/?invite=$d2[web_short_name]'>http://md-petition.com/?invite=$d2[web_short_name]</a></td>
-   <td><input type='text' value='http://md-petition.com/?invite=$d2[web_short_name]' id='$d2[web_short_name]'><button onclick='myFunction($d2[web_short_name])'>Copy Link</button></td>
+   <td><input type='text' size='35' value='http://md-petition.com/?invite=$d2[web_short_name]' id='$d2[web_short_name]'><button onclick='myFunction("$d2[web_short_name]")'>Copy Link</button></td>
    </tr>";
  }
   ?>
