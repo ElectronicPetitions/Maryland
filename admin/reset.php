@@ -1,4 +1,5 @@
 <?PHP
+include_once('../slack.php');
 include_once('/var/www/secure.php'); 
 include('offWorldMail.php');
 if(isset($_POST['email'])){
