@@ -25,7 +25,7 @@ while($d = mysqli_fetch_array($r)){
 ?>
 <h1>Users</h1>
 <?PHP
-$q="SELECT * FROM users where sec_level='users' and group_id = '$group_id'";
+$q="SELECT * FROM users where sec_level='user' and group_id = '$group_id'";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
  echo "<li>$d[id] $d[email] $d[name] $d[group_id] $d[sec_level]</li>"; 
