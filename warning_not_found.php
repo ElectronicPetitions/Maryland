@@ -1,4 +1,5 @@
 <?PHP 
+$save_invite = $_COOKIE['invite'];
 /* delete ALL cookies */
 foreach ( $_COOKIE as $key => $value ){
 	unset($_COOKIE[$key]);
@@ -14,6 +15,7 @@ if (isset($_SERVER['HTTP_COOKIE'])) {
         setcookie($name, '', time()-1000, '/');
     }
 }
+setcookie("invite", $save_invite);
 include_once('header.php');  
 slack_general('Warning Not Found ('.$_COOKIE['invite'].')','md-petition');
 $qX = "select * from website_text where id = '5'";
