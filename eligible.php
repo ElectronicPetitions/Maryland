@@ -129,11 +129,8 @@ if ($d4['id'] > 0){
   <?PHP echo $available;?>
 
   <div class='row'>
-    <div class='col-sm-10'><button type="submit" class="btn btn-success btn-lg btn-block">Next</button><div>
-  </div>
-
-  <div class='row'>
-    <div class='col-sm-10'><button type="button" class="btn btn-danger btn-lg btn-block" onclick="window.location.href='reset.php'">Reset / Restart</button></div>
+    <div class='col-sm-5'><button type="submit" class="btn btn-success btn-lg btn-block">Next</button><div>
+    <div class='col-sm-5'><button type="button" class="btn btn-danger btn-lg btn-block" onclick="window.location.href='reset.php'">Reset / Restart</button></div>
   </div>     
      
       
