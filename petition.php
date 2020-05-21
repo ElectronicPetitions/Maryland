@@ -112,6 +112,8 @@ if (isset($_POST['signed_name_as'])){
 
 <?PHP 
 if(isset($_POST['signed_name_as'])){
- slack_general('petition.php ('.$_POST['signed_name_as'].') ('.$_COOKIE['invite'].')','md-petition');
+ slack_general('petition.php ('.$d['petition_name'].') ('.$_POST['signed_name_as'].') ('.$_COOKIE['invite'].')','md-petition');
+}else{
+ slack_general('petition.php ('.$d['petition_name'].') ('.$_COOKIE['invite'].')','md-petition'); 
 }
 include_once('footer.php');
