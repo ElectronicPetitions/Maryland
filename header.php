@@ -85,6 +85,6 @@ html, body {
       $q = "select petition_name from petitions where web_short_name = '$invite'";
       $r = $petition->query($q);
       $d = mysqli_fetch_array($r);
-      echo "<h1>$d[petition_name]</h1>";
+      echo "<h1 style='text-align:center; background-color:lightgreen;'>$d[petition_name]</h1>";
     } 
     ?>
