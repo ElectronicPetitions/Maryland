@@ -7,15 +7,36 @@ if ($_COOKIE['level'] == 'user'){
 }
 include_once('header.php');
 slack_general('ADMIN: user manager Loaded ('.$_COOKIE['name'].') ('.$_COOKIE['level'].')','md-petition');
+$group_id = $_COOKIE['group_id'];
+if(isset($_POST['name']) && isset($_POST['email']) ){
+  $name = $petition->real_escape_string($_POST['name']);
+  $email = $petition->real_escape_string($_POST['email']);
+  $petition->query("insert into users (email,name,group_id,sec_level) values ('$name','$email','$group_id','user') ");
+}
 ?>
 
-<h1>user manager</h1>
-
-
-
-<pre>
-<?PHP print_r($_COOKIE); ?>
-</pre>
+<h1>Managers</h1>
+<?PHP
+$q="SELECT * FROM users where level='manager' and group_id = '$group_id'";
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){
+ echo "<li>$d[id] $d[email] $d[name] $d[group_id] $d[sec_level]</li>"; 
+}
+?>
+<h1>Users</h1>
+<?PHP
+$q="SELECT * FROM users where level='users' and group_id = '$group_id'";
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){
+ echo "<li>$d[id] $d[email] $d[name] $d[group_id] $d[sec_level]</li>"; 
+}
+?>
+<h1>New User</h1>
+<form method='post'>
+  name <input name='name' required>
+  email <input name='email' required>
+  <input type='submit'>
+</form>
 
 
 <?PHP
