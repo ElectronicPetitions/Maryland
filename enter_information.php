@@ -63,23 +63,30 @@ slack_general('Entering Information','md-petition');
     <div class='col-sm-12' style='text-align:center;'><h1><?PHP echo $dX['text_title'];?></h1><h2 style="margin:25px; padding25px; background-color:lightyellow;"><?PHP echo $dX['text_block'];?></h2></div>
   </div>
    
+   
   <div class='row'>
-    <div class='col-sm-6' style='height:50px; text-align:center;'><h2>First Name</h2></div>
-    <div class='col-sm-6' style='height:50px; text-align:center;'><h2>Last Name</h2></div>
+    <div class='col-sm-12' style='height:50px; text-align:center;'><h2>First Name</h2></div>
+  </div>
+  
+  <div class='row'> 
+    <div class='col-sm-12' style='height:50px; text-align:center;'><input class="form-control input-lg" name='web_first_name'></div>
+  </div>  
+   
+  <div class='row'>
+     <div class='col-sm-12' style='height:50px; text-align:center;'><h2>Last Name</h2></div>
+  </div>
+     
+  <div class='row'>
+   <div class='col-sm-12' style='height:50px; text-align:center;'><input class="form-control input-lg" name='web_last_name'></div> 
+  </div> 
+   
+  <div class='row'>
+     <div class='col-sm-12' style='height:50px; text-align:center;'><h2>Date of Birth</h2></div>
   </div>
    
-  <div class='row'> 
-    <div class='col-sm-6' style='height:50px; text-align:center;'><input class="form-control input-lg" name='web_first_name'></div>
-    <div class='col-sm-6' style='height:50px; text-align:center;'><input class="form-control input-lg" name='web_last_name'></div> 
-  </div> 
-   
-  <div class='row'>
-     <div class='col-sm-6' style='height:50px; text-align:center;'><h2>Date of Birth</h2></div>
-     <div class='col-sm-6' style='height:50px; text-align:center;'><h2>Phone Number</h2></div>
-  </div> 
-   
- 
-      <div class='col-sm-6'>
+  
+   <div class='row'>
+      <div class='col-sm-12'>
             <div class="input-group date">
               <input name='DOB' type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
             </div>
@@ -92,28 +99,40 @@ slack_general('Entering Information','md-petition');
             
         
      
+     </div>
+   <div class='row'>
+      <div class='col-sm-12' style='height:50px; text-align:center;'><h2>Phone Number</h2></div>
+  </div>
+      
+      <div class='row'>
      
      
      
      
-     
-    <div class='col-sm-6' style='height:50px; text-align:center;'><input class="form-control input-lg" name='contact_phone' type='tel'> </div>
+    <div class='col-sm-12' style='height:50px; text-align:center;'><input class="form-control input-lg" name='contact_phone' type='tel'> </div>
   </div>
    
   <div class='row'>
-    <div class='col-sm-6' style='height:50px; text-align:center;'><h2>House Number</h2></div>
-    <div class='col-sm-6' style='height:50px; text-align:center;'><h2>ZIP Code</h2></div>
+    <div class='col-sm-12' style='height:50px; text-align:center;'><h2>House Number</h2></div>
+  </div>
+      
+    <div class='row'>
+    <div class='col-sm-12' style='height:50px; text-align:center;'><input class="form-control input-lg" name='web_house_number' type='number'> </div>
+ </div>  
+      
+      <div class='row'>  <div class='col-sm-12' style='height:50px; text-align:center;'><h2>ZIP Code</h2></div>
   </div>
    
-  <div class='row'>
-    <div class='col-sm-6' style='height:50px; text-align:center;'><input class="form-control input-lg" name='web_house_number' type='number'> </div>
-    <div class='col-sm-6' style='height:50px; text-align:center;'><input class="form-control input-lg" name='web_zip_code' type='number'> </div>
+  <div class='row'>   <div class='col-sm-12' style='height:50px; text-align:center;'><input class="form-control input-lg" name='web_zip_code' type='number'> </div>
   </div>
    
    
   <div class='row'>
-    <div class='col-sm-6' style='height:50px; text-align:center;'><button type="reset" class="btn btn-warning btn-lg btn-block">Clear</button></div>
-    <div class='col-sm-6' style='height:50px; text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">Next</button></div>
+    <div class='col-sm-12' style='height:50px; text-align:center;'><button type="reset" class="btn btn-warning btn-lg btn-block">Clear</button></div>
+  </div>
+      
+      <div class='row'>
+         <div class='col-sm-12' style='height:50px; text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">Next</button></div>
   </div>
    
 </form>
