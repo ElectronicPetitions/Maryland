@@ -79,4 +79,12 @@ html, body {
         <li role='presentation'><a href="/reset.php">RESET</a></li>
       <?PHP } ?>
     </ul>
-    */ ?>
+    */ 
+    if ($_COOKIE['invite'] != ''){ 
+      $invite = $petition->real_escape_string($invite);
+      $q = "select petition_name from petitions where web_short_name = '$invite'";
+      $r = $petition->query($q);
+      $d = mysqli_fetch_array($r);
+      echo "<h1>$d[petition_name]</h1>";
+    } 
+    ?>
