@@ -11,7 +11,7 @@ while($d = mysqli_fetch_array($r)){
   $q2="SELECT * FROM signatures where petition_id = '$pID'";
   $r2 = $petition->query($q2);
   while($d2 = mysqli_fetch_array($r2)){
-    echo "<li>$d[date_time_signed] $d[signed_name_as] $d[signed_name_as_circulator] $d[contact_phone]</li>";
+    echo "<li>$d2[date_time_signed] $d2[signed_name_as] $d2[signed_name_as_circulator] $d2[contact_phone]</li>";
   }
 }
 
