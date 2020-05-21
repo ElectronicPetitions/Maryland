@@ -1,4 +1,5 @@
 <?PHP
+include_once('../slack.php');
 /* delete ALL cookies */
 foreach ( $_COOKIE as $key => $value ){
 	unset($_COOKIE[$key]);
@@ -14,5 +15,6 @@ if (isset($_SERVER['HTTP_COOKIE'])) {
         setcookie($name, '', time()-1000, '/');
     }
 }
+slack_general('ADMIN: logout.php','md-petition');
 header('Location: index.php');
 ?>
