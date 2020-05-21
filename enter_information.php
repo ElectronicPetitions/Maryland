@@ -78,7 +78,7 @@ slack_general('Entering Information','md-petition');
      <div class='col-sm-2' style='height:50px; text-align:right;'><h2>Date of Birth</h2></div>
      <div class='col-sm-6'>
             <div class="input-group date">
-              <input name='DOB' type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+              <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span><input name='DOB' type="text" class="form-control">
             </div>
          <script>
                $('.input-group.date').datepicker({
