@@ -4,10 +4,7 @@ include_once('header.php');
 slack_general('ADMIN: Reports Loaded ('.$_COOKIE['name'].') ('.$_COOKIE['level'].')','md-petition');
 $group_id = $_COOKIE['group_id'];
 
-?>
 
-
-<?PHP
   if($_COOKIE['level'] == 'admin'){
     $q="SELECT * FROM petitions where admin_status = 'approved'";
   }else{
@@ -15,7 +12,7 @@ $group_id = $_COOKIE['group_id'];
   }
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
-  echo '<table border="1" cellpadding='0' cellspacing='5'>';
+  echo "<table border='1' cellpadding='0' cellspacing='5'>";
   unset($hide);
   $hide = array();
   echo "<h1>$d[petition_name]</h1>";
