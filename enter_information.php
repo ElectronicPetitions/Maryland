@@ -94,21 +94,34 @@ slack_general('Entering Information','md-petition');
        </div>
    </div>
       
-   <div class='row'>
+  <div class='row'>
       <div class='col-sm-3' style='text-align:right;'><h2>Phone Number</h2></div>
       <div class='col-sm-7' style='text-align:left;'><input class="form-control input-lg" type="tel" id="contact_phone" name="contact_phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required></div>
+  </div>
+  <div class='row' style='background-color:lightyellow;'>
+      <div class='col-sm-3' style='text-align:right;'><h3>Phone Format</h3></div>
+     <div class='col-sm-7' style='text-align:left;'><h3>443-123-4567</h3></div>
   </div>
    
   <div class='row'>
     <div class='col-sm-3' style='text-align:right;'><h2>House Number</h2></div>
     <div class='col-sm-7' style='text-align:left;'><input class="form-control input-lg" name='web_house_number' type='number' required> </div>
  </div>  
-      
+   
+  <div class='row' style='background-color:lightyellow;'>
+      <div class='col-sm-3' style='text-align:right;'><h3>House Number Format</h3></div>
+     <div class='col-sm-7' style='text-align:left;'><h3>321</h3></div>
+  </div>
+         
   <div class='row'>
      <div class='col-sm-3' style='text-align:right;'><h2>ZIP Code</h2></div>
      <div class='col-sm-7' style='text-align:left;'><input class="form-control input-lg" name='web_zip_code' type='number' required> </div>
   </div>
    
+  <div class='row' style='background-color:lightyellow;'>
+      <div class='col-sm-3' style='text-align:right;'><h3>ZIP Code Format</h3></div>
+     <div class='col-sm-7' style='text-align:left;'><h3>55555</h3></div>
+  </div> 
    
   <div class='row'>
     <div class='col-sm-5' style='text-align:center;'><button type="reset" class="btn btn-warning btn-lg btn-block">Clear</button></div>
