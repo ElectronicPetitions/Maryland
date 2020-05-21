@@ -20,21 +20,20 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['group_id']) 
 
 slack_general('ADMIN: managers.php ('.$_COOKIE['name'].') ('.$_COOKIE['level'].')','md-petition');
 ?>
-
-<h1>Managers</h1>
-<?PHP
-$q="SELECT * FROM users where sec_level='manager'";
-$r = $petition->query($q);
-while($d = mysqli_fetch_array($r)){
- echo "<li>$d[id] $d[email] $d[name] $d[group_id] $d[sec_level]</li>"; 
-}
-?>
 <h1>Groups</h1>
 <?PHP
 $q="SELECT * FROM groups";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
  echo "<li>$d[id] $d[name]</li>"; 
+}
+?>
+<h1>Managers</h1>
+<?PHP
+$q="SELECT * FROM users where sec_level='manager'";
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){
+ echo "<li>$d[id] $d[email] $d[name] $d[group_id]</li>"; 
 }
 ?>
 <h1>New Manager</h1>
