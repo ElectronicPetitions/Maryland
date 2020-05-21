@@ -51,7 +51,7 @@ if (isset($_POST['web_first_name'])){
   header('Location: is_the_information_correct.php');
 }
 include_once('header.php');
-slack_general('Entering Information','md-petition');
+slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
 ?>
    <link id="bsdp-css" href="files/bootstrap-datepicker3.min.css" rel="stylesheet">
    <script src="files/bootstrap-datepicker.min.js"></script>
