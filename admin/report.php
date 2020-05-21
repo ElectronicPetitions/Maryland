@@ -1,9 +1,18 @@
 <?PHP 
+
 include_once('security.php');
+
 include_once('header.php');
+slack_general('ADMIN: Reports Loaded ('.$_COOKIE['name'].') ('.$_COOKIE['level'].')','md-petition');
 ?>
 
-report.php
+<h1>Petition Reports</h1>
+
+
+
+<pre>
+<?PHP print_r($_COOKIE); ?>
+</pre>
 
 
 <?PHP
