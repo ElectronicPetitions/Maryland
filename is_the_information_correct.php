@@ -6,12 +6,16 @@ $web_zip_code     = $_COOKIE['web_zip_code'];
 $DOB              = $_COOKIE['pDOB'];
 $PHONE             = $_COOKIE['pPHONE'];
 if ($web_first_name != '' && $web_last_name != '' && $web_house_number != '' && $web_zip_code != ''){
-  // ok to check for records
+  include_once('header.php'); 
+  $web_first_name   = $petition->real_escape_string($web_first_name);
+  $web_last_name    = $petition->real_escape_string($web_last_name);
+  $web_house_number = $petition->real_escape_string($web_house_number);
+  $web_zip_code     = $petition->real_escape_string($web_zip_code);
+  $DOB              = $petition->real_escape_string($DOB);
+  $PHONE            = $petition->real_escape_string($PHONE);
 }else{
   header('Location: warning_incomplete.php');
 }
-include_once('header.php'); 
-slack_general('Is the information correct ('.$_COOKIE['invite'].')','md-petition');
 $q = "select * from VoterList where LASTNAME = '$web_last_name' and FIRSTNAME = '$web_first_name' and HOUSE_NUMBER = '$web_house_number' and RESIDENTIALZIP5 = '$web_zip_code'";
 $r = $petition->query($q);
 $d = mysqli_fetch_array($r);
@@ -32,11 +36,12 @@ if ($d['VTRID'] != ''){
   setcookie("pADDRESS2", "$RESIDENTIALCITY MD $RESIDENTIALZIP5");
   setcookie("pVTRID", $VTRID);
   setcookie("signature_status", 'verified');
+  slack_general('MATCH: Is the information correct ('.$FIRSTNAME.' '.$LASTNAME.' '.$RESIDENTIALCITY.') ('.$_COOKIE['invite'].')','md-petition');
 }else{
+  slack_general('MISS: Is the information correct ('.$web_first_name.' '.$web_last_name.' '.$PHONE.') ('.$_COOKIE['invite'].')','md-petition');
    setcookie("signature_status", 'notfound');
    header('Location: warning_not_found.php');
 }
-
 $qX = "select * from website_text where id = '6'";
  $rX = $petition->query($qX);
  $dX = mysqli_fetch_array($rX);
