@@ -17,11 +17,6 @@ slack_general('ADMIN: Home Page Loaded ('.$_COOKIE['name'].') ('.$_COOKIE['level
 
 <h1>Admin Home</h1>
 
-<pre>
-list all users and levels
-
-list all petitions and stats
-</pre>
 <h1>Users</h1>
 <?PHP
 $q="SELECT * FROM users";
