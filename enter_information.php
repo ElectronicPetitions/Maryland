@@ -80,20 +80,17 @@ slack_general('Entering Information','md-petition');
    
  
       <div class='col-sm-6'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker1'>
-                    <input name='DOB' type='text' class="form-control input-lg" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
+            <div class="input-group date">
+              <input name='DOB' type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
             </div>
-        </div>
-        <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker();
-            });
-        </script>
+         <script>
+               $('.input-group.date').datepicker({
+                   format: "mm/dd/yyyy",
+                   clearBtn: true
+               });
+         </script>
+            
+        
      
      
      
