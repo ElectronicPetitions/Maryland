@@ -131,7 +131,9 @@ if ($d4['id'] > 0){
   <div class='row'>
     <div class='col-sm-10' style='height:100px; text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">Next</button><div>
   </div>
-      
+<div class='row'>
+ <div class='col-sm-10' style='text-align:center;'><button type="button" class="btn btn-danger btn-lg btn-block" onclick="window.location.href='reset.php'">Reset / Restart</button></div>
+</div>     
      
       
 </form>
