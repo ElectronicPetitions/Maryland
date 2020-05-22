@@ -23,10 +23,11 @@ if(isset($_POST['petition_id']) && isset($_POST['petition_name']) ){ // edit
   $petition_name                = $petition->real_escape_string($_POST['petition_name']);
   $petition_sign_text_box       = $petition->real_escape_string($_POST['petition_sign_text_box']);
   $petition_circulator_text_box = $petition->real_escape_string($_POST['petition_circulator_text_box']);
+  $eligibleVoterListWarning     = $petition->real_escape_string($_POST['eligibleVoterListWarning']);
   $eligibleVoterListEnforce     = $petition->real_escape_string($_POST['eligibleVoterListEnforce']);
   $eligibleVoterListField       = $petition->real_escape_string($_POST['eligibleVoterListField']);
   $eligibleVoterListEquals      = $petition->real_escape_string($_POST['eligibleVoterListEquals']);
-  $petition->query("update petitions set web_short_name='$web_short_name', web_color='$web_color', petition_name='$petition_name', petition_sign_text_box='$petition_sign_text_box', petition_circulator_text_box='$petition_circulator_text_box', eligibleVoterListEnforce='$eligibleVoterListEnforce', eligibleVoterListField='$eligibleVoterListField', eligibleVoterListEquals='$eligibleVoterListEquals' where petition_id = '$petition_id' ");
+  $petition->query("update petitions set eligibleVoterListWarning='$eligibleVoterListWarning', web_short_name='$web_short_name', web_color='$web_color', petition_name='$petition_name', petition_sign_text_box='$petition_sign_text_box', petition_circulator_text_box='$petition_circulator_text_box', eligibleVoterListEnforce='$eligibleVoterListEnforce', eligibleVoterListField='$eligibleVoterListField', eligibleVoterListEquals='$eligibleVoterListEquals' where petition_id = '$petition_id' ");
   header('Location: petitions.php');
 }
 ?>
@@ -63,7 +64,8 @@ $d = mysqli_fetch_array($r);
     <tr><td>eligibleVoterList Enforce</td><td><select name='eligibleVoterListEnforce'><option><?PHP echo $d['eligibleVoterListEnforce'];?></option><option>NO</option><option>YES</option></select></td></tr>   
     <tr><td>eligibleVoterList Field</td><td><input name='eligibleVoterListField' value='<?PHP echo $d['eligibleVoterListField'];?>' required></td></tr>
     <tr><td>eligibleVoterList Equals</td><td><input name='eligibleVoterListEquals' value="<?PHP echo $d['eligibleVoterListEquals'];?>" required></td></tr>   
-    <tr><td></td><td><input type='submit'></td></tr>
+    <tr><td>eligibleVoterList Warning</td><td><textarea rows='5' cols='50' name='eligibleVoterListWarning' required><?PHP echo $d['eligibleVoterListWarning'];?></textarea></td></tr>
+   <tr><td></td><td><input type='submit'></td></tr>
   </table>
 </form>
 * changes may break already sent invites!
