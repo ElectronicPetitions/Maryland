@@ -55,16 +55,10 @@ while($d2 = mysqli_fetch_array($r2)){
  $field = $d2['eligibleVoterListField'];
  $pass = $d2['eligibleVoterListEquals'];
  
-  /*
-if ($d4['id'] > 0){
-  $available .= "<div class='row' style='background-color:lightyellow;'>
-  <div class='col-sm-3'>Already Signed, <a target='_Blank' href='soft_copy.php?id=$d4[id]'>View</a> or <a href='?remove=$d4[id]'>Remove</a></div>
-  <div class='col-sm-6'>$d2[petition_name]</div>
-  <div class='col-sm-3'>$field == $pass</div>
-    </div>"; 
- }else */
+
   
   if($d[$field] == $pass){
+    // good to go
    $checked = ''; 
    if($_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name'])){
      $checked = 'checked';
@@ -81,6 +75,7 @@ if ($d4['id'] > 0){
      $available .= '<script>document.getElementById("form").submit();</script>';
    }
  }else{
+    // not a eligable voter
    $checked = '';
    if($_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name'])){
      $checked = 'checked';
@@ -92,7 +87,7 @@ if ($d4['id'] > 0){
   <div class='col-sm-6' style='background-color:$d2[web_color];'><h2>$d2[petition_name] <br> $field != $pass</h2></div>
   <div class='col-sm-1' style='background-color:$d2[web_color];'><h2>$d2[eligibleVoterListEnforce]</h2></div>
     </div>"; 
-   if($_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name'])){
+   if($d2['eligibleVoterListEnforce'] == 'NO' && $_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name'])){
      $available .= '<script>document.getElementById("form").submit();</script>';
    }
  }
