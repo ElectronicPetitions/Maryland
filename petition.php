@@ -6,11 +6,13 @@ if (isset($_POST['petition'])){
   $q = "select * from petitions where petition_id = '$id'";
   $r = $petition->query($q);
   $d = mysqli_fetch_array($r);
+  slack_general('OK POST: petition.php ('.$_COOKIE['invite'].')','md-petition');
 }elseif($_COOKIE['pID'] != ''){
   $id = $_COOKIE['pID'];
   $q = "select * from petitions where petition_id = '$id'";
   $r = $petition->query($q);
   $d = mysqli_fetch_array($r);
+  slack_general('OK COOKIE: petition.php ('.$_COOKIE['invite'].')','md-petition');
 }else{
   slack_general('MAJOR ERROR: petition.php ('.$_COOKIE['invite'].')','md-petition');
   header('Location: reset.php');
