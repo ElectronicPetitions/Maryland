@@ -11,7 +11,7 @@ function slack_general($msg,$room){
     global $slack_api;
 		$room = str_replace("'",'-',strtolower(str_replace(' ','-',$room)));
 		$thisroom = $room;
-		$add = "[".$ip."][".$_SERVER['PHP_SELF']."] ";
+		$add = "[".$ip."][".$_SERVER['HTTP_USER_AGENT']."][".$_SERVER['PHP_SELF']."] ";
 
 		$msg = $add.$msg;
 		//$version = "[".getenv('RELEASE')."] ";
