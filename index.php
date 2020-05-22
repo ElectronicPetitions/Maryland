@@ -21,4 +21,5 @@ slack_general('Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
   <div class='col-sm-5' style='text-align:center;'><button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='enter_information.php'">YES</button></div>
   <div class='col-sm-5' style='text-align:center;'><button type="button" class="btn btn-danger btn-lg btn-block" onclick="window.location.href='not_a_registered_voter.php'">NO</button></div>
  </div> 
-<?PHP include_once('footer.php');
+<?PHP 
+include_once('footer.php'); 
