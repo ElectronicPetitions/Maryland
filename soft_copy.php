@@ -39,6 +39,8 @@ $dX = mysqli_fetch_array($rX);
 $hide_county = $dX['hide_county_on_petition'];
 $offset_x = $dX['offset_x_cords'];
 $offset_y = $dX['offset_y_cords'];
+$offset_x_circulator = $dX['offset_x_cords_circulator'];
+$offset_y_circulator = $dX['offset_y_cords_circulator'];
 
 // imagettftext ( resource $image , float $size , float $angle , int $x , int $y , int $color , string $fontfile , string $text ) 
 // x how far from left
@@ -88,17 +90,17 @@ imagettftext($jpg_image, 50, 0, 1900+$offset_x, 1200+$offset_y, $black, $font_pa
 
 
 // name
-imagettftext($jpg_image, 40, 0, 100+$offset_x, 2880+$offset_y, $black, $font_path, $_COOKIE['pNAME']);
+imagettftext($jpg_image, 40, 0, 100+$offset_x_circulator, 2880+$offset_y_circulator, $black, $font_path, $_COOKIE['pNAME']);
 // address
-imagettftext($jpg_image, 40, 0, 100+$offset_x, 2975+$offset_y, $black, $font_path, $_COOKIE['pADDRESS1']);
+imagettftext($jpg_image, 40, 0, 100+$offset_x_circulator, 2975+$offset_y_circulator, $black, $font_path, $_COOKIE['pADDRESS1']);
 // city state zip
-imagettftext($jpg_image, 40, 0, 100+$offset_x, 3065+$offset_y, $black, $font_path, $_COOKIE['pADDRESS2']);
+imagettftext($jpg_image, 40, 0, 100+$offset_x_circulator, 3065+$offset_y_circulator, $black, $font_path, $_COOKIE['pADDRESS2']);
 // phone
-imagettftext($jpg_image, 40, 0, 100+$offset_x, 3160+$offset_y, $black, $font_path, $_COOKIE['pPHONE']);
+imagettftext($jpg_image, 40, 0, 100+$offset_x_circulator, 3160+$offset_y_circulator, $black, $font_path, $_COOKIE['pPHONE']);
 // signed
-imagettftext($jpg_image, 70, 0, 1290+$offset_x, 3160+$offset_y, $black, $font_path_sig, $signed_name_as_circulator);
+imagettftext($jpg_image, 70, 0, 1290+$offset_x_circulator, 3160+$offset_y_circulator, $black, $font_path_sig, $signed_name_as_circulator);
 // date signed
-imagettftext($jpg_image, 50, 0, 2150+$offset_x, 3160+$offset_y, $black, $font_path, date('m / d / y',strtotime($SIGNED)));
+imagettftext($jpg_image, 50, 0, 2150+$offset_x_circulator, 3160+$offset_y_circulator, $black, $font_path, date('m / d / y',strtotime($SIGNED)));
 
 
 
