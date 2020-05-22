@@ -90,6 +90,7 @@ while($d2 = mysqli_fetch_array($r2)){
    if($d2['eligibleVoterListEnforce'] == 'NO' && $_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name']) ){
      $available .= '<script>document.getElementById("form").submit();</script>';
    }elseif($d2['eligibleVoterListEnforce'] == 'YES' && $_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name']) ){
+     setcookie("invite", ""); // clear invite
      $available .= '<script>alert("'.$d2[eligibleVoterListWarning].'");</script>';
    }
  }
