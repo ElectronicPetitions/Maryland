@@ -14,6 +14,7 @@ if(empty($_POST['petition_id']) && isset($_POST['petition_name']) ){ // new
   $web_color = $petition->real_escape_string($_POST['web_color']);
   $petition_name = $petition->real_escape_string($_POST['petition_name']);
   $petition->query("insert into petitions (web_short_name,web_color,group_id,petition_name) values ('$web_short_name','$web_color','$group_id','$petition_name') ");
+  header('Location: petitions.php');
 }
 if(isset($_POST['petition_id']) && isset($_POST['petition_name']) ){ // edit
   $petition_id               = $petition->real_escape_string($_POST['petition_id']);
@@ -26,6 +27,7 @@ if(isset($_POST['petition_id']) && isset($_POST['petition_name']) ){ // edit
   $eligibleVoterListField       = $petition->real_escape_string($_POST['eligibleVoterListField']);
   $eligibleVoterListEquals      = $petition->real_escape_string($_POST['eligibleVoterListEquals']);
   $petition->query("update petitions set web_short_name='$web_short_name', web_color='$web_color', petition_name='$petition_name', petition_sign_text_box='$petition_sign_text_box', petition_circulator_text_box='$petition_circulator_text_box', eligibleVoterListEnforce='$eligibleVoterListEnforce', eligibleVoterListField='$eligibleVoterListField', eligibleVoterListEquals='$eligibleVoterListEquals' where petition_id = '$petition_id' ");
+  header('Location: petitions.php');
 }
 ?>
 <h1>Petitions</h1>
