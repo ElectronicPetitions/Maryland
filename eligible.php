@@ -87,8 +87,10 @@ while($d2 = mysqli_fetch_array($r2)){
   <div class='col-sm-6' style='background-color:$d2[web_color];'><h2>$d2[petition_name] <br> $field != $pass</h2></div>
   <div class='col-sm-1' style='background-color:$d2[web_color];'><h2>$d2[eligibleVoterListEnforce]</h2></div>
     </div>"; 
-   if($d2['eligibleVoterListEnforce'] == 'NO' && $_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name'])){
+   if($d2['eligibleVoterListEnforce'] == 'NO' && $_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name']) ){
      $available .= '<script>document.getElementById("form").submit();</script>';
+   }elseif($d2['eligibleVoterListEnforce'] == 'YES' && $_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name']) ){
+     $available .= '<script>alert(".$d2['eligibleVoterListWarning'].");</script>';
    }
  }
 }
