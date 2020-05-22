@@ -33,7 +33,7 @@ while($d = mysqli_fetch_array($r)){
 $q="SELECT * FROM users where sec_level='manager'";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
- echo "<li><a href='managers.php?edit=$d[id]'>EDIT</a> $d[email] $d[name] $d[group_id]</li>"; 
+ echo "<li><a href='managers.php?edit=$d[id]'>EDIT</a> $d[email] $d[name] ".id2group($d['group_id'])."</li>"; 
 }
 ?>
 <h1>New Manager</h1>
