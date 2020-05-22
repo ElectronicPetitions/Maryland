@@ -1,7 +1,7 @@
 <?php
 include_once('/var/www/secure.php'); 
-
-$id = $_GET['id'];
+include_once('slack.php'); 
+$id = intval($_GET['id']);
 $q = "select * from signatures where id = '$id' ";
 $r = $petition->query($q);
 $d = mysqli_fetch_array($r);
@@ -12,6 +12,7 @@ $PETITION_ID = $d['petition_id'];
 $signed_name_as = $d['signed_name_as'];
 $signed_name_as_circulator = $d['signed_name_as_circulator'];
 if ($_COOKIE['pVTRID'] != $d['VTRID']){
+ slack_general('SECURITY INVALID: soft_copy.php ('.$_COOKIE['invite'].')','md-petition');
  die('Error #294');
 }
 
@@ -35,6 +36,10 @@ $qX = "select * from petitions where petition_id = '$PETITION_ID'";
 $rX = $petition->query($qX);
 $dX = mysqli_fetch_array($rX);
 
+$hide_county = $dX['hide_county_on_petition'];
+$offset_x = $dX['offset_x_cords'];
+$offset_y = $dX['offset_y_cords'];
+
 // imagettftext ( resource $image , float $size , float $angle , int $x , int $y , int $color , string $fontfile , string $text ) 
 // x how far from left
 // y how far from top
@@ -53,46 +58,47 @@ $black = imagecolorallocate($jpg_image, 0, 0, 0);
 $font_path = 'files/coolvetica rg.ttf';
 $font_path_sig = 'files/Claston Script.ttf';
 
-if ( $_COOKIE['pCOUNTY'] == 'Baltimore City'){
-  // City Checkbox
-  $cord = $dX['text_cord_cityX'];
-  $array = explode(",",$cord);
-  $debug = "$id : $cord : $array[0]";
-  imagettftext($jpg_image, $array[0], $array[1], $array[2], $array[3], $black, $font_path, 'X');
-}else{
-  // County on Petition
-  $cord = $dX['text_cord_county'];
-  $array = explode(",",$cord);
-  imagettftext($jpg_image, $array[0], $array[1], $array[2], $array[3], $black, $font_path, str_replace('County','',$_COOKIE['pCOUNTY']) );
+if ($hide_county == 'NO'){
+ if ( $_COOKIE['pCOUNTY'] == 'Baltimore City'){
+   // City Checkbox
+   $cord = $dX['text_cord_cityX'];
+   $array = explode(",",$cord);
+   $debug = "$id : $cord : $array[0]";
+   imagettftext($jpg_image, $array[0], $array[1], $array[2], $array[3], $black, $font_path, 'X');
+ }else{
+   // County on Petition
+   $cord = $dX['text_cord_county'];
+   $array = explode(",",$cord);
+   imagettftext($jpg_image, $array[0], $array[1], $array[2], $array[3], $black, $font_path, str_replace('County','',$_COOKIE['pCOUNTY']) );
+ }
 }
-
 // name
-imagettftext($jpg_image, 50, 0, 350, 1070, $black, $font_path, $full_name);
+imagettftext($jpg_image, 50, 0, 350+$offset_x, 1070+$offset_y, $black, $font_path, $full_name);
 // signed
-imagettftext($jpg_image, 70, 0, 400, 1180, $black, $font_path_sig, $signed_name_as);
+imagettftext($jpg_image, 70, 0, 400+$offset_x, 1180+$offset_y, $black, $font_path_sig, $signed_name_as);
 // address
-imagettftext($jpg_image, 50, 0, 400, 1300, $black, $font_path, $address);
+imagettftext($jpg_image, 50, 0, 400+$offset_x, 1300+$offset_y, $black, $font_path, $address);
 
 // date of birth 
 if($DOB != ''){
- imagettftext($jpg_image, 50, 0, 1900, 1070, $black, $font_path, date('m     d     Y',strtotime($DOB)));
+ imagettftext($jpg_image, 50, 0, 1900+$offset_x, 1070+$offset_y, $black, $font_path, date('m     d     Y',strtotime($DOB)));
 }
 // date signed
-imagettftext($jpg_image, 50, 0, 1900, 1200, $black, $font_path, date('m     d     Y',strtotime($SIGNED)));
+imagettftext($jpg_image, 50, 0, 1900+$offset_x, 1200+$offset_y, $black, $font_path, date('m     d     Y',strtotime($SIGNED)));
 
 
 // name
-imagettftext($jpg_image, 40, 0, 100, 2880, $black, $font_path, $_COOKIE['pNAME']);
+imagettftext($jpg_image, 40, 0, 100+$offset_x, 2880+$offset_y, $black, $font_path, $_COOKIE['pNAME']);
 // address
-imagettftext($jpg_image, 40, 0, 100, 2975, $black, $font_path, $_COOKIE['pADDRESS1']);
+imagettftext($jpg_image, 40, 0, 100+$offset_x, 2975+$offset_y, $black, $font_path, $_COOKIE['pADDRESS1']);
 // city state zip
-imagettftext($jpg_image, 40, 0, 100, 3065, $black, $font_path, $_COOKIE['pADDRESS2']);
+imagettftext($jpg_image, 40, 0, 100+$offset_x, 3065+$offset_y, $black, $font_path, $_COOKIE['pADDRESS2']);
 // phone
-imagettftext($jpg_image, 40, 0, 100, 3160, $black, $font_path, $_COOKIE['pPHONE']);
+imagettftext($jpg_image, 40, 0, 100+$offset_x, 3160+$offset_y, $black, $font_path, $_COOKIE['pPHONE']);
 // signed
-imagettftext($jpg_image, 70, 0, 1290, 3160, $black, $font_path_sig, $signed_name_as_circulator);
+imagettftext($jpg_image, 70, 0, 1290+$offset_x, 3160+$offset_y, $black, $font_path_sig, $signed_name_as_circulator);
 // date signed
-imagettftext($jpg_image, 50, 0, 2150, 3160, $black, $font_path, date('m / d / y',strtotime($SIGNED)));
+imagettftext($jpg_image, 50, 0, 2150+$offset_x, 3160+$offset_y, $black, $font_path, date('m / d / y',strtotime($SIGNED)));
 
 
 
