@@ -22,7 +22,7 @@ slack_general('ADMIN: managers.php ('.$_COOKIE['name'].') ('.$_COOKIE['level'].'
 ?>
 <h1>Groups</h1>
 <?PHP
-$q="SELECT * FROM groups";
+$q="SELECT * FROM groups order by name";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
  echo "<li><a href='groups.php?edit=$d[id]'>EDIT</a> $d[name]</li>"; 
@@ -30,7 +30,7 @@ while($d = mysqli_fetch_array($r)){
 ?>
 <h1>Managers</h1>
 <?PHP
-$q="SELECT * FROM users where sec_level='manager'";
+$q="SELECT * FROM users where sec_level='manager' order by group_id";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
  echo "<li><a href='managers.php?edit=$d[id]'>EDIT</a> $d[email] $d[name] ".id2group($d['group_id'])."</li>"; 
