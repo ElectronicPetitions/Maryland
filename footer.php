@@ -4,11 +4,11 @@ if ($_COOKIE['invite'] != ''){
  $copy = '&copy; 2020 Patrick McGuire - '.strtoupper($_COOKIE['invite']); 
 }  
 ?>
-  
-<div class='row'>
- <div class='col-sm-10' style='text-align:center;'><button type="button" class="btn btn-info btn-lg btn-block" onclick="window.open('share.php')">Before you leave click here to share the petition.</button></div>
-</div>
-
+<?PHP if (if($_SERVER['SCRIPT_NAME'] != '/share.php'){ ?>  
+ <div class='row'>
+  <div class='col-sm-10' style='text-align:center;'><button type="button" class="btn btn-info btn-lg btn-block" onclick="window.open('share.php')">Before you leave click here to share the petition.</button></div>
+ </div>
+<?PHP } ?>
 <div class='row'>
  <div class='col-sm-10' style='text-align:center;'><?PHP echo $copy;?></div>
 </div>
