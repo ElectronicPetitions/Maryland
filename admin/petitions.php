@@ -53,14 +53,14 @@ $d = mysqli_fetch_array($r);
 <form method='post'>
   <input type='hidden' name='petition_id' value='<?PHP echo $id;?>'>
   <table>
-    <tr><td>web_short_name*</td><td><input name='web_short_name' value='<?PHP echo $d['web_short_name'];?>' required></td></tr>
-    <tr><td>web_color</td><td><input name='web_color' value='<?PHP echo $d['web_color'];?>' required></td></tr>   
-    <tr><td>petition_name</td><td><input name='petition_name' value='<?PHP echo $d['petition_name'];?>' required></td></tr>
-    <tr><td>petition_sign_text_box</td><td><textarea name='petition_sign_text_box' required><?PHP echo $d['petition_sign_text_box'];?></textarea></td></tr>   
-    <tr><td>petition_circulator_text_box</td><td><textarea name='petition_circulator_text_box' required><?PHP echo $d['petition_circulator_text_box'];?></textarea></td></tr>
-    <tr><td>eligibleVoterListEnforce</td><td><select name='eligibleVoterListEnforce'><option><?PHP echo $d['eligibleVoterListEnforce'];?></option><option>NO</option><option>YES</option></select></td></tr>   
-    <tr><td>eligibleVoterListField</td><td><input name='eligibleVoterListField' value='<?PHP echo $d['eligibleVoterListField'];?>' required></td></tr>
-    <tr><td>eligibleVoterListEquals</td><td><input name='eligibleVoterListEquals' value='<?PHP echo $d['eligibleVoterListEquals'];?>' required></td></tr>   
+    <tr><td>Web Short Name*</td><td><input name='web_short_name' value='<?PHP echo $d['web_short_name'];?>' required></td></tr>
+    <tr><td>Web Color</td><td><input name='web_color' value='<?PHP echo $d['web_color'];?>' required></td></tr>   
+    <tr><td>Petition Name</td><td><input name='petition_name' value='<?PHP echo $d['petition_name'];?>' required></td></tr>
+    <tr><td>Petition Sign Text Box</td><td><textarea rows='5' cols='50' name='petition_sign_text_box' required><?PHP echo $d['petition_sign_text_box'];?></textarea></td></tr>   
+    <tr><td>Petition Circulator Text Box</td><td><textarea rows='5' cols='50' name='petition_circulator_text_box' required><?PHP echo $d['petition_circulator_text_box'];?></textarea></td></tr>
+    <tr><td>eligibleVoterList Enforce</td><td><select name='eligibleVoterListEnforce'><option><?PHP echo $d['eligibleVoterListEnforce'];?></option><option>NO</option><option>YES</option></select></td></tr>   
+    <tr><td>eligibleVoterList Field</td><td><input name='eligibleVoterListField' value='<?PHP echo $d['eligibleVoterListField'];?>' required></td></tr>
+    <tr><td>eligibleVoterList Equals</td><td><input name='eligibleVoterListEquals' value='<?PHP echo $d['eligibleVoterListEquals'];?>' required></td></tr>   
     <tr><td></td><td><input type='submit'></td></tr>
   </table>
 </form>
