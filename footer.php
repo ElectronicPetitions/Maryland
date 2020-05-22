@@ -1,11 +1,17 @@
 <?PHP
-$copy = 'MEPS';
+$copy = '&copy; Patrick McGuire';
 if ($_COOKIE['invite'] != ''){
- $copy = 'MEPS - '.strtoupper($_COOKIE['invite']); 
+ $copy = '&copy; Patrick McGuire - '.strtoupper($_COOKIE['invite']); 
 }  
 ?>
   
+<div class='row'>
+ <div class='col-sm-10' style='text-align:center;'><button type="button" class="btn btn-info btn-lg btn-block" onclick="window.open('share.php')">Before you leave click here to share the petition.</button></div>
+</div>
 
+<div class='row'>
+ <div class='col-sm-10' style='text-align:center;'><?PHP echo $copy;?></div>
+</div>
 
 
 <div id="fb-root"></div>
@@ -18,7 +24,7 @@ if ($_COOKIE['invite'] != ''){
   }(document, 'script', 'facebook-jssdk'));</script>
 
 <div class='row'>
-  <div class='col-sm-12' style='text-align:center;'>
+  <div class='col-sm-10' style='text-align:center;'>
    <?PHP if($_COOKIE['debug'] == 'on'){ ?> 
     <pre><?PHP print_r($_GET); ?></pre>
     <pre><?PHP print_r($_POST); ?></pre> 
