@@ -1,7 +1,7 @@
 <?PHP
-$copy = '&copy; Patrick McGuire';
+$copy = '&copy; 2020 Patrick McGuire';
 if ($_COOKIE['invite'] != ''){
- $copy = '&copy; Patrick McGuire - '.strtoupper($_COOKIE['invite']); 
+ $copy = '&copy; 2020 Patrick McGuire - '.strtoupper($_COOKIE['invite']); 
 }  
 ?>
   
