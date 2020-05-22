@@ -38,9 +38,18 @@ while($d = mysqli_fetch_array($r)){
 ?>
 <h1>New Manager</h1>
 <form method='post'>
-  name <input name='name' required>
-  email <input name='email' required>
-  group_id <input name='group_id' required>
+  Name <input name='name' required>
+  E-Mail <input name='email' required>
+  Group: <select name='group_id' required>
+  <?PHP
+$q="SELECT * FROM groups";
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){
+ echo "<option value='$d[id]'>$d[name]</option>
+ "; 
+}
+?>
+  </select>
   <input type='submit'>
 </form>
 
