@@ -62,7 +62,7 @@ $d = mysqli_fetch_array($r);
     <tr><td>Petition Circulator Text Box</td><td><textarea rows='5' cols='50' name='petition_circulator_text_box' required><?PHP echo $d['petition_circulator_text_box'];?></textarea></td></tr>
     <tr><td>eligibleVoterList Enforce</td><td><select name='eligibleVoterListEnforce'><option><?PHP echo $d['eligibleVoterListEnforce'];?></option><option>NO</option><option>YES</option></select></td></tr>   
     <tr><td>eligibleVoterList Field</td><td><input name='eligibleVoterListField' value='<?PHP echo $d['eligibleVoterListField'];?>' required></td></tr>
-    <tr><td>eligibleVoterList Equals</td><td><input name='eligibleVoterListEquals' value='<?PHP echo $d['eligibleVoterListEquals'];?>' required></td></tr>   
+    <tr><td>eligibleVoterList Equals</td><td><input name='eligibleVoterListEquals' value='<?PHP echo addslashes($d['eligibleVoterListEquals']);?>' required></td></tr>   
     <tr><td></td><td><input type='submit'></td></tr>
   </table>
 </form>
