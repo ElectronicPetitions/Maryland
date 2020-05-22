@@ -6,7 +6,7 @@ if ($_COOKIE['invite'] != ''){
 ?>
 <?PHP if ($_SERVER['SCRIPT_NAME'] != '/share.php'){ ?>  
  <div class='row'>
-  <div class='col-sm-10' style='text-align:center;'><button type="button" class="btn btn-info btn-lg btn-block" onclick="window.open('share.php')">Before you leave click here to share the petition.</button></div>
+  <div class='col-sm-10' style='text-align:center;'><br><br><br><button type="button" class="btn btn-info btn-lg btn-block" onclick="window.open('share.php')">Before you leave click here to share the petition.</button></div>
  </div>
 <?PHP } ?>
 
