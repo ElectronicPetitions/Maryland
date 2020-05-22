@@ -28,7 +28,6 @@ if(isset($_POST['petition_id']) && isset($_POST['petition_name']) ){ // edit
   $petition->query("update petitions set web_short_name='$web_short_name', web_color='$web_color', petition_name='$petition_name', petition_sign_text_box='$petition_sign_text_box', petition_circulator_text_box='$petition_circulator_text_box', eligibleVoterListEnforce='$eligibleVoterListEnforce', eligibleVoterListField='$eligibleVoterListField', eligibleVoterListEquals='$eligibleVoterListEquals' where petition_id = '$petition_id' ");
 }
 ?>
-
 <h1>Petitions</h1>
 <?PHP
 if($_COOKIE['level'] == 'admin'){
@@ -53,15 +52,17 @@ $d = mysqli_fetch_array($r);
 <h3>Please keep whatever text you use in a word or google doc that you control, copy and paste here.</h3>
 <form method='post'>
   <input type='hidden' name='petition_id' value='<?PHP echo $id;?>'>
-  web_short_name* <input name='web_short_name' value='<?PHP echo $d['web_short_name'];?>' required> 
-  web_color <input name='web_color' value='<?PHP echo $d['web_color'];?>' required>
-  petition_name <input name='petition_name' value='<?PHP echo $d['petition_name'];?>' required>
-  petition_sign_text_box <textarea name='petition_sign_text_box' required><?PHP echo $d['petition_sign_text_box'];?></textarea>
-  petition_circulator_text_box <textarea name='petition_circulator_text_box' required><?PHP echo $d['petition_circulator_text_box'];?></textarea>
-  eligibleVoterListEnforce <select name='eligibleVoterListEnforce'><option><?PHP echo $d['eligibleVoterListEnforce'];?></option><option>NO</option><option>YES</option></select>  <input required>
-  eligibleVoterListField <input name='eligibleVoterListField' value='<?PHP echo $d['eligibleVoterListField'];?>' required>
-  eligibleVoterListEquals <input name='eligibleVoterListEquals' value='<?PHP echo $d['eligibleVoterListEquals'];?>' required>
-  <input type='submit'>
+  <table>
+    <tr><td>web_short_name*</td><td><input name='web_short_name' value='<?PHP echo $d['web_short_name'];?>' required></td></tr>
+    <tr><td>web_color</td><td><input name='web_color' value='<?PHP echo $d['web_color'];?>' required></td></tr>   
+    <tr><td>petition_name</td><td><input name='petition_name' value='<?PHP echo $d['petition_name'];?>' required></td></tr>
+    <tr><td>petition_sign_text_box</td><td><textarea name='petition_sign_text_box' required><?PHP echo $d['petition_sign_text_box'];?></textarea></td></tr>   
+    <tr><td>petition_circulator_text_box</td><td><textarea name='petition_circulator_text_box' required><?PHP echo $d['petition_circulator_text_box'];?></textarea></td></tr>
+    <tr><td>eligibleVoterListEnforce</td><td><select name='eligibleVoterListEnforce'><option><?PHP echo $d['eligibleVoterListEnforce'];?></option><option>NO</option><option>YES</option></select></td></tr>   
+    <tr><td>eligibleVoterListField</td><td><input name='eligibleVoterListField' value='<?PHP echo $d['eligibleVoterListField'];?>' required></td></tr>
+    <tr><td>eligibleVoterListEquals</td><td><input name='eligibleVoterListEquals' value='<?PHP echo $d['eligibleVoterListEquals'];?>' required></td></tr>   
+    <tr><td></td><td><input type='submit'></td></tr>
+  </table>
 </form>
 * changes may break already sent invites!
 
