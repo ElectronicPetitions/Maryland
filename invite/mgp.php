@@ -56,6 +56,23 @@ slack_general('MGP Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
   
+  <script>
+  function myFunction(short_code) {
+  /* Get the text field */
+  var copyText = document.getElementById(short_code);
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Copied the Link: " + copyText.value);
+}
+</script>
+  
  <center>
  <table border="1" cellpadding="2" cellspacing="0">
  <?PHP
