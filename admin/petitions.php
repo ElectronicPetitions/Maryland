@@ -27,6 +27,12 @@ if(isset($_POST['petition_id']) && isset($_POST['petition_name']) ){ // edit
   $eligibleVoterListEnforce     = $petition->real_escape_string($_POST['eligibleVoterListEnforce']);
   $eligibleVoterListField       = $petition->real_escape_string($_POST['eligibleVoterListField']);
   $eligibleVoterListEquals      = $petition->real_escape_string($_POST['eligibleVoterListEquals']);
+  // custom landing page - paid feature one day?
+  $tab_name         = $petition->real_escape_string($_POST['tab_name']);
+  $text_title       = $petition->real_escape_string($_POST['text_title']);
+  $text_block       = $petition->real_escape_string($_POST['text_block']);
+  $logo_url         = $petition->real_escape_string($_POST['logo_url']);
+  
   $petition->query("update petitions set eligibleVoterListWarning='$eligibleVoterListWarning', web_short_name='$web_short_name', web_color='$web_color', petition_name='$petition_name', petition_sign_text_box='$petition_sign_text_box', petition_circulator_text_box='$petition_circulator_text_box', eligibleVoterListEnforce='$eligibleVoterListEnforce', eligibleVoterListField='$eligibleVoterListField', eligibleVoterListEquals='$eligibleVoterListEquals' where petition_id = '$petition_id' ");
   header('Location: petitions.php');
 }
@@ -56,6 +62,7 @@ $d = mysqli_fetch_array($r);
 <form method='post'>
   <input type='hidden' name='petition_id' value='<?PHP echo $id;?>'>
   <table>
+    <tr><td><b>Required</b></td><td>&nbsp;</td></tr> 
     <tr><td>Web Short Name*</td><td><input name='web_short_name' value='<?PHP echo $d['web_short_name'];?>' required></td></tr>
     <tr><td>Web Color</td><td><input name='web_color' value='<?PHP echo $d['web_color'];?>' required></td></tr>   
     <tr><td>Petition Name</td><td><input name='petition_name' value='<?PHP echo $d['petition_name'];?>' required></td></tr>
@@ -65,7 +72,15 @@ $d = mysqli_fetch_array($r);
     <tr><td>eligibleVoterList Field</td><td><input name='eligibleVoterListField' value='<?PHP echo $d['eligibleVoterListField'];?>' required></td></tr>
     <tr><td>eligibleVoterList Equals</td><td><input name='eligibleVoterListEquals' value="<?PHP echo $d['eligibleVoterListEquals'];?>" required></td></tr>   
     <tr><td>eligibleVoterList Warning</td><td><textarea rows='5' cols='50' name='eligibleVoterListWarning' required><?PHP echo $d['eligibleVoterListWarning'];?></textarea></td></tr>
-   <tr><td></td><td><input type='submit'></td></tr>
+    <tr><td><b>Not Required</b></td><td>&nbsp;</td></tr> 
+    <tr><td>Landing Page Title</td><td><input name='tab_name' value="<?PHP echo $d['tab_name'];?>"></td></tr>   
+    <tr><td>Landing Page Header</td><td><input name='text_title' value="<?PHP echo $d['text_title'];?>"></td></tr>   
+    <tr><td>Landing Page Body</td><td><textarea rows='5' cols='50' name='text_block'><?PHP echo $d['text_block'];?></textarea></td></tr>
+    <tr><td>Logo URL</td><td><input name='logo_url' value="<?PHP echo $d['logo_url'];?>"></td></tr>   
+       
+    
+    
+    <tr><td></td><td><input type='submit'></td></tr>
   </table>
 </form>
 * changes may break already sent invites!
