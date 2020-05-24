@@ -100,3 +100,14 @@ $copy = '&copy; 2020 Patrick McGuire';
 <div class='row'>
  <div class='col-sm-10' style='text-align:center;'><?PHP echo $copy;?></div>
 </div>
+  
+  <div class='row'>
+  <div class='col-sm-10' style='text-align:center;'>
+   <?PHP if($_COOKIE['debug'] == 'on'){ ?> 
+    <pre><?PHP print_r($_GET); ?></pre>
+    <pre><?PHP print_r($_POST); ?></pre> 
+    <pre><?PHP print_r($_COOKIE); ?></pre>
+   <?PHP } ?>
+  </div>
+</div>
+
