@@ -1,12 +1,41 @@
 <?PHP 
 setcookie("invite", "mgp"); // we use this later
-include_once('header.php');
-slack_general('MGP Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
-$q = "select * from petitions where petition_id = '1'";
-$r = $petition->query($q);
-$d = mysqli_fetch_array($r);
 ?>
-<script>document.title = "<?PHP echo $d['tab_name'];?>";</script>
+<!DOCTYPE html>
+<html lang="en">  
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165887820-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-165887820-1');
+  </script>
+  <?PHP 
+  include_once('/var/www/secure.php'); //outside webserver
+  $q = "select * from petitions where petition_id = '1'";
+  $r = $petition->query($q);
+  $d = mysqli_fetch_array($r);
+  include_once('slack.php');
+  ?>
+  <meta property="og:url"           content="http://md-petition.com/invite/mgp.php" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="<?PHP echo $d['tab_name'];?>" />
+  <meta property="og:description"   content="Maryland Electronic Petition Software - Socially Distant Petitions" />
+  <meta property="og:image"         content="<?PHP echo $d['logo_url'];?>" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title><?PHP echo $d['tab_name'];?></title>
+</head>
+<body>
+<div class="container-fluid">
+<?PHP
+slack_general('MGP Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
+?>
+
 <div class='row'>
   <div class='col-sm-10' style='text-align:center;'><h1><?PHP echo $d['text_title'];?></h1><h2><?PHP echo $d['text_block'];?></h2></div>
  </div> 
