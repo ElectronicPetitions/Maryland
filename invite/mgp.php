@@ -18,7 +18,7 @@ setcookie("invite", "mgp"); // we use this later
   $q = "select * from petitions where petition_id = '1'";
   $r = $petition->query($q);
   $d = mysqli_fetch_array($r);
-  include_once('slack.php');
+  include_once('../slack.php');
   ?>
   <meta property="og:url"           content="http://md-petition.com/invite/mgp.php" />
   <meta property="og:type"          content="website" />
@@ -30,7 +30,7 @@ setcookie("invite", "mgp"); // we use this later
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <title><?PHP echo $d['tab_name'];?></title>
 </head>
-<body>
+<body style='background-color:<?PHP echo $d['web_color'];?>;'>
 <div class="container-fluid">
 <?PHP
 slack_general('MGP Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
@@ -42,6 +42,11 @@ slack_general('MGP Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
 <div class='row'>
   <div class='col-sm-10' style='text-align:center;'><button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='enter_information.php'">SIGN <?PHP echo $d2['petition_name'];?></button></div>
  </div> 
+  
+ <div class='row'>
+  <div class='col-sm-10' style='text-align:center;'> <img class="img-responsive" alt="<?PHP echo $d['text_title'];?>" src="<?PHP echo $d['logo_url'];?>"></div>
+ </div>
+  
 <div id="fb-root"></div>
   <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
