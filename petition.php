@@ -114,11 +114,11 @@ if (isset($_POST['signed_name_as'])){
         <div class="modal-body">
           <h2><?PHP echo $d['petition_circulator_text_box'];?></h2>
           <h3><?PHP echo $_COOKIE['pNAME'];?>, Please Sign Here</h3>
-          <input class="form-control input-lg" name="signed_name_as_circulator" type="text" id="myTextb" onkeyup="addTextb()" required>
-          <h1 id="text2b" class="sig"></h1>
         </div>
         <div class="modal-footer">
+          <h1 id="text2b" class="sig"></h1>
           <button <?PHP if ($d['eligibleVoterSigMatch'] == 'YES' ){ echo "style='display:none;'"; } ?> id='b2' name='b2' type="submit" class="btn btn-primary btn-lg btn-block">Sign and Submit</button>
+          <input class="form-control input-lg" name="signed_name_as_circulator" type="text" id="myTextb" onkeyup="addTextb()" required>
         </div>
       </form>
     </div>
