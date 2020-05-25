@@ -50,7 +50,7 @@ $offset_y_circulator = $dX['offset_y_cords_circulator'];
 header('Content-type: image/jpeg');
 
 // Create Image From Existing File -- going to have to make this a reqired size??? 2550x3300
-$jpg_image = imagecreatefromjpeg($dX['petition_jpg']);
+$jpg_image = imagecreatefromjpeg("../".$dX['petition_jpg']);
 
 // Allocate A Color For The Text
 $black = imagecolorallocate($jpg_image, 0, 0, 0);
