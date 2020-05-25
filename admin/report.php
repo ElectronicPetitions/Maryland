@@ -17,10 +17,10 @@ $group_id = $_COOKIE['group_id'];
   }
 }
 </script>
-<form id='form3' name='form3' method='POST' action='print.php'>
+<form id='form3' name='form3' method='POST' action='printer.php'>
 <a onclick="javascript:checkAll('form3', true);" href="javascript:void();">check all</a>
 <a onclick="javascript:checkAll('form3', false);" href="javascript:void();">uncheck all</a>
-  <input type='submit' value='PRINT'>
+<input type='submit' value='PRINT'>
 <?PHP
   if($_COOKIE['level'] == 'admin'){
     $q="SELECT * FROM petitions where admin_status = 'approved'";
