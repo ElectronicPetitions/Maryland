@@ -102,7 +102,7 @@ if (isset($_POST['signed_name_as'])){
         <div class="modal-footer">
           <h1 id="text2" class="sig"></h1>
           <button style='display:none;' id='b1' name='b1' type="submit" class="btn btn-primary btn-lg btn-block">Sign and Next</button>
-          <button style='display:block;' id='b1warn' name='b1warn' class="btn btn-warning btn-lg btn-block" onclick="alert('Please Type Your Name Exactly as Above');">Please Type Your Name Exactly as Above</button>
+          <button style='display:block;' id='b1warn' name='b1warn' class="btn btn-warning btn-lg btn-block disabled" onclick="alert('Please Type Your Name Exactly as Above');">Please Type Your Name Exactly as Above</button>
           <input class="form-control input-lg" name="signed_name_as" type="text" id="myText" onkeyup="addText()" required autofocus>
         </div>
       </form>
@@ -128,7 +128,7 @@ if (isset($_POST['signed_name_as'])){
         <div class="modal-footer">
           <h1 id="text2b" class="sig"></h1>
           <button style='display:none;' id='b2' name='b2' type="submit" class="btn btn-primary btn-lg btn-block">Sign and Submit</button>
-          <button style='display:block;' id='b2warn' name='b1warn' class="btn btn-warning btn-lg btn-block" onclick="alert('Please Type Your Name Exactly as Above');">Please Type Your Name Exactly as Above</button>
+          <button style='display:block;' id='b2warn' name='b1warn' class="btn btn-warning btn-lg btn-block disabled" onclick="alert('Please Type Your Name Exactly as Above');">Please Type Your Name Exactly as Above</button>
           <input class="form-control input-lg" name="signed_name_as_circulator" type="text" id="myTextb" onkeyup="addTextb()" required autofocus>
         </div>
       </form>
