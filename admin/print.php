@@ -1,4 +1,6 @@
 <?php
+print_r($_POST);
+die();
 include_once('/var/www/secure.php'); 
 include_once('slack.php'); 
 $id = intval($_GET['id']);
