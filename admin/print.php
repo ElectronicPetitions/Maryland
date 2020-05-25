@@ -3,9 +3,11 @@ include_once('/var/www/secure.php');
 include_once('../slack.php'); 
 $id = intval($_GET['id']);
 $name=$_GET['name'];
+$now = date('r');
 if ($id == 0 || $name  == ''){
  die("Error #".__LINE__);
 }
+$petition->query("update signatures set printed_status = '$name printed on $now' where id = '$id' ");
 $q = "select * from signatures where id = '$id' ";
 $r = $petition->query($q);
 $d = mysqli_fetch_array($r);
