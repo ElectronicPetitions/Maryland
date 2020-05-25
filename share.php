@@ -41,13 +41,17 @@ $d = mysqli_fetch_array($r);
  $q2 = "SELECT * FROM petitions where admin_status = 'approved'";
  $r2 = $petition->query($q2);
  while($d2 = mysqli_fetch_array($r2)){
+   $link = "?invite=$d2[web_short_name]";
+   if ($d2['landing_page'] != ''){
+    $link = $d2['landing_page']; 
+   }
   echo "<tr>
   <td align='center'><small>$d2[petition_name]<small></td>
   <td><div class=\"fb-share-button\" 
      data-href=\"http://md-petition.com/index.php?invite=$d2[web_short_name]\" 
      data-layout=\"box_count\" data-size=\"large\">
    </div></td>
-   <td><input type='text' size='50' value='http://md-petition.com/?invite=$d2[web_short_name]' id='$d2[web_short_name]'><button onclick='myFunction(\"$d2[web_short_name]\")'>Copy Link</button></td>
+   <td><input type='text' size='50' value='http://md-petition.com/' id='$d2[web_short_name]'><button onclick='myFunction(\"$d2[web_short_name]\")'>Copy Link</button></td>
    </tr>";
  }
   ?>
