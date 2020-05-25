@@ -88,6 +88,7 @@ if (isset($_POST['signed_name_as'])){
       <form action='petition.php' method='POST'>
         <div class="modal-body">
           <h2><?PHP echo $d['petition_sign_text_box'];?></h2>
+          <h3><?PHP echo $_COOKIE['pNAME'];?>, Please Sign Here</h3>
           <input class="form-control input-lg" name="signed_name_as" type="text" id="myText" onkeyup="addText()" required>
           <h1 id="text2" class="sig"></h1>
         </div>
@@ -112,6 +113,7 @@ if (isset($_POST['signed_name_as'])){
       <form action='sign.php' method='POST'><input type='hidden' value='<?PHP echo $_POST['signed_name_as'];?>' name='signed_name_as'>
         <div class="modal-body">
           <h2><?PHP echo $d['petition_circulator_text_box'];?></h2>
+          <h3><?PHP echo $_COOKIE['pNAME'];?>, Please Sign Here</h3>
           <input class="form-control input-lg" name="signed_name_as_circulator" type="text" id="myTextb" onkeyup="addTextb()" required>
           <h1 id="text2b" class="sig"></h1>
         </div>
