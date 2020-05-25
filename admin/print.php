@@ -1,5 +1,5 @@
 <?php
-foreach ($POST['print'] as $k => $v) {
+foreach ($_POST['print'] as $k => $v) {
     echo "\$a[$k] => $v.\n";
 }
 die();
