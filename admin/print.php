@@ -1,5 +1,7 @@
 <?php
-print_r($_POST);
+foreach ($POST['print'] as $k => $v) {
+    echo "\$a[$k] => $v.\n";
+}
 die();
 include_once('/var/www/secure.php'); 
 include_once('slack.php'); 
