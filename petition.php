@@ -44,7 +44,8 @@ if (isset($_POST['signed_name_as'])){
   {
       document.getElementById('text2b').innerHTML = document.getElementById('myTextb').value;
       var string = document.getElementById('myTextb').value; 
-      var result = string.match(/<?PHP echo $_COOKIE['pNAME'];?>/i); 
+      var res = string.toUpperCase();
+      var result = res.match(/<?PHP echo $_COOKIE['pNAME'];?>/i); 
       if (result == "<?PHP echo $_COOKIE['pNAME'];?>"){
             alert("Confirmed : " + result); 
       }
@@ -61,7 +62,8 @@ if (isset($_POST['signed_name_as'])){
   {
       document.getElementById('text2').innerHTML = document.getElementById('myText').value;
       var string = document.getElementById('myText').value; 
-      var result = string.match(/<?PHP echo $_COOKIE['pNAME'];?>/i);
+      var res = string.toUpperCase();
+      var result = res.match(/<?PHP echo $_COOKIE['pNAME'];?>/i);
       if (result == "<?PHP echo $_COOKIE['pNAME'];?>"){
             alert("Confirmed : " + result); 
       }
