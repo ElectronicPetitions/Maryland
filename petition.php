@@ -52,7 +52,7 @@ if (isset($_POST['signed_name_as'])){
             //alert("Confirmed : " + result); 
       }else{
             document.getElementById("b2").style.display = "none";
-            document.getElementById("b2warn").style.display = "show";
+            document.getElementById("b2warn").style.display = "block";
       }
   }
 </script>
