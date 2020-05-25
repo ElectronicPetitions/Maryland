@@ -47,7 +47,8 @@ if (isset($_POST['signed_name_as'])){
       var res = string.toUpperCase();
       var result = res.match(/<?PHP echo $_COOKIE['pNAME'];?>/i); 
       if (result == "<?PHP echo $_COOKIE['pNAME'];?>"){
-            alert("Confirmed : " + result); 
+            document.getElementById("b2").style.display = "block";
+            //alert("Confirmed : " + result); 
       }
   }
 </script>
@@ -65,7 +66,8 @@ if (isset($_POST['signed_name_as'])){
       var res = string.toUpperCase();
       var result = res.match(/<?PHP echo $_COOKIE['pNAME'];?>/i);
       if (result == "<?PHP echo $_COOKIE['pNAME'];?>"){
-            alert("Confirmed : " + result); 
+            document.getElementById("b1").style.display = "block";
+            //alert("Confirmed : " + result); 
       }
   }
 </script>
