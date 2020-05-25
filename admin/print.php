@@ -1,21 +1,20 @@
 <?php
 include_once('/var/www/secure.php'); 
-include_once('slack.php'); 
+include_once('../slack.php'); 
 $id = intval($_GET['id']);
 $q = "select * from signatures where id = '$id' ";
 $r = $petition->query($q);
 $d = mysqli_fetch_array($r);
-
 $DOB    = $d['date_of_birth'];
 $SIGNED = $d['date_time_signed'];
 $PETITION_ID = $d['petition_id'];
 $signed_name_as = $d['signed_name_as'];
 $signed_name_as_circulator = $d['signed_name_as_circulator'];
-if ($_COOKIE['pVTRID'] != $d['VTRID']){
- slack_general('SECURITY INVALID: soft_copy.php ('.$_COOKIE['invite'].')','md-petition');
- die('Error #294');
-}
-
+//if ($_COOKIE['pVTRID'] != $d['VTRID']){
+// slack_general('SECURITY INVALID: soft_copy.php ('.$_COOKIE['invite'].')','md-petition');
+// die('Error #294');
+//}
+slack_general("$_COOKIE[name] printing petition $id",'md-petition');
 $q2 = "select * from VoterList where VTRID = '$d[VTRID]' ";
 $r2 = $petition->query($q2);
 $d2 = mysqli_fetch_array($r2);
