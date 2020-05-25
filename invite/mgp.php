@@ -37,7 +37,7 @@ slack_general('MGP Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
 ?>
 
 <div class='row'>
-  <div class='col-sm-10' style='text-align:center;'><h1><?PHP echo $d['text_title'];?></h1><h2><?PHP echo $d['text_block'];?></h2></div>
+  <div class='col-sm-10' style='text-align:center;'><h1><?PHP echo $d['text_title'];?></h1><h2 style='text-align:left;'><?PHP echo $d['text_block'];?></h2></div>
  </div> 
 <div class='row'>
   <div class='col-sm-10' style='text-align:center;'><button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='../enter_information.php'">SIGN <?PHP echo $d['petition_name'];?></button></div>
@@ -75,20 +75,13 @@ slack_general('MGP Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
   
  <center>
  <table border="1" cellpadding="2" cellspacing="0">
- <?PHP
- $q2 = "SELECT * FROM petitions where web_short_name = 'mgp'";
- $r2 = $petition->query($q2);
- while($d2 = mysqli_fetch_array($r2)){
-  echo "<tr>
-  <td align='center'><small>$d2[petition_name]<small></td>
+ <tr>
   <td><div class=\"fb-share-button\" 
      data-href=\"http://md-petition.com/invite/mgp.php\" 
      data-layout=\"box_count\" data-size=\"large\">
    </div></td>
-   <td><input type='text' size='50' value='http://md-petition.com/invite/mgp.php' id='$d2[web_short_name]'><button onclick='myFunction(\"$d2[web_short_name]\")'>Copy Link</button></td>
-   </tr>";
- }
-  ?>
+   <td><input type='text' size='50' value='http://md-petition.com/invite/mgp.php' id='mgp'><button onclick='myFunction("mgp")'>Copy Link</button></td>
+   </tr>
  </table>
 </center>
  
