@@ -34,7 +34,7 @@ if(isset($_POST['petition_id']) && isset($_POST['petition_name']) ){ // edit
   $text_block       = $petition->real_escape_string($_POST['text_block']);
   $logo_url         = $petition->real_escape_string($_POST['logo_url']);
   
-  $petition->query("update petitions set eligibleVoterListWarning='$eligibleVoterListWarning', web_short_name='$web_short_name', web_color='$web_color', petition_name='$petition_name', petition_sign_text_box='$petition_sign_text_box', petition_circulator_text_box='$petition_circulator_text_box', eligibleVoterListEnforce='$eligibleVoterListEnforce', eligibleVoterListField='$eligibleVoterListField', eligibleVoterListEquals='$eligibleVoterListEquals' where petition_id = '$petition_id' ");
+  $petition->query("update petitions set logo_url='$logo_url', text_block='$text_block', text_title='$text_title', tab_name='$tab_name', eligibleVoterSigMatch='$eligibleVoterSigMatch', eligibleVoterListWarning='$eligibleVoterListWarning', web_short_name='$web_short_name', web_color='$web_color', petition_name='$petition_name', petition_sign_text_box='$petition_sign_text_box', petition_circulator_text_box='$petition_circulator_text_box', eligibleVoterListEnforce='$eligibleVoterListEnforce', eligibleVoterListField='$eligibleVoterListField', eligibleVoterListEquals='$eligibleVoterListEquals' where petition_id = '$petition_id' ");
   header('Location: petitions.php');
 }
 ?>
@@ -73,7 +73,7 @@ $d = mysqli_fetch_array($r);
     <tr><td>eligibleVoterList Field</td><td><input name='eligibleVoterListField' value='<?PHP echo $d['eligibleVoterListField'];?>' required></td></tr>
     <tr><td>eligibleVoterList Equals</td><td><input name='eligibleVoterListEquals' value="<?PHP echo $d['eligibleVoterListEquals'];?>" required></td></tr>   
     <tr><td>eligibleVoterList Warning</td><td><textarea rows='5' cols='50' name='eligibleVoterListWarning' required><?PHP echo $d['eligibleVoterListWarning'];?></textarea></td></tr>
-    <tr><td>VoterList Signature Match Required</td><td><select name='eligibleVoterSigMatch'><option><?PHP echo $d['eligibleVoterSigMatch'];?></option><option>NO</option><option>YES</option></select></td></tr>   
+    <tr><td>VoterList Signature Match Required</td><td><select name='eligibleVoterSigMatch' required><option><?PHP echo $d['eligibleVoterSigMatch'];?></option><option>NO</option><option>YES</option></select></td></tr>   
     <tr><td><b>Not Required</b></td><td>&nbsp;</td></tr> 
     <tr><td>Landing Page Title</td><td><input name='tab_name' value="<?PHP echo $d['tab_name'];?>"></td></tr>   
     <tr><td>Landing Page Header</td><td><input name='text_title' value="<?PHP echo $d['text_title'];?>"></td></tr>   
