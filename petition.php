@@ -34,13 +34,17 @@ setcookie("pJPG", $d['petition_jpg']);
 <script>
 function matchString1() { 
         var string = document.getElementById('myText').value; 
-        var result = string.match(/<?PHP echo $_COOKIE['pNAME'];?>/i); 
-        alert("Confirmed : " + result); 
+        var result = string.match(/<?PHP echo $_COOKIE['pNAME'];?>/i);
+        if (result == "<?PHP echo $_COOKIE['pNAME'];?>"){
+              alert("Confirmed : " + result); 
+        }
 } 
 function matchString2() { 
         var string = document.getElementById('myTextb').value; 
         var result = string.match(/<?PHP echo $_COOKIE['pNAME'];?>/i); 
-        alert("Confirmed : " + result); 
+        if (result == "<?PHP echo $_COOKIE['pNAME'];?>"){
+              alert("Confirmed : " + result); 
+        }
 }  
 </script>
 <?PHP
