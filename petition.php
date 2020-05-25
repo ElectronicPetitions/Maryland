@@ -49,6 +49,8 @@ if (isset($_POST['signed_name_as'])){
       if (result == "<?PHP echo $_COOKIE['pNAME'];?>"){
             document.getElementById("b2").style.display = "block";
             //alert("Confirmed : " + result); 
+      }else{
+            document.getElementById("b2").style.display = "none";
       }
   }
 </script>
@@ -68,6 +70,8 @@ if (isset($_POST['signed_name_as'])){
       if (result == "<?PHP echo $_COOKIE['pNAME'];?>"){
             document.getElementById("b1").style.display = "block";
             //alert("Confirmed : " + result); 
+      }else{
+            document.getElementById("b1").style.display = "none";
       }
   }
 </script>
