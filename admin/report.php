@@ -24,9 +24,9 @@ $group_id = $_COOKIE['group_id'];
 <input type='submit' value='PRINT'>
 <?PHP
   if($_COOKIE['level'] == 'admin'){
-    $q="SELECT * FROM petitions where admin_status = 'approved' and printed_status = '' ";
+    $q="SELECT * FROM petitions where admin_status = 'approved' ";
   }else{
-    $q="SELECT * FROM petitions where group_id = '$group_id' and admin_status = 'approved' and printed_status = '' ";
+    $q="SELECT * FROM petitions where group_id = '$group_id' and admin_status = 'approved'";
   }
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
@@ -35,7 +35,7 @@ while($d = mysqli_fetch_array($r)){
   unset($hide);
   $hide = array();
   $pID = $d['petition_id'];
-  $q2="SELECT * FROM signatures where petition_id = '$pID' order by id desc";
+  $q2="SELECT * FROM signatures where petition_id = '$pID' and printed_status = '' order by id desc";
   $r2 = $petition->query($q2);
   while($d2 = mysqli_fetch_array($r2)){
    // if (!in_array($d2['VTRID'], $hide)) {
@@ -54,9 +54,9 @@ while($d = mysqli_fetch_array($r)){
 <input type='submit' value='PRINT'>
 <?PHP
   if($_COOKIE['level'] == 'admin'){
-    $q="SELECT * FROM petitions where admin_status = 'approved' and printed_status <> '' ";
+    $q="SELECT * FROM petitions where admin_status = 'approved' ";
   }else{
-    $q="SELECT * FROM petitions where group_id = '$group_id' and admin_status = 'approved' and printed_status <> '' ";
+    $q="SELECT * FROM petitions where group_id = '$group_id' and admin_status = 'approved' ";
   }
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
@@ -65,7 +65,7 @@ while($d = mysqli_fetch_array($r)){
   unset($hide);
   $hide = array();
   $pID = $d['petition_id'];
-  $q2="SELECT * FROM signatures where petition_id = '$pID' order by id desc";
+  $q2="SELECT * FROM signatures where petition_id = '$pID' and printed_status <> '' order by id desc";
   $r2 = $petition->query($q2);
   while($d2 = mysqli_fetch_array($r2)){
     //if (!in_array($d2['VTRID'], $hide)) {
