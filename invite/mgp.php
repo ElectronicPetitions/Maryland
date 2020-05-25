@@ -76,9 +76,9 @@ slack_general('MGP Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
  <center>
  <table border="1" cellpadding="2" cellspacing="0">
  <tr>
-  <td><div class=\"fb-share-button\" 
-     data-href=\"http://md-petition.com/invite/mgp.php\" 
-     data-layout=\"box_count\" data-size=\"large\">
+  <td><div class="fb-share-button" 
+     data-href="http://md-petition.com/invite/mgp.php" 
+     data-layout="box_count" data-size="large">
    </div></td>
    <td><input type='text' size='50' value='http://md-petition.com/invite/mgp.php' id='mgp'><button onclick='myFunction("mgp")'>Copy Link</button></td>
    </tr>
