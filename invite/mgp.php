@@ -24,7 +24,7 @@ setcookie("invite", "mgp", time()+3600, "/"); // we use this later
   <meta property="og:type"          content="website" />
   <meta property="og:title"         content="<?PHP echo $d['tab_name'];?>" />
   <meta property="og:description"   content="Maryland Electronic Petition Software - Socially Distant Petitions" />
-  <meta property="og:image"         content="http://md-petition.com/files/MD_GREEN_FB_SHARE.PNG" />
+  <meta property="og:image"         content="http://md-petition.com/files/MDGREENS_FB_SHARE.PNG" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
