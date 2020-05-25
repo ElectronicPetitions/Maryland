@@ -90,7 +90,7 @@ if (isset($_POST['signed_name_as'])){
           <h1 id="text2" class="sig"></h1>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary btn-lg btn-block">Sign and Next</button>
+          <button <?PHP if ($d['eligibleVoterSigMatch'] == 'YES' ){ echo "style='display:none;'"; } ?> id='b1' name='b1' type="submit" class="btn btn-primary btn-lg btn-block">Sign and Next</button>
         </div>
       </form>
     </div>
@@ -114,7 +114,7 @@ if (isset($_POST['signed_name_as'])){
           <h1 id="text2b" class="sig"></h1>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary btn-lg btn-block">Sign and Submit</button>
+          <button <?PHP if ($d['eligibleVoterSigMatch'] == 'YES' ){ echo "style='display:none;'"; } ?> id='b2' name='b2' type="submit" class="btn btn-primary btn-lg btn-block">Sign and Submit</button>
         </div>
       </form>
     </div>
