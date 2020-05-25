@@ -22,6 +22,15 @@ while($d = mysqli_fetch_array($r)){
 }
 ?>
 
+<h2>VTRID</h2>
+<?PHP
+$q="SELECT VTRID, COUNT(*) as count FROM signatures group by VTRID";
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){
+ echo "<li>$d[VTRID] $d[count]</li>"; 
+}
+?>
+
 
 <?PHP
 include_once('footer.php');
