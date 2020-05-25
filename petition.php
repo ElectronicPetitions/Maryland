@@ -48,9 +48,11 @@ if (isset($_POST['signed_name_as'])){
       var result = res.match(/<?PHP echo $_COOKIE['pNAME'];?>/i); 
       if (result == "<?PHP echo $_COOKIE['pNAME'];?>"){
             document.getElementById("b2").style.display = "block";
+            document.getElementById("b2warn").style.display = "none";
             //alert("Confirmed : " + result); 
       }else{
             document.getElementById("b2").style.display = "none";
+            document.getElementById("b2warn").style.display = "show";
       }
   }
 </script>
@@ -69,9 +71,11 @@ if (isset($_POST['signed_name_as'])){
       var result = res.match(/<?PHP echo $_COOKIE['pNAME'];?>/i);
       if (result == "<?PHP echo $_COOKIE['pNAME'];?>"){
             document.getElementById("b1").style.display = "block";
+            document.getElementById("b1warn").style.display = "none";
             //alert("Confirmed : " + result); 
       }else{
             document.getElementById("b1").style.display = "none";
+            document.getElementById("b1warn").style.display = "block";
       }
   }
 </script>
@@ -98,6 +102,7 @@ if (isset($_POST['signed_name_as'])){
         <div class="modal-footer">
           <h1 id="text2" class="sig"></h1>
           <button <?PHP if ($d['eligibleVoterSigMatch'] == 'YES' ){ echo "style='display:none;'"; } ?> id='b1' name='b1' type="submit" class="btn btn-primary btn-lg btn-block">Sign and Next</button>
+          <button style='display:none;' id='b1warn' name='b1warn' class="btn btn-warning btn-lg btn-block">Please Type Your Name Exactly as Above</button>
           <input class="form-control input-lg" name="signed_name_as" type="text" id="myText" onkeyup="addText()" required>
         </div>
       </form>
@@ -123,6 +128,7 @@ if (isset($_POST['signed_name_as'])){
         <div class="modal-footer">
           <h1 id="text2b" class="sig"></h1>
           <button <?PHP if ($d['eligibleVoterSigMatch'] == 'YES' ){ echo "style='display:none;'"; } ?> id='b2' name='b2' type="submit" class="btn btn-primary btn-lg btn-block">Sign and Submit</button>
+          <button style='display:none;' id='b2warn' name='b1warn' class="btn btn-warning btn-lg btn-block">Please Type Your Name Exactly as Above</button>
           <input class="form-control input-lg" name="signed_name_as_circulator" type="text" id="myTextb" onkeyup="addTextb()" required>
         </div>
       </form>
