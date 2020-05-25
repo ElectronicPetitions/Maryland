@@ -31,6 +31,18 @@ setcookie("pJPG", $d['petition_jpg']);
     font-size: 60px;
 }
 </style>
+<script>
+function matchString1() { 
+        var string = document.getElementById('myText').value; 
+        var result = string.match(/<?PHP echo $_COOKIE['pNAME'];?>/i); 
+        alert("Confirmed : " + result); 
+} 
+function matchString2() { 
+        var string = document.getElementById('myTextb').value; 
+        var result = string.match(/<?PHP echo $_COOKIE['pNAME'];?>/i); 
+        alert("Confirmed : " + result); 
+}  
+</script>
 <?PHP
 if (isset($_POST['signed_name_as'])){
 ?>
@@ -43,6 +55,7 @@ if (isset($_POST['signed_name_as'])){
   function addTextb()
   {
       document.getElementById('text2b').innerHTML = document.getElementById('myTextb').value;
+      matchString2();
   }
 </script>
 <?PHP
@@ -55,6 +68,7 @@ if (isset($_POST['signed_name_as'])){
   function addText()
   {
       document.getElementById('text2').innerHTML = document.getElementById('myText').value;
+      matchString1();
   }
 </script>
 <?PHP
