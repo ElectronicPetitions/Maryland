@@ -27,6 +27,7 @@ if(isset($_POST['petition_id']) && isset($_POST['petition_name']) ){ // edit
   $eligibleVoterListEnforce     = $petition->real_escape_string($_POST['eligibleVoterListEnforce']);
   $eligibleVoterListField       = $petition->real_escape_string($_POST['eligibleVoterListField']);
   $eligibleVoterListEquals      = $petition->real_escape_string($_POST['eligibleVoterListEquals']);
+  $eligibleVoterSigMatch        = $petition->real_escape_string($_POST['eligibleVoterSigMatch']);
   // custom landing page - paid feature one day?
   $tab_name         = $petition->real_escape_string($_POST['tab_name']);
   $text_title       = $petition->real_escape_string($_POST['text_title']);
@@ -72,6 +73,7 @@ $d = mysqli_fetch_array($r);
     <tr><td>eligibleVoterList Field</td><td><input name='eligibleVoterListField' value='<?PHP echo $d['eligibleVoterListField'];?>' required></td></tr>
     <tr><td>eligibleVoterList Equals</td><td><input name='eligibleVoterListEquals' value="<?PHP echo $d['eligibleVoterListEquals'];?>" required></td></tr>   
     <tr><td>eligibleVoterList Warning</td><td><textarea rows='5' cols='50' name='eligibleVoterListWarning' required><?PHP echo $d['eligibleVoterListWarning'];?></textarea></td></tr>
+    <tr><td>VoterList Signature Match Required</td><td><select name='eligibleVoterSigMatch'><option><?PHP echo $d['eligibleVoterSigMatch'];?></option><option>NO</option><option>YES</option></select></td></tr>   
     <tr><td><b>Not Required</b></td><td>&nbsp;</td></tr> 
     <tr><td>Landing Page Title</td><td><input name='tab_name' value="<?PHP echo $d['tab_name'];?>"></td></tr>   
     <tr><td>Landing Page Header</td><td><input name='text_title' value="<?PHP echo $d['text_title'];?>"></td></tr>   
