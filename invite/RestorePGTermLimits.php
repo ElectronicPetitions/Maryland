@@ -76,9 +76,9 @@ slack_general('RestorePGTermLimits Home Page Loaded ('.$_COOKIE['invite'].')','m
  <center>
  <table border="1" cellpadding="2" cellspacing="0">
  <tr>
-  <td><div class=\"fb-share-button\" 
-     data-href=\"http://md-petition.com/invite/RestorePGTermLimits.php\" 
-     data-layout=\"box_count\" data-size=\"large\">
+  <td><div class="fb-share-button" 
+     data-href="http://md-petition.com/invite/RestorePGTermLimits.php" 
+     data-layout="box_count" data-size="large">
    </div></td>
    <td><input type='text' size='50' value='http://md-petition.com/invite/RestorePGTermLimits.php' id='mgp'><button onclick='myFunction("RestorePGTermLimits")'>Copy Link</button></td>
    </tr>
