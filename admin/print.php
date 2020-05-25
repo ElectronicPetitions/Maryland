@@ -1,8 +1,4 @@
 <?php
-foreach ($_POST['print'] as $k => $v) {
-    echo "\$a[$k] => $v.\n";
-}
-die();
 include_once('/var/www/secure.php'); 
 include_once('slack.php'); 
 $id = intval($_GET['id']);
