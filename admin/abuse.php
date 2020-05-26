@@ -16,7 +16,7 @@ if (isset($_GET['ip_address'])){
   $q = "SELECT * FROM  signatures where ip_address = '$ip' ";
   $r = $petition->query($q);
   while($d = mysqli_fetch_array($r)){
-    echo "<li><a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id] <b>$d[date_time_signed]</b> $d[signed_name_as]	$d[signed_name_as_circulator]	$d[contact_phone]	$d[signature_status]</li>"; 
+    echo "<li><b>$d[date_time_signed]</b> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id]  $d[signed_name_as]	$d[signed_name_as_circulator]	$d[contact_phone]	$d[signature_status]</li>"; 
   }
 }elseif (isset($_GET['VTRID'])){ 
   $VTRID = $_GET['VTRID'];
@@ -24,7 +24,7 @@ if (isset($_GET['ip_address'])){
   $q = "SELECT * FROM  signatures where VTRID = '$VTRID' ";
   $r = $petition->query($q);
   while($d = mysqli_fetch_array($r)){
-    echo "<li><a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id] <b>$d[date_time_signed]</b> $d[signed_name_as]	$d[signed_name_as_circulator]	$d[contact_phone]	$d[signature__status]</li>"; 
+    echo "<li><b>$d[date_time_signed]</b> <a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> $d[petition_id]  $d[signed_name_as]	$d[signed_name_as_circulator]	$d[contact_phone]	$d[signature__status]</li>"; 
   }
 }
 ?>
