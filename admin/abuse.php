@@ -30,6 +30,11 @@ if (isset($_GET['flag_VTRID'])){
   $petition->query("update signatures set signature_status = 'flag_VTRID' where VTRID = '$VTRID' ");
   header('Location: abuse.php');
 }
+if (isset($_GET['flag_phone'])){
+  $flag_phone = $_GET['flag_phone'];
+  $petition->query("update signatures set signature_status = 'flag_phone' where contact_phone = '$flag_phone' ");
+  header('Location: abuse.php');
+}
 include_once('header.php');
 if (isset($_GET['ip_address'])){ 
   $ip = $_GET['ip_address']; 
@@ -50,6 +55,7 @@ if (isset($_GET['ip_address'])){
       <td><a href='?flag_VTRID=$d[VTRID]'>flag_VTRID</a></td>
       <td><a href='?flag_ip_address=$d[ip_address]'>flag_ip_address</a></td>
       <td><a href='?flag_duplicate=$d[id]'>flag_duplicate</a></td>
+      <td><a href='?flag_phone=$d[contact_phone]'>contact_phone</a></td>
     </tr>"; 
   }
   echo "</table>";
@@ -72,6 +78,7 @@ if (isset($_GET['ip_address'])){
           <td><a href='?flag_VTRID=$d[VTRID]'>flag_VTRID</a></td>
           <td><a href='?flag_ip_address=$d[ip_address]'>flag_ip_address</a></td>
           <td><a href='?flag_duplicate=$d[id]'>flag_duplicate</a></td>
+          <td><a href='?flag_phone=$d[contact_phone]'>contact_phone</a></td>
         </tr>"; 
   }
   echo "</table>";
