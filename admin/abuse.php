@@ -11,25 +11,63 @@ if ($_COOKIE['level'] == 'manager'){
 }
 include_once('header.php');
 if (isset($_GET['flag_invalid_signature'])){
-  $id = $_GET['flag_invalid_signature']
+  $id = $_GET['flag_invalid_signature'];
   $petition->query("update signatures set signature_status = 'flag_invalid_signature' where id = '$id' ");
+}
+if (isset($_GET['flag_duplicate'])){
+  $id = $_GET['flag_duplicate'];
+  $petition->query("update signatures set signature_status = 'flag_duplicate' where id = '$id' ");
+}
+if (isset($_GET['flag_ip_address'])){
+  $ip = $_GET['flag_ip_address'];
+  $petition->query("update signatures set signature_status = 'flag_ip_address' where ip_address = '$ip' ");
+}
+if (isset($_GET['flag_VTRID'])){
+  $VTRID = $_GET['flag_VTRID'];
+  $petition->query("update signatures set signature_status = 'flag_VTRID' where VTRID = '$VTRID' ");
 }
 if (isset($_GET['ip_address'])){ 
   $ip = $_GET['ip_address']; 
-  echo "<h1>Review $ip</h1><table>";    
+  echo "<h1>Review $ip</h1><table width='100%' border='1' cellpadding='5' cellspacing='5'>";    
   $q = "SELECT * FROM  signatures where ip_address = '$ip' ";
   $r = $petition->query($q);
   while($d = mysqli_fetch_array($r)){
-    echo "<tr><td><b>$d[date_time_signed]</b></td><td><a href='?VTRID=$d[VTRID]'>$d[VTRID]</a></td><td>$d[petition_id]</td><td>$d[signed_name_as]</td><td>$d[signed_name_as_circulator]</td><td>$d[contact_phone]</td><td>$d[signature_status]</td><td>$d[printed_status]</tr>"; 
+    echo "<tr>
+      <td><b>$d[date_time_signed]</b></td>
+      <td><a href='?VTRID=$d[VTRID]'>$d[VTRID]</a></td>
+      <td>$d[petition_id]</td>
+      <td>$d[signed_name_as]</td>
+      <td>$d[signed_name_as_circulator]</td>
+      <td>$d[contact_phone]</td>
+      <td>$d[signature_status]</td>
+      <td>$d[printed_status]</td>
+      <td><a href='?flag_invalid_signature=$d[id]'>flag_invalid_signature</a></td>
+      <td><a href='?flag_VTRID=$d[VTRID]'>flag_VTRID</a></td>
+      <td><a href='?flag_ip_address=$d[ip_address]'>flag_ip_address</a></td>
+      <td><a href='?flag_duplicate=$d[id]'>flag_duplicate</a></td>
+    </tr>"; 
   }
   echo "</table>";
 }elseif (isset($_GET['VTRID'])){ 
   $VTRID = $_GET['VTRID'];
-  echo "<h1>Review $VTRID</h1><table>";   
+  echo "<h1>Review $VTRID</h1><table width='100%' border='1' cellpadding='5' cellspacing='5'>";   
   $q = "SELECT * FROM  signatures where VTRID = '$VTRID' ";
   $r = $petition->query($q);
   while($d = mysqli_fetch_array($r)){
-    echo "<tr><td><b>$d[date_time_signed]</b></td><td><a href='?ip_address=$d[ip_address]'>$d[ip_address]</a></td><td>$d[petition_id]</td><td>$d[signed_name_as]</td><td>$d[signed_name_as_circulator]</td><td>$d[contact_phone]</td><td>$d[signature_status]</td><td>$d[printed_status]</td><td><a href='?flag_invalid_signature=$d[id]'>flag_invalid_signature</a></td></tr>"; 
+    echo "<tr>
+          <td><b>$d[date_time_signed]</b></td>
+          <td><a href='?ip_address=$d[ip_address]'>$d[ip_address]</a></td>
+          <td>$d[petition_id]</td>
+          <td>$d[signed_name_as]</td>
+          <td>$d[signed_name_as_circulator]</td>
+          <td>$d[contact_phone]</td>
+          <td>$d[signature_status]</td>
+          <td>$d[printed_status]</td>
+          <td><a href='?flag_invalid_signature=$d[id]'>flag_invalid_signature</a></td>
+          <td><a href='?flag_VTRID=$d[VTRID]'>flag_VTRID</a></td>
+          <td><a href='?flag_ip_address=$d[ip_address]'>flag_ip_address</a></td>
+          <td><a href='?flag_duplicate=$d[id]'>flag_duplicate</a></td>
+        </tr>"; 
   }
   echo "</table>";
 }
