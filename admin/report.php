@@ -23,10 +23,6 @@ $group_id = $_COOKIE['group_id'];
   legend{ border: solid 1px blue; background-color:white; margin:10px; padding:10px; }
 </style>
 <form id='form3' name='form3' method='POST' action='printer.php'>
-  
-<a onclick="javascript:checkAll('form3', true);" href="javascript:void();">check all</a>
-<a onclick="javascript:checkAll('form3', false);" href="javascript:void();">uncheck all</a>
-<input type='submit' value='PRINT'>
 <?PHP
   if($_COOKIE['level'] == 'admin'){
     $q="SELECT * FROM petitions where admin_status = 'approved' ";
@@ -35,7 +31,10 @@ $group_id = $_COOKIE['group_id'];
   }
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
-  echo "<fieldset><legend>$d[petition_name] - Unprinted</legend>";
+  echo "<fieldset><legend>$d[petition_name] - Unprinted</legend>
+  <a onclick=\"javascript:checkAll('form3', true);\" href=\"javascript:void();\">Check All</a>
+  <a onclick=\"javascript:checkAll('form3', false);\" href=\"javascript:void();\">Uncheck All</a>
+  <input type='submit' value='PRINT'>";
   echo "<table border='1' cellpadding='0' cellspacing='5'>";
   unset($hide);
   $hide = array();
