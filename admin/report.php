@@ -53,10 +53,11 @@ while($d = mysqli_fetch_array($r)){
   $q2="SELECT * FROM signatures where petition_id = '$pID' and printed_status = '' and signature_status <> 'deleted' order by id desc";
   $r2 = $petition->query($q2);
   while($d2 = mysqli_fetch_array($r2)){
-   // if (!in_array($d2['VTRID'], $hide)) {
-      //$hide[] = $d2['VTRID'];
+    if ($d2['signature_status' == 'verified']){
       echo "<tr><td><input type='checkbox' name='print[".$d2[id]."]'></td><td>$d2[ip_address]</td><td>$d2[date_time_signed]</td><td>$d2[signed_name_as]</td><td>$d2[signed_name_as_circulator]</td><td>$d2[contact_phone]</td><td>$d2[signature_status]</td><td>$d2[printed_status]</td></tr>";
-    //}
+    }else{
+      echo "<tr><td><a href='?override=$d2[id]'>Override</a> or <a href='?delete=$d2[id]'>Delete</a></td><td>$d2[ip_address]</td><td>$d2[date_time_signed]</td><td>$d2[signed_name_as]</td><td>$d2[signed_name_as_circulator]</td><td>$d2[contact_phone]</td><td>$d2[signature_status]</td><td>$d2[printed_status]</td></tr>";
+    }
   }
   echo '</table></fieldset>';
 }
@@ -64,9 +65,7 @@ while($d = mysqli_fetch_array($r)){
 </form>
 
 <form id='form2' name='form2' method='POST' action='printer.php'>
-<a onclick="javascript:checkAll('form2', true);" href="javascript:void();">check all</a>
-<a onclick="javascript:checkAll('form2', false);" href="javascript:void();">uncheck all</a>
-<input type='submit' value='PRINT'>
+
 <?PHP
   if($_COOKIE['level'] == 'admin'){
     $q="SELECT * FROM petitions where admin_status = 'approved' ";
@@ -75,7 +74,10 @@ while($d = mysqli_fetch_array($r)){
   }
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
-  echo "<fieldset><legend>$d[petition_name] - Printed</legend>";
+  echo "<fieldset><legend>$d[petition_name] - Printed</legend>
+  <a onclick=\"javascript:checkAll('form2', true);\" href=\"javascript:void();\">Check All</a>
+  <a onclick=\"javascript:checkAll('form2', false);\" href=\"javascript:void();\">Uncheck All</a>
+  <input type='submit' value='PRINT'>";
   echo "<table border='1' cellpadding='0' cellspacing='5'>";
   unset($hide);
   $hide = array();
