@@ -15,19 +15,19 @@ include_once('header.php');
 <div>We really need to watch for lazy hackers... ok all hackers... we can flag signatures for human review, we WILL be active.</div>
 <h2>IP Address</h2>
 <?PHP
-$q="SELECT ip_address, COUNT(*) as count FROM signatures group by ip_address";
+$q="SELECT ip_address, petition_id, COUNT(*) as count FROM signatures group by ip_address";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
- echo "<li>$d[ip_address] $d[count]</li>"; 
+ echo "<li>$d[ip_address] $d[petition_id] <b>$d[count]</b></li>"; 
 }
 ?>
 
 <h2>VTRID</h2>
 <?PHP
-$q="SELECT VTRID, COUNT(*) as count FROM signatures group by VTRID";
+$q="SELECT VTRID, petition_id, COUNT(*) as count FROM signatures group by VTRID";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
- echo "<li>$d[VTRID] $d[count]</li>"; 
+ echo "<li>$d[VTRID] $d[petition_id] <b>$d[count]</b></li>"; 
 }
 ?>
 
