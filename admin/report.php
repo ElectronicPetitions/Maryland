@@ -11,6 +11,11 @@ if (isset($_GET['delete'])){
   $petition->query("update signatures set signature_status = 'deleted' where id = '$id' ");
   header('Location: report.php');
 }
+if (isset($_GET['review'])){
+  $id = $_GET['review'];
+  $petition->query("update signatures set signature_status = 'review_requested' where id = '$id' ");
+  header('Location: report.php');
+}
 include_once('header.php');
 slack_general('ADMIN: Reports Loaded ('.$_COOKIE['name'].') ('.$_COOKIE['level'].')','md-petition');
 $group_id = $_COOKIE['group_id'];
@@ -54,7 +59,7 @@ while($d = mysqli_fetch_array($r)){
   $r2 = $petition->query($q2);
   while($d2 = mysqli_fetch_array($r2)){
     if ($d2['signature_status'] == 'verified'){
-      echo "<tr><td><input type='checkbox' name='print[".$d2[id]."]'></td><td>$d2[ip_address]</td><td>$d2[date_time_signed]</td><td>$d2[signed_name_as]</td><td>$d2[signed_name_as_circulator]</td><td>$d2[contact_phone]</td><td>$d2[signature_status]</td><td>$d2[printed_status]</td></tr>";
+      echo "<tr><td><input type='checkbox' name='print[".$d2[id]."]'> <a href='?review=$d2[id]'>Flag for Review</a></td><td>$d2[ip_address]</td><td>$d2[date_time_signed]</td><td>$d2[signed_name_as]</td><td>$d2[signed_name_as_circulator]</td><td>$d2[contact_phone]</td><td>$d2[signature_status]</td><td>$d2[printed_status]</td></tr>";
     }else{
       echo "<tr><td><a href='?override=$d2[id]'>Override</a> or <a href='?delete=$d2[id]'>Delete</a></td><td>$d2[ip_address]</td><td>$d2[date_time_signed]</td><td>$d2[signed_name_as]</td><td>$d2[signed_name_as_circulator]</td><td>$d2[contact_phone]</td><td>$d2[signature_status]</td><td>$d2[printed_status]</td></tr>";
     }
@@ -86,7 +91,7 @@ while($d = mysqli_fetch_array($r)){
   $r2 = $petition->query($q2);
   while($d2 = mysqli_fetch_array($r2)){
     if ($d2['signature_status'] == 'verified'){
-      echo "<tr><td><input type='checkbox' name='print[".$d2[id]."]'></td><td>$d2[ip_address]</td><td>$d2[date_time_signed]</td><td>$d2[signed_name_as]</td><td>$d2[signed_name_as_circulator]</td><td>$d2[contact_phone]</td><td>$d2[signature_status]</td><td>$d2[printed_status]</td></tr>";
+      echo "<tr><td><input type='checkbox' name='print[".$d2[id]."]'> <a href='?review=$d2[id]'>Flag for Review</a></td><td>$d2[ip_address]</td><td>$d2[date_time_signed]</td><td>$d2[signed_name_as]</td><td>$d2[signed_name_as_circulator]</td><td>$d2[contact_phone]</td><td>$d2[signature_status]</td><td>$d2[printed_status]</td></tr>";
     }else{
       echo "<tr><td><a href='?override=$d2[id]'>Override</a> or <a href='?delete=$d2[id]'>Delete</a></td><td>$d2[ip_address]</td><td>$d2[date_time_signed]</td><td>$d2[signed_name_as]</td><td>$d2[signed_name_as_circulator]</td><td>$d2[contact_phone]</td><td>$d2[signature_status]</td><td>$d2[printed_status]</td></tr>";
     }
