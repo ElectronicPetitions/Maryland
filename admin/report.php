@@ -1,5 +1,16 @@
 <?PHP 
 include_once('security.php');
+include_once('/var/www/secure.php'); //outside webserver
+if (isset($_GET['override'])){
+  $id = $_GET['override'];
+  $petition->query("update signatures set signature_status = 'verified' where id = '$id' ");
+  header('Location: report.php');
+}
+if (isset($_GET['delete'])){
+  $id = $_GET['delete'];
+  $petition->query("update signatures set signature_status = 'deleted' where id = '$id' ");
+  header('Location: report.php');
+}
 include_once('header.php');
 slack_general('ADMIN: Reports Loaded ('.$_COOKIE['name'].') ('.$_COOKIE['level'].')','md-petition');
 $group_id = $_COOKIE['group_id'];
@@ -39,7 +50,7 @@ while($d = mysqli_fetch_array($r)){
   unset($hide);
   $hide = array();
   $pID = $d['petition_id'];
-  $q2="SELECT * FROM signatures where petition_id = '$pID' and printed_status = '' order by id desc";
+  $q2="SELECT * FROM signatures where petition_id = '$pID' and printed_status = '' and signature_status <> 'deleted' order by id desc";
   $r2 = $petition->query($q2);
   while($d2 = mysqli_fetch_array($r2)){
    // if (!in_array($d2['VTRID'], $hide)) {
@@ -69,13 +80,14 @@ while($d = mysqli_fetch_array($r)){
   unset($hide);
   $hide = array();
   $pID = $d['petition_id'];
-  $q2="SELECT * FROM signatures where petition_id = '$pID' and printed_status <> '' order by id desc";
+  $q2="SELECT * FROM signatures where petition_id = '$pID' and printed_status <> '' and signature_status <> 'deleted' order by id desc";
   $r2 = $petition->query($q2);
   while($d2 = mysqli_fetch_array($r2)){
-    //if (!in_array($d2['VTRID'], $hide)) {
-      //$hide[] = $d2['VTRID'];
+    if ($d2['signature_status' == 'verified']){
       echo "<tr><td><input type='checkbox' name='print[".$d2[id]."]'></td><td>$d2[ip_address]</td><td>$d2[date_time_signed]</td><td>$d2[signed_name_as]</td><td>$d2[signed_name_as_circulator]</td><td>$d2[contact_phone]</td><td>$d2[signature_status]</td><td>$d2[printed_status]</td></tr>";
-    //}
+    }else{
+      echo "<tr><td><a href='?override=$d2[id]'>Override</a> or <a href='?delete=$d2[id]'>Delete</a></td><td>$d2[ip_address]</td><td>$d2[date_time_signed]</td><td>$d2[signed_name_as]</td><td>$d2[signed_name_as_circulator]</td><td>$d2[contact_phone]</td><td>$d2[signature_status]</td><td>$d2[printed_status]</td></tr>";
+    }
   }
   echo '</table></fieldset>';
 }
