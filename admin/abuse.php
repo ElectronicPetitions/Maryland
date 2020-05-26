@@ -14,6 +14,7 @@ if (isset($_GET['ip_address'])){
   $ip = $_GET['ip_address']; 
   echo "<h1>Review $ip</h1>";    
   $q = "SELECT * FROM  signatures where ip_address = '$ip' ";
+  $r = $petition->query($q);
   while($d = mysqli_fetch_array($r)){
     echo "<li><a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id] <b>$d[date_time_signed]</b> $d[signed_name_as]	$d[signed_name_as_circulator]	$d[contact_phone]	$d[signature_status]</li>"; 
   }
@@ -21,6 +22,7 @@ if (isset($_GET['ip_address'])){
   $VTRID = $_GET['VTRID'];
   echo "<h1>Review $VTRID</h1>";   
   $q = "SELECT * FROM  signatures where VTRID = '$VTRID' ";
+  $r = $petition->query($q);
   while($d = mysqli_fetch_array($r)){
     echo "<li><a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id] <b>$d[date_time_signed]</b> $d[signed_name_as]	$d[signed_name_as_circulator]	$d[contact_phone]	$d[signature__status]</li>"; 
   }
