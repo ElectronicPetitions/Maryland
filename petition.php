@@ -20,7 +20,18 @@ if (isset($_POST['petition'])){
 }
 setcookie("pJPG", $d['petition_jpg']);
 ?>
-<script>document.title = "MEPS - Sign <?PHP echo $d['petition_name'];?>";</script>
+<script>
+  document.title = "MEPS - Sign <?PHP echo $d['petition_name'];?>";
+$('form input:not([type="submit"])').keydown(function(e) {
+    if (e.keyCode == 13) {
+        e.preventDefault();
+        return false;
+    }
+});
+
+
+
+</script>
 <style>
 @font-face {
     font-family: "myFirstFont";
