@@ -19,6 +19,7 @@ $group_id = $_COOKIE['group_id'];
 </script>
 
 <form id='form3' name='form3' method='POST' action='printer.php'>
+  
 <a onclick="javascript:checkAll('form3', true);" href="javascript:void();">check all</a>
 <a onclick="javascript:checkAll('form3', false);" href="javascript:void();">uncheck all</a>
 <input type='submit' value='PRINT'>
@@ -30,7 +31,7 @@ $group_id = $_COOKIE['group_id'];
   }
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
-  echo "<h1>$d[petition_name]</h1>";
+  echo "<fieldset><legend>$d[petition_name] - Unprinted</legend>";
   echo "<table border='1' cellpadding='0' cellspacing='5'>";
   unset($hide);
   $hide = array();
@@ -43,9 +44,9 @@ while($d = mysqli_fetch_array($r)){
       echo "<tr><td><input type='checkbox' name='print[".$d2[id]."]'></td><td>$d2[ip_address]</td><td>$d2[date_time_signed]</td><td>$d2[signed_name_as]</td><td>$d2[signed_name_as_circulator]</td><td>$d2[contact_phone]</td><td>$d2[signature_status]</td><td>$d2[printed_status]</td></tr>";
     //}
   }
-  echo '</table>';
+  echo '</table></fieldset>';
 }
-?>
+    ?>
 </form>
 
 <form id='form2' name='form2' method='POST' action='printer.php'>
@@ -60,7 +61,7 @@ while($d = mysqli_fetch_array($r)){
   }
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
-  echo "<h1>$d[petition_name] - Printed</h1>";
+  echo "<fieldset><legend>$d[petition_name] - Printed</legend>";
   echo "<table border='1' cellpadding='0' cellspacing='5'>";
   unset($hide);
   $hide = array();
