@@ -12,20 +12,22 @@ if ($_COOKIE['level'] == 'manager'){
 include_once('header.php');
 if (isset($_GET['ip_address'])){ 
   $ip = $_GET['ip_address']; 
-  echo "<h1>Review $ip</h1>";    
+  echo "<h1>Review $ip</h1><table>";    
   $q = "SELECT * FROM  signatures where ip_address = '$ip' ";
   $r = $petition->query($q);
   while($d = mysqli_fetch_array($r)){
-    echo "<li><b>$d[date_time_signed]</b> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id]  $d[signed_name_as]	$d[signed_name_as_circulator]	$d[contact_phone]	$d[signature_status]</li>"; 
+    echo "<tr><td><b>$d[date_time_signed]</b></td><td><a href='?VTRID=$d[VTRID]'>$d[VTRID]</a></td><td>$d[petition_id]</td><td>$d[signed_name_as]</td><td>$d[signed_name_as_circulator]</td><td>$d[contact_phone]</td><td>$d[signature_status]</td></tr>"; 
   }
+  echo "</table>";
 }elseif (isset($_GET['VTRID'])){ 
   $VTRID = $_GET['VTRID'];
-  echo "<h1>Review $VTRID</h1>";   
+  echo "<h1>Review $VTRID</h1><table>";   
   $q = "SELECT * FROM  signatures where VTRID = '$VTRID' ";
   $r = $petition->query($q);
   while($d = mysqli_fetch_array($r)){
-    echo "<li><b>$d[date_time_signed]</b> <a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> $d[petition_id]  $d[signed_name_as]	$d[signed_name_as_circulator]	$d[contact_phone]	$d[signature__status]</li>"; 
+    echo "<tr><td><b>$d[date_time_signed]</b></td><td><a href='?ip_address=$d[ip_address]'>$d[ip_address]</a></td><td>$d[petition_id]</td><td>$d[signed_name_as]</td><td>$d[signed_name_as_circulator]</td><td>$d[contact_phone]</td><td>$d[signature__status]</td></tr>"; 
   }
+  echo "</table>";
 }
 ?>
 
