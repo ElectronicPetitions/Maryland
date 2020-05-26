@@ -19,8 +19,8 @@ $group_id = $_COOKIE['group_id'];
 </script>
 <style>
   body { background-color:lightgrey; }
-  fieldset{ border: ridge 5px blue; background-color:white; }
-  legend{ border: ridge 5px blue; background-color:white; }
+  fieldset{ border: solid 1px lightblue; background-color:white; margin:10px; padding:10px; }
+  legend{ border: solid 1px blue; background-color:white; margin:10px; padding:10px; }
 </style>
 <form id='form3' name='form3' method='POST' action='printer.php'>
   
@@ -78,7 +78,7 @@ while($d = mysqli_fetch_array($r)){
       echo "<tr><td><input type='checkbox' name='print[".$d2[id]."]'></td><td>$d2[ip_address]</td><td>$d2[date_time_signed]</td><td>$d2[signed_name_as]</td><td>$d2[signed_name_as_circulator]</td><td>$d2[contact_phone]</td><td>$d2[signature_status]</td><td>$d2[printed_status]</td></tr>";
     //}
   }
-  echo '</table>';
+  echo '</table></fieldset>';
 }
 ?>
 </form>
