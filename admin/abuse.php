@@ -82,7 +82,7 @@ if (isset($_GET['ip_address'])){
 <h2>IP Address List</h2>
 <div>Watch for duplicates.</div>
 <?PHP
-$q="SELECT ip_address, petition_id, COUNT(*) as count FROM signatures group by ip_address";
+$q="SELECT ip_address, petition_id, COUNT(*) as count FROM signatures where signature_status = 'verified' group by ip_address";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
   if ($d['count'] > 1){
@@ -94,7 +94,7 @@ while($d = mysqli_fetch_array($r)){
 <h2>VTRID List</h2>
 <div>Watch for duplicates.</div>
 <?PHP
-$q="SELECT VTRID, petition_id, COUNT(*) as count FROM signatures group by VTRID";
+$q="SELECT VTRID, petition_id, COUNT(*) as count FROM signatures where signature_status = 'verified' group by VTRID";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
   if ($d['count'] > 1){
