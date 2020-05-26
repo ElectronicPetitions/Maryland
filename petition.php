@@ -22,15 +22,16 @@ setcookie("pJPG", $d['petition_jpg']);
 ?>
 <script>
   document.title = "MEPS - Sign <?PHP echo $d['petition_name'];?>";
-$('form input:not([type="submit"])').keydown(function(e) {
-    if (e.keyCode == 13) {
-        e.preventDefault();
-        return false;
-    }
+$(document).ready(function() {
+  $('#myText').keypress(function(event){
+    if (event.keyCode == 10 || event.keyCode == 13) 
+        event.preventDefault();
+  });
+  $('#myTextb').keypress(function(event){
+    if (event.keyCode == 10 || event.keyCode == 13) 
+        event.preventDefault();
+  });
 });
-
-
-
 </script>
 <style>
 @font-face {
