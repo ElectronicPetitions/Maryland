@@ -17,7 +17,11 @@ $group_id = $_COOKIE['group_id'];
   }
 }
 </script>
-
+<style>
+  body { background-color:lightgrey; }
+  fieldset{ border: ridge 5px blue; background-color:white; }
+  legend{ border: ridge 5px blue; background-color:white; }
+</style>
 <form id='form3' name='form3' method='POST' action='printer.php'>
   
 <a onclick="javascript:checkAll('form3', true);" href="javascript:void();">check all</a>
