@@ -12,12 +12,22 @@ if ($_COOKIE['level'] == 'manager'){
 include_once('header.php');
 if (isset($_GET['ip_address'])){ 
   $ip = $_GET['ip_address']; 
-  echo "<h1>Review $ip</h1>";                             
+  echo "<h1>Review $ip</h1>";    
+  
+  
+  
+  
+  
 }elseif (isset($_GET['VTRID'])){ 
   $VTRID = $_GET['VTRID'];
-  echo "<h1>Review $VTRID</h1>";                             
+  echo "<h1>Review $VTRID</h1>";   
+  
+  
+  
+  
 }
 ?>
+
 <h1>Abuses</h1>
 <h2>IP Address List</h2>
 <div>Watch for duplicates.</div>
@@ -25,7 +35,9 @@ if (isset($_GET['ip_address'])){
 $q="SELECT ip_address, petition_id, COUNT(*) as count FROM signatures group by ip_address";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
- echo "<li><a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> $d[petition_id] <b>$d[count]</b></li>"; 
+  if ($d['count'] > 1){
+    echo "<li><a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> $d[petition_id] <b>$d[count]</b></li>"; 
+  }
 }
 ?>
 
@@ -34,8 +46,10 @@ while($d = mysqli_fetch_array($r)){
 <?PHP
 $q="SELECT VTRID, petition_id, COUNT(*) as count FROM signatures group by VTRID";
 $r = $petition->query($q);
-while($d = mysqli_fetch_array($r)){
- echo "<li><a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id] <b>$d[count]</b></li>"; 
+while($d = mysqli_fetch_array($r)){ 
+  if ($d['count'] > 1){
+    echo "<li><a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id] <b>$d[count]</b></li>"; 
+  }
 }
 ?>
 
