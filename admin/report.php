@@ -53,7 +53,7 @@ while($d = mysqli_fetch_array($r)){
   $q2="SELECT * FROM signatures where petition_id = '$pID' and printed_status = '' and signature_status <> 'deleted' order by id desc";
   $r2 = $petition->query($q2);
   while($d2 = mysqli_fetch_array($r2)){
-    if ($d2['signature_status' == 'verified']){
+    if ($d2['signature_status'] == 'verified'){
       echo "<tr><td><input type='checkbox' name='print[".$d2[id]."]'></td><td>$d2[ip_address]</td><td>$d2[date_time_signed]</td><td>$d2[signed_name_as]</td><td>$d2[signed_name_as_circulator]</td><td>$d2[contact_phone]</td><td>$d2[signature_status]</td><td>$d2[printed_status]</td></tr>";
     }else{
       echo "<tr><td><a href='?override=$d2[id]'>Override</a> or <a href='?delete=$d2[id]'>Delete</a></td><td>$d2[ip_address]</td><td>$d2[date_time_signed]</td><td>$d2[signed_name_as]</td><td>$d2[signed_name_as_circulator]</td><td>$d2[contact_phone]</td><td>$d2[signature_status]</td><td>$d2[printed_status]</td></tr>";
@@ -85,7 +85,7 @@ while($d = mysqli_fetch_array($r)){
   $q2="SELECT * FROM signatures where petition_id = '$pID' and printed_status <> '' and signature_status <> 'deleted' order by id desc";
   $r2 = $petition->query($q2);
   while($d2 = mysqli_fetch_array($r2)){
-    if ($d2['signature_status' == 'verified']){
+    if ($d2['signature_status'] == 'verified'){
       echo "<tr><td><input type='checkbox' name='print[".$d2[id]."]'></td><td>$d2[ip_address]</td><td>$d2[date_time_signed]</td><td>$d2[signed_name_as]</td><td>$d2[signed_name_as_circulator]</td><td>$d2[contact_phone]</td><td>$d2[signature_status]</td><td>$d2[printed_status]</td></tr>";
     }else{
       echo "<tr><td><a href='?override=$d2[id]'>Override</a> or <a href='?delete=$d2[id]'>Delete</a></td><td>$d2[ip_address]</td><td>$d2[date_time_signed]</td><td>$d2[signed_name_as]</td><td>$d2[signed_name_as_circulator]</td><td>$d2[contact_phone]</td><td>$d2[signature_status]</td><td>$d2[printed_status]</td></tr>";
