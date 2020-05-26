@@ -13,18 +13,17 @@ include_once('header.php');
 if (isset($_GET['ip_address'])){ 
   $ip = $_GET['ip_address']; 
   echo "<h1>Review $ip</h1>";    
-  
-  
-  
-  
-  
+  $q = "SELECT * FROM  signatures where ip_address = '$ip' ";
+  while($d = mysqli_fetch_array($r)){
+    echo "<li><a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id] <b>$d[date_time_signed]</b></li>"; 
+  }
 }elseif (isset($_GET['VTRID'])){ 
   $VTRID = $_GET['VTRID'];
   echo "<h1>Review $VTRID</h1>";   
-  
-  
-  
-  
+  $q = "SELECT * FROM  signatures where VTRID = '$VTRID' ";
+  while($d = mysqli_fetch_array($r)){
+    echo "<li><a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id] <b>$d[date_time_signed]</b></li>"; 
+  }
 }
 ?>
 
