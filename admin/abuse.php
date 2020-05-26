@@ -1,6 +1,7 @@
 <?PHP 
 include_once('../slack.php');
 include_once('security.php');
+include_once('/var/www/secure.php'); //outside webserver
 if ($_COOKIE['level'] == 'user'){
   slack_general('ADMIN: Redirect User Home ('.$_COOKIE['name'].') ('.$_COOKIE['level'].')','md-petition');
   header('Location: user_home.php');
@@ -9,23 +10,27 @@ if ($_COOKIE['level'] == 'manager'){
   slack_general('ADMIN: Redirect Manager Home ('.$_COOKIE['name'].') ('.$_COOKIE['level'].')','md-petition');
   header('Location: manager_home.php');
 }
-include_once('header.php');
 if (isset($_GET['flag_invalid_signature'])){
   $id = $_GET['flag_invalid_signature'];
   $petition->query("update signatures set signature_status = 'flag_invalid_signature' where id = '$id' ");
+  header('Location: abuse.php');
 }
 if (isset($_GET['flag_duplicate'])){
   $id = $_GET['flag_duplicate'];
   $petition->query("update signatures set signature_status = 'flag_duplicate' where id = '$id' ");
+  header('Location: abuse.php');
 }
 if (isset($_GET['flag_ip_address'])){
   $ip = $_GET['flag_ip_address'];
   $petition->query("update signatures set signature_status = 'flag_ip_address' where ip_address = '$ip' ");
+  header('Location: abuse.php');
 }
 if (isset($_GET['flag_VTRID'])){
   $VTRID = $_GET['flag_VTRID'];
   $petition->query("update signatures set signature_status = 'flag_VTRID' where VTRID = '$VTRID' ");
+  header('Location: abuse.php');
 }
+include_once('header.php');
 if (isset($_GET['ip_address'])){ 
   $ip = $_GET['ip_address']; 
   echo "<h1>Review $ip</h1><table width='100%' border='1' cellpadding='5' cellspacing='5'>";    
