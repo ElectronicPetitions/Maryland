@@ -25,7 +25,11 @@ slack_general('ADMIN: Home Page Loaded ('.$_COOKIE['name'].') ('.$_COOKIE['level
 $q="SELECT * FROM users";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
- echo "<li>$d[id] $d[email] $d[name] $d[group_id] $d[sec_level]</li>"; 
+  $alert='';
+  if ($d[pass] == ''){
+    $alert='NEEDS PASSWORD RESET';    
+  }
+ echo "<li>$d[id] $d[email] $d[name] $d[group_id] $d[sec_level] $alert</li>"; 
 }
 ?>
 
