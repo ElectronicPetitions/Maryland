@@ -82,9 +82,10 @@ while($d2 = mysqli_fetch_array($r2)){
    }else{
      $checked = '';
    }
+    $mytest = $d[$field];
   $available .= "<div class='row'>
   <div class='col-sm-3' style='background-color:$d2[web_color];'>"; if ($d2['eligibleVoterListEnforce'] == 'NO'){ $available .="<input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked >"; }else{ $available .= "<h2>Constituents Only</h2>"; } $available .= "</div>
-  <div class='col-sm-6' style='background-color:$d2[web_color];'><h2>$d2[petition_name] <br> $field != $pass</h2></div>
+  <div class='col-sm-6' style='background-color:$d2[web_color];'><h2>$d2[petition_name] <br> $field != $pass ($mytest)</h2></div>
   <div class='col-sm-1' style='background-color:$d2[web_color];'><h2>$d2[eligibleVoterListEnforce]</h2></div>
     </div>"; 
    if($d2['eligibleVoterListEnforce'] == 'NO' && $_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name']) ){
