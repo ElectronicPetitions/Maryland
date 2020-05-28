@@ -48,10 +48,10 @@ $d = mysqli_fetch_array($r);
   echo "<tr>
   <td align='center'><small>$d2[petition_name]<small></td>
   <td><div class=\"fb-share-button\" 
-     data-href=\"http://md-petition.com/$link\" 
+     data-href=\"https://www.md-petition.com/$link\" 
      data-layout=\"box_count\" data-size=\"large\">
    </div></td>
-   <td><input type='text' size='50' value='http://md-petition.com/$link' id='$d2[web_short_name]'><button onclick='myFunction(\"$d2[web_short_name]\")'>Copy Link</button></td>
+   <td><input type='text' size='50' value='https://www.md-petition.com/$link' id='$d2[web_short_name]'><button onclick='myFunction(\"$d2[web_short_name]\")'>Copy Link</button></td>
    </tr>";
  }
   ?>
