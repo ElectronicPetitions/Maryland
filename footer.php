@@ -11,9 +11,16 @@ if ($_COOKIE['invite'] != ''){
 <?PHP } ?>
 
 <div class='row'>
- <div class='col-sm-10' style='text-align:center;'><?PHP echo $copy;?></div>
+ <div class='col-sm-10' style='text-align:center;'>
+  <?PHP echo $copy;?>
+ </div>
 </div>
 
+<div class='row'>
+ <div class='col-sm-10' style='text-align:center;'>
+  <span id="siteseal"><script async type="text/javascript" src="https://seal.starfieldtech.com/getSeal?sealID=aPXbc3kH1AvnQodUszkMcZir7V0JjcOovILeuCzgYFn2WwPTWyh0o2vI6hDF"></script></span>
+ </div>
+</div>
 
 <div id="fb-root"></div>
   <script>(function(d, s, id) {
