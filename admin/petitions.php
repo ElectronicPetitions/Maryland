@@ -25,7 +25,7 @@ if(isset($_POST['petition_id']) && isset($_POST['petition_name']) ){ // edit
   $petition_circulator_text_box = $petition->real_escape_string($_POST['petition_circulator_text_box']);
   $eligibleVoterListWarning     = $petition->real_escape_string($_POST['eligibleVoterListWarning']);
   $eligibleVoterListEnforce     = $petition->real_escape_string($_POST['eligibleVoterListEnforce']);
-  $eligibleVoterListField       = $petition->real_escape_string($_POST['eligibleVoterListField']);
+  $eligibleVoterListField       = strtoupper($petition->real_escape_string($_POST['eligibleVoterListField']));
   $eligibleVoterListEquals      = $petition->real_escape_string($_POST['eligibleVoterListEquals']);
   $eligibleVoterSigMatch        = $petition->real_escape_string($_POST['eligibleVoterSigMatch']);
   // custom landing page - paid feature one day?
