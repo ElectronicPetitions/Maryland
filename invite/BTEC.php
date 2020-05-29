@@ -47,6 +47,28 @@ slack_general('BTEC Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
   <div class='col-sm-10' style='text-align:center;'> <img class="img-responsive" alt="<?PHP echo $d['text_title'];?>" src="<?PHP echo $d['logo_url'];?>"></div>
  </div>
   
+  
+ <div class='row'>
+  <div class='col-sm-2' style='text-align:center;'>Phone</div>
+  <div class='col-sm-8' style='text-align:center;'><?PHP echo $d['social_phone'];?></div>
+ </div>
+ <div class='row'>
+  <div class='col-sm-2' style='text-align:center;'>E-Mail</div>
+  <div class='col-sm-8' style='text-align:center;'><?PHP echo $d['social_email'];?></div>
+ </div>
+ <div class='row'>
+  <div class='col-sm-2' style='text-align:center;'>Website</div>
+  <div class='col-sm-8' style='text-align:center;'><?PHP echo $d['social_website'];?></div>
+ </div>
+   <div class='row'>
+  <div class='col-sm-2' style='text-align:center;'>Facebook</div>
+  <div class='col-sm-8' style='text-align:center;'><?PHP echo $d['social_facebook'];?></div>
+ </div>
+   <div class='row'>
+  <div class='col-sm-2' style='text-align:center;'>Twitter</div>
+  <div class='col-sm-8' style='text-align:center;'><?PHP echo $d['social_twitter'];?></div>
+ </div>
+  
 <div id="fb-root"></div>
   <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
