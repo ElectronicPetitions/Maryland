@@ -34,7 +34,7 @@ $dX = mysqli_fetch_array($rX);
  <div class='col-sm-10' style='text-align:center;'><h2><?PHP echo $dX['text_block'];?></h2></div>
 </div>
 <div class='row'>
- <div class='col-sm-10' style='text-align:center;'><button type="button" class="btn btn-success btn-lg btn-block" onclick="window.open('soft_copy.php?id=<?PHP echo $last;?>')">View and/or Print</button></div>
+ <div class='col-sm-10' style='text-align:center;'><button type="button" class="btn btn-success btn-lg btn-block" onclick="window.open('printer.php?id=<?PHP echo $last;?>')">View and/or Print</button></div>
 </div>
 <div class='row'>
  <div class='col-sm-10' style='text-align:center;'><button type="button" class="btn btn-info btn-lg btn-block" onclick="window.location.href='eligible.php'">More Petitions</button></div>
