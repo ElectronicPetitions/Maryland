@@ -149,8 +149,9 @@ if (isset($_POST['signed_name_as'])){
 </div>
 
 <div class='col-sm-12'><img class="img-responsive" src='hard_copy.php'></div>
-
-
+<?PHP if ($d['petition_jpg_page2'] != ''){ ?>
+  <div class='col-sm-12'><img class="img-responsive" src='<?PHP echo $d['petition_jpg_page2'];?>'></div>
+<?PHP } ?>
 <?PHP 
 if(isset($_POST['signed_name_as'])){
  slack_general('petition.php ('.$d['petition_name'].') ('.$_POST['signed_name_as'].') ('.$_COOKIE['invite'].')','md-petition');
