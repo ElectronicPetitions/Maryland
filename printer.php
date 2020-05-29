@@ -13,7 +13,7 @@ $d = mysqli_fetch_array($r);
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <div class="container">
   <div class="row">
-    <div class='col-sm-12'><img class="img-responsive" src='https://www.md-petition.com/soft_copy.php?id=140'></div>
+    <div class='col-sm-12'><img class="img-responsive" src='https://www.md-petition.com/soft_copy.php?id=<?PHP echo $id;?>'></div>
   </div>
   <?PHP if ($d['petition_jpg_page2'] != ''){ ?>
     <div class="row">
