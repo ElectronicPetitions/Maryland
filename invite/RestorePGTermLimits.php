@@ -1,5 +1,5 @@
 <?PHP 
-setcookie("invite", "mgp", time()+3600, "/"); // we use this later
+setcookie("invite", "RestorePGTermLimits", time()+3600, "/"); // we use this later
 ?>
 <!DOCTYPE html>
 <html lang="en">  
