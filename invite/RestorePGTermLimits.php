@@ -24,7 +24,7 @@ setcookie("invite", "RestorePGTermLimits", time()+3600, "/"); // we use this lat
   <meta property="og:type"          content="website" />
   <meta property="og:title"         content="<?PHP echo $d['tab_name'];?>" />
   <meta property="og:description"   content="Maryland Electronic Petition Software - Socially Distant Petitions" />
-  <meta property="og:image"         content="https://www.md-petition.com/files/restore.PNG" />
+  <meta property="og:image"         content="https://www.md-petition.com/files/RTL.png" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
