@@ -119,7 +119,7 @@ if (isset($_POST['signed_name_as'])){
           <h1 id="text2" class="sig"></h1>
           <button style='display:none;' id='b1' name='b1' type="submit" class="btn btn-primary btn-lg btn-block"><img class='click_me' src="files/click_here.gif">Sign and Next</button>
           <button style='display:block;' id='b1warn' name='b1warn' class="btn btn-warning btn-lg btn-block disabled" onclick="alert('Please Type Your Name Exactly as Above');">Please Type Your Name Exactly as Above</button>
-          <div><img id='click_me1' name='click_me1' class='click_me' src="files/click_here.gif"> <input class="form-control input-lg" name="signed_name_as" type="text" id="myText" onkeyup="addText()" required autofocus></div>
+          <table><tr><td><img id='click_me1' name='click_me1' class='click_me' src="files/click_here.gif"></td><td><input class="form-control input-lg" name="signed_name_as" type="text" id="myText" onkeyup="addText()" required autofocus></td></tr></table>
         </div>
       </form>
     </div>
@@ -145,7 +145,7 @@ if (isset($_POST['signed_name_as'])){
           <h1 id="text2b" class="sig"></h1>
           <button style='display:none;' id='b2' name='b2' type="submit" class="btn btn-primary btn-lg btn-block"><img class='click_me' src="files/click_here.gif">Sign and Submit</button>
           <button style='display:block;' id='b2warn' name='b1warn' class="btn btn-warning btn-lg btn-block disabled" onclick="alert('Please Type Your Name Exactly as Above');">Please Type Your Name Exactly as Above</button>
-          <div><img id='click_me2' name='click_me2' class='click_me' src="files/click_here.gif"> <input class="form-control input-lg" name="signed_name_as_circulator" type="text" id="myTextb" onkeyup="addTextb()" required autofocus></div>
+          <table><tr><td><img id='click_me2' name='click_me2' class='click_me' src="files/click_here.gif"></td><td><input class="form-control input-lg" name="signed_name_as_circulator" type="text" id="myTextb" onkeyup="addTextb()" required autofocus></td></tr></table>
         </div>
       </form>
     </div>
