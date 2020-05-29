@@ -87,7 +87,7 @@ $qX = "select * from website_text where id = '6'";
   <div class='col-sm-5' style='text-align:left;'><h2><?PHP echo $RESIDENTIALZIP5;?></h2></div>
 </div>
 <div class='row'>
-  <div class='col-sm-5'><button type="button" class="btn btn-danger btn-lg btn-block" onclick="window.location.href='reset.php'">NO</button></div>
+  <div class='col-sm-5'><button type="button" class="btn btn-danger btn-lg btn-block not_me" onclick="window.location.href='reset.php'">NO</button></div>
   <div class='col-sm-5'><button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='eligible.php'"><img class='click_me' src="files/click_here.gif">YES</button></div>
 </div>
   
