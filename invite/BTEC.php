@@ -52,7 +52,7 @@ slack_general('BTEC Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
   </div>
   
 <div class='row'>
-  <div class='col-sm-12' style='text-align:center;'><button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='../enter_information.php'">SIGN <?PHP echo $d['petition_name'];?></button></div>
+  <div class='col-sm-12' style='text-align:center;'><button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='../enter_information.php'"><img class="img-responsive" src="../files/click_here.gif"> SIGN <?PHP echo $d['petition_name'];?></button></div>
  </div> 
   
   
