@@ -5,14 +5,21 @@ $id = intval($_GET['id']);
 $q = "select * from signatures where id = '$id' ";
 $r = $petition->query($q);
 $d = mysqli_fetch_array($r);
-
+$ip_address    = $d['ip_address'];
 $DOB    = $d['date_of_birth'];
 $SIGNED = $d['date_time_signed'];
 $PETITION_ID = $d['petition_id'];
 $signed_name_as = $d['signed_name_as'];
 $signed_name_as_circulator = $d['signed_name_as_circulator'];
-if ($_COOKIE['pVTRID'] != $d['VTRID']){
- slack_general('SECURITY INVALID: soft_copy.php ('.$_COOKIE['invite'].')','md-petition');
+if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+    $ip = $_SERVER['HTTP_CLIENT_IP'];
+} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+} else {
+    $ip = $_SERVER['REMOTE_ADDR'];
+}
+if ($ip != $d['ip_address']){
+ slack_general('SECURITY INVALID: soft_copy.php '.$ip.' vs '.$d['ip_address'].' ('.$_COOKIE['invite'].')','md-petition');
  die('Error #294');
 }
 
