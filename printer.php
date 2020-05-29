@@ -1,7 +1,10 @@
 <?PHP
 $id = intval($_GET['id']);
 include_once('/var/www/secure.php'); //outside webserver
-$q = "select * from petitions where petition_id = '$id'";
+$q = "select petition_id from signatures where id = '$id'";
+$r = $petition->query($q);
+$d = mysqli_fetch_array($r);
+$q = "select petition_jpg_page2 from petitions where petition_id = '$d[petition_id]'";
 $r = $petition->query($q);
 $d = mysqli_fetch_array($r);
 ?>
