@@ -21,5 +21,22 @@ slack_general('Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
   <div class='col-sm-5' style='text-align:center;'><button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='enter_information.php'">YES</button></div>
   <div class='col-sm-5' style='text-align:center;'><button type="button" class="btn btn-danger btn-lg btn-block" onclick="window.location.href='not_a_registered_voter.php'">NO</button></div>
  </div> 
+
+<div class='row'>
+  <div class='col-sm-10' style='text-align:center;'>We are hosting the following petitions: 
+    <?PHP
+    $q2 = "SELECT * FROM petitions where admin_status = 'approved'";
+    $r2 = $petition->query($q2);
+    while($d2 = mysqli_fetch_array($r2)){
+      $link = "?invite=$d2[web_short_name]";
+      if ($d2['landing_page'] != ''){
+        $link = $d2['landing_page']; 
+      }
+      echo " <a href='https://www.md-petition.com/$link'>$d2[petition_name]</a> ";
+    }
+    ?>
+  </div> 
+</div>     
+    
 <?PHP 
 include_once('footer.php'); 
