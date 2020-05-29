@@ -42,18 +42,14 @@ slack_general('BTEC Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
   
    <?PHP if ($d['petition_jpg_page2'] != ''){ ?>
     <div class="row">
-      <div class='col-sm-8' style='text-align:center;'><center><img class="img-responsive" alt="<?PHP echo $d['text_title'];?>" src="<?PHP echo $d['logo_url'];?>"></center></div>
+      <div class='col-sm-8' style='text-align:center;'><center><img class="img-responsive" alt="<?PHP echo $d['text_title'];?>" src="<?PHP echo $d['logo_url'];?>"></center><?PHP echo $d['text_block'];?></div>
       <div class='col-sm-4'><img class="img-responsive" src='../<?PHP echo $d['petition_jpg_page2'];?>'></div>
     </div>
   <?PHP }else{ ?>
-      <div class='col-sm-12' style='text-align:center;'><center><img class="img-responsive" alt="<?PHP echo $d['text_title'];?>" src="<?PHP echo $d['logo_url'];?>"></center></div>
+      <div class='col-sm-12' style='text-align:center;'><center><img class="img-responsive" alt="<?PHP echo $d['text_title'];?>" src="<?PHP echo $d['logo_url'];?>"></center><?PHP echo $d['text_block'];?></div>
  
    <?PHP } ?>
   </div>
-  
-<div class='row'>
-  <div class='col-sm-12' style='text-align:center;'><h2 style='text-align:left;'><?PHP echo $d['text_block'];?></h2></div>
- </div> 
   
 <div class='row'>
   <div class='col-sm-12' style='text-align:center;'><button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='../enter_information.php'">SIGN <?PHP echo $d['petition_name'];?></button></div>
