@@ -15,7 +15,7 @@ setcookie("invite", "BTEC", time()+3600, "/"); // we use this later
   </script>
   <?PHP 
   include_once('/var/www/secure.php'); //outside webserver
-  $q = "select * from petitions where petition_id = '7'";
+  $q = "select * from petitions where petition_id = '3'";
   $r = $petition->query($q);
   $d = mysqli_fetch_array($r);
   include_once('../slack.php');
@@ -33,7 +33,7 @@ setcookie("invite", "BTEC", time()+3600, "/"); // we use this later
 <body style='background-color:<?PHP echo $d['web_color'];?>;'>
 <div class="container-fluid">
 <?PHP
-slack_general('RestorePGTermLimits Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
+slack_general('BTEC Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
 ?>
 
 <div class='row'>
