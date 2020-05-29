@@ -61,12 +61,12 @@ if (isset($_POST['signed_name_as'])){
       if (result == "<?PHP echo $_COOKIE['pNAME'];?>"){
             document.getElementById("b2").style.display = "block";
             document.getElementById("b2warn").style.display = "none";
-            document.getElementById("click_me1").style.display = "none";
+            document.getElementById("click_me2").style.display = "none";
             //alert("Confirmed : " + result); 
       }else{
             document.getElementById("b2").style.display = "none";
             document.getElementById("b2warn").style.display = "block";
-            document.getElementById("click_me1").style.display = "block";
+            document.getElementById("click_me2").style.display = "block";
       }
   }
 </script>
@@ -86,12 +86,12 @@ if (isset($_POST['signed_name_as'])){
       if (result == "<?PHP echo $_COOKIE['pNAME'];?>"){
             document.getElementById("b1").style.display = "block";
             document.getElementById("b1warn").style.display = "none";
-            document.getElementById("click_me2").style.display = "none";
+            document.getElementById("click_me1").style.display = "none";
             //alert("Confirmed : " + result); 
       }else{
             document.getElementById("b1").style.display = "none";
             document.getElementById("b1warn").style.display = "block";
-            document.getElementById("click_me2").style.display = "block";
+            document.getElementById("click_me1").style.display = "block";
       }
   }
 </script>
