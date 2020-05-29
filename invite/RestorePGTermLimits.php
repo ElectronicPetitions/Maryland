@@ -20,7 +20,7 @@ setcookie("invite", "RestorePGTermLimits", time()+3600, "/"); // we use this lat
   $d = mysqli_fetch_array($r);
   include_once('../slack.php');
   ?>
-  <meta property="og:url"           content="http://md-petition.com/invite/RestorePGTermLimits.php" />
+  <meta property="og:url"           content="https://www.md-petition.com/invite/RestorePGTermLimits.php" />
   <meta property="og:type"          content="website" />
   <meta property="og:title"         content="<?PHP echo $d['tab_name'];?>" />
   <meta property="og:description"   content="Maryland Electronic Petition Software - Socially Distant Petitions" />
