@@ -38,6 +38,10 @@ if ($_GET['debug'] == 'off'){
 input:focus {
   background-color: lightblue;
 }
+ .click_here{
+   height:50px; 
+   width:100px;
+  }
 </style>
 </head>
 <body>
