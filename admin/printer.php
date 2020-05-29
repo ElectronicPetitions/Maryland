@@ -9,7 +9,7 @@ include_once('/var/www/secure.php'); //outside webserver
 foreach ($_POST['print'] as $k => $v) {
     $url = "http://md-petition.com/admin/print.php?id=$k&name=".$_COOKIE['name'];
     echo "<img class='img-responsive' src='$url' alt='$k' style='page-break-after: always;'>";
-    $q = "select petition_id from signatures where id = '$id'";
+    $q = "select petition_id from signatures where id = '$k'";
     $r = $petition->query($q);
     $d = mysqli_fetch_array($r);
     $q = "select petition_jpg_page2 from petitions where petition_id = '$d[petition_id]'";
