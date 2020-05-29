@@ -36,37 +36,39 @@ setcookie("invite", "BTEC", time()+3600, "/"); // we use this later
 slack_general('BTEC Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
 ?>
 
+ <div class='row'>
+  <div class='col-sm-12' style='text-align:center;'><center><img class="img-responsive" alt="<?PHP echo $d['text_title'];?>" src="<?PHP echo $d['logo_url'];?>"></center></div>
+ </div>
+  
 <div class='row'>
-  <div class='col-sm-10' style='text-align:center;'><h1><?PHP echo $d['text_title'];?></h1><h2 style='text-align:left;'><?PHP echo $d['text_block'];?></h2></div>
+  <div class='col-sm-12' style='text-align:center;'><h1><?PHP echo $d['text_title'];?></h1><h2 style='text-align:left;'><?PHP echo $d['text_block'];?></h2></div>
  </div> 
+  
 <div class='row'>
-  <div class='col-sm-10' style='text-align:center;'><button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='../enter_information.php'">SIGN <?PHP echo $d['petition_name'];?></button></div>
+  <div class='col-sm-12' style='text-align:center;'><button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='../enter_information.php'">SIGN <?PHP echo $d['petition_name'];?></button></div>
  </div> 
   
- <div class='row'>
-  <div class='col-sm-10' style='text-align:center;'> <img class="img-responsive" alt="<?PHP echo $d['text_title'];?>" src="<?PHP echo $d['logo_url'];?>"></div>
- </div>
   
   
  <div class='row'>
-  <div class='col-sm-5' style='text-align:right;'>Phone</div>
-  <div class='col-sm-5' style='text-align:left;'><?PHP echo $d['social_phone'];?></div>
+  <div class='col-sm-6' style='text-align:right;'>Phone</div>
+  <div class='col-sm-6' style='text-align:left;'><?PHP echo $d['social_phone'];?></div>
  </div>
  <div class='row'>
-  <div class='col-sm-5' style='text-align:right;'>E-Mail</div>
-  <div class='col-sm-5' style='text-align:left;'><?PHP echo $d['social_email'];?></div>
+  <div class='col-sm-6' style='text-align:right;'>E-Mail</div>
+  <div class='col-sm-6' style='text-align:left;'><?PHP echo $d['social_email'];?></div>
  </div>
  <div class='row'>
-  <div class='col-sm-5' style='text-align:right;'>Website</div>
-  <div class='col-sm-5' style='text-align:left;'><?PHP echo $d['social_website'];?></div>
+  <div class='col-sm-6' style='text-align:right;'>Website</div>
+  <div class='col-sm-6' style='text-align:left;'><?PHP echo $d['social_website'];?></div>
  </div>
    <div class='row'>
-  <div class='col-sm-5' style='text-align:right;'>Facebook</div>
-  <div class='col-sm-5' style='text-align:left;'><?PHP echo $d['social_facebook'];?></div>
+  <div class='col-sm-6' style='text-align:right;'>Facebook</div>
+  <div class='col-sm-6' style='text-align:left;'><?PHP echo $d['social_facebook'];?></div>
  </div>
-   <div class='row'>
-  <div class='col-sm-5' style='text-align:right;'>Twitter</div>
-  <div class='col-sm-5' style='text-align:left;'><?PHP echo $d['social_twitter'];?></div>
+ <div class='row'>
+  <div class='col-sm-6' style='text-align:right;'>Twitter</div>
+  <div class='col-sm-6' style='text-align:left;'><?PHP echo $d['social_twitter'];?></div>
  </div>
   
 <div id="fb-root"></div>
@@ -96,7 +98,7 @@ slack_general('BTEC Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
 </script>
   
  <div class='row'>
-  <div class='col-sm-10' style='text-align:center;'>
+  <div class='col-sm-12' style='text-align:center;'><center>
  <table border="1" cellpadding="2" cellspacing="0">
  <tr>
   <td><div class="fb-share-button" 
@@ -105,7 +107,7 @@ slack_general('BTEC Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
    </div></td>
    <td><input type='text' size='50' value='https://www.md-petition.com/invite/BTEC.php' id='BTEC'><button onclick='myFunction("BTEC")'>Copy Link</button></td>
    </tr>
- </table>
+ </table></center>
 </div>
 </div>
  
