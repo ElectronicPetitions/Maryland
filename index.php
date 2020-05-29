@@ -23,9 +23,9 @@ slack_general('Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
  </div> 
 
 <div class='row'>
-  <div class='col-sm-10' style='text-align:center;'>We are hosting the following petitions: 
+  <div class='col-sm-10' style='text-align:center;'><br><br><br><h3>We are hosting the following petitions: </h3>
     <?PHP
-    $q2 = "SELECT * FROM petitions where admin_status = 'approved'";
+    $q2 = "SELECT * FROM petitions where admin_status = 'approved' order by RAND()";
     $r2 = $petition->query($q2);
     while($d2 = mysqli_fetch_array($r2)){
       $link = "?invite=$d2[web_short_name]";
