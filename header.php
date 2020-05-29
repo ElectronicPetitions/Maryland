@@ -42,6 +42,9 @@ input:focus {
    height:50px; 
    width:100px;
   }
+  .not_me{
+   height:72px; 
+  }
 </style>
 </head>
 <body>
