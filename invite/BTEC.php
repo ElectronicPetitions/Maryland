@@ -42,11 +42,11 @@ slack_general('BTEC Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
   
    <?PHP if ($d['petition_jpg_page2'] != ''){ ?>
     <div class="row">
-      <div class='col-sm-8'><center><img class="img-responsive" alt="<?PHP echo $d['text_title'];?>" src="<?PHP echo $d['logo_url'];?>"></center><h3><?PHP echo $d['text_block'];?></h3></div>
+      <div class='col-sm-8'><center><img class="img-responsive" alt="<?PHP echo $d['text_title'];?>" src="<?PHP echo $d['logo_url'];?>"><h2><?PHP echo $d['text_block'];?></h2></center></div>
       <div class='col-sm-4'><img class="img-responsive" src='../<?PHP echo $d['petition_jpg_page2'];?>'></div>
     </div>
   <?PHP }else{ ?>
-      <div class='col-sm-12'><center><img class="img-responsive" alt="<?PHP echo $d['text_title'];?>" src="<?PHP echo $d['logo_url'];?>"></center><?PHP echo $d['text_block'];?></h3></div>
+      <div class='col-sm-12'><center><img class="img-responsive" alt="<?PHP echo $d['text_title'];?>" src="<?PHP echo $d['logo_url'];?>"><h2><?PHP echo $d['text_block'];?></h2></center></div>
  
    <?PHP } ?>
   </div>
