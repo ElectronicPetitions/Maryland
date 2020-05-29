@@ -49,24 +49,24 @@ slack_general('BTEC Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
   
   
  <div class='row'>
-  <div class='col-sm-2' style='text-align:center;'>Phone</div>
-  <div class='col-sm-8' style='text-align:center;'><?PHP echo $d['social_phone'];?></div>
+  <div class='col-sm-5' style='text-align:right;'>Phone</div>
+  <div class='col-sm-5' style='text-align:left;'><?PHP echo $d['social_phone'];?></div>
  </div>
  <div class='row'>
-  <div class='col-sm-2' style='text-align:center;'>E-Mail</div>
-  <div class='col-sm-8' style='text-align:center;'><?PHP echo $d['social_email'];?></div>
+  <div class='col-sm-5' style='text-align:right;'>E-Mail</div>
+  <div class='col-sm-5' style='text-align:left;'><?PHP echo $d['social_email'];?></div>
  </div>
  <div class='row'>
-  <div class='col-sm-2' style='text-align:center;'>Website</div>
-  <div class='col-sm-8' style='text-align:center;'><?PHP echo $d['social_website'];?></div>
+  <div class='col-sm-5' style='text-align:right;'>Website</div>
+  <div class='col-sm-5' style='text-align:left;'><?PHP echo $d['social_website'];?></div>
  </div>
    <div class='row'>
-  <div class='col-sm-2' style='text-align:center;'>Facebook</div>
-  <div class='col-sm-8' style='text-align:center;'><?PHP echo $d['social_facebook'];?></div>
+  <div class='col-sm-5' style='text-align:right;'>Facebook</div>
+  <div class='col-sm-5' style='text-align:left;'><?PHP echo $d['social_facebook'];?></div>
  </div>
    <div class='row'>
-  <div class='col-sm-2' style='text-align:center;'>Twitter</div>
-  <div class='col-sm-8' style='text-align:center;'><?PHP echo $d['social_twitter'];?></div>
+  <div class='col-sm-5' style='text-align:right;'>Twitter</div>
+  <div class='col-sm-5' style='text-align:left;'><?PHP echo $d['social_twitter'];?></div>
  </div>
   
 <div id="fb-root"></div>
@@ -95,7 +95,8 @@ slack_general('BTEC Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
 }
 </script>
   
- <center>
+ <div class='row'>
+  <div class='col-sm-10' style='text-align:center;'>
  <table border="1" cellpadding="2" cellspacing="0">
  <tr>
   <td><div class="fb-share-button" 
@@ -105,7 +106,8 @@ slack_general('BTEC Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
    <td><input type='text' size='50' value='https://www.md-petition.com/invite/BTEC.php' id='BTEC'><button onclick='myFunction("BTEC")'>Copy Link</button></td>
    </tr>
  </table>
-</center>
+</div>
+</div>
  
  
  
