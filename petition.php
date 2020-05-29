@@ -61,10 +61,12 @@ if (isset($_POST['signed_name_as'])){
       if (result == "<?PHP echo $_COOKIE['pNAME'];?>"){
             document.getElementById("b2").style.display = "block";
             document.getElementById("b2warn").style.display = "none";
+            document.getElementById("click_me1").style.display = "none";
             //alert("Confirmed : " + result); 
       }else{
             document.getElementById("b2").style.display = "none";
             document.getElementById("b2warn").style.display = "block";
+            document.getElementById("click_me1").style.display = "block";
       }
   }
 </script>
@@ -84,10 +86,12 @@ if (isset($_POST['signed_name_as'])){
       if (result == "<?PHP echo $_COOKIE['pNAME'];?>"){
             document.getElementById("b1").style.display = "block";
             document.getElementById("b1warn").style.display = "none";
+            document.getElementById("click_me2").style.display = "none";
             //alert("Confirmed : " + result); 
       }else{
             document.getElementById("b1").style.display = "none";
             document.getElementById("b1warn").style.display = "block";
+            document.getElementById("click_me2").style.display = "block";
       }
   }
 </script>
@@ -115,7 +119,7 @@ if (isset($_POST['signed_name_as'])){
           <h1 id="text2" class="sig"></h1>
           <button style='display:none;' id='b1' name='b1' type="submit" class="btn btn-primary btn-lg btn-block"><img class='click_me' src="files/click_here.gif">Sign and Next</button>
           <button style='display:block;' id='b1warn' name='b1warn' class="btn btn-warning btn-lg btn-block disabled" onclick="alert('Please Type Your Name Exactly as Above');">Please Type Your Name Exactly as Above</button>
-          <div><img class='click_me' src="files/click_here.gif"> <input class="form-control input-lg" name="signed_name_as" type="text" id="myText" onkeyup="addText()" required autofocus></div>
+          <div><img id='click_me1' name='click_me1' class='click_me' src="files/click_here.gif"> <input class="form-control input-lg" name="signed_name_as" type="text" id="myText" onkeyup="addText()" required autofocus></div>
         </div>
       </form>
     </div>
@@ -141,7 +145,7 @@ if (isset($_POST['signed_name_as'])){
           <h1 id="text2b" class="sig"></h1>
           <button style='display:none;' id='b2' name='b2' type="submit" class="btn btn-primary btn-lg btn-block"><img class='click_me' src="files/click_here.gif">Sign and Submit</button>
           <button style='display:block;' id='b2warn' name='b1warn' class="btn btn-warning btn-lg btn-block disabled" onclick="alert('Please Type Your Name Exactly as Above');">Please Type Your Name Exactly as Above</button>
-          <div><img class='click_me' src="files/click_here.gif"> <input class="form-control input-lg" name="signed_name_as_circulator" type="text" id="myTextb" onkeyup="addTextb()" required autofocus></div>
+          <div><img id='click_me2' name='click_me2' class='click_me' src="files/click_here.gif"> <input class="form-control input-lg" name="signed_name_as_circulator" type="text" id="myTextb" onkeyup="addTextb()" required autofocus></div>
         </div>
       </form>
     </div>
