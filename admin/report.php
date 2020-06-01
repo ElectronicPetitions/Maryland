@@ -37,6 +37,7 @@ $group_id = $_COOKIE['group_id'];
   body { background-color:lightgrey; }
   fieldset{ border: solid 1px lightblue; background-color:white; margin:10px; padding:10px; }
   legend{ border: solid 1px blue; background-color:white; margin:10px; padding:10px; }
+  td{ white-space: pre; }
 </style>
 <form id='form3' name='form3' method='POST' action='printer.php'>
 <?PHP
