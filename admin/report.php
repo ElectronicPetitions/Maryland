@@ -40,6 +40,96 @@ $javascript='';
   legend{ border: solid 1px blue; background-color:white; margin:10px; padding:10px; }
   td{ white-space: pre; }
 </style>
+<?PHP
+if($_COOKIE['level'] == 'admin'){
+    $q="SELECT * FROM petitions where admin_status = 'approved' ";
+}else{
+    $q="SELECT * FROM petitions where group_id = '$group_id' and admin_status = 'approved'";
+}
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){
+	echo "$d[petition_id] <div id=\"chartContainer$d[petition_id]\" style=\"height: 200px; width: 100%; margin: 0px auto;\"></div>";
+	$chart='';
+	$chart2='';
+	$q = "SELECT just_date FROM signatures where petition_id = '$pID' and just_date <> '0000-00-00' group by just_date";
+	$r = $core->query($q);
+	$total=0;
+	while ($d = mysqli_fetch_array($r)){
+	  $q2 = "SELECT * FROM signatures where petition_id = '$pID' and just_date = '$d[just_date]' ";
+	  $r2 = $core->query($q2);
+	  $count  = mysqli_num_rows($r2);
+	  $chart .=  '{ label: "'.$d['just_date'].'", y: '.intval($count).' }, ';
+	  $total = $total + intval($count);
+	  $chart2 .=  '{ label: "'.$d['just_date'].'", y: '.intval($total).' }, ';
+	}
+	$chart = rtrim(trim($chart), ",");
+	$chart2 = rtrim(trim($chart2), ",");
+
+	ob_start(); ?>
+	var chart<?PHP echo $d['petition_id'];?> = new CanvasJS.Chart("chartContainer<?PHP echo $d['petition_id'];?>", {
+		theme:"light2",
+		animationEnabled: true,
+		exportEnabled: true,
+		title:{
+			text: "<?PHP echo $d['petition_name'];?> MD-Petition.com Signature Tracker"
+		},
+		axisY :{
+			includeZero: false,
+			title: "Number of Signatures",
+			suffix: "",
+	    scaleBreaks: {
+					autoCalculate: true
+				}
+		},
+		toolTip: {
+			shared: "true"
+		},
+		legend:{
+			cursor:"pointer",
+			itemclick : toggleDataSeries
+		},
+		data: [{
+			type: "spline",
+			visible: true,
+			showInLegend: true,
+			yValueFormatString: "#####",
+			name: "Total Signatures",
+			dataPoints: [
+				<?PHP echo $chart2; ?>
+			]
+		},{
+			type: "bar",
+			visible: true,
+			showInLegend: true,
+			yValueFormatString: "#####",
+			name: "New Signatures",
+			dataPoints: [
+				<?PHP echo $chart; ?>
+			]
+		}]
+	}
+
+
+				      );
+	chart<?PHP echo $d['petition_id'];?>.render();
+
+	<?PHP $javascript .= ob_get_clean();
+}
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <form id='form3' name='form3' method='POST' action='printer.php'>
 <?PHP
@@ -51,7 +141,6 @@ $javascript='';
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
   echo "<fieldset style='background-color:$d[web_color];'><legend style='background-color:white;'>$d[petition_name] - Unprinted</legend>
-  <div id=\"chartContainer$d[petition_id]\" style=\"height: 200px; width: 100%; margin: 0px auto;\"></div>
   <a onclick=\"javascript:checkAll('form3', true);\" href=\"javascript:void();\">Check All</a>
   <a onclick=\"javascript:checkAll('form3', false);\" href=\"javascript:void();\">Uncheck All</a>
   <input type='submit' value='PRINT'>";
@@ -69,71 +158,7 @@ while($d = mysqli_fetch_array($r)){
     }
   }
   echo '</table></fieldset>';
-$chart='';
-$chart2='';
-$q = "SELECT just_date FROM signatures where petition_id = '$pID' and just_date <> '0000-00-00' group by just_date";
-$r = $core->query($q);
-$total=0;
-while ($d = mysqli_fetch_array($r)){
-  $q2 = "SELECT * FROM signatures where petition_id = '$pID' and just_date = '$d[just_date]' ";
-  $r2 = $core->query($q2);
-  $count  = mysqli_num_rows($r2);
-  $chart .=  '{ label: "'.$d['just_date'].'", y: '.intval($count).' }, ';
-  $total = $total + intval($count);
-  $chart2 .=  '{ label: "'.$d['just_date'].'", y: '.intval($total).' }, ';
-}
-$chart = rtrim(trim($chart), ",");
-$chart2 = rtrim(trim($chart2), ",");
-	
-	ob_start(); ?>
-	var chart<?PHP echo $d['petition_id'];?> = new CanvasJS.Chart("chartContainer<?PHP echo $d['petition_id'];?>", {
-	theme:"light2",
-	animationEnabled: true,
-	exportEnabled: true,
-	title:{
-		text: "<?PHP echo $d['petition_name'];?> MD-Petition.com Signature Tracker"
-	},
-	axisY :{
-		includeZero: false,
-		title: "Number of Signatures",
-		suffix: "",
-    scaleBreaks: {
-				autoCalculate: true
-			}
-	},
-	toolTip: {
-		shared: "true"
-	},
-	legend:{
-		cursor:"pointer",
-		itemclick : toggleDataSeries
-	},
-	data: [{
-		type: "spline",
-		visible: true,
-		showInLegend: true,
-		yValueFormatString: "#####",
-		name: "Total Signatures",
-		dataPoints: [
-			<?PHP echo $chart2; ?>
-		]
-	},{
-		type: "bar",
-		visible: true,
-		showInLegend: true,
-		yValueFormatString: "#####",
-		name: "New Signatures",
-		dataPoints: [
-			<?PHP echo $chart; ?>
-		]
-	}]
-}
-			      
-			      
-			      );
-chart<?PHP echo $d['petition_id'];?>.render();
-	
-<?PHP $javascript .= ob_get_clean();
+
 	
 	
 }
