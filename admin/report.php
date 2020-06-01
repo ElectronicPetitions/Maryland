@@ -47,7 +47,7 @@ $group_id = $_COOKIE['group_id'];
   }
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
-  echo "<fieldset><legend>$d[petition_name] - Unprinted</legend>
+  echo "<fieldset style='background-color:$d[web_color];'><legend style='background-color:white;'>$d[petition_name] - Unprinted</legend>
   <a onclick=\"javascript:checkAll('form3', true);\" href=\"javascript:void();\">Check All</a>
   <a onclick=\"javascript:checkAll('form3', false);\" href=\"javascript:void();\">Uncheck All</a>
   <input type='submit' value='PRINT'>";
@@ -79,7 +79,7 @@ while($d = mysqli_fetch_array($r)){
   }
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
-  echo "<fieldset><legend>$d[petition_name] - Printed</legend>
+  echo "<fieldset style='background-color:$d[web_color];'><legend style='background-color:white;'>$d[petition_name] - Printed</legend>
   <a onclick=\"javascript:checkAll('form2', true);\" href=\"javascript:void();\">Check All</a>
   <a onclick=\"javascript:checkAll('form2', false);\" href=\"javascript:void();\">Uncheck All</a>
   <input type='submit' value='PRINT'>";
