@@ -54,8 +54,8 @@ while($d = mysqli_fetch_array($r)){
 	$chart='';
 	$chart2='';
 	$q3 = "SELECT just_date FROM signatures where petition_id = '$pID' and just_date <> '0000-00-00' group by just_date";
-	//echo "<li>$q3</li>";
-	$r3 = $core->query($q3);
+	echo "<li>$q3</li>";
+	$r3 = $core->query($q3) or die(mysqli_error($core));
 	$total=0;
 	while ($d3 = mysqli_fetch_array($r3)){
 	  $q2 = "SELECT * FROM signatures where petition_id = '$pID' and just_date = '$d3[just_date]' and signature_status = 'verified'  ";
