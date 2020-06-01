@@ -62,14 +62,14 @@ slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
 ?>
 <script>document.title = "MEPS - Enter Information";</script>
 <form method='POST'>
-    <div class='row'>
-     <div class='col-sm-10' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block"><img class='click_me' src="files/click_here.gif">Next</button></div>
-  </div>
+    
   <div class='row'>
     <div class='col-sm-10' style='text-align:center;'><h1><?PHP echo $dX['text_title'];?></h1><h2 style="margin:25px; padding25px; background-color:lightyellow;"><?PHP echo $dX['text_block'];?></h2></div>
   </div>
    
-   
+   <div class='row'>
+     <div class='col-sm-10' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block"><img class='click_me' src="files/click_here.gif">Next</button></div>
+  </div>
   <div class='row'>
     <div class='col-sm-3' style='text-align:right;'><h2>First Name</h2></div>
     <div class='col-sm-7' style='text-align:left;'><input class="form-control input-lg" name='web_first_name' required></div>
@@ -124,7 +124,9 @@ slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
       <div class='col-sm-3' style='text-align:right; background-color:lightyellow;'><h3>ZIP Code Format</h3></div>
      <div class='col-sm-7' style='text-align:left; background-color:lightyellow;'><h3>55555</h3></div>
   </div> 
-   
+   <div class='row'>
+     <div class='col-sm-10' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block"><img class='click_me' src="files/click_here.gif">Next</button></div>
+  </div>
 
    <div class='row'>
     <div class='col-sm-10' style='text-align:center;'><button type="reset" class="btn btn-warning btn-lg btn-block not_me">Clear</button></div>
