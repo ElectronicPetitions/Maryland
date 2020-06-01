@@ -51,11 +51,11 @@ while($d = mysqli_fetch_array($r)){
 	echo "$d[petition_id] <div id=\"chartContainer$d[petition_id]\" style=\"height: 200px; width: 100%; margin: 0px auto;\"></div>";
 	$chart='';
 	$chart2='';
-	$q = "SELECT just_date FROM signatures where petition_id = '$pID' and just_date <> '0000-00-00' group by just_date";
-	$r = $core->query($q);
+	$q3 = "SELECT just_date FROM signatures where petition_id = '$pID' and just_date <> '0000-00-00' group by just_date";
+	$r3 = $core->query($q3);
 	$total=0;
-	while ($d = mysqli_fetch_array($r)){
-	  $q2 = "SELECT * FROM signatures where petition_id = '$pID' and just_date = '$d[just_date]' ";
+	while ($d3 = mysqli_fetch_array($r3)){
+	  $q2 = "SELECT * FROM signatures where petition_id = '$pID' and just_date = '$d3[just_date]' ";
 	  $r2 = $core->query($q2);
 	  $count  = mysqli_num_rows($r2);
 	  $chart .=  '{ label: "'.$d['just_date'].'", y: '.intval($count).' }, ';
