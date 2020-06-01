@@ -21,7 +21,7 @@ setcookie("invite_used", $_COOKIE['invite']);
 setcookie("invite", ""); // clear invite
 //header('Location: eligible.php');
 include_once('header.php'); 
-slack_general('Petition Signed ('.$_COOKIE['invite'].')','md-petition');
+slack_general('Petition Signed - Review Signatures at https://www.md-petition.com/admin/abuse.php','md-petition-signed');
 $qX = "select * from website_text where id = '9'";
 $rX = $petition->query($qX);
 $dX = mysqli_fetch_array($rX);
