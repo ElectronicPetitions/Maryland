@@ -49,6 +49,7 @@ if($_COOKIE['level'] == 'admin'){
 echo "<li>$q</li>";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
+	$pID = $d['petition_id'];
 	echo "$d[petition_id] <div id=\"chartContainer$d[petition_id]\" style=\"height: 200px; width: 100%; margin: 0px auto;\"></div>";
 	$chart='';
 	$chart2='';
