@@ -72,14 +72,14 @@ slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
   <div class='row'>
     <div class='col-sm-3' style='text-align:right;'><h2>First Name</h2></div>
     <div class='col-sm-6' style='text-align:left;'><input class="form-control input-lg" name='web_first_name' required></div>
-    <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↲</button></div>
+    <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
 
   </div>  
    
   <div class='row'>
      <div class='col-sm-3' style='text-align:right;'><h2>Last Name</h2></div>
      <div class='col-sm-6' style='text-align:left;'><input class="form-control input-lg" name='web_last_name' required></div>
-     <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↲</button></div>
+     <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
   </div> 
    
   <div class='row'>
@@ -96,37 +96,37 @@ slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
                });
          </script>
        </div>
-     <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↲</button></div>
+     <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
   </div> 
   <div class='row'>
       <div class='col-sm-3' style='text-align:right;'><h2>Phone Number</h2></div>
       <div class='col-sm-6' style='text-align:left;'><input class="form-control input-lg" id="contact_phone" name="contact_phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required></div>
-      <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block"><img class='click_me' src="files/click_here.gif">Next</button></div>
+      <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</div>
   </div>
   <div class='row'>
      <div class='col-sm-3' style='text-align:right; background-color:lightyellow;'><h3>Phone Format</h3></div>
      <div class='col-sm-6' style='text-align:left; background-color:lightyellow;'><h3>443-123-4567</h3></div>
-     <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↲</button></div>
+     <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
   </div>
   <div class='row'>
     <div class='col-sm-3' style='text-align:right;'><h2>House Number</h2></div>
     <div class='col-sm-6' style='text-align:left;'><input class="form-control input-lg" name='web_house_number' type='number' required> </div>
-    <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↲</button></div>
+    <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
   </div>  
   <div class='row'>
      <div class='col-sm-3' style='text-align:right; background-color:lightyellow;'><h3>House Format</h3></div>
      <div class='col-sm-6' style='text-align:left; background-color:lightyellow;'><h3>321</h3></div>
-     <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↲</button></div>
+     <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
   </div>     
   <div class='row'>
      <div class='col-sm-3' style='text-align:right;'><h2>ZIP Code</h2></div>
      <div class='col-sm-6' style='text-align:left;'><input class="form-control input-lg" name='web_zip_code' type='number' required> </div>
-     <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↲</button></div>
+     <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
   </div>
   <div class='row'>
      <div class='col-sm-3' style='text-align:right; background-color:lightyellow;'><h3>ZIP Code Format</h3></div>
      <div class='col-sm-6' style='text-align:left; background-color:lightyellow;'><h3>55555</h3></div>
-     <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↲</button></div>
+     <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
   </div> 
   <div class='row'>
      <div class='col-sm-10' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block"><img class='click_me' src="files/click_here.gif">Next</button></div>
