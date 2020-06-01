@@ -17,10 +17,10 @@ function slack_general($msg,$room){
 	$thisroom = $room;
 	$add = "[".$ip."][".$_SERVER['HTTP_USER_AGENT']."][".$_SERVER['PHP_SELF']."] ";
 	$msg = $add.$msg;
-	$msg = str_replace('http://','_______',$msg);
-	$msg = str_replace('https://','________',$msg);
-	$msg = str_replace('.net','____',$msg);
-	$msg = str_replace('.com','____',$msg);
+	//$msg = str_replace('http://','_______',$msg);
+	//$msg = str_replace('https://','________',$msg);
+	//$msg = str_replace('.net','____',$msg);
+	//$msg = str_replace('.com','____',$msg);
 	$msg = urlencode($msg);
 	$token = $slack_api;
 	if (isset($_COOKIE['name'])){
