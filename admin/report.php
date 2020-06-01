@@ -71,7 +71,7 @@ while($d = mysqli_fetch_array($r)){
   echo '</table></fieldset>';
 $chart='';
 $chart2='';
-$q = "SELECT just_date FROM signatures where group_id = '$group_id' and just_date <> '0000-00-00' group by just_date";
+$q = "SELECT just_date FROM signatures where petition_id = '$pID' and just_date <> '0000-00-00' group by just_date";
 $r = $core->query($q);
 $total=0;
 while ($d = mysqli_fetch_array($r)){
