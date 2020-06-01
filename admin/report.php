@@ -39,6 +39,7 @@ $group_id = $_COOKIE['group_id'];
   legend{ border: solid 1px blue; background-color:white; margin:10px; padding:10px; }
   td{ white-space: pre; }
 </style>
+<div id="chartContainer" style="height: 370px; width: 100%; margin: 0px auto;"></div>
 <form id='form3' name='form3' method='POST' action='printer.php'>
 <?PHP
   if($_COOKIE['level'] == 'admin'){
@@ -185,7 +186,6 @@ function toggleDataSeries(e) {
 
 
 
-<div id="chartContainer" style="height: 370px; width: 100%; margin: 0px auto;"></div>
 <script src="../canvasjs.min.js"></script>
 <?PHP
 include_once('footer.php');
