@@ -6,15 +6,15 @@ if (isset($_POST['petition'])){
   $q = "select * from petitions where petition_id = '$id'";
   $r = $petition->query($q);
   $d = mysqli_fetch_array($r);
-  slack_general('OK POST: petition.php ('.$_COOKIE['invite'].')','md-petition');
+  //slack_general('OK POST (invite:'.$_COOKIE['invite'].')','md-petition');
 }elseif($_COOKIE['pID'] != ''){
   $id = $_COOKIE['pID'];
   $q = "select * from petitions where petition_id = '$id'";
   $r = $petition->query($q);
   $d = mysqli_fetch_array($r);
-  slack_general('OK COOKIE: petition.php ('.$_COOKIE['invite'].')','md-petition');
+  //slack_general('OK COOKIE (invite:'.$_COOKIE['invite'].')','md-petition');
 }else{
-  slack_general('MAJOR ERROR: petition.php ('.$_COOKIE['invite'].')','md-petition');
+  slack_general('MAJOR ERROR (invite:'.$_COOKIE['invite'].')','md-petition');
   header('Location: reset.php');
   die('Error #15'); 
 }
@@ -160,8 +160,8 @@ if (isset($_POST['signed_name_as'])){
 <?PHP } ?>
 <?PHP 
 if(isset($_POST['signed_name_as'])){
- slack_general('petition.php ('.$d['petition_name'].') ('.$_POST['signed_name_as'].') ('.$_COOKIE['invite'].')','md-petition');
+ slack_general('*Step 2* ('.$d['petition_name'].') ('.$_POST['signed_name_as'].') ('.$_COOKIE['invite'].')','md-petition');
 }else{
- slack_general('petition.php ('.$d['petition_name'].') ('.$_COOKIE['invite'].')','md-petition'); 
+ slack_general('*Step 1* ('.$d['petition_name'].') ('.$_COOKIE['invite'].')','md-petition'); 
 }
 include_once('footer.php');
