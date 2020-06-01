@@ -63,9 +63,9 @@ while($d = mysqli_fetch_array($r)){
 	  //echo "<li>$q2</li>";
 	  $r2 = $petition->query($q2);
 	  $count  = mysqli_num_rows($r2);
-	  $chart .=  '{ label: "'.$d['just_date'].'", y: '.intval($count).' }, ';
+	  $chart .=  '{ label: "'.$just_date.'", y: '.intval($count).' }, ';
 	  $total = $total + intval($count);
-	  $chart2 .=  '{ label: "'.$d['just_date'].'", y: '.intval($total).' }, ';
+	  $chart2 .=  '{ label: "'.$just_date.'", y: '.intval($total).' }, ';
 	}
 	$chart = rtrim(trim($chart), ",");
 	$chart2 = rtrim(trim($chart2), ",");
