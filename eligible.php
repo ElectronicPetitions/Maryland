@@ -66,7 +66,7 @@ $my_test = $d[$field];
      $checked = '';
    }
   $available .= "<div class='row'>
-  <div class='col-sm-3' style='background-color:$d2[web_color];'>&#8594;<input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked >&#8592;</div>
+  <div class='col-sm-3' style='background-color:$d2[web_color];'>&#8594;<input onclick='document.getElementById(\"form\").submit();' type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked >&#8592;</div>
   <div class='col-sm-6' style='background-color:$d2[web_color];'><h2>$d2[petition_name] <br> $field == $pass</h2></div>
   <div class='col-sm-1' style='background-color:$d2[web_color];'><h2>$d2[eligibleVoterListEnforce]</h2></div>
     </div>";
@@ -83,7 +83,7 @@ $my_test = $d[$field];
      $checked = '';
    }
   $available .= "<div class='row'>
-  <div class='col-sm-3' style='background-color:$d2[web_color];'>"; if ($d2['eligibleVoterListEnforce'] == 'NO'){ $available .="&#8594;<input type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked >&#8592;"; }else{ $available .= "<h2>Constituents Only</h2>"; } $available .= "</div>
+  <div class='col-sm-3' style='background-color:$d2[web_color];'>"; if ($d2['eligibleVoterListEnforce'] == 'NO'){ $available .="&#8594;<input onclick='document.getElementById(\"form\").submit();' type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked >&#8592;"; }else{ $available .= "<h2>Constituents Only</h2>"; } $available .= "</div>
   <div class='col-sm-6' style='background-color:$d2[web_color];'><h2>$d2[petition_name] <br> $field != $pass ($my_test)</h2></div>
   <div class='col-sm-1' style='background-color:$d2[web_color];'><h2>$d2[eligibleVoterListEnforce]</h2></div>
     </div>"; 
