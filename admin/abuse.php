@@ -63,13 +63,13 @@ if (isset($_GET['ip_address'])){
 }elseif (isset($_GET['VTRID'])){ 
   $VTRID = $_GET['VTRID'];
   echo "<h1>Review $VTRID</h1><table width='100%' border='1' cellpadding='5' cellspacing='5'>";   
-  $q = "SELECT * FROM  signatures where VTRID = '$VTRID' and signature_status = 'verified' order by id DESC ";
+  $q = "SELECT * FROM  signatures where VTRID = '$VTRID' and signature_status = 'verified' order by petition_id, id DESC ";
   $r = $petition->query($q);
   while($d = mysqli_fetch_array($r)){
     echo "<tr>
           <td><b>$d[date_time_signed]</b></td>
           <td><a href='?ip_address=$d[ip_address]'>$d[ip_address]</a></td>
-          <td>$d[petition_id]</td>
+          <td>".id2petition($d['petition_id'])."</td>
           <td>$d[signed_name_as]</td>
           <td>$d[signed_name_as_circulator]</td>
           <td>$d[contact_phone]</td>
