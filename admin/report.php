@@ -54,12 +54,12 @@ while($d = mysqli_fetch_array($r)){
 	$chart='';
 	$chart2='';
 	$q3 = "SELECT just_date FROM signatures where petition_id = '$pID' and just_date <> '0000-00-00' group by just_date";
-	echo "<li>$q3</li>";
+	//echo "<li>$q3</li>";
 	$r3 = $petition->query($q3);
 	$total=0;
 	while ($d3 = mysqli_fetch_array($r3)){
 	  $q2 = "SELECT * FROM signatures where petition_id = '$pID' and just_date = '$d3[just_date]' and signature_status = 'verified'  ";
-	  echo "<li>$q2</li>";
+	  //echo "<li>$q2</li>";
 	  $r2 = $petition->query($q2);
 	  $count  = mysqli_num_rows($r2);
 	  $chart .=  '{ label: "'.$d['just_date'].'", y: '.intval($count).' }, ';
@@ -68,11 +68,6 @@ while($d = mysqli_fetch_array($r)){
 	}
 	$chart = rtrim(trim($chart), ",");
 	$chart2 = rtrim(trim($chart2), ",");
-	
-	
-	
-	
-	
 	ob_start(); ?>
 	var chart<?PHP echo $d['petition_id'];?> = new CanvasJS.Chart("chartContainer<?PHP echo $d['petition_id'];?>", {
 		theme:"light2",
