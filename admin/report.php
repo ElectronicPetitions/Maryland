@@ -55,12 +55,12 @@ while($d = mysqli_fetch_array($r)){
 	$chart2='';
 	$q3 = "SELECT just_date FROM signatures where petition_id = '$pID' and just_date <> '0000-00-00' group by just_date";
 	echo "<li>$q3</li>";
-	$r3 = $core->query($q3) or die(mysqli_error($core));
+	$r3 = $petition->query($q3);
 	$total=0;
 	while ($d3 = mysqli_fetch_array($r3)){
 	  $q2 = "SELECT * FROM signatures where petition_id = '$pID' and just_date = '$d3[just_date]' and signature_status = 'verified'  ";
 	  echo "<li>$q2</li>";
-	  $r2 = $core->query($q2);
+	  $r2 = $petition->query($q2);
 	  $count  = mysqli_num_rows($r2);
 	  $chart .=  '{ label: "'.$d['just_date'].'", y: '.intval($count).' }, ';
 	  $total = $total + intval($count);
