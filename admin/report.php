@@ -102,6 +102,91 @@ while($d = mysqli_fetch_array($r)){
 ?>
 </form>
 
+
+<?PHP
+$q = "SELECT just_date FROM signatures where just_date <> '0000-00-00' group by just_date";
+$r = $core->query($q);
+$total=0;
+while ($d = mysqli_fetch_array($r)){
+  $q2 = "SELECT * FROM signatures where just_date = '$d[just_date]' ";
+  $r2 = $core->query($q2);
+  $count  = mysqli_num_rows($r2);
+  $chart .=  '{ label: "'.$d['just_date'].'", y: '.intval($count).' }, ';
+  $total = $total + intval($count);
+  $chart2 .=  '{ label: "'.$d['just_date'].'", y: '.intval($total).' }, ';
+}
+$chart = rtrim(trim($chart), ",");
+$chart2 = rtrim(trim($chart2), ",");
+
+?>
+
+
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	theme:"light2",
+	animationEnabled: true,
+	exportEnabled: true,
+	title:{
+		text: "MD-Petition.com Signature Tracker"
+	},
+	axisY :{
+		includeZero: false,
+		title: "Number of Signatures",
+		suffix: "",
+    scaleBreaks: {
+				autoCalculate: true
+			}
+	},
+	toolTip: {
+		shared: "true"
+	},
+	legend:{
+		cursor:"pointer",
+		itemclick : toggleDataSeries
+	},
+	data: [{
+		type: "spline",
+		visible: true,
+		showInLegend: true,
+		yValueFormatString: "#####",
+		name: "Total Signatures",
+		dataPoints: [
+			<?PHP echo $chart2; ?>
+		]
+	},{
+		type: "bar",
+		visible: true,
+		showInLegend: true,
+		yValueFormatString: "#####",
+		name: "New Signatures",
+		dataPoints: [
+			<?PHP echo $chart; ?>
+		]
+	}]
+}
+			      
+			      
+			      );
+chart.render();
+
+function toggleDataSeries(e) {
+	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible ){
+		e.dataSeries.visible = false;
+	} else {
+		e.dataSeries.visible = true;
+	}
+	chart.render();
+}
+
+}
+</script>
+
+
+
+<div id="chartContainer" style="height: 370px; width: 100%; margin: 0px auto;"></div>
+<script src="../canvasjs.min.js"></script>
 <?PHP
 include_once('footer.php');
 ?>
