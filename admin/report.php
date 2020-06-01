@@ -75,7 +75,7 @@ $q = "SELECT just_date FROM signatures where petition_id = '$pID' and just_date 
 $r = $core->query($q);
 $total=0;
 while ($d = mysqli_fetch_array($r)){
-  $q2 = "SELECT * FROM signatures where just_date = '$d[just_date]' ";
+  $q2 = "SELECT * FROM signatures where petition_id = '$pID' and just_date = '$d[just_date]' ";
   $r2 = $core->query($q2);
   $count  = mysqli_num_rows($r2);
   $chart .=  '{ label: "'.$d['just_date'].'", y: '.intval($count).' }, ';
