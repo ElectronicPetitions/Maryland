@@ -2,6 +2,7 @@
 include_once('../slack.php');
 include_once('security.php');
 include_once('/var/www/secure.php'); //outside webserver
+include_once('functions.php');
 if ($_COOKIE['level'] == 'user'){
   slack_general('ADMIN: Redirect User Home ('.$_COOKIE['name'].') ('.$_COOKIE['level'].')','md-petition');
   header('Location: user_home.php');
@@ -45,7 +46,7 @@ if (isset($_GET['ip_address'])){
     echo "<tr>
       <td><b>$d[date_time_signed]</b></td>
       <td><a href='?VTRID=$d[VTRID]'>$d[VTRID]</a></td>
-      <td>$d[petition_id]</td>
+      <td>".id2petition($d['petition_id'])."</td>
       <td>$d[signed_name_as]</td>
       <td>$d[signed_name_as_circulator]</td>
       <td>$d[contact_phone]</td>
@@ -62,7 +63,7 @@ if (isset($_GET['ip_address'])){
 }elseif (isset($_GET['VTRID'])){ 
   $VTRID = $_GET['VTRID'];
   echo "<h1>Review $VTRID</h1><table width='100%' border='1' cellpadding='5' cellspacing='5'>";   
-  $q = "SELECT * FROM  signatures where VTRID = '$VTRID' order by signature_status ";
+  $q = "SELECT * FROM  signatures where VTRID = '$VTRID' where signature_status = 'verified' order by signature_status ";
   $r = $petition->query($q);
   while($d = mysqli_fetch_array($r)){
     echo "<tr>
