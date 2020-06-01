@@ -46,15 +46,15 @@ if($_COOKIE['level'] == 'admin'){
 }else{
     $q="SELECT * FROM petitions where group_id = '$group_id' and admin_status = 'approved'";
 }
-echo "<li>$q</li>";
+//echo "<li>$q</li>";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
 	$pID = $d['petition_id'];
-	echo "$d[petition_id] <div id=\"chartContainer$d[petition_id]\" style=\"height: 200px; width: 100%; margin: 0px auto;\"></div>";
+	echo "<div id=\"chartContainer$d[petition_id]\" style=\"height: 200px; width: 100%; margin: 0px auto;\"></div>";
 	$chart='';
 	$chart2='';
 	$q3 = "SELECT just_date FROM signatures where petition_id = '$pID' and just_date <> '0000-00-00' group by just_date";
-	echo "<li>$q3</li>";
+	//echo "<li>$q3</li>";
 	$r3 = $core->query($q3);
 	$total=0;
 	while ($d3 = mysqli_fetch_array($r3)){
