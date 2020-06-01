@@ -98,7 +98,7 @@ while($d = mysqli_fetch_array($r)){
 				<?PHP echo $chart2; ?>
 			]
 		},{
-			type: "bar",
+			type: "column",
 			visible: true,
 			showInLegend: true,
 			yValueFormatString: "#####",
