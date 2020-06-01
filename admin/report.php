@@ -50,7 +50,7 @@ if($_COOKIE['level'] == 'admin'){
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
 	$pID = $d['petition_id'];
-	echo "<div id=\"chartContainer$d[petition_id]\" style=\"height: 200px; width: 100%; margin: 0px auto;\"></div>";
+	echo "<div id=\"chartContainer$pID\" style=\"height: 200px; width: 100%; margin: 0px auto;\"></div>";
 	$chart='';
 	$chart2='';
 	$q3 = "SELECT just_date FROM signatures where petition_id = '$pID' and just_date <> '0000-00-00' group by just_date";
@@ -58,7 +58,8 @@ while($d = mysqli_fetch_array($r)){
 	$r3 = $petition->query($q3);
 	$total=0;
 	while ($d3 = mysqli_fetch_array($r3)){
-	  $q2 = "SELECT * FROM signatures where petition_id = '$pID' and just_date = '$d3[just_date]' and signature_status = 'verified'  ";
+	  $just_date = $d3['just_date'];
+	  $q2 = "SELECT * FROM signatures where petition_id = '$pID' and just_date = '$just_date' and signature_status = 'verified'  ";
 	  //echo "<li>$q2</li>";
 	  $r2 = $petition->query($q2);
 	  $count  = mysqli_num_rows($r2);
@@ -68,8 +69,11 @@ while($d = mysqli_fetch_array($r)){
 	}
 	$chart = rtrim(trim($chart), ",");
 	$chart2 = rtrim(trim($chart2), ",");
+	
+	
 	ob_start(); ?>
-	var chart<?PHP echo $d['petition_id'];?> = new CanvasJS.Chart("chartContainer<?PHP echo $d['petition_id'];?>", {
+
+	var chart<?PHP echo $pID;?> = new CanvasJS.Chart("chartContainer<?PHP echo $pID;?>", {
 		theme:"light2",
 		animationEnabled: true,
 		exportEnabled: true,
@@ -114,7 +118,7 @@ while($d = mysqli_fetch_array($r)){
 
 
 				      );
-	chart<?PHP echo $d['petition_id'];?>.render();
+	chart<?PHP echo $pID;?>.render();
 
 	<?PHP $javascript .= ob_get_clean();
 }
