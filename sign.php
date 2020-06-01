@@ -15,7 +15,7 @@ $signed_name_as_circulator  = $petition->real_escape_string($_POST['signed_name_
 $contact_phone              = $petition->real_escape_string($_COOKIE['pPHONE']);
 $signature_status           = $petition->real_escape_string($_COOKIE['signature_status']);
 
-$petition->query("insert into signatures (VTRID,ip_address,date_of_birth,date_time_signed,petition_id,signed_name_as,signed_name_as_circulator,contact_phone,signature_status) values ('$VTRID','$ip','$date_of_birth',NOW(),'$petition_id','$signed_name_as','$signed_name_as_circulator','$contact_phone','$signature_status')") or die(mysqli_error($petition));
+$petition->query("insert into signatures (VTRID,ip_address,date_of_birth,date_time_signed,just_date,petition_id,signed_name_as,signed_name_as_circulator,contact_phone,signature_status) values ('$VTRID','$ip','$date_of_birth',NOW(),NOW(),'$petition_id','$signed_name_as','$signed_name_as_circulator','$contact_phone','$signature_status')") or die(mysqli_error($petition));
 $last = $petition->insert_id;
 setcookie("invite_used", $_COOKIE['invite']);
 setcookie("invite", ""); // clear invite
