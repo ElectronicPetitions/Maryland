@@ -11,10 +11,24 @@ if ($_COOKIE['invite'] != ''){
 <?PHP } ?>
 
 <div class='row'>
+ <div class='col-sm-4' style='text-align:center;'>
+  
+ </div>
+ <div class='col-sm-2' style='text-align:center;'>
+  <a target='_Blank' href='https://www.youtube.com/watch?v=PFVN97kfUD8'><img class='img-responsive' src='files/img-help_button.png'></a>
+ </div>
+ <div class='col-sm-4' style='text-align:center;'>
+  
+ </div>
+</div>
+
+<div class='row'>
  <div class='col-sm-10' style='text-align:center;'>
   <?PHP echo $copy;?>
  </div>
 </div>
+
+
 
 <div class='row'>
  <div class='col-sm-10' style='text-align:center;'>
