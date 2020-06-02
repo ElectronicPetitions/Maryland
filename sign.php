@@ -26,7 +26,10 @@ $qX = "select * from website_text where id = '9'";
 $rX = $petition->query($qX);
 $dX = mysqli_fetch_array($rX);
 ?>
-<script>document.title = "MEPS - Petition Signed";</script>
+<script>
+    document.title = "MEPS - Petition Signed";
+    alert("Petition Signed")";
+</script>
 <div class='row'>
  <div class='col-sm-10' style='text-align:center;'><h1><?PHP echo $dX['text_title'];?></h1></div>
 </div>
