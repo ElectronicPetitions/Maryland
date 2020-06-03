@@ -18,7 +18,7 @@ slack_general('Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
   <div class='col-sm-10' style='text-align:center;'><h1><?PHP echo $d['text_title'];?></h1><h2><?PHP echo $d['text_block'];?></h2></div>
  </div> 
 <div class='row'>
-  <div class='col-sm-5' style='text-align:center;'><button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='enter_information.php'"><img class='click_me' src="files/click_here.gif">YES</button></div>
+  <div class='col-sm-5' style='text-align:center;'><button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='enter_information.php'"><img class='click_me' src="files/click_here.gif">YES - CLICK HERE TO BEGIN</button></div>
   <div class='col-sm-5' style='text-align:center;'><button type="button" class="btn btn-danger btn-lg btn-block not_me" onclick="window.location.href='not_a_registered_voter.php'">NO</button></div>
  </div> 
 
