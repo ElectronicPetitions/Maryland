@@ -28,6 +28,8 @@ if(isset($_POST['petition_id']) && isset($_POST['petition_name']) ){ // edit
   $eligibleVoterListField       = strtoupper($petition->real_escape_string($_POST['eligibleVoterListField']));
   $eligibleVoterListEquals      = $petition->real_escape_string($_POST['eligibleVoterListEquals']);
   $eligibleVoterSigMatch        = $petition->real_escape_string($_POST['eligibleVoterSigMatch']);
+  $signature_goal               = $petition->real_escape_string($_POST['signature_goal']);
+  
   // custom landing page - paid feature one day?
   $tab_name         = $petition->real_escape_string($_POST['tab_name']);
   $text_title       = $petition->real_escape_string($_POST['text_title']);
@@ -93,7 +95,7 @@ $d = mysqli_fetch_array($r);
 <h1>New Petition</h1>
 <form method='post'>
   web_short_name <input name='web_short_name' required>
-  web_color <input name='web_color' required>
+  web_color <input type="color" name='web_color' required>
   petition_name <input name='petition_name' required>
   <input type='submit'>
 </form>
