@@ -53,6 +53,7 @@ while($d = mysqli_fetch_array($r)){
 	echo "<div id=\"chartContainer$pID\" style=\"height: 200px; width: 100%; margin: 0px auto;\"></div>";
 	$chart='';
 	$chart2='';
+	$chart3='';
 	$q3 = "SELECT just_date FROM signatures where petition_id = '$pID' and just_date <> '0000-00-00' group by just_date";
 	//echo "<li>$q3</li>";
 	$r3 = $petition->query($q3);
