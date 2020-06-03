@@ -1,6 +1,6 @@
 <?PHP
 include_once('/var/www/secure.php');
-slack_general_admin
+
 
 function slack_general_admin($msg,$room){
 	if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
