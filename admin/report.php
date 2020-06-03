@@ -42,7 +42,7 @@ $javascript='';
 </style>
 <?PHP
 if($_COOKIE['level'] == 'admin'){
-    $q="SELECT * FROM petitions where admin_status = 'approved' ";
+    $q="SELECT * FROM petitions where admin_status = 'approved' order by admin_sort DESC ";
 }else{
     $q="SELECT * FROM petitions where group_id = '$group_id' and admin_status = 'approved'";
 }
