@@ -23,7 +23,14 @@ if ($d['VTRID'] != ''){
    $VTRID      = $d['VTRID'];
    $FIRSTNAME  = $d['FIRSTNAME'];
    $MIDDLENAME = $d['MIDDLENAME'];
+  if ($MIDDLENAME == ''){
+    slack_general_admin("WARN: Blank Middle Name Detected",'md-petition-signed');
+  }
    $LASTNAME   = $d['LASTNAME'];
+    $pos = strpos($LASTNAME, '-');
+    if ($pos !== false) {
+         slack_general_admin("WARN: Hyphen in Last Name Detected",'md-petition-signed');
+    } 
    $ADDRESS    = $d['ADDRESS'];
    $RESIDENTIALCITY   = $d['RESIDENTIALCITY'];
    $COUNTY            = $d['COUNTY'];
