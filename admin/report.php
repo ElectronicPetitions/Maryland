@@ -57,6 +57,10 @@ while($d = mysqli_fetch_array($r)){
 	//echo "<li>$q3</li>";
 	$r3 = $petition->query($q3);
 	$total=0;
+	$goal = $d['signature_goal'];
+	if ($goal == 0){
+		$goal = 10000;
+	}
 	while ($d3 = mysqli_fetch_array($r3)){
 	  $just_date = $d3['just_date'];
 	  $q2 = "SELECT * FROM signatures where petition_id = '$pID' and just_date = '$just_date' and signature_status = 'verified'  ";
@@ -66,10 +70,12 @@ while($d = mysqli_fetch_array($r)){
 	  $chart .=  '{ label: "'.$just_date.'", y: '.intval($count).' }, ';
 	  $total = $total + intval($count);
 	  $chart2 .=  '{ label: "'.$just_date.'", y: '.intval($total).' }, ';
+	  $goal = $goal - intval($count);
+	  $chart3 .=  '{ label: "'.$just_date.'", y: '.intval($goal).' }, ';
 	}
 	$chart = rtrim(trim($chart), ",");
 	$chart2 = rtrim(trim($chart2), ",");
-	
+	$chart3 = rtrim(trim($chart3), ",");
 	
 	ob_start(); ?>
 
@@ -100,16 +106,25 @@ while($d = mysqli_fetch_array($r)){
 			visible: true,
 			showInLegend: true,
 			yValueFormatString: "#####",
-			name: "Total Signatures",
+			name: "Total Signatures Count",
 			dataPoints: [
 				<?PHP echo $chart2; ?>
+			]
+		},{
+			type: "spline",
+			visible: true,
+			showInLegend: true,
+			yValueFormatString: "#####",
+			name: "Signatures Remaining to Goal",
+			dataPoints: [
+				<?PHP echo $chart3; ?>
 			]
 		},{
 			type: "column",
 			visible: true,
 			showInLegend: true,
 			yValueFormatString: "#####",
-			name: "New Signatures",
+			name: "New Daily Signatures",
 			dataPoints: [
 				<?PHP echo $chart; ?>
 			]
