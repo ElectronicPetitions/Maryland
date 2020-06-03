@@ -68,7 +68,7 @@ $font_path = 'files/coolvetica rg.ttf';
 $font_path_sig = 'files/Claston Script.ttf';
 
 if ($hide_county == 'NO'){
- if ( $_COOKIE['pCOUNTY'] == 'Baltimore City' || $full_name == 'PATRICK MICHAEL MCGUIRE'){
+ if ( $_COOKIE['pCOUNTY'] == 'Baltimore City'){
    // City Checkbox
    $cord = $dX['text_cord_cityX'];
    $array = explode(",",$cord);
