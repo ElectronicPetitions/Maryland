@@ -102,7 +102,7 @@ while($d = mysqli_fetch_array($r)){
 			itemclick : toggleDataSeries
 		},
 		data: [{
-			type: "spline",
+			type: "line",
 			visible: true,
 			showInLegend: true,
 			yValueFormatString: "#####",
@@ -111,7 +111,7 @@ while($d = mysqli_fetch_array($r)){
 				<?PHP echo $chart2; ?>
 			]
 		},{
-			type: "spline",
+			type: "line",
 			visible: true,
 			showInLegend: true,
 			yValueFormatString: "#####",
