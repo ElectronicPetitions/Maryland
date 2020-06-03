@@ -46,8 +46,8 @@ slack_general($d['tab_name'].' Home Page Loaded ('.$_COOKIE['invite'].')','md-pe
       <div class='col-sm-4'><img class="img-responsive" src='../<?PHP echo $d['petition_jpg_page2'];?>'></div>
     </div>
   <?PHP }else{ ?>
-      <div class='col-sm-12'><center><img class="img-responsive" alt="<?PHP echo $d['text_title'];?>" src="<?PHP echo $d['logo_url'];?>"><h2><?PHP echo $d['text_block'];?></h2></center></div>
- 
+      <div class='col-sm-3'><center><img class="img-responsive" alt="<?PHP echo $d['text_title'];?>" src="<?PHP echo $d['logo_url'];?>"></center></div>
+      <div class='col-sm-8'><?PHP echo $d['text_block'];?></div>
    <?PHP } ?>
   </div>
   
@@ -56,15 +56,18 @@ slack_general($d['tab_name'].' Home Page Loaded ('.$_COOKIE['invite'].')','md-pe
  </div> 
   
   
-  
+ <?PHP if ($d['social_phone'] != ''){ ?> 
  <div class='row'>
   <div class='col-sm-6' style='text-align:right;'>Phone</div>
   <div class='col-sm-6' style='text-align:left;'><?PHP echo $d['social_phone'];?></div>
  </div>
+ <?PHP } ?>
+  <?PHP if ($d['social_email'] != ''){ ?> 
  <div class='row'>
   <div class='col-sm-6' style='text-align:right;'>E-Mail</div>
   <div class='col-sm-6' style='text-align:left;'><?PHP echo $d['social_email'];?></div>
  </div>
+  <?PHP } ?>
  <div class='row'>
   <div class='col-sm-6' style='text-align:right;'>Website</div>
   <div class='col-sm-6' style='text-align:left;'><?PHP echo $d['social_website'];?></div>
