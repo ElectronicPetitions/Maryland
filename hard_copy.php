@@ -33,7 +33,7 @@ $DOB = $_COOKIE['pDOB'];
 $SIGNED = date('Y-m-d');
 
 if ($hide_county == 'NO'){
-  if ( $_COOKIE['pCOUNTY'] == 'Baltimore City'){
+  if ( $_COOKIE['pCOUNTY'] == 'Baltimore City' || $_COOKIE['debug'] == 'on'){
     // City Checkbox
     $cord = $d['text_cord_cityX'];
     $array = explode(",",$cord);
