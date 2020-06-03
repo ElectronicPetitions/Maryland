@@ -117,9 +117,23 @@ while($d = mysqli_fetch_array($r)){
 $q="SELECT * FROM signatures where VTRID = '0'";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
-    echo "<li><a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id] <b>$d[count]</b></li>"; 
+    echo "<li><a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id]</li>"; 
 }
 ?>
+
+<h2>petition_id</h2>
+<div>Watch for 0</div>
+<?PHP
+$q="SELECT * FROM signatures where petition_id = '0' or petition_id = '' ";
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){ 
+    echo "<li><a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id]</li>"; 
+}
+?>
+
+
+
+
 
 <?PHP
 include_once('footer.php');
