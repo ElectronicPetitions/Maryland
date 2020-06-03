@@ -23,7 +23,7 @@ setcookie("invite", ""); // clear invite
 include_once('header.php'); 
 
 
-slack_general_admin("$signed_name_as Petition $petition_id Review at https://www.md-petition.com/admin/abuse.php",'md-petition-signed');
+slack_general_admin("$signed_name_as Petition $petition_id",'md-petition-signed');
 
 $q="SELECT ip_address, petition_id,VTRID, COUNT(*) as count FROM signatures where signature_status = 'verified' group by ip_address, petition_id, VTRID";
 $r = $petition->query($q);
