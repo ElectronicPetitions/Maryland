@@ -15,7 +15,7 @@ setcookie("invite", "Ivey", time()+3600, "/"); // we use this later
   </script>
   <?PHP 
   include_once('/var/www/secure.php'); //outside webserver
-  $q = "select * from petitions where petition_id = '3'";
+  $q = "select * from petitions where petition_id = '8'";
   $r = $petition->query($q);
   $d = mysqli_fetch_array($r);
   include_once('../slack.php');
