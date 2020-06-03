@@ -10,10 +10,10 @@ function slack_general_admin($msg,$room){
 	} else {
 	    	$ip = $_SERVER['REMOTE_ADDR'];
 	}
-	if ($ip == '69.250.28.138'){
-		return 'developer';
-		die();
-	}
+	//if ($ip == '69.250.28.138'){
+	//	return 'developer';
+	//	die();
+	//}
     	global $slack_api;
 	$room = str_replace("'",'-',strtolower(str_replace(' ','-',$room)));
 	$thisroom = $room;
@@ -51,9 +51,9 @@ function slack_general_admin($msg,$room){
 	$html = curl_exec ($curl);
 	curl_close ($curl);
 	if (empty($html)){
-	    return $url;
+	    //return $url;
 	}
-	return $html;
+	//return $html;
 }
 
 function slack_general($msg,$room){
@@ -105,7 +105,7 @@ function slack_general($msg,$room){
 	$html = curl_exec ($curl);
 	curl_close ($curl);
 	if (empty($html)){
-	    return $url;
+	    //return $url;
 	}
-	return $html;
+	//return $html;
 }
