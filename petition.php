@@ -56,7 +56,9 @@ if (isset($_POST['signed_name_as'])){
   {
       document.getElementById('text2b').innerHTML = document.getElementById('myTextb').value;
       var string = document.getElementById('myTextb').value; 
+      var string = string.replace(/ +(?= )/g,'');
       var res = string.toUpperCase();
+      var res = res.replace(/ +(?= )/g,'');
       var result = res.match(/<?PHP echo $_COOKIE['pNAME'];?>/i); 
       if (result == "<?PHP echo $_COOKIE['pNAME'];?>"){
             document.getElementById("b2").style.display = "block";
@@ -82,7 +84,9 @@ if (isset($_POST['signed_name_as'])){
   {
       document.getElementById('text2').innerHTML = document.getElementById('myText').value;
       var string = document.getElementById('myText').value; 
+      var string = string.replace(/ +(?= )/g,'');
       var res = string.toUpperCase();
+      var res = res.replace(/ +(?= )/g,'');
       var result = res.match(/<?PHP echo $_COOKIE['pNAME'];?>/i);
       if (result == "<?PHP echo $_COOKIE['pNAME'];?>"){
             document.getElementById("b1").style.display = "block";
