@@ -21,7 +21,20 @@ setcookie("invite_used", $_COOKIE['invite']);
 setcookie("invite", ""); // clear invite
 //header('Location: eligible.php');
 include_once('header.php'); 
-slack_general('Petition Signed - Review Signatures at https://www.md-petition.com/admin/abuse.php','md-petition-signed');
+
+
+slack_general_admin("$signed_name_as Petition $petition_id Review at https://www.md-petition.com/admin/abuse.php",'md-petition-signed');
+
+$q="SELECT ip_address, petition_id,VTRID, COUNT(*) as count FROM signatures where signature_status = 'verified' group by ip_address, petition_id, VTRID";
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){
+  if ($d['count'] > 1){
+    $msg = "*ALERT* https://www.md-petition.com/admin/abuse.php?ip_address=$d[ip_address] https://www.md-petition.com/admin/abuse.php?VTRID=$d[VTRID] $d[petition_id] $d[count]"; 
+    slack_general_admin($msg,'md-petition-signed');
+  }
+}
+
+
 $qX = "select * from website_text where id = '9'";
 $rX = $petition->query($qX);
 $dX = mysqli_fetch_array($rX);
@@ -37,13 +50,13 @@ $dX = mysqli_fetch_array($rX);
  <div class='col-sm-10' style='text-align:center;'><h2><?PHP echo $dX['text_block'];?></h2></div>
 </div>
 <div class='row'>
- <div class='col-sm-10' style='text-align:center;'><button type="button" class="btn btn-success btn-lg btn-block" onclick="window.open('printer.php?id=<?PHP echo $last;?>')">View and/or Print</button></div>
+ <div class='col-sm-10' style='text-align:center;'><br><button type="button" class="btn btn-success btn-lg btn-block" onclick="window.open('printer.php?id=<?PHP echo $last;?>')">View and/or Print</button></div>
 </div>
 <div class='row'>
- <div class='col-sm-10' style='text-align:center;'><button type="button" class="btn btn-info btn-lg btn-block" onclick="window.location.href='eligible.php'">More Petitions</button></div>
+ <div class='col-sm-10' style='text-align:center;'><br><button type="button" class="btn btn-info btn-lg btn-block" onclick="window.location.href='eligible.php'">More Petitions</button></div>
 </div>
 <div class='row'>
- <div class='col-sm-10' style='text-align:center;'><button type="button" class="btn btn-danger btn-lg btn-block" onclick="window.location.href='reset.php'">Reset / Restart</button></div>
+ <div class='col-sm-10' style='text-align:center;'><br><button type="button" class="btn btn-danger btn-lg btn-block" onclick="window.location.href='reset.php'">Reset / Restart</button></div>
 </div>
 <?PHP 
 include_once('footer.php');
