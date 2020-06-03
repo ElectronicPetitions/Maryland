@@ -87,7 +87,7 @@ if (isset($_GET['ip_address'])){
 ?>
 
 <h1>Abuses</h1>
-<h2>IP Address List</h2>
+<h2>IP Address</h2>
 <div>Watch for duplicates.</div>
 <?PHP
 $q="SELECT ip_address, petition_id,VTRID, COUNT(*) as count FROM signatures where signature_status = 'verified' group by ip_address, petition_id, VTRID";
@@ -99,7 +99,7 @@ while($d = mysqli_fetch_array($r)){
 }
 ?>
 
-<h2>VTRID List</h2>
+<h2>VTRID</h2>
 <div>Watch for duplicates.</div>
 <?PHP
 $q="SELECT VTRID, petition_id, COUNT(*) as count FROM signatures where signature_status = 'verified' group by VTRID, petition_id";
@@ -111,6 +111,15 @@ while($d = mysqli_fetch_array($r)){
 }
 ?>
 
+<h2>VTRID</h2>
+<div>Watch for 0</div>
+<?PHP
+$q="SELECT * FROM signatures where VTRID = '0'";
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){ 
+    echo "<li><a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id] <b>$d[count]</b></li>"; 
+}
+?>
 
 <?PHP
 include_once('footer.php');
