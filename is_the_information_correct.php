@@ -37,7 +37,11 @@ if ($d['VTRID'] != ''){
    $RESIDENTIALZIP5   = $d['RESIDENTIALZIP5'];
   // set cookies for hard_copy.php
   setcookie("pCOUNTY", $COUNTY);
-  setcookie("pNAME", "$FIRSTNAME $MIDDLENAME $LASTNAME");
+  if ($MIDDLENAME == ''){
+    setcookie("pNAME", "$FIRSTNAME $LASTNAME");
+  }else{
+    setcookie("pNAME", "$FIRSTNAME $MIDDLENAME $LASTNAME");
+  }
   setcookie("pADDRESS", "$ADDRESS $RESIDENTIALCITY $RESIDENTIALZIP5");
   setcookie("pADDRESS1", "$ADDRESS");
   setcookie("pADDRESS2", "$RESIDENTIALCITY MD $RESIDENTIALZIP5");
