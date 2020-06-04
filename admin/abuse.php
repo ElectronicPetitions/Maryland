@@ -87,6 +87,10 @@ if (isset($_GET['ip_address'])){
 ?>
 
 <h1>Abuses</h1>
+
+<table><tr>
+
+  <td valign="top">
 <h2>IP Address</h2>
 <div>Watch for duplicates.</div>
 <?PHP
@@ -98,7 +102,7 @@ while($d = mysqli_fetch_array($r)){
   }
 }
 ?>
-
+  </td><td valign="top">
 <h2>VTRID</h2>
 <div>Watch for duplicates.</div>
 <?PHP
@@ -110,7 +114,7 @@ while($d = mysqli_fetch_array($r)){
   }
 }
 ?>
-
+ </td><td valign="top">
 <h2>VTRID</h2>
 <div>Watch for 0</div>
 <?PHP
@@ -120,7 +124,7 @@ while($d = mysqli_fetch_array($r)){
     echo "<li><a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id]</li>"; 
 }
 ?>
-
+ </td><td valign="top">
 <h2>petition_id</h2>
 <div>Watch for 0</div>
 <?PHP
@@ -130,9 +134,10 @@ while($d = mysqli_fetch_array($r)){
     echo "<li><a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id]</li>"; 
 }
 ?>
+  </td>
 
 
-
+</tr></table>
 
 
 <?PHP
