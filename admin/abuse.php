@@ -117,7 +117,7 @@ while($d = mysqli_fetch_array($r)){
 $q="SELECT * FROM signatures where VTRID = '0'";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
-    echo "<li><a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id]</li>"; 
+    echo "<li><a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id]</li>"; 
 }
 ?>
 
@@ -127,7 +127,7 @@ while($d = mysqli_fetch_array($r)){
 $q="SELECT * FROM signatures where petition_id = '0' or petition_id = '' ";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
-    echo "<li><a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id]</li>"; 
+    echo "<li><a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id]</li>"; 
 }
 ?>
 
