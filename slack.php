@@ -15,10 +15,12 @@ function slack_general_admin($msg,$room){
 	//	die();
 	//}
     	global $slack_api;
+	global $time_on_site;
 	$room = str_replace("'",'-',strtolower(str_replace(' ','-',$room)));
 	$thisroom = $room;
-	$add = "[".$ip."][".$_SERVER['HTTP_USER_AGENT']."][".$_SERVER['PHP_SELF']."] ";
-	//$msg = $add.$msg;
+	$add = "[".$time_on_site." seconds]"; 
+	//$add = "[".$ip."][".$_SERVER['HTTP_USER_AGENT']."][".$_SERVER['PHP_SELF']."] ";
+	$msg = $add.$msg;
 	//$msg = str_replace('http://','_______',$msg);
 	//$msg = str_replace('https://','________',$msg);
 	//$msg = str_replace('.net','____',$msg);
@@ -68,10 +70,11 @@ function slack_general($msg,$room){
 		return 'developer';
 		die();
 	}
+	global $time_on_site;
     	global $slack_api;
 	$room = str_replace("'",'-',strtolower(str_replace(' ','-',$room)));
 	$thisroom = $room;
-	$add = "[".$ip."][".$_SERVER['HTTP_USER_AGENT']."][".$_SERVER['PHP_SELF']."] ";
+	$add = "[".$time_on_site." seconds][".$ip."][".$_SERVER['HTTP_USER_AGENT']."][".$_SERVER['PHP_SELF']."] ";
 	$msg = $add.$msg;
 	//$msg = str_replace('http://','_______',$msg);
 	//$msg = str_replace('https://','________',$msg);
