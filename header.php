@@ -9,6 +9,14 @@ if (isset($_GET['debug'])){
     header('Location: index.php'); 
   }
 }  
+global $time_on_site;
+if (empty($_COOKIE['start_time'])){
+  setcookie("start_time", time());
+  $time_on_site = 0;
+}else{
+  $now  = time();
+  $time_on_site = $now - $_COOKIE['start_time']; 
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">  
