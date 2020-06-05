@@ -125,7 +125,7 @@ while($d = mysqli_fetch_array($r)){
 <h2>VTRID</h2>
 <div>Watch for 0</div><ol>
 <?PHP
-$q="SELECT * FROM signatures where VTRID = '0' and signature_status <> 'flag_invalid_signature'";
+$q="SELECT * FROM signatures where VTRID = '0' and signature_status <> 'flag_invalid_signature' and signature_status <> 'resign_requested'";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
     echo "<li>$d[date_time_signed] <a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> $d[petition_id] $d[signed_name_as]</li>"; 
@@ -135,7 +135,7 @@ while($d = mysqli_fetch_array($r)){
 <h2>petition_id</h2>
 <div>Watch for 0</div><ol>
 <?PHP
-$q="SELECT * FROM signatures where petition_id = '0' or petition_id = '' and signature_status <> 'flag_invalid_signature'";
+$q="SELECT * FROM signatures where petition_id = '0' or petition_id = '' and signature_status <> 'flag_invalid_signature' and signature_status <> 'resign_requested'";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
     echo "<li>$d[date_time_signed] <a href='?ip_address=$d[ip_address]'>$d[ip_address]</a>  $d[petition_id] $d[signed_name_as]</li>"; 
