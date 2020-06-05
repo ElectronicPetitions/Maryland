@@ -56,6 +56,22 @@ slack_general('MGP Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
   
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
   <script>
   function myFunction(short_code) {
   /* Get the text field */
@@ -80,6 +96,12 @@ slack_general('MGP Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
      data-href="http://md-petition.com/invite/mgp.php" 
      data-layout="box_count" data-size="large">
    </div></td>
+   <a class=\"twitter-share-button\"
+  href=\"https://twitter.com/intent/tweet\"
+  data-size=\"large\"
+  data-text=\"Can you spare a minute to sign $d[petition_name]\"
+  data-url=\"https://www.md-petition.com/invite/mgp.php\">
+Tweet</a>
    <td><input type='text' size='50' value='http://md-petition.com/invite/mgp.php' id='mgp'><button onclick='myFunction("mgp")'>Copy Link</button></td>
    </tr>
  </table>
