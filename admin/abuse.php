@@ -152,7 +152,7 @@ while($d = mysqli_fetch_array($r)){
 <h2>resign_requested</h2>
 <div>These are most likely from early bugs</div><ol>
 <?PHP
-$q="SELECT * FROM signatures where signature_status = 'resign_requested'";
+$q="SELECT * FROM signatures where signature_status = 'resign_requested' order by ip_address";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
     echo "<li>$d[date_time_signed] <a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a target='_Blank' href='https://ipinfo.io/$d[ip_address]'>IP INFO</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id] $d[signed_name_as]</li>"; 
@@ -164,7 +164,7 @@ while($d = mysqli_fetch_array($r)){
 <h2>bots</h2>
 <div>These are bots on the site.</div><ol>
 <?PHP
-$q="SELECT * FROM signatures where signature_status = 'bot'";
+$q="SELECT * FROM signatures where signature_status = 'bot' order by ip_address";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
     echo "<li>$d[date_time_signed] <a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a target='_Blank' href='https://ipinfo.io/$d[ip_address]'>IP INFO</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id] $d[signed_name_as]</li>"; 
