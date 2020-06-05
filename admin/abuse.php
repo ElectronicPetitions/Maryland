@@ -62,7 +62,7 @@ if (isset($_GET['ip_address'])){
       <td><a href='?flag_ip_address=$d[ip_address]'>flag ip address</a></td>
       <td><a href='?flag_duplicate=$d[id]'>flag duplicate</a></td>
       <td><a href='?flag_phone=$d[contact_phone]'>contact phone</a></td>
-      <td><a href='?flag_phone=$d[resign_requested]'>resign requested</a></td>
+      <td><a href='?resign_requested=$d[resign_requested]'>resign requested</a></td>
     </tr>"; 
   }
   echo "</table>";
@@ -86,7 +86,7 @@ if (isset($_GET['ip_address'])){
           <td><a href='?flag_ip_address=$d[ip_address]'>flag ip address</a></td>
           <td><a href='?flag_duplicate=$d[id]'>flag duplicate</a></td>
           <td><a href='?flag_phone=$d[contact_phone]'>contact phone</a></td>
-          <td><a href='?flag_phone=$d[resign_requested]'>resign requested</a></td>
+          <td><a href='?resign_requested=$d[resign_requested]'>resign requested</a></td>
         </tr>"; 
   }
   echo "</table>";
