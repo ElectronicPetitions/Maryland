@@ -17,7 +17,7 @@ $contact_phone              = $petition->real_escape_string($_COOKIE['pPHONE']);
 $signature_status           = $petition->real_escape_string($_COOKIE['signature_status']);
 $bot_check                  = $petition->real_escape_string($_SERVER['HTTP_USER_AGENT']);
 
-$petition->query("insert into signatures (VTRID,ip_address,date_of_birth,date_time_signed,just_date,petition_id,signed_name_as,signed_name_as_circulator,contact_phone,signature_status) values ('$VTRID','$ip','$date_of_birth',NOW(),NOW(),'$petition_id','$signed_name_as','$signed_name_as_circulator','$contact_phone','$signature_status')") or die(mysqli_error($petition));
+$petition->query("insert into signatures (bot_check,VTRID,ip_address,date_of_birth,date_time_signed,just_date,petition_id,signed_name_as,signed_name_as_circulator,contact_phone,signature_status) values ('$bot_check','$VTRID','$ip','$date_of_birth',NOW(),NOW(),'$petition_id','$signed_name_as','$signed_name_as_circulator','$contact_phone','$signature_status')") or die(mysqli_error($petition));
 if($petition_id == '' || $petition_id == '0'){
     slack_general_admin("MISSING petition_id",'md-petition-signed'); 
     echo "<h1>AN ERROR HAS OCCURED - PLEASE TRY AGAIN <a href='reset.php'>HERE</a></h1>";   
