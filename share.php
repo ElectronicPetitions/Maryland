@@ -75,8 +75,10 @@ $d = mysqli_fetch_array($r);
    </div></td>
    <td>
    <a class=\"twitter-share-button\"
-  href=\"https://twitter.com/intent/tweet?text=Can you spare a minute to sign $d2[petition_name] at https://www.md-petition.com/$link\"
-  data-size=\"large\">
+  href=\"https://twitter.com/intent/tweet\"
+  data-size=\"large\"
+  data-text=\"Can you spare a minute to sign $d2[petition_name]\"
+  data-url=\"https://www.md-petition.com/$link\">
 Tweet</a>
    </td>
    <td><input type='text' size='50' value='https://www.md-petition.com/$link' id='$d2[web_short_name]'><button onclick='myFunction(\"$d2[web_short_name]\")'>Copy Link</button></td>
