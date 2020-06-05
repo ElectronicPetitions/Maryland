@@ -50,7 +50,7 @@ include_once('header.php');
 if (isset($_GET['ip_address'])){ 
   $ip = $_GET['ip_address']; 
   echo "<h1>Review $ip</h1><table width='100%' border='1' cellpadding='5' cellspacing='5'>";    
-  $q = "SELECT * FROM  signatures where ip_address = '$ip' order by signature_status ";
+  $q = "SELECT * FROM  signatures where ip_address = '$ip' order by signature_status desc ";
   $r = $petition->query($q);
   while($d = mysqli_fetch_array($r)){
     echo "<tr>
