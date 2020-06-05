@@ -31,6 +31,11 @@ if (isset($_GET['resign_requested'])){
   $petition->query("update signatures set signature_status = 'resign_requested' where id =  '$id' ");
   header('Location: abuse.php');
 }
+if (isset($_GET['bot'])){
+  $id = $_GET['bot'];
+  $petition->query("update signatures set signature_status = 'bot' where id =  '$id' ");
+  header('Location: abuse.php');
+}
 if (isset($_GET['flag_VTRID'])){
   $VTRID = $_GET['flag_VTRID'];
   $petition->query("update signatures set signature_status = 'flag_VTRID' where VTRID = '$VTRID' ");
@@ -63,6 +68,7 @@ if (isset($_GET['ip_address'])){
       <td><a href='?flag_duplicate=$d[id]'>flag duplicate</a></td>
       <td><a href='?flag_phone=$d[contact_phone]'>contact phone</a></td>
       <td><a href='?resign_requested=$d[id]'>resign requested</a></td>
+      <td><a href='?bot=$d[id]'>bot</a></td>
     </tr>"; 
   }
   echo "</table>";
@@ -87,6 +93,7 @@ if (isset($_GET['ip_address'])){
           <td><a href='?flag_duplicate=$d[id]'>flag duplicate</a></td>
           <td><a href='?flag_phone=$d[contact_phone]'>contact phone</a></td>
           <td><a href='?resign_requested=$d[id]'>resign requested</a></td>
+          <td><a href='?bot=$d[id]'>bot</a></td>
         </tr>"; 
   }
   echo "</table>";
@@ -143,9 +150,21 @@ while($d = mysqli_fetch_array($r)){
 ?></ol>
   </td><td valign="top">
 <h2>resign_requested</h2>
-<div>These are most likely from early bugs, or by bots attacking the site.</div><ol>
+<div>These are most likely from early bugs</div><ol>
 <?PHP
 $q="SELECT * FROM signatures where signature_status = 'resign_requested'";
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){ 
+    echo "<li>$d[date_time_signed] <a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id] $d[signed_name_as]</li>"; 
+}
+?></ol>
+  </td>
+  
+  <td valign="top">
+<h2>bots</h2>
+<div>These are bots on the site.</div><ol>
+<?PHP
+$q="SELECT * FROM signatures where signature_status = 'bot'";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
     echo "<li>$d[date_time_signed] <a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id] $d[signed_name_as]</li>"; 
