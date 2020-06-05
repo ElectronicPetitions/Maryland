@@ -96,12 +96,13 @@ slack_general('MGP Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
      data-href="http://md-petition.com/invite/mgp.php" 
      data-layout="box_count" data-size="large">
    </div></td>
+   <td>
    <a class="twitter-share-button"
   href="https://twitter.com/intent/tweet"
   data-size="large"
   data-text="Can you spare a minute to sign <?PHP echo $d['petition_name'];?>"
   data-url="https://www.md-petition.com/invite/mgp.php">
-Tweet</a>
+     Tweet</a></td>
    <td><input type='text' size='50' value='http://md-petition.com/invite/mgp.php' id='mgp'><button onclick='myFunction("mgp")'>Copy Link</button></td>
    </tr>
  </table>
