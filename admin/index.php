@@ -173,7 +173,7 @@ function toggleDataSeries(e) {
 
 }
 </script>
-
+<script src="../files/canvasjs.min.js"></script>
 <?PHP
 
 
