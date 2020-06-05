@@ -128,7 +128,7 @@ while($d = mysqli_fetch_array($r)){
 $q="SELECT * FROM signatures where VTRID = '0' and signature_status <> 'flag_invalid_signature'";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
-    echo "<li>$d[date_time_signed] <a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id] $d[signed_name_as]</li>"; 
+    echo "<li>$d[date_time_signed] <a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> $d[petition_id] $d[signed_name_as]</li>"; 
 }
 ?></ol>
  </td><td valign="top">
@@ -136,6 +136,16 @@ while($d = mysqli_fetch_array($r)){
 <div>Watch for 0</div><ol>
 <?PHP
 $q="SELECT * FROM signatures where petition_id = '0' or petition_id = '' and signature_status <> 'flag_invalid_signature'";
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){ 
+    echo "<li>$d[date_time_signed] <a href='?ip_address=$d[ip_address]'>$d[ip_address]</a>  $d[petition_id] $d[signed_name_as]</li>"; 
+}
+?></ol>
+  </td><td valign="top">
+<h2>resign_requested</h2>
+<div>These are most likely from early bugs, or by bots attacking the site.</div><ol>
+<?PHP
+$q="SELECT * FROM signatures where signature_status = 'resign_requested'";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
     echo "<li>$d[date_time_signed] <a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id] $d[signed_name_as]</li>"; 
