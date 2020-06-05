@@ -93,7 +93,7 @@ slack_general('MGP Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
  <table border="1" cellpadding="2" cellspacing="0">
  <tr>
   <td><div class="fb-share-button" 
-     data-href="http://md-petition.com/invite/mgp.php" 
+     data-href="https://www.md-petition.com/invite/mgp.php" 
      data-layout="box_count" data-size="large">
    </div></td>
    <td>
