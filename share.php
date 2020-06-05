@@ -71,7 +71,7 @@ $d = mysqli_fetch_array($r);
   <td align='center'><small>$d2[petition_name]<small></td>
   <td><div class=\"fb-share-button\" 
      data-href=\"https://www.md-petition.com/$link\" 
-     data-layout=\"box_count\" data-size=\"large\">
+     data-layout=\"button\" data-size=\"large\">
    </div></td>
    <td>
    <a class=\"twitter-share-button\"
