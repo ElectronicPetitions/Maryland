@@ -1,5 +1,6 @@
 <?PHP 
 include_once('/var/www/secure.php'); 
+include_once('../slack.php');
 $petition_id = $_COOKIE['pID'];
 $VTRID = $_COOKIE['pVTRID'];
 if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
