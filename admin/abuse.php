@@ -26,6 +26,11 @@ if (isset($_GET['flag_ip_address'])){
   $petition->query("update signatures set signature_status = 'flag_ip_address' where ip_address = '$ip' ");
   header('Location: abuse.php');
 }
+if (isset($_GET['resign_requested'])){
+  $id = $_GET['resign_requested'];
+  $petition->query("update signatures set signature_status = 'resign_requested' where id =  '$id' ");
+  header('Location: abuse.php');
+}
 if (isset($_GET['flag_VTRID'])){
   $VTRID = $_GET['flag_VTRID'];
   $petition->query("update signatures set signature_status = 'flag_VTRID' where VTRID = '$VTRID' ");
@@ -52,11 +57,12 @@ if (isset($_GET['ip_address'])){
       <td>$d[contact_phone]</td>
       <td>$d[signature_status]</td>
       <td>$d[printed_status]</td>
-      <td><a href='?flag_invalid_signature=$d[id]'>flag_invalid_signature</a></td>
-      <td><a href='?flag_VTRID=$d[VTRID]'>flag_VTRID</a></td>
-      <td><a href='?flag_ip_address=$d[ip_address]'>flag_ip_address</a></td>
-      <td><a href='?flag_duplicate=$d[id]'>flag_duplicate</a></td>
-      <td><a href='?flag_phone=$d[contact_phone]'>contact_phone</a></td>
+      <td><a href='?flag_invalid_signature=$d[id]'>flag invalid signature</a></td>
+      <td><a href='?flag_VTRID=$d[VTRID]'>flag VTRID</a></td>
+      <td><a href='?flag_ip_address=$d[ip_address]'>flag ip address</a></td>
+      <td><a href='?flag_duplicate=$d[id]'>flag duplicate</a></td>
+      <td><a href='?flag_phone=$d[contact_phone]'>contact phone</a></td>
+      <td><a href='?flag_phone=$d[resign_requested]'>resign requested</a></td>
     </tr>"; 
   }
   echo "</table>";
@@ -75,11 +81,12 @@ if (isset($_GET['ip_address'])){
           <td>$d[contact_phone]</td>
           <td>$d[signature_status]</td>
           <td>$d[printed_status]</td>
-          <td><a href='?flag_invalid_signature=$d[id]'>flag_invalid_signature</a></td>
-          <td><a href='?flag_VTRID=$d[VTRID]'>flag_VTRID</a></td>
-          <td><a href='?flag_ip_address=$d[ip_address]'>flag_ip_address</a></td>
-          <td><a href='?flag_duplicate=$d[id]'>flag_duplicate</a></td>
-          <td><a href='?flag_phone=$d[contact_phone]'>contact_phone</a></td>
+          <td><a href='?flag_invalid_signature=$d[id]'>flag invalid signature</a></td>
+          <td><a href='?flag_VTRID=$d[VTRID]'>flag VTRID</a></td>
+          <td><a href='?flag_ip_address=$d[ip_address]'>flag ip address</a></td>
+          <td><a href='?flag_duplicate=$d[id]'>flag duplicate</a></td>
+          <td><a href='?flag_phone=$d[contact_phone]'>contact phone</a></td>
+          <td><a href='?flag_phone=$d[resign_requested]'>resign requested</a></td>
         </tr>"; 
   }
   echo "</table>";
@@ -118,7 +125,7 @@ while($d = mysqli_fetch_array($r)){
 <h2>VTRID</h2>
 <div>Watch for 0</div><ol>
 <?PHP
-$q="SELECT * FROM signatures where VTRID = '0'";
+$q="SELECT * FROM signatures where VTRID = '0' and signature_status <> 'flag_invalid_signature'";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
     echo "<li>$d[date_time_signed] <a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id] $d[signed_name_as]</li>"; 
@@ -128,7 +135,7 @@ while($d = mysqli_fetch_array($r)){
 <h2>petition_id</h2>
 <div>Watch for 0</div><ol>
 <?PHP
-$q="SELECT * FROM signatures where petition_id = '0' or petition_id = '' ";
+$q="SELECT * FROM signatures where petition_id = '0' or petition_id = '' and signature_status <> 'flag_invalid_signature'";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
     echo "<li>$d[date_time_signed] <a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id] $d[signed_name_as]</li>"; 
