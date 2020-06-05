@@ -1,6 +1,6 @@
 <?PHP 
 include_once('/var/www/secure.php'); 
-include_once('../slack.php');
+//include_once('../slack.php');
 $petition_id = $_COOKIE['pID'];
 $VTRID = $_COOKIE['pVTRID'];
 if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
@@ -18,12 +18,14 @@ $signature_status           = $petition->real_escape_string($_COOKIE['signature_
 $bot_check                  = $petition->real_escape_string($_SERVER['HTTP_USER_AGENT']);
 
 $petition->query("insert into signatures (VTRID,ip_address,date_of_birth,date_time_signed,just_date,petition_id,signed_name_as,signed_name_as_circulator,contact_phone,signature_status) values ('$VTRID','$ip','$date_of_birth',NOW(),NOW(),'$petition_id','$signed_name_as','$signed_name_as_circulator','$contact_phone','$signature_status')") or die(mysqli_error($petition));
-slack_general_admin("$signed_name_as Petition $petition_id",'md-petition-signed');
+/*slack_general_admin("$signed_name_as Petition $petition_id",'md-petition-signed');
 if($petition_id == '' || $petition_id == '0'){
  echo "<h1>AN ERROR HAS OCCURED - PLEASE TRY AGAIN <a href='reset.php'>HERE</a></h1>";   
  die();  // do not clear invite!!! 
+}else{
+    
 }
-
+*/
 
 $last = $petition->insert_id;
 setcookie("invite_used", $_COOKIE['invite']);
