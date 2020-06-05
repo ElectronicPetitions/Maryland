@@ -19,6 +19,28 @@ $d = mysqli_fetch_array($r);
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
 
+
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+
+
+
 <script>
   function myFunction(short_code) {
   /* Get the text field */
@@ -51,6 +73,12 @@ $d = mysqli_fetch_array($r);
      data-href=\"https://www.md-petition.com/$link\" 
      data-layout=\"box_count\" data-size=\"large\">
    </div></td>
+   <td>
+   <a class=\"twitter-share-button\"
+  href=\"https://twitter.com/intent/tweet?text=Can you spare a minute to sign $d2[petition_name] at https://www.md-petition.com/$link\"
+  data-size=\"large\">
+Tweet</a>
+   </td>
    <td><input type='text' size='50' value='https://www.md-petition.com/$link' id='$d2[web_short_name]'><button onclick='myFunction(\"$d2[web_short_name]\")'>Copy Link</button></td>
    </tr>";
  }
