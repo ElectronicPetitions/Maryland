@@ -157,9 +157,25 @@ while($d = mysqli_fetch_array($r)){
 
 
 
+<script>
+window.onload = function () {
+
+<?PHP echo $javascript;?>
+
+function toggleDataSeries(e) {
+	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible ){
+		e.dataSeries.visible = false;
+	} else {
+		e.dataSeries.visible = true;
+	}
+	chart.render();
+}
+
+}
+</script>
 
 <?PHP
-echo $javascript;
+
 
 include_once('footer.php');
 ?>
