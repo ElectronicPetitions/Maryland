@@ -53,7 +53,12 @@ if (isset($_GET['ip_address'])){
   $q = "SELECT * FROM  signatures where ip_address = '$ip' order by signature_status desc ";
   $r = $petition->query($q);
   while($d = mysqli_fetch_array($r)){
-    echo "<tr>
+    $color = 'white';
+    $pos = strpos($d['date_time_signed'], date('Y-m-d'));
+    if ($pos !== false) {
+        $color= 'yellow';
+    } 
+    echo "<tr style='background-color:$color;'>
       <td><b>$d[date_time_signed]</b></td>
       <td><a href='?VTRID=$d[VTRID]'>$d[VTRID]</a></td>
       <td>".id2petition($d['petition_id'])."</td>
@@ -78,7 +83,12 @@ if (isset($_GET['ip_address'])){
   $q = "SELECT * FROM  signatures where VTRID = '$VTRID' and signature_status = 'verified' order by petition_id, id DESC ";
   $r = $petition->query($q);
   while($d = mysqli_fetch_array($r)){
-    echo "<tr>
+    $color = 'white';
+    $pos = strpos($d['date_time_signed'], date('Y-m-d'));
+    if ($pos !== false) {
+        $color= 'yellow';
+    } 
+    echo "<tr style='background-color:$color;'>
           <td><b>$d[date_time_signed]</b></td>
           <td><a href='?ip_address=$d[ip_address]'>$d[ip_address]</a></td>
           <td>".id2petition($d['petition_id'])."</td>
