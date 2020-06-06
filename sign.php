@@ -19,6 +19,7 @@ $bot_check                  = $petition->real_escape_string($_SERVER['HTTP_USER_
 
 $last = $_COOKIE['last'];
 if ($last == '') {
+    slack_general_admin("last petition cookie missing - directing to share",'md-petition-signed');
     header('Location: share.php');
 }
 
