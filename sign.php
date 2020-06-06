@@ -17,34 +17,12 @@ $contact_phone              = $petition->real_escape_string($_COOKIE['pPHONE']);
 $signature_status           = $petition->real_escape_string($_COOKIE['signature_status']);
 $bot_check                  = $petition->real_escape_string($_SERVER['HTTP_USER_AGENT']);
 
-$petition->query("insert into signatures (bot_check,VTRID,ip_address,date_of_birth,date_time_signed,just_date,petition_id,signed_name_as,signed_name_as_circulator,contact_phone,signature_status) values ('$bot_check','$VTRID','$ip','$date_of_birth',NOW(),NOW(),'$petition_id','$signed_name_as','$signed_name_as_circulator','$contact_phone','$signature_status')") or die(mysqli_error($petition));
-if($petition_id == '' || $petition_id == '0'){
-    slack_general_admin("MISSING petition_id",'md-petition-signed'); 
-    echo "<h1>AN ERROR HAS OCCURED - PLEASE TRY AGAIN <a href='reset.php'>HERE</a></h1>";   
-    die();  // do not clear invite!!! 
+$last = $_COOKIE['last'];
+if ($last == '') {
+    header('Location: share.php');
 }
-slack_general_admin("$signed_name_as Petition $petition_id",'md-petition-signed');
 
-
-$last = $petition->insert_id;
-setcookie("invite_used", $_COOKIE['invite']);
-setcookie("invite", ""); // clear invite
-//header('Location: eligible.php');
 include_once('header.php'); 
-
-
-
-
-$q="SELECT ip_address, petition_id,VTRID, COUNT(*) as count FROM signatures where signature_status = 'verified' group by ip_address, petition_id, VTRID";
-$r = $petition->query($q);
-while($d = mysqli_fetch_array($r)){
-  if ($d['count'] > 1){
-    $msg = "*ALERT* https://www.md-petition.com/admin/abuse.php?ip_address=$d[ip_address] https://www.md-petition.com/admin/abuse.php?VTRID=$d[VTRID] $d[petition_id] $d[count]"; 
-    slack_general_admin($msg,'md-petition-signed');
-  }
-}
-
-
 $qX = "select * from website_text where id = '9'";
 $rX = $petition->query($qX);
 $dX = mysqli_fetch_array($rX);
