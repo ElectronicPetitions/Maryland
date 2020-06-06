@@ -26,6 +26,7 @@ if($petition_id == '' || $petition_id == '0'){
 slack_general_admin("$signed_name_as Petition $petition_id",'md-petition-signed');
 
 $last = $petition->insert_id;
+setcookie("last", $last);
 setcookie("invite_used", $_COOKIE['invite']);
 setcookie("invite", ""); // clear invite
 
