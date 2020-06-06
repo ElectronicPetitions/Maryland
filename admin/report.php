@@ -111,7 +111,7 @@ while($d = mysqli_fetch_array($r)){
 			dataPoints: [
 				<?PHP echo $chart2; ?>
 			]
-		},<?PHP if($_COOKIE['name'] == 'Patrick McGuire'){ ?>{
+		},<?PHP if(1 == 2){ ?>{
 			type: "line",
 			visible: true,
 			showInLegend: true,
