@@ -142,7 +142,7 @@ if (isset($_POST['signed_name_as'])){
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action='sign.php' method='POST' name='form2' id='form2'><input type='hidden' value='<?PHP echo $_POST['signed_name_as'];?>' name='signed_name_as'>
+      <form action='presign.php' method='POST' name='form2' id='form2'><input type='hidden' value='<?PHP echo $_POST['signed_name_as'];?>' name='signed_name_as'>
         <div class="modal-body">
           <h2><?PHP echo $d['petition_circulator_text_box'];?></h2>
           <h3><?PHP echo $_COOKIE['pNAME'];?>, Please Sign Here</h3>
