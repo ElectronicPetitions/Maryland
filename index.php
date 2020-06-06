@@ -32,7 +32,12 @@ slack_general('Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
       if ($d2['landing_page'] != ''){
         $link = $d2['landing_page']; 
       }
-      echo " <a style='background-color:$d2[web_color]; border: solid 1px black; padding:5px;' href='https://www.md-petition.com/$link'>$d2[petition_name]</a> ";
+      echo " <button class='$d2[web_short_name]' style='background-color:$d2[web_color]; border: solid 1px black; padding:5px;'>$d2[petition_name]</button>
+      <script>
+      $('.$d2[web_short_name]').click(function() {
+        location.href = 'https://www.md-petition.com/$link';
+    });	
+      </script>";
     }
     ?>
   </div> 
