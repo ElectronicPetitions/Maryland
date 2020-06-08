@@ -51,6 +51,12 @@ echo "
           <img class='img-responsive' style='width:100%;' src='https://www.md-petition.com/qrcode.php?s=qrl&d=https://www.md-petition.com/$link'>
         </div>
       </div>
+      
+      <div class='row'>
+        <div class='col-sm-12'>
+          <h3>https://www.md-petition.com/$link</h3>
+        </div>
+      </div>
 ";
 ?>
     </div>
