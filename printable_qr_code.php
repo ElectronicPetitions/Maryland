@@ -23,6 +23,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <title>Printable QR Code Invite</title>
+  </head>
+  <body>
+     <div class='container-fluid'>
+    
 <?PHP
 $short = $_GET['short'];
 $q2 = "SELECT * FROM petitions where web_short_name = '$short'";
@@ -32,5 +36,10 @@ $link = "?invite=$d2[web_short_name]";
 if ($d2['landing_page'] != ''){
   $link = $d2['landing_page']; 
 }
-echo "<h1>$d2[petition_name]</h1><br><img class='img-responsive' src='https://www.md-petition.com/qrcode.php?s=qrl&d=https://www.md-petition.com/$link'>";
+echo "
+<div class='row'><div class='col-sm-12' style='text-align:center;'><h1>$d2[petition_name]</h1></div></div>
+<div class='row'><div class='col-sm-12' style='text-align:center;'><img class='img-responsive' src='https://www.md-petition.com/qrcode.php?s=qrl&d=https://www.md-petition.com/$link'></div></div>
+";
 ?>
+    </div>
+</body>
