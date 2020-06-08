@@ -25,6 +25,8 @@
   <title>Printable QR Code Invite</title>
   <style>
     h1 { text-align:center; }
+    h2 { text-align:center; }
+    h3 { text-align:center; }
   </style>
   </head>
   <body>
