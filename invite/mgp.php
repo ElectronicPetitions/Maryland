@@ -20,11 +20,11 @@ setcookie("invite", "mgp", time()+3600, "/"); // we use this later
   $d = mysqli_fetch_array($r);
   include_once('../slack.php');
   ?>
-  <meta property="og:url"           content="http://md-petition.com/invite/mgp.php" />
+  <meta property="og:url"           content="https://www.md-petition.com/invite/mgp.php" />
   <meta property="og:type"          content="website" />
   <meta property="og:title"         content="<?PHP echo $d['tab_name'];?>" />
   <meta property="og:description"   content="Maryland Electronic Petition Software - Socially Distant Petitions" />
-  <meta property="og:image"         content="http://md-petition.com/files/MDGREENS_FB_SHARE.PNG" />
+  <meta property="og:image"         content="https://www.md-petition.com/files/MDGREENS_FB_SHARE.PNG" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -104,6 +104,7 @@ slack_general('MGP Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
   data-url="https://www.md-petition.com/invite/mgp.php">
      Tweet</a></td>
    <td><input type='text' size='50' value='http://md-petition.com/invite/mgp.php' id='mgp'><button onclick='myFunction("mgp")'>Copy Link</button></td>
+   <td><a href='../printable_qr_code.php?short=<?PHP echo $d['web_short_name'];?>'><img src='https://www.md-petition.com/qrcode.php?s=qrl&d=https://www.md-petition.com/invite/mgp.php'></a></td>
    </tr>
  </table>
 </center>
