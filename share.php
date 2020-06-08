@@ -82,6 +82,7 @@ $d = mysqli_fetch_array($r);
 Tweet</a>
    </td>
    <td><input type='text' size='50' value='https://www.md-petition.com/$link' id='$d2[web_short_name]'><button onclick='myFunction(\"$d2[web_short_name]\")'>Copy Link</button></td>
+   <td><a href='printable_qr_code.php?short=$d2[web_short_name]'><img src='https://www.md-petition.com/qrcode.php?s=qrl&d=https://www.md-petition.com/$link'></a></td>
    </tr>";
  }
   ?>
