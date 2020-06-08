@@ -37,14 +37,14 @@ if ($d2['landing_page'] != ''){
   $link = $d2['landing_page']; 
 }
 echo "
-      <div class='row' style='height:10%'>
-        <div class='col-sm-12' style='text-align:center;'>
+      <div class='row'>
+        <div class='col-sm-12' style='text-align:center; height:10%;'>
           <h1>$d2[petition_name]</h1>
         </div>
       </div>
       
-      <div class='row' style='height:90%'>
-        <div class='col-sm-12' style='text-align:center;'>
+      <div class='row'>
+        <div class='col-sm-12' style='text-align:center; height:90%;'>
           <img class='img-responsive' src='https://www.md-petition.com/qrcode.php?s=qrl&d=https://www.md-petition.com/$link'>
         </div>
       </div>
