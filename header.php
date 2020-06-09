@@ -39,6 +39,7 @@ if (empty($_COOKIE['start_time'])){
   </script>
   <?PHP 
   include_once('/var/www/secure.php'); //outside webserver
+  presign(); // requires db connection
   include_once('slack.php');
   ?>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
