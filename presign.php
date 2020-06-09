@@ -23,6 +23,7 @@ $signed_name_as_circulator  = $petition->real_escape_string($_POST['signed_name_
 $contact_phone              = $petition->real_escape_string($_COOKIE['pPHONE']);
 $signature_status           = $petition->real_escape_string($_COOKIE['signature_status']);
 $bot_check                  = $petition->real_escape_string($_SERVER['HTTP_USER_AGENT']);
+$php_session_id             = session_id();
 global $time_on_site;
 if (empty($_COOKIE['start_time'])){
   setcookie("start_time", time());
@@ -31,7 +32,9 @@ if (empty($_COOKIE['start_time'])){
   $now  = time();
   $time_on_site = $now - $_COOKIE['start_time']; 
 }
-$petition->query("insert into signatures (bot_check,VTRID,ip_address,date_of_birth,date_time_signed,just_date,petition_id,signed_name_as,signed_name_as_circulator,contact_phone,signature_status) values ('$bot_check','$VTRID','$ip','$date_of_birth',NOW(),NOW(),'$petition_id','$signed_name_as','$signed_name_as_circulator','$contact_phone','$signature_status')") or die(mysqli_error($petition));
+$petition->query("insert into signatures (php_session_id,bot_check,VTRID,ip_address,date_of_birth,date_time_signed,just_date,petition_id,signed_name_as,signed_name_as_circulator,contact_phone,signature_status)
+values ('$php_session_id','$bot_check','$VTRID','$ip','$date_of_birth',NOW(),NOW(),'$petition_id','$signed_name_as','$signed_name_as_circulator','$contact_phone','$signature_status')") or die(mysqli_error($petition));
+$petition->query("update presign set presign_status = 'SIGNED' where php_session_id = '$php_session_id' and presign_status = 'NEW' ");
 if($petition_id == '' || $petition_id == '0'){
     slack_general_admin("MISSING petition_id",'md-petition-signed'); 
     echo "<h1>AN ERROR HAS OCCURED - PLEASE TRY AGAIN <a href='reset.php'>HERE</a></h1>";   
