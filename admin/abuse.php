@@ -141,7 +141,7 @@ if (isset($_GET['ip_address'])){
 }
 ?>
 
-<h1>Abuses</h1>
+<h1>Signature Quality Control</h1>
 
 <table><tr>
 
