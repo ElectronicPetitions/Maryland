@@ -37,9 +37,10 @@ if($petition_id == '' || $petition_id == '0'){
     echo "<h1>AN ERROR HAS OCCURED - PLEASE TRY AGAIN <a href='reset.php'>HERE</a></h1>";   
     die();  // do not clear invite!!! 
 }
-slack_general_admin("$signed_name_as ".id2petition($petition_id),'md-petition-signed');
+
 
 $last = $petition->insert_id;
+slack_general_admin("$signed_name_as ".id2petition($petition_id)." sig #".$last,'md-petition-signed');
 setcookie("last", $last);
 setcookie("invite_used", $_COOKIE['invite']);
 setcookie("invite", ""); // clear invite
@@ -52,6 +53,6 @@ while($d = mysqli_fetch_array($r)){
     slack_general_admin($msg,'md-petition-signed');
   }
 }
-header('Location: sign.php');
+header('Location: sign.php?s='.$last);
 
 ?>
