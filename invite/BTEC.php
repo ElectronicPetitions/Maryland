@@ -1,4 +1,5 @@
 <?PHP 
+include_once('header.php');
 setcookie("invite", "BTEC", time()+3600, "/"); // we use this later
 ?>
 <!DOCTYPE html>
@@ -15,6 +16,7 @@ setcookie("invite", "BTEC", time()+3600, "/"); // we use this later
   </script>
   <?PHP 
   include_once('/var/www/secure.php'); //outside webserver
+  presign(); // requires db connection
   $q = "select * from petitions where petition_id = '3'";
   $r = $petition->query($q);
   $d = mysqli_fetch_array($r);
