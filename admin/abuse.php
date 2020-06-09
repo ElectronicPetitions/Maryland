@@ -232,7 +232,7 @@ while($d = mysqli_fetch_array($r)){
   $q2="SELECT * FROM presign where php_session_id = '$d[php_session_id]' order by id desc";
   $r2 = $petition->query($q2);
   $d2 = mysqli_fetch_array($r2);
-    echo "<li><a href='?php_session_id=$d[php_session_id]'>$d[name] $d[email_for_follow_up] ($d[petition])</a></li>"; 
+    echo "<li><a href='?php_session_id=$d2[php_session_id]'>$d2[name] $d2[email_for_follow_up] ".id2petition($d2['petition'])." $d2[invite]</a></li>"; 
 }
 ?></ol>
   </td>
