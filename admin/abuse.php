@@ -217,7 +217,7 @@ while($d = mysqli_fetch_array($r)){
 $q="SELECT distinct email_for_follow_up, php_session_id, name, petition, invite FROM presign where presign_status = 'NEW' and email_for_follow_up <> '' order by id desc";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
-    echo "<li><a href='?VTRID=$d[VTRID]'>$d[name] $d[email_for_follow_up] ($d[petition])</a></li>"; 
+    echo "<li><a href='?php_session_id=$d[php_session_id]'>$d[name] $d[email_for_follow_up] ($d[petition])</a></li>"; 
 }
 ?></ol>
   </td>
