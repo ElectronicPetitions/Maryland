@@ -93,7 +93,7 @@ $my_test = $d[$field];
      setcookie("invite", ""); // clear invite
      $error = "$field is not $pass is it $my_test";
      setcookie("invite_error", $error); // record error
-     $available .= '<script>alert("'.$d2[eligibleVoterListWarning].'");</script>';
+     $available .= '<script>alert("'.$d2[eligibleVoterListWarning].'"); location.reload();</script>';
    }
  }
 }
