@@ -1,4 +1,5 @@
 <?PHP 
+include_once('session.php');
 if (isset($_GET['debug'])){
   if ($_GET['debug'] == 'on'){ 
     setcookie("debug", 'on'); 
