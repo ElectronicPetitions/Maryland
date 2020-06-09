@@ -148,7 +148,7 @@ if (isset($_GET['ip_address'])){
 ?>
 
 <h1>Signature Quality Control</h1>
-
+<h2>NEVER NEVER NEVER CALL OR TEXT ANYONE - ONLY EMAIL!!!</h2>
 <table><tr>
 
   <td valign="top">
