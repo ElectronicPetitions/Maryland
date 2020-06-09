@@ -1,4 +1,5 @@
 <?PHP 
+session_start();
 include_once('/var/www/secure.php'); 
 include_once('slack.php');
 $petition_id = $_COOKIE['pID'];
@@ -34,6 +35,9 @@ if (empty($_COOKIE['start_time'])){
 }
 $petition->query("insert into signatures (php_session_id,bot_check,VTRID,ip_address,date_of_birth,date_time_signed,just_date,petition_id,signed_name_as,signed_name_as_circulator,contact_phone,signature_status)
 values ('$php_session_id','$bot_check','$VTRID','$ip','$date_of_birth',NOW(),NOW(),'$petition_id','$signed_name_as','$signed_name_as_circulator','$contact_phone','$signature_status')") or die(mysqli_error($petition));
+
+$last = $petition->insert_id;
+
 $petition->query("update presign set presign_status = 'SIGNED' where php_session_id = '$php_session_id' and presign_status = 'NEW' ");
 if($petition_id == '' || $petition_id == '0'){
     slack_general_admin("MISSING petition_id",'md-petition-signed'); 
@@ -42,7 +46,7 @@ if($petition_id == '' || $petition_id == '0'){
 }
 
 
-$last = $petition->insert_id;
+
 slack_general_admin("$signed_name_as ".id2petition($petition_id)." sig #".$last,'md-petition-signed');
 setcookie("last", $last);
 setcookie("invite_used", $_COOKIE['invite']);
