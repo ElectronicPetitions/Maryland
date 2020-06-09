@@ -192,7 +192,7 @@ while($d = mysqli_fetch_array($r)){
 $q="SELECT * FROM presign where presign_status = 'NEW' and email_for_follow_up <> '' order by id desc";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
-    echo "<li>$d[action_on] <a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a target='_Blank' href='https://ipinfo.io/$d[ip_address]'>IP INFO</a> $d[name] $d[email_for_follow_up]</li>"; 
+    echo "<li>$d[action_on] $d[name] $d[email_for_follow_up] ($d[php_page])</li>"; 
 }
 ?></ol>
   </td>
@@ -203,7 +203,7 @@ while($d = mysqli_fetch_array($r)){
 $q="SELECT * FROM signatures order by id desc limit 0, 10";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
-    echo "<li>$d[date_time_signed] <a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a target='_Blank' href='https://ipinfo.io/$d[ip_address]'>IP INFO</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> ".id2petition($d['petition_id'])." $d[signed_name_as]</li>"; 
+    echo "<li>$d[date_time_signed] ".id2petition($d['petition_id'])." $d[signed_name_as]</li>"; 
 }
 ?></ol>
   </td>
