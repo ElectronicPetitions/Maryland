@@ -186,21 +186,21 @@ while($d = mysqli_fetch_array($r)){
 </tr>
 <tr>
 <td valign="top">
-<h2>latest</h2>
+<h2>Pre-Sign</h2>
 <div>last 0-10</div><ol>
 <?PHP
-$q="SELECT * FROM signatures order by id desc limit 0, 10";
+$q="SELECT * FROM presign order by id desc limit 0, 10";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
-    echo "<li>$d[date_time_signed] <a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a target='_Blank' href='https://ipinfo.io/$d[ip_address]'>IP INFO</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> ".id2petition($d['petition_id'])." $d[signed_name_as]</li>"; 
+    echo "<li>$d[action_on] <a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a target='_Blank' href='https://ipinfo.io/$d[ip_address]'>IP INFO</a> $d[name] $d[email_for_follow_up]</li>"; 
 }
 ?></ol>
   </td>
 <td valign="top">
-<h2>latest</h2>
-<div>last 10-20</div><ol>
+<h2>Signature</h2>
+<div>Last 10</div><ol>
 <?PHP
-$q="SELECT * FROM signatures order by id desc limit 10, 10";
+$q="SELECT * FROM signatures order by id desc limit 0, 10";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
     echo "<li>$d[date_time_signed] <a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a target='_Blank' href='https://ipinfo.io/$d[ip_address]'>IP INFO</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> ".id2petition($d['petition_id'])." $d[signed_name_as]</li>"; 
