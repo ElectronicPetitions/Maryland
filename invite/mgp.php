@@ -16,6 +16,7 @@ setcookie("invite", "mgp", time()+3600, "/"); // we use this later
   </script>
   <?PHP 
   include_once('/var/www/secure.php'); //outside webserver
+  presign(); // requires db connection
   $q = "select * from petitions where petition_id = '1'";
   $r = $petition->query($q);
   $d = mysqli_fetch_array($r);
