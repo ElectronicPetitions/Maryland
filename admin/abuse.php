@@ -189,10 +189,10 @@ while($d = mysqli_fetch_array($r)){
 <h2>Pre-Sign</h2>
 <div>Follow up requested - never signed.</div><ol>
 <?PHP
-$q="SELECT * FROM presign where presign_status = 'NEW' and email_for_follow_up <> '' order by id desc";
+$q="SELECT distinct email_for_follow_up, name, petition FROM presign where presign_status = 'NEW' and email_for_follow_up <> '' order by id desc";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
-    echo "<li>$d[action_on] $d[name] $d[email_for_follow_up] ($d[php_page])</li>"; 
+    echo "<li>$d[name] $d[email_for_follow_up] ($d[petition])</li>"; 
 }
 ?></ol>
   </td>
