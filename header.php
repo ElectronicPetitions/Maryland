@@ -62,9 +62,12 @@ input:focus {
     <?PHP  
     if ($_COOKIE['invite'] != ''){ 
       $invite = $petition->real_escape_string($_COOKIE['invite']);
-      $q = "select petition_name, web_color from petitions where web_short_name = '$invite'";
+      $q = "select * from petitions where web_short_name = '$invite'";
       $r = $petition->query($q);
       $d = mysqli_fetch_array($r);
       echo "<div class='row'><div class='col-sm-10' style='text-align:center;'><h1 style='text-align:center; background-color:$d[web_color];'>$d[petition_name]</h1></div></div>";
-    } 
+      if ($d['social_phone'] != ''){
+        echo "<div class='row'><div class='col-sm-10' style='text-align:center;'><h3 style='text-align:center; background-color:$d[web_color];'>Support: <a href='tel:".$d['social_phone']."'>".$d['social_phone']."</a> <a href='mailto:".$d['social_email']."'>".$d['social_email']."</a></h3></div></div>";
+      }
+      } 
     ?>
