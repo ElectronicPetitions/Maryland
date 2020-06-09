@@ -17,10 +17,13 @@ $contact_phone              = $petition->real_escape_string($_COOKIE['pPHONE']);
 $signature_status           = $petition->real_escape_string($_COOKIE['signature_status']);
 $bot_check                  = $petition->real_escape_string($_SERVER['HTTP_USER_AGENT']);
 
-$last = $_COOKIE['last'];
-if ($last == '') {
-    slack_general_admin("last petition cookie missing - directing to share",'md-petition-signed');
-    header('Location: share.php');
+if (isset($_GET['s'])){
+    $last = $_GET['s'];
+}elseif($_COOKIE['last']){
+    $last = $_COOKIE['last']; // fall back on cookie
+}else{
+    slack_general_admin("last petition cookie or get missing - directing to share",'md-petition-signed');
+    header('Location: share.php');  
 }
 
 include_once('header.php'); 
