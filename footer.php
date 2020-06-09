@@ -50,6 +50,7 @@ if ($_COOKIE['invite'] != ''){
    <?PHP if($_COOKIE['debug'] == 'on'){ ?> 
     <pre><?PHP print_r($_GET); ?></pre>
     <pre><?PHP print_r($_POST); ?></pre> 
+    <pre><?PHP print_r($_SESSION); ?></pre>
     <pre><?PHP print_r($_COOKIE); ?></pre>
    <?PHP } ?>
   </div>
