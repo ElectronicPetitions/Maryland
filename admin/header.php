@@ -13,6 +13,7 @@
   <?PHP 
   include_once('/var/www/secure.php'); //outside webserver
   include_once('../slack.php');
+  include_once('../session.php');
   include_once('functions.php');
   ?>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
