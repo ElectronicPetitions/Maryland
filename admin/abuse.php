@@ -150,7 +150,34 @@ if (isset($_GET['ip_address'])){
 <h1>Signature Quality Control</h1>
 <h2>NEVER NEVER NEVER CALL OR TEXT ANYONE - ONLY EMAIL!!!</h2>
 <table><tr>
+<tr>
+<td valign="top">
+<h2>Pre-Sign</h2>
+<div>Follow up requested - never signed.</div><ol>
+<?PHP
+$q="SELECT distinct php_session_id FROM presign where presign_status = 'NEW' and email_for_follow_up <> '' order by id desc";
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){ 
+  $q2="SELECT * FROM presign where php_session_id = '$d[php_session_id]' order by id desc";
+  $r2 = $petition->query($q2);
+  $d2 = mysqli_fetch_array($r2);
+    echo "<li><a href='?php_session_id=$d2[php_session_id]'>$d2[name] $d2[email_for_follow_up] ".id2petition($d2['petition'])." $d2[invite]</a></li>"; 
+}
+?></ol>
+  </td>
+<td valign="top">
+<h2>Signature</h2>
+<div>Last 10</div><ol>
+<?PHP
+$q="SELECT * FROM signatures where signature_status = 'verified' order by id desc limit 0, 10";
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){ 
+    echo "<li>$d[date_time_signed] ".id2petition($d['petition_id'])." $d[signed_name_as]</li>"; 
+}
+?></ol>
+  </td>
 
+  </tr>
   <td valign="top">
 <h2>IP Address</h2>
 <div>Watch for duplicates.</div><ol>
@@ -221,34 +248,7 @@ while($d = mysqli_fetch_array($r)){
 
 
 </tr>
-<tr>
-<td valign="top">
-<h2>Pre-Sign</h2>
-<div>Follow up requested - never signed.</div><ol>
-<?PHP
-$q="SELECT distinct php_session_id FROM presign where presign_status = 'NEW' and email_for_follow_up <> '' order by id desc";
-$r = $petition->query($q);
-while($d = mysqli_fetch_array($r)){ 
-  $q2="SELECT * FROM presign where php_session_id = '$d[php_session_id]' order by id desc";
-  $r2 = $petition->query($q2);
-  $d2 = mysqli_fetch_array($r2);
-    echo "<li><a href='?php_session_id=$d2[php_session_id]'>$d2[name] $d2[email_for_follow_up] ".id2petition($d2['petition'])." $d2[invite]</a></li>"; 
-}
-?></ol>
-  </td>
-<td valign="top">
-<h2>Signature</h2>
-<div>Last 10</div><ol>
-<?PHP
-$q="SELECT * FROM signatures where signature_status = 'verified' order by id desc limit 0, 10";
-$r = $petition->query($q);
-while($d = mysqli_fetch_array($r)){ 
-    echo "<li>$d[date_time_signed] ".id2petition($d['petition_id'])." $d[signed_name_as]</li>"; 
-}
-?></ol>
-  </td>
 
-  </tr>
 </table>
 
 
