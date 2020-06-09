@@ -77,6 +77,31 @@ if (isset($_GET['ip_address'])){
     </tr>"; 
   }
   echo "</table>";
+}elseif(isset($_GET['php_session_id'])){ 
+  $php_session_id = $_GET['php_session_id']; 
+  echo "<h1>Review $php_session_id</h1><table width='100%' border='1' cellpadding='5' cellspacing='5'>";    
+  $q = "SELECT * FROM presign where php_session_id = '$php_session_id' order by id desc ";
+  $r = $petition->query($q);
+  while($d = mysqli_fetch_array($r)){
+    $color = 'white';
+    $pos = strpos($d['date_time_signed'], date('Y-m-d'));
+    if ($pos !== false) {
+        $color= 'yellow';
+    } 
+    echo "<tr style='background-color:$color;'>
+      <td><b>$d[action_on]</b></td>
+      <td>$d[php_page]</td>
+      <td>".id2petition($d['petition'])."</td>
+      <td>$d[invite]</td>
+      <td>$d[name]</td>
+      <td>$d[email_for_follow_up]</td>
+      <td>$d[phone_for_validation]</td>
+      <td>$d[presign_status]</td>
+      <td>$d[ip_address]</td>
+      <td>$d[browser_string]</td>
+    </tr>"; 
+  }
+  echo "</table>";
 }elseif (isset($_GET['VTRID'])){ 
   $VTRID = $_GET['VTRID'];
   echo "<h1>Review $VTRID</h1><table width='100%' border='1' cellpadding='5' cellspacing='5'>";   
