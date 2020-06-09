@@ -200,7 +200,7 @@ while($d = mysqli_fetch_array($r)){
 <h2>Signature</h2>
 <div>Last 10</div><ol>
 <?PHP
-$q="SELECT * FROM signatures order by id desc limit 0, 10";
+$q="SELECT * FROM signatures where signature_status = 'verified' order by id desc limit 0, 10";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
     echo "<li>$d[date_time_signed] ".id2petition($d['petition_id'])." $d[signed_name_as]</li>"; 
