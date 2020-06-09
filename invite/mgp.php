@@ -48,19 +48,19 @@ slack_general('MGP Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
  <?PHP if ($d['social_phone'] != ''){ ?> 
  <div class='row'>
   <div class='col-sm-5 social' style='text-align:right;'>Phone</div>
-  <div class='col-sm-5 social' style='text-align:left;'><?PHP echo $d['social_phone'];?></div>
+  <div class='col-sm-5 social' style='text-align:left;'><a href='tel:<?PHP echo $d['social_phone'];?>'><?PHP echo $d['social_phone'];?></a></div>
  </div>
  <?PHP } ?>
   <?PHP if ($d['social_email'] != ''){ ?> 
  <div class='row'>
   <div class='col-sm-5 social' style='text-align:right;'>E-Mail</div>
-  <div class='col-sm-5 social' style='text-align:left;'><?PHP echo $d['social_email'];?></div>
+  <div class='col-sm-5 social' style='text-align:left;'><a href='mailto:<?PHP echo $d['social_email'];?>'><?PHP echo $d['social_email'];?></a></div>
  </div>
   <?PHP } ?>
   <?PHP if ($d['social_website'] != ''){ ?> 
  <div class='row'>
   <div class='col-sm-5 social' style='text-align:right;'>Website</div>
-  <div class='col-sm-5 social' style='text-align:left;'><?PHP echo $d['social_website'];?></div>
+  <div class='col-sm-5 social' style='text-align:left;'><a href='<?PHP echo $d['social_website'];?>'><?PHP echo $d['social_website'];?></a></div>
  </div>
   <?PHP } ?>
    <?PHP if ($d['social_facebook'] != ''){ ?> 
