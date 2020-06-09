@@ -226,9 +226,12 @@ while($d = mysqli_fetch_array($r)){
 <h2>Pre-Sign</h2>
 <div>Follow up requested - never signed.</div><ol>
 <?PHP
-$q="SELECT distinct email_for_follow_up, php_session_id, name, petition, invite FROM presign where presign_status = 'NEW' and email_for_follow_up <> '' order by id desc";
+$q="SELECT distinct php_session_id FROM presign where presign_status = 'NEW' and email_for_follow_up <> '' order by id desc";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
+  $q2="SELECT * FROM presign where php_session_id = '$d[php_session_id]' order by id desc";
+  $r2 = $petition->query($q2);
+  $d2 = mysqli_fetch_array($r2);
     echo "<li><a href='?php_session_id=$d[php_session_id]'>$d[name] $d[email_for_follow_up] ($d[petition])</a></li>"; 
 }
 ?></ol>
