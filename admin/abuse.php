@@ -214,10 +214,10 @@ while($d = mysqli_fetch_array($r)){
 <h2>Pre-Sign</h2>
 <div>Follow up requested - never signed.</div><ol>
 <?PHP
-$q="SELECT distinct email_for_follow_up, name, petition FROM presign where presign_status = 'NEW' and email_for_follow_up <> '' order by id desc";
+$q="SELECT distinct email_for_follow_up, php_session_id, name, petition, invite FROM presign where presign_status = 'NEW' and email_for_follow_up <> '' order by id desc";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
-    echo "<li>$d[name] $d[email_for_follow_up] ($d[petition])</li>"; 
+    echo "<li><a href='?VTRID=$d[VTRID]'>$d[name] $d[email_for_follow_up] ($d[petition])</a></li>"; 
 }
 ?></ol>
   </td>
