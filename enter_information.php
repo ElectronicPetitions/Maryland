@@ -3,7 +3,14 @@ if (empty($_COOKIE['signature_status'])){
    setcookie("signature_status", 'unverified');
 }
 if (isset($_POST['web_first_name'])){
-  $DOB='';
+  $email='';
+  if (isset($_POST['email'])){
+    if ($_POST['email'] != ''){
+     $email = $_POST['email'];
+     setcookie("email", $email);
+    }
+  }
+   $DOB='';
   if (isset($_POST['DOB'])){
     if ($_POST['DOB'] != ''){
      $DOB = $_POST['DOB'];
@@ -64,16 +71,20 @@ slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
 <form method='POST'>
     
   <div class='row'>
-    <div class='col-sm-10' style='text-align:center;'><h1><?PHP echo $dX['text_title'];?></h1><h2 style="margin:25px; padding25px; background-color:lightyellow;"><?PHP echo $dX['text_block'];?></h2></div>
+    <div class='col-sm-10' style='text-align:center;'><h1><?PHP echo $dX['text_title'];?></h1><h2 style="margin:10px; padding:10px; background-color:lightyellow;"><?PHP echo $dX['text_block'];?></h2></div>
   </div>
    
-   
+      
+  <div class='row'>
+    <div class='col-sm-3' style='text-align:right;'><h2>E-Mail for Follow Up</h2><br>(not required)</div>
+    <div class='col-sm-6' style='text-align:left;'><input class="form-control input-lg" name='email'></div>
+    <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
+  </div>  
      
   <div class='row'>
     <div class='col-sm-3' style='text-align:right;'><h2>First Name</h2></div>
     <div class='col-sm-6' style='text-align:left;'><input class="form-control input-lg" name='web_first_name' required></div>
     <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
-
   </div>  
    
   <div class='row'>
