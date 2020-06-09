@@ -107,7 +107,7 @@ if (isset($_GET['ip_address'])){
       <td style='white-space:pre;'>$d[browser_string]</td>
     </tr>"; 
   }
-  echo "</table><a href='?clear_php_session_id=$d[php_session_id]'>CLEAR $d[php_session_id]</a>";
+  echo "</table><a href='?clear_php_session_id=$php_session_id'>CLEAR $php_session_id</a>";
 }elseif (isset($_GET['VTRID'])){ 
   $VTRID = $_GET['VTRID'];
   echo "<h1>Review $VTRID</h1><table width='100%' border='1' cellpadding='5' cellspacing='5'>";   
