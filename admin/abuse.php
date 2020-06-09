@@ -189,7 +189,7 @@ while($d = mysqli_fetch_array($r)){
 <h2>Pre-Sign</h2>
 <div>last 0-10</div><ol>
 <?PHP
-$q="SELECT * FROM presign where presign_status = 'NEW' order by id desc limit 0, 10";
+$q="SELECT * FROM presign where presign_status = 'NEW' order by id desc";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
     echo "<li>$d[action_on] <a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a target='_Blank' href='https://ipinfo.io/$d[ip_address]'>IP INFO</a> $d[name] $d[email_for_follow_up]</li>"; 
