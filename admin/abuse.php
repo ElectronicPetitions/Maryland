@@ -104,6 +104,7 @@ if (isset($_GET['ip_address'])){
       <td style='white-space:pre;'>$d[php_page]</td>
       <td style='white-space:pre;'>".id2petition($d['petition'])."</td>
       <td style='white-space:pre;'>$d[invite]</td>
+      <td style='white-space:pre;'>$d[invite_error]</td>
       <td style='white-space:pre;'>$d[name]</td>
       <td style='white-space:pre;'>$d[email_for_follow_up]</td>
       <td style='white-space:pre;'>$d[phone_for_validation]</td>
