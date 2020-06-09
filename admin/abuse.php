@@ -12,6 +12,11 @@ if (isset($_GET['clear_php_session_id'])){
   $petition->query("update presign set presign_status = 'DONE' where php_session_id = '$id' ");
   header('Location: abuse.php');
 }
+if (isset($_GET['sign_php_session_id'])){
+  $id = $_GET['sign_php_session_id'];
+  $petition->query("update presign set presign_status = 'SIGNED' where php_session_id = '$id' ");
+  header('Location: abuse.php');
+}
 if ($_COOKIE['level'] == 'manager'){
   slack_general('ADMIN: Redirect Manager Home ('.$_COOKIE['name'].') ('.$_COOKIE['level'].')','md-petition');
   header('Location: manager_home.php');
@@ -107,7 +112,7 @@ if (isset($_GET['ip_address'])){
       <td style='white-space:pre;'>$d[browser_string]</td>
     </tr>"; 
   }
-  echo "</table><a href='?clear_php_session_id=$php_session_id'>CLEAR $php_session_id</a>";
+  echo "</table><a href='?clear_php_session_id=$php_session_id'>CLEAR ALERT</a> - <a href='?sign_php_session_id=$php_session_id'>SIGNATURE FOUND</a>";
 }elseif (isset($_GET['VTRID'])){ 
   $VTRID = $_GET['VTRID'];
   echo "<h1>Review $VTRID</h1><table width='100%' border='1' cellpadding='5' cellspacing='5'>";   
