@@ -35,12 +35,11 @@ setcookie("invite", "mgp", time()+3600, "/"); // we use this later
 <?PHP
 slack_general('MGP Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
 ?>
+
 <div class='row'>
-  <div class='col-sm-10' style='text-align:center;'><button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='../enter_information.php'"><img class='click_me' src="../files/click_here.gif"> CLICK HERE TO BEGIN - SIGN <?PHP echo $d['petition_name'];?></button></div>
- </div> 
-<div class='row'>
-  <div class='col-sm-10' style='text-align:center;'><h1><?PHP echo $d['text_title'];?></h1><h2 style='text-align:left;'><?PHP echo $d['text_block'];?></h2></div>
- </div> 
+  <div class='col-sm-7' style='text-align:center;'><h1><?PHP echo $d['text_title'];?></h1><h2 style='text-align:left;'><?PHP echo $d['text_block'];?></h2></div>
+  <div class='col-sm-3' style='text-align:center;'><button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='../enter_information.php'"><img class='click_me' src="../files/click_here.gif"> CLICK HERE TO BEGIN - SIGN <?PHP echo $d['petition_name'];?></button></div>
+</div> 
  <?PHP if ($d['social_phone'] != ''){ ?> 
  <div class='row'>
   <div class='col-sm-5' style='text-align:right;'>Phone</div>
