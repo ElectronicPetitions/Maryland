@@ -27,6 +27,8 @@ if (isset($_GET['s'])){
 }
 
 include_once('header.php'); 
+$php_session_id = session_id();
+$petition->query("update presign set presign_status = 'SIGNED' where php_session_id = '$php_session_id' and presign_status = 'NEW' ");
 $qX = "select * from website_text where id = '9'";
 $rX = $petition->query($qX);
 $dX = mysqli_fetch_array($rX);
