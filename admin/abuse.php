@@ -80,7 +80,7 @@ if (isset($_GET['ip_address'])){
 }elseif (isset($_GET['VTRID'])){ 
   $VTRID = $_GET['VTRID'];
   echo "<h1>Review $VTRID</h1><table width='100%' border='1' cellpadding='5' cellspacing='5'>";   
-  $q = "SELECT * FROM  signatures where VTRID = '$VTRID' and signature_status = 'verified' order by petition_id, id DESC ";
+  $q = "SELECT * FROM  signatures where VTRID = '$VTRID' and signature_status <> 'deleted' order by petition_id, id DESC ";
   $r = $petition->query($q);
   while($d = mysqli_fetch_array($r)){
     $color = 'white';
