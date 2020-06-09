@@ -84,21 +84,22 @@ if (isset($_GET['ip_address'])){
   $r = $petition->query($q);
   while($d = mysqli_fetch_array($r)){
     $color = 'white';
-    $pos = strpos($d['date_time_signed'], date('Y-m-d'));
+    $test = date('Y-m-d',strtotime($d['action_on']));
+    $pos = strpos($test, date('Y-m-d'));
     if ($pos !== false) {
         $color= 'yellow';
     } 
     echo "<tr style='background-color:$color;'>
-      <td><b>$d[action_on]</b></td>
-      <td>$d[php_page]</td>
-      <td>".id2petition($d['petition'])."</td>
-      <td>$d[invite]</td>
-      <td>$d[name]</td>
-      <td>$d[email_for_follow_up]</td>
-      <td>$d[phone_for_validation]</td>
-      <td>$d[presign_status]</td>
-      <td>$d[ip_address]</td>
-      <td>$d[browser_string]</td>
+      <td style='white-space:pre;'><b>$d[action_on]</b></td>
+      <td style='white-space:pre;'>$d[php_page]</td>
+      <td style='white-space:pre;'>".id2petition($d['petition'])."</td>
+      <td style='white-space:pre;'>$d[invite]</td>
+      <td style='white-space:pre;'>$d[name]</td>
+      <td style='white-space:pre;'>$d[email_for_follow_up]</td>
+      <td style='white-space:pre;'>$d[phone_for_validation]</td>
+      <td style='white-space:pre;'>$d[presign_status]</td>
+      <td style='white-space:pre;'>$d[ip_address]</td>
+      <td style='white-space:pre;'>$d[browser_string]</td>
     </tr>"; 
   }
   echo "</table>";
