@@ -42,34 +42,37 @@ slack_general('MGP Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
   <div class='row'>
     <div class='col-sm-10' style='text-align:center;'><h3>If you need assistance, please contact:</h3></div>
   </div> 
+  <style>
+    .social { font-size: large; font-weight:bold; }
+  </style>
  <?PHP if ($d['social_phone'] != ''){ ?> 
  <div class='row'>
-  <div class='col-sm-5' style='text-align:right;'>Phone</div>
-  <div class='col-sm-5' style='text-align:left;'><?PHP echo $d['social_phone'];?></div>
+  <div class='col-sm-5 social' style='text-align:right;'>Phone</div>
+  <div class='col-sm-5 social' style='text-align:left;'><?PHP echo $d['social_phone'];?></div>
  </div>
  <?PHP } ?>
   <?PHP if ($d['social_email'] != ''){ ?> 
  <div class='row'>
-  <div class='col-sm-5' style='text-align:right;'>E-Mail</div>
-  <div class='col-sm-5' style='text-align:left;'><?PHP echo $d['social_email'];?></div>
+  <div class='col-sm-5 social' style='text-align:right;'>E-Mail</div>
+  <div class='col-sm-5 social' style='text-align:left;'><?PHP echo $d['social_email'];?></div>
  </div>
   <?PHP } ?>
   <?PHP if ($d['social_website'] != ''){ ?> 
  <div class='row'>
-  <div class='col-sm-5' style='text-align:right;'>Website</div>
-  <div class='col-sm-5' style='text-align:left;'><?PHP echo $d['social_website'];?></div>
+  <div class='col-sm-5 social' style='text-align:right;'>Website</div>
+  <div class='col-sm-5 social' style='text-align:left;'><?PHP echo $d['social_website'];?></div>
  </div>
   <?PHP } ?>
    <?PHP if ($d['social_facebook'] != ''){ ?> 
    <div class='row'>
-  <div class='col-sm-5' style='text-align:right;'>Facebook</div>
-  <div class='col-sm-5' style='text-align:left;'><?PHP echo $d['social_facebook'];?></div>
+  <div class='col-sm-5 social' style='text-align:right;'>Facebook</div>
+  <div class='col-sm-5 social' style='text-align:left;'><?PHP echo $d['social_facebook'];?></div>
  </div>
   <?PHP } ?>
    <?PHP if ($d['social_twitter'] != ''){ ?> 
  <div class='row'>
-  <div class='col-sm-5' style='text-align:right;'>Twitter</div>
-  <div class='col-sm-5' style='text-align:left;'><?PHP echo $d['social_twitter'];?></div>
+  <div class='col-sm-5 social' style='text-align:right;'>Twitter</div>
+  <div class='col-sm-5 social' style='text-align:left;'><?PHP echo $d['social_twitter'];?></div>
  </div>
    <?PHP } ?>
 <div class='row'>
