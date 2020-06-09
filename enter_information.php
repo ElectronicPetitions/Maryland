@@ -76,7 +76,7 @@ slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
    
       
   <div class='row'>
-    <div class='col-sm-3' style='text-align:right;'><h2>E-Mail for Follow Up</h2><br>(not required)</div>
+    <div class='col-sm-3' style='text-align:right;'><h2>E-Mail for Follow Up*</h2></div>
     <div class='col-sm-6' style='text-align:left;'><input class="form-control input-lg" name='email'></div>
     <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
   </div>  
@@ -110,7 +110,7 @@ slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
      <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
   </div> 
   <div class='row'>
-      <div class='col-sm-3' style='text-align:right;'><h2>Phone Number</h2></div>
+      <div class='col-sm-3' style='text-align:right;'><h2>Phone Number**</h2></div>
       <div class='col-sm-6' style='text-align:left;'><input class="form-control input-lg" id="contact_phone" name="contact_phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required></div>
       <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</div>
   </div>
@@ -144,6 +144,12 @@ slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
   </div>
   <div class='row'>
      <div class='col-sm-10' style='text-align:center;'><button type="reset" class="btn btn-warning btn-lg btn-block not_me">Clear</button></div>
+  </div>
+  <div class='row'>
+     <div class='col-sm-10' style='text-align:center;'>* E-Mail is not required, and will only be used internally, if we need to reach you. It will never sold or given out.</div>
+  </div>
+     <div class='row'>
+     <div class='col-sm-10' style='text-align:center;'>** WE WILL NEVER USE YOUR PHONE NUMBER - NEVER CALL - NEVER FOR TEXT MESSAGES.</div>
   </div>
 </form>
 
