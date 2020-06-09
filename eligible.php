@@ -91,6 +91,8 @@ $my_test = $d[$field];
      $available .= '<script>document.getElementById("form").submit();</script>';
    }elseif($d2['eligibleVoterListEnforce'] == 'YES' && $_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name']) ){
      setcookie("invite", ""); // clear invite
+     $error = "$field != $pass ($my_test)";
+     setcookie("invite_error", $error); // record error
      $available .= '<script>alert("'.$d2[eligibleVoterListWarning].'");</script>';
    }
  }
