@@ -77,19 +77,19 @@ slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
       
   <div class='row'>
     <div class='col-sm-3' style='text-align:right;'><h2>E-Mail for Follow Up*</h2></div>
-    <div class='col-sm-6' style='text-align:left;'><input class="form-control input-lg" name='email' oninvalid="this.setCustomValidity('please enter an email address for follow up')" oninput="this.setCustomValidity('')" ></div>
+    <div class='col-sm-6' style='text-align:left;'><input class="form-control input-lg" name='email' oninvalid="this.setCustomValidity('Please enter an email address for follow up')" oninput="this.setCustomValidity('')" ></div>
     <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
   </div>  
      
   <div class='row'>
     <div class='col-sm-3' style='text-align:right;'><h2>First Name</h2></div>
-    <div class='col-sm-6' style='text-align:left;'><input class="form-control input-lg" name='web_first_name' required oninvalid="this.setCustomValidity('please enter only your first name')" oninput="this.setCustomValidity('')" ></div>
+    <div class='col-sm-6' style='text-align:left;'><input class="form-control input-lg" name='web_first_name' required oninvalid="this.setCustomValidity('Please enter only your first name')" oninput="this.setCustomValidity('')" ></div>
     <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
   </div>  
    
   <div class='row'>
      <div class='col-sm-3' style='text-align:right;'><h2>Last Name</h2></div>
-     <div class='col-sm-6' style='text-align:left;'><input alt='please enter only your last name' class="form-control input-lg" name='web_last_name' required></div>
+     <div class='col-sm-6' style='text-align:left;'><input class="form-control input-lg" name='web_last_name' required oninvalid="this.setCustomValidity('Please enter only your last name')" oninput="this.setCustomValidity('')"></div>
      <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
   </div> 
    
@@ -97,7 +97,7 @@ slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
      <div class='col-sm-3' style='text-align:right;'><h2>Date of Birth</h2></div>
      <div class='col-sm-6'>
             <div class="input-group date">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span><input alt='please enter your date of birth' name='DOB' type="text" class="form-control input-lg" required>
+              <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span><input name='DOB' type="text" class="form-control input-lg" required oninvalid="this.setCustomValidity('Please enter your date of birth in the format month month slash day day slash year year year year')" oninput="this.setCustomValidity('')">
             </div>
          <script>
                var $d = jQuery.noConflict();
@@ -111,7 +111,7 @@ slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
   </div> 
   <div class='row'>
       <div class='col-sm-3' style='text-align:right;'><h2>Phone Number**</h2></div>
-      <div class='col-sm-6' style='text-align:left;'><input alt='please enter your phone number with area code with hyphens like 123 dash 456 dash 7890' class="form-control input-lg" id="contact_phone" name="contact_phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required></div>
+      <div class='col-sm-6' style='text-align:left;'><input class="form-control input-lg" id="contact_phone" name="contact_phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required oninvalid="this.setCustomValidity('please enter your phone number with area code with hyphens like 1 2 3 dash 4 5 6 dash 7 8 9 0')" oninput="this.setCustomValidity('')"></div>
       <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</div>
   </div>
   <div class='row'>
@@ -121,7 +121,7 @@ slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
   </div>
   <div class='row'>
     <div class='col-sm-3' style='text-align:right;'><h2>House Number</h2></div>
-    <div class='col-sm-6' style='text-align:left;'><input alt='please enter only your house number without street name' class="form-control input-lg" name='web_house_number' type='number' required> </div>
+    <div class='col-sm-6' style='text-align:left;'><input class="form-control input-lg" name='web_house_number' type='number' required oninvalid="this.setCustomValidity('Please enter your house number without street name')" oninput="this.setCustomValidity('')"> </div>
     <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
   </div>  
   <div class='row'>
@@ -131,7 +131,7 @@ slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
   </div>     
   <div class='row'>
      <div class='col-sm-3' style='text-align:right;'><h2>ZIP Code</h2></div>
-     <div class='col-sm-6' style='text-align:left;'><input alt='please enter only your 5 digit zip code' class="form-control input-lg" name='web_zip_code' type='number' required> </div>
+     <div class='col-sm-6' style='text-align:left;'><input class="form-control input-lg" name='web_zip_code' type='number' required oninvalid="this.setCustomValidity('Please enter your five digit zip code')" oninput="this.setCustomValidity('')"> </div>
      <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
   </div>
   <div class='row'>
