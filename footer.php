@@ -15,7 +15,7 @@ if ($_COOKIE['invite'] != ''){
   
  </div>
  <div class='col-sm-2' style='text-align:center;'>
-  <a target='_Blank' href='https://www.youtube.com/watch?v=PFVN97kfUD8'><img class='img-responsive' src='files/img-help_button.png'></a>
+  <a target='_Blank' href='https://www.youtube.com/watch?v=PFVN97kfUD8'><img alt='Click Here for a youtube instructional video' class='img-responsive' src='files/img-help_button.png'></a>
  </div>
  <div class='col-sm-4' style='text-align:center;'>
   
