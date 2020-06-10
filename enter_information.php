@@ -77,13 +77,13 @@ slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
       
   <div class='row'>
     <div class='col-sm-3' style='text-align:right;'><h2>E-Mail for Follow Up*</h2></div>
-    <div class='col-sm-6' style='text-align:left;'><input alt='please enter an email address for follow up' class="form-control input-lg" name='email'></div>
+    <div class='col-sm-6' style='text-align:left;'><input class="form-control input-lg" name='email' oninvalid="this.setCustomValidity('please enter an email address for follow up')" oninput="this.setCustomValidity('')" ></div>
     <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
   </div>  
      
   <div class='row'>
     <div class='col-sm-3' style='text-align:right;'><h2>First Name</h2></div>
-    <div class='col-sm-6' style='text-align:left;'><input alt='please enter only your first name' class="form-control input-lg" name='web_first_name' required></div>
+    <div class='col-sm-6' style='text-align:left;'><input class="form-control input-lg" name='web_first_name' required oninvalid="this.setCustomValidity('please enter only your first name')" oninput="this.setCustomValidity('')" ></div>
     <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
   </div>  
    
