@@ -44,8 +44,8 @@ slack_general('BTEC Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
   
    <?PHP if ($d['petition_jpg_page2'] != ''){ ?>
     <div class="row">
-      <div class='col-sm-6'><center><img class="img-responsive" alt="<?PHP echo $d['text_title'];?>" src="<?PHP echo $d['logo_url'];?>"><h2><?PHP echo $d['text_block'];?></h2></center></div>
-      <div class='col-sm-4'><img class="img-responsive" src='../<?PHP echo $d['petition_jpg_page2'];?>'></div>
+      <div class='col-sm-6'><center><img alt='BTEC Logo' class="img-responsive" alt="<?PHP echo $d['text_title'];?>" src="<?PHP echo $d['logo_url'];?>"><h2><?PHP echo $d['text_block'];?></h2></center></div>
+      <div class='col-sm-4'><img alt='Amendment Text' class="img-responsive" src='../<?PHP echo $d['petition_jpg_page2'];?>'></div>
     </div>
   <?PHP }else{ ?>
       <div class='col-sm-12'><center><img class="img-responsive" alt="<?PHP echo $d['text_title'];?>" src="<?PHP echo $d['logo_url'];?>"><h2><?PHP echo $d['text_block'];?></h2></center></div>
@@ -54,7 +54,7 @@ slack_general('BTEC Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
   </div>
   
 <div class='row'>
-  <div class='col-sm-12' style='text-align:center;'><button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='../enter_information.php'"><img style='height:50px; width:100px;' src="../files/click_here.gif"> SIGN <?PHP echo $d['petition_name'];?></button></div>
+  <div class='col-sm-12' style='text-align:center;'><button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='../enter_information.php'"><img alt='Click Here to Continue' style='height:50px; width:100px;' src="../files/click_here.gif"> SIGN <?PHP echo $d['petition_name'];?></button></div>
  </div> 
   
   
@@ -115,7 +115,8 @@ slack_general('BTEC Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
      data-layout="box_count" data-size="large">
    </div></td>
    <td><input type='text' size='50' value='https://www.md-petition.com/invite/BTEC.php' id='BTEC'><button onclick='myFunction("BTEC")'>Copy Link</button></td>
-   </tr>
+    <td><a href='../printable_qr_code.php?short=BTEC'><img alt='QR Code Invite' src='https://www.md-petition.com/qrcode.php?s=qrl&d=https://www.md-petition.com/invite/BTEC.php'></a></td>
+  </tr>
  </table></center>
 </div>
 </div>
