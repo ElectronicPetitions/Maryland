@@ -140,7 +140,7 @@ slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
      <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
   </div> 
   <div class='row'>
-     <div class='col-sm-10' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block"><img class='click_me' src="files/click_here.gif">Next</button></div>
+     <div class='col-sm-10' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block"><img alt='Click Here to Continue' class='click_me' src="files/click_here.gif">Next</button></div>
   </div>
   <div class='row'>
      <div class='col-sm-10' style='text-align:center;'><button type="reset" class="btn btn-warning btn-lg btn-block not_me">Clear</button></div>
