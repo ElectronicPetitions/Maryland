@@ -56,7 +56,7 @@ $q="SELECT ip_address, petition_id,VTRID, COUNT(*) as count FROM signatures wher
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
   if ($d['count'] > 1){
-    $msg = "*ALERT* https://www.md-petition.com/admin/abuse.php $d[ip_address] $d[VTRID] ".id2petition($d['petition_id'])." *$d[count]*"; 
+    $msg = "*ALERT* https://www.md-petition.com/admin/analytics.php $d[ip_address] $d[VTRID] ".id2petition($d['petition_id'])." *$d[count]*"; 
     slack_general_admin($msg,'md-petition-signed');
   }
 }
