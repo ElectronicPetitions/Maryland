@@ -10,12 +10,12 @@ if ($_COOKIE['level'] == 'user'){
 if (isset($_GET['clear_php_session_id'])){
   $id = $_GET['clear_php_session_id'];
   $petition->query("update presign set presign_status = 'DONE' where php_session_id = '$id' ");
-  header('Location: abuse.php');
+  header('Location: analytics.php');
 }
 if (isset($_GET['sign_php_session_id'])){
   $id = $_GET['sign_php_session_id'];
   $petition->query("update presign set presign_status = 'SIGNED' where php_session_id = '$id' ");
-  header('Location: abuse.php');
+  header('Location: analytics.php');
 }
 if ($_COOKIE['level'] == 'manager'){
   slack_general('ADMIN: Redirect Manager Home ('.$_COOKIE['name'].') ('.$_COOKIE['level'].')','md-petition');
@@ -24,37 +24,37 @@ if ($_COOKIE['level'] == 'manager'){
 if (isset($_GET['flag_invalid_signature'])){
   $id = $_GET['flag_invalid_signature'];
   $petition->query("update signatures set signature_status = 'flag_invalid_signature' where id = '$id' ");
-  header('Location: abuse.php');
+  header('Location: analytics.php');
 }
 if (isset($_GET['flag_duplicate'])){
   $id = $_GET['flag_duplicate'];
   $petition->query("update signatures set signature_status = 'flag_duplicate' where id = '$id' ");
-  header('Location: abuse.php');
+  header('Location: analytics.php');
 }
 if (isset($_GET['flag_ip_address'])){
   $ip = $_GET['flag_ip_address'];
   $petition->query("update signatures set signature_status = 'flag_ip_address' where ip_address = '$ip' ");
-  header('Location: abuse.php');
+  header('Location: analytics.php');
 }
 if (isset($_GET['resign_requested'])){
   $id = $_GET['resign_requested'];
   $petition->query("update signatures set signature_status = 'resign_requested' where id =  '$id' ");
-  header('Location: abuse.php');
+  header('Location: analytics.php');
 }
 if (isset($_GET['bot'])){
   $id = $_GET['bot'];
   $petition->query("update signatures set signature_status = 'bot' where id =  '$id' ");
-  header('Location: abuse.php');
+  header('Location: analytics.php');
 }
 if (isset($_GET['flag_VTRID'])){
   $VTRID = $_GET['flag_VTRID'];
   $petition->query("update signatures set signature_status = 'flag_VTRID' where VTRID = '$VTRID' ");
-  header('Location: abuse.php');
+  header('Location: analytics.php');
 }
 if (isset($_GET['flag_phone'])){
   $flag_phone = $_GET['flag_phone'];
   $petition->query("update signatures set signature_status = 'flag_phone' where contact_phone = '$flag_phone' ");
-  header('Location: abuse.php');
+  header('Location: analytics.php');
 }
 include_once('header.php');
 if (isset($_GET['ip_address'])){ 
@@ -147,8 +147,9 @@ if (isset($_GET['ip_address'])){
 }
 ?>
 
-<h1>Signature Quality Control</h1>
+<h1>Signature Analytics</h1>
 <h2>NEVER NEVER NEVER CALL OR TEXT ANYONE - ONLY EMAIL!!!</h2>
+<h3>SysOp Says: Transparency = Trust</h3>
 <table><tr>
 <tr>
 <td valign="top">
@@ -166,7 +167,7 @@ while($d = mysqli_fetch_array($r)){
 ?></ol>
   </td>
 <td valign="top">
-<h2>Signature</h2>
+<h2>Signatures</h2>
 <div>Last 10</div><ol>
 <?PHP
 $q="SELECT * FROM signatures where signature_status = 'verified' order by id desc limit 0, 10";
@@ -180,31 +181,31 @@ while($d = mysqli_fetch_array($r)){
   </tr>
   <td valign="top">
 <h2>IP Address</h2>
-<div>Watch for duplicates.</div><ol>
+<div>Watching for duplicates.</div><ol>
 <?PHP
 $q="SELECT ip_address, petition_id,VTRID, COUNT(*) as count FROM signatures where signature_status = 'verified' group by ip_address, petition_id, VTRID";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
   if ($d['count'] > 1){
-    echo "<li><a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a target='_Blank' href='https://ipinfo.io/$d[ip_address]'>IP INFO</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id] <b>$d[count]</b> $d[signed_name_as]</li>"; 
+    echo "<li><a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> ".id2petition($d['petition_id'])." <b>$d[count]</b> $d[signed_name_as]</li>"; 
   }
 }
 ?></ol>
   </td><td valign="top">
 <h2>VTRID</h2>
-<div>Watch for duplicates.</div><ol>
+<div>Watching for duplicates.</div><ol>
 <?PHP
 $q="SELECT VTRID, petition_id, COUNT(*) as count FROM signatures where signature_status = 'verified' group by VTRID, petition_id";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
   if ($d['count'] > 1){
-    echo "<li><a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id] <b>$d[count]</b> $d[signed_name_as]</li>"; 
+    echo "<li><a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> ".id2petition($d['petition_id'])." <b>$d[count]</b> $d[signed_name_as]</li>"; 
   }
 }
   ?></ol>
   </td></tr><tr><td valign="top">
-<h2>VTRID</h2>
-<div>Watch for 0</div><ol>
+<h2>VTRID Bugs</h2>
+<div>Watching for 0</div><ol>
 <?PHP
 $q="SELECT * FROM signatures where VTRID = '0' and signature_status <> 'bot' and signature_status <> 'flag_invalid_signature' and signature_status <> 'resign_requested'";
 $r = $petition->query($q);
@@ -213,8 +214,8 @@ while($d = mysqli_fetch_array($r)){
 }
 ?></ol>
  </td><td valign="top">
-<h2>petition_id</h2>
-<div>Watch for 0</div><ol>
+<h2>Petition ID Bugs</h2>
+<div>Watching for 0</div><ol>
 <?PHP
 $q="SELECT * FROM signatures where (petition_id = '0' or petition_id = '') and signature_status <> 'bot' and signature_status <> 'flag_invalid_signature' and signature_status <> 'resign_requested'";
 $r = $petition->query($q);
@@ -223,27 +224,36 @@ while($d = mysqli_fetch_array($r)){
 }
 ?></ol>
   </td></tr><tr><td valign="top">
+    <?PHP ob_start(); ?>
 <h2>resign_requested</h2>
 <div>These are most likely from early bugs</div><ol>
 <?PHP
 $q="SELECT * FROM signatures where signature_status = 'resign_requested' order by ip_address";
 $r = $petition->query($q);
+    $show = 0;
 while($d = mysqli_fetch_array($r)){ 
+  $show = 1;
     echo "<li>$d[date_time_signed] <a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a target='_Blank' href='https://ipinfo.io/$d[ip_address]'>IP INFO</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id] $d[signed_name_as]</li>"; 
 }
 ?></ol>
+    <?PHP $html = ob_get_clean(); if ( $show == 1 ){ echo $html; } ?>
   </td>
   
   <td valign="top">
+    <?PHP ob_start(); ?>
 <h2>bots</h2>
 <div>These are bots on the site.</div><ol>
 <?PHP
 $q="SELECT * FROM signatures where signature_status = 'bot' order by ip_address";
 $r = $petition->query($q);
+$show = 0;
 while($d = mysqli_fetch_array($r)){ 
+    $show = 1;
     echo "<li>$d[date_time_signed] <a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> <a target='_Blank' href='https://ipinfo.io/$d[ip_address]'>IP INFO</a> <a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> $d[petition_id] $d[signed_name_as]</li>"; 
 }
 ?></ol>
+    <?PHP $html = ob_get_clean(); if ( $show == 1 ){ echo $html; } ?>
+    
   </td>
 
 
