@@ -148,6 +148,7 @@ if ($d[email_for_follow_up] != ''){
     </tr>"; 
   }
   $petition->query("insert into follow_up (name, email, php_session, petition_id) values ('$name','$email','$php_session_id','$_GET[follow_up]') ");  
+  $petition->query("update presign set presign_status = 'DONE' where php_session_id = '$id' ");
   echo "</table><a href='?clear_php_session_id=$php_session_id'>CLEAR ALERT</a> - <a href='?sign_php_session_id=$php_session_id'>SIGNATURE FOUND</a>";
 }elseif (isset($_GET['VTRID'])){ 
   $VTRID = $_GET['VTRID'];
