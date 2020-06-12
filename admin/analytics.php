@@ -113,7 +113,14 @@ if (isset($_GET['ip_address'])){
       <td style='white-space:pre;'>$d[browser_string]</td>
     </tr>"; 
   }
-  echo "</table><a href='?clear_php_session_id=$php_session_id'>CLEAR ALERT</a> - <a href='?sign_php_session_id=$php_session_id'>SIGNATURE FOUND</a> - <a href='?php_session_id=$php_session_id&follow_up=1'>ADD TO FOLLOW UP LIST 1</a>";
+  echo "</table><a href='?clear_php_session_id=$php_session_id'>CLEAR ALERT</a> - 
+  <a href='?sign_php_session_id=$php_session_id'>SIGNATURE FOUND</a> - 
+  - <a href='?php_session_id=$php_session_id&follow_up=1'>ADD TO FOLLOW UP LIST MGP</a>
+  - <a href='?php_session_id=$php_session_id&follow_up=2'>ADD TO FOLLOW UP LIST MLP</a>
+  - <a href='?php_session_id=$php_session_id&follow_up=3'>ADD TO FOLLOW UP LIST BTEC</a>
+  - <a href='?php_session_id=$php_session_id&follow_up=7'>ADD TO FOLLOW UP LIST PG</a>
+  - <a href='?php_session_id=$php_session_id&follow_up=8'>ADD TO FOLLOW UP LIST Ivey</a>
+  ";
 }elseif(isset($_GET['php_session_id']) && isset($_GET['follow_up'])){ 
   $php_session_id = $_GET['php_session_id']; 
   echo "<h1>Adding Follow up for $php_session_id to $_GET[follow_up]</h1><table width='100%' border='1' cellpadding='5' cellspacing='5'>";    
