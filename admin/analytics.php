@@ -119,18 +119,20 @@ if (isset($_GET['ip_address'])){
   echo "<h1>Adding Follow up for $php_session_id to $_GET[follow_up]</h1><table width='100%' border='1' cellpadding='5' cellspacing='5'>";    
   $q = "SELECT * FROM presign where php_session_id = '$php_session_id' order by id desc ";
   $r = $petition->query($q);
-  $i=0;
   while($d = mysqli_fetch_array($r)){
-    if ($i == 0){
-      $petition->query("insert into follow_up (name, email, php_session, petition_id) values ('$d[name]','$d[email]','$php_session_id','$_GET[follow_up]') ");
-    }
+    
     $color = 'white';
     $test = date('Y-m-d',strtotime($d['action_on']));
     $pos = strpos($test, date('Y-m-d'));
     if ($pos !== false) {
         $color= 'yellow';
     } 
-    $i++;
+if ($d[name] != ''){
+  $name = $d[name];
+}
+if ($d[email_for_follow_up] != ''){
+  $email = $d[email_for_follow_up];
+}
     echo "<tr style='background-color:$color;'>
       <td style='white-space:pre;'><b>$d[action_on]</b></td>
       <td style='white-space:pre;'>$d[php_page]</td>
@@ -145,6 +147,7 @@ if (isset($_GET['ip_address'])){
       <td style='white-space:pre;'>$d[browser_string]</td>
     </tr>"; 
   }
+  $petition->query("insert into follow_up (name, email, php_session, petition_id) values ('$name','$email','$php_session_id','$_GET[follow_up]') ");  
   echo "</table><a href='?clear_php_session_id=$php_session_id'>CLEAR ALERT</a> - <a href='?sign_php_session_id=$php_session_id'>SIGNATURE FOUND</a>";
 }elseif (isset($_GET['VTRID'])){ 
   $VTRID = $_GET['VTRID'];
