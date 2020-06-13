@@ -5,7 +5,7 @@ include_once('/var/www/secure.php');
 global $gmail_email_user;
 global $gmail_email_pass;
 
-$from = 'MD-Petition.com Support <mdpetition@gmail.com>';
+$from = 'Patrick McGuire <mdpetition@gmail.com>';
 $to = '<insidenothing@gmail.com>';
 $subject = 'Hi!';
 $body = "Hi,\n\nHow <b>are</b> you?";
