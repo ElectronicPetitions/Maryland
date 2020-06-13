@@ -101,7 +101,7 @@ if (isset($_GET['ip_address'])){
     } 
     echo "<tr style='background-color:$color;'>
       <td style='white-space:pre;'><b>$d[action_on]</b></td>
-      <td style='white-space:pre;'><a href='$d[php_session_id]'>$d[php_session_id]</a></td>
+      <td style='white-space:pre;'><a href='?php_session_id=$d[php_session_id]'>$d[php_session_id]</a></td>
       <td style='white-space:pre;'>$d[php_page]</td>
       <td style='white-space:pre;'>".id2petition($d['petition'])."</td>
       <td style='white-space:pre;'>$d[invite]</td>
@@ -226,7 +226,8 @@ if ($d[email_for_follow_up] != ''){
 <tr>
 <td valign="top">
 <h2>Pre-Sign</h2>
-<div>Follow up requested - never signed.</div><ol>
+<div>Follow up requested - never signed.</div>
+<form method='GET'><input name='email'><input type='submit' value='SEARCH E-MAIL'></form><ol>
 <?PHP
 $q="SELECT distinct php_session_id FROM presign where presign_status = 'NEW' and email_for_follow_up <> '' order by id desc";
 $r = $petition->query($q);
