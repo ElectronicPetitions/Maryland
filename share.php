@@ -68,7 +68,7 @@ $d = mysqli_fetch_array($r);
     $link = $d2['landing_page']; 
    }
   echo "<tr>
-  <td align='center'><small>$d2[petition_name]<small></td>
+  <td align='center'><small>$d2[petition_name]<small><br> Constituents of $d2[eligibleVoterListField] $d2[eligibleVoterListEquals]</td>
   <td><div class=\"fb-share-button\" 
      data-href=\"https://www.md-petition.com/$link\" 
      data-layout=\"button\" data-size=\"large\">
