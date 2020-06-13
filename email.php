@@ -9,7 +9,7 @@ function meps_mail($to,$msg,$sub){
     global $gmail_email_pass;
     $from = 'MD Petition Support <mdpetition@gmail.com>';
     //$to = 'Patrick <baltimorehacker@gmail.com>';
-    $subject = $sub.' [MD-Petiton.com]';
+    $subject = $sub.' [MD-Petition.com]';
     $body = "$msg <br><br><br><br> Patrick McGuire <br>MD Petition Support  mdpetition@gmail.com <br> https://www.md-petition.com ";
 
     $headers = array(
