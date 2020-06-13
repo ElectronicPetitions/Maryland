@@ -9,28 +9,26 @@ $q="SELECT * FROM follow_up where status = 'NEW'";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
   $name = $d['name'];
-  $email = $d['email'];
-  
+  $email = $d['email']; 
   $q2 = "SELECT * FROM presign where php_session_id = '$d[php_session]'";
   $r2 = $petition->query($q2);
-  $presign = mysqli_fetch_array($r2);
-  
+  $presign = mysqli_fetch_array($r2);  
   $visit = $presign['action_on'];
-  
-  $q2 = "SELECT * FROM petitions where petition_id = '$d[petition_id]'";
-  $r2 = $petition->query($q2);
-  $petitions = mysqli_fetch_array($r2);
-  
-  $petition_name = $petitions['petition_name'];
-  $landing_page = $petitions['landing_page'];
-  $web_short_name   = $petitions['web_short_name'];
-  
-  $link = 'https://www.md-petition.com/?invite='.$web_short_name;
-  if ($landing_page != ''){
-    $link = 'https://www.md-petition.com/'.$landing_page;
+  $invite='';
+  $petition_name='Maryland';
+  if($d['petition_id'] != '0'){
+    $q2 = "SELECT * FROM petitions where petition_id = '$d[petition_id]'";
+    $r2 = $petition->query($q2);
+    $petitions = mysqli_fetch_array($r2);
+    $petition_name = $petitions['petition_name'];
+    $landing_page = $petitions['landing_page'];
+    $web_short_name   = $petitions['web_short_name'];
+    $link = 'https://www.md-petition.com/?invite='.$web_short_name;
+    if ($landing_page != ''){
+      $link = 'https://www.md-petition.com/'.$landing_page;
+    }
+    $invite = "<br><br>Petition: $petition_name at <a href='$link'>$link</a>";
   }
-  
-  $invite = "<br><br>Petition: $petition_name at <a href='$link'>$link</a>";
   $last = "<br><br>Follow up was requested at $visit";
   $body = $base_message.$invite.$last;
   $subject = "$petition_name Petition Follow-Up";
