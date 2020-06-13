@@ -3,6 +3,7 @@
 require_once "Mail.php";
 include_once('/var/www/secure.php');
 
+// USAGE meps_mail('Patrick <baltimorehacker@gmail.com>','I just wanted to take a second and follow up with your visit to md-petition.com and see if you needed anything, or had any questions.','Petition Follow-Up');
 function meps_mail($to,$msg,$sub){
     global $gmail_email_user;
     global $gmail_email_pass;
@@ -36,5 +37,3 @@ function meps_mail($to,$msg,$sub){
     }
 }
 
-
- meps_mail('Patrick <baltimorehacker@gmail.com>','I just wanted to take a second and follow up with your visit to md-petition.com and see if you needed anything, or had any questions.','Petition Follow-Up');
