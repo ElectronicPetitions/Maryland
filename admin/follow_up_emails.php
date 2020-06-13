@@ -36,9 +36,9 @@ while($d = mysqli_fetch_array($r)){
   $subject = "$petition_name Petition Follow-Up";
   $to = "$name <$email>";
   $feedback_message = "TO: $to SUB: $subject MSG: $body sent on ".date('r')." by ".$_COOKIE['name'];
-  meps_mail($to,$body,$subject);
+//  meps_mail($to,$body,$subject);
   $feedback_message = $petition->real_escape_string($feedback_message);
-  $petition->query("update follow_up set status = 'sent', feedback_message = '$feedback_message' where id = '$d[id]'  ");
+  $petition->query("update follow_up set feedback_message = '$feedback_message' where id = '$d[id]'  ");
 }
 
 ?>
