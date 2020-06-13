@@ -87,6 +87,34 @@ if (isset($_GET['ip_address'])){
     </tr>"; 
   }
   echo "</table>";
+}elseif(isset($_GET['email'])){ 
+  $email = $_GET['email']; 
+  echo "<h1>Review $email</h1><table width='100%' border='1' cellpadding='5' cellspacing='5'>";    
+  $q = "SELECT * FROM presign where email_for_follow_up = '$email' order by id desc ";
+  $r = $petition->query($q);
+  while($d = mysqli_fetch_array($r)){
+    $color = 'white';
+    $test = date('Y-m-d',strtotime($d['action_on']));
+    $pos = strpos($test, date('Y-m-d'));
+    if ($pos !== false) {
+        $color= 'yellow';
+    } 
+    echo "<tr style='background-color:$color;'>
+      <td style='white-space:pre;'><b>$d[action_on]</b></td>
+      <td style='white-space:pre;'><a href='$d[php_session_id]'>$d[php_session_id]</a></td>
+      <td style='white-space:pre;'>$d[php_page]</td>
+      <td style='white-space:pre;'>".id2petition($d['petition'])."</td>
+      <td style='white-space:pre;'>$d[invite]</td>
+      <td style='white-space:pre;'>$d[invite_error]</td>
+      <td style='white-space:pre;'>$d[name]</td>
+      <td style='white-space:pre;'>$d[email_for_follow_up]</td>
+      <td style='white-space:pre;'>$d[phone_for_validation]</td>
+      <td style='white-space:pre;'>$d[presign_status]</td>
+      <td style='white-space:pre;'>$d[ip_address]</td>
+      <td style='white-space:pre;'>$d[browser_string]</td>
+    </tr>"; 
+  }
+  echo "</table>";
 }elseif(isset($_GET['php_session_id']) && empty($_GET['follow_up'])){ 
   $php_session_id = $_GET['php_session_id']; 
   echo "<h1>Review $php_session_id</h1><table width='100%' border='1' cellpadding='5' cellspacing='5'>";    
@@ -106,7 +134,7 @@ if (isset($_GET['ip_address'])){
       <td style='white-space:pre;'>$d[invite]</td>
       <td style='white-space:pre;'>$d[invite_error]</td>
       <td style='white-space:pre;'>$d[name]</td>
-      <td style='white-space:pre;'>$d[email_for_follow_up]</td>
+      <td style='white-space:pre;'><a href='?email=$d[email_for_follow_up]'>$d[email_for_follow_up]</a></td>
       <td style='white-space:pre;'>$d[phone_for_validation]</td>
       <td style='white-space:pre;'>$d[presign_status]</td>
       <td style='white-space:pre;'>$d[ip_address]</td>
