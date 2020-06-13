@@ -142,11 +142,12 @@ if (isset($_GET['ip_address'])){
     </tr>"; 
   }
   echo "</table><a href='?clear_php_session_id=$php_session_id'>CLEAR ALERT</a> - 
-  <a href='?sign_php_session_id=$php_session_id'>SIGNATURE FOUND</a> - 
-  - <a href='?php_session_id=$php_session_id&follow_up=1'>ADD TO FOLLOW UP LIST MGP</a>
-  - <a href='?php_session_id=$php_session_id&follow_up=2'>ADD TO FOLLOW UP LIST MLP</a>
-  - <a href='?php_session_id=$php_session_id&follow_up=3'>ADD TO FOLLOW UP LIST BTEC</a>
-  - <a href='?php_session_id=$php_session_id&follow_up=7'>ADD TO FOLLOW UP LIST PG</a>
+  <a href='?sign_php_session_id=$php_session_id'>SIGNATURE FOUND</a><br> 
+  - <a href='?php_session_id=$php_session_id&follow_up=0'>ADD TO FOLLOW UP LIST Maryland General</a><br>
+  - <a href='?php_session_id=$php_session_id&follow_up=1'>ADD TO FOLLOW UP LIST MGP</a><br> 
+  - <a href='?php_session_id=$php_session_id&follow_up=2'>ADD TO FOLLOW UP LIST MLP</a><br> 
+  - <a href='?php_session_id=$php_session_id&follow_up=3'>ADD TO FOLLOW UP LIST BTEC</a><br> 
+  - <a href='?php_session_id=$php_session_id&follow_up=7'>ADD TO FOLLOW UP LIST PG</a><br> 
   - <a href='?php_session_id=$php_session_id&follow_up=8'>ADD TO FOLLOW UP LIST Ivey</a>
   ";
 }elseif(isset($_GET['php_session_id']) && isset($_GET['follow_up'])){ 
