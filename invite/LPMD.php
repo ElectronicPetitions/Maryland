@@ -63,19 +63,19 @@ slack_general('MLP Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
   <?PHP if ($d['social_website'] != ''){ ?> 
  <div class='row'>
   <div class='col-sm-5 social' style='text-align:right;'>Website</div>
-  <div class='col-sm-5 social' style='text-align:left;'><a href='<?PHP echo $d['social_website'];?>'><?PHP echo $d['social_website'];?></a></div>
+  <div class='col-sm-5 social' style='text-align:left;'><a target='_Blank' href='<?PHP echo $d['social_website'];?>'><?PHP echo $d['social_website'];?></a></div>
  </div>
   <?PHP } ?>
    <?PHP if ($d['social_facebook'] != ''){ ?> 
    <div class='row'>
   <div class='col-sm-5 social' style='text-align:right;'>Facebook</div>
-  <div class='col-sm-5 social' style='text-align:left;'><?PHP echo $d['social_facebook'];?></div>
+  <div class='col-sm-5 social' style='text-align:left;'><a target='_Blank' href='<?PHP echo $d['social_facebook'];?>'><?PHP echo $d['social_facebook'];?></a></div>
  </div>
   <?PHP } ?>
    <?PHP if ($d['social_twitter'] != ''){ ?> 
  <div class='row'>
   <div class='col-sm-5 social' style='text-align:right;'>Twitter</div>
-  <div class='col-sm-5 social' style='text-align:left;'><?PHP echo $d['social_twitter'];?></div>
+   <div class='col-sm-5 social' style='text-align:left;'><a target='_Blank' href='<?PHP echo $d['social_twitter'];?>'><?PHP echo $d['social_twitter'];?></a></div>
  </div>
    <?PHP } ?>
 <div class='row'>
