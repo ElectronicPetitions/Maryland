@@ -18,6 +18,7 @@ function check_user($email,$pass){
 			        setcookie("email", $user['email']);
 			        setcookie("level", $user['sec_level']);
 				setcookie("group_id", $user['group_id']);
+				setcookie("petition_id", $user['petition_id']);
 				header('Location: index.php');
 			}else{
 				slack_general('ADMIN: Wrong Password','md-petition');
