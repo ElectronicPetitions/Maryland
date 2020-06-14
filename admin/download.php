@@ -11,7 +11,7 @@ if ($_COOKIE['level'] == 'admin'){
   $q = "SELECT date_time_signed, signed_name_as, printed_status FROM petitions where petition_id = '$_COOKIE[petition_id]' and signature_status = 'verified' ORDER BY id";
 }
 
-$r = $core->query($q);
+$r = $petition->query($q);
 
 $fields = mysqli_num_fields ( $r );
 
