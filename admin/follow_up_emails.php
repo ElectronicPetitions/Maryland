@@ -2,9 +2,9 @@
 include_once('../email.php');
 
 $base_message = "I just wanted to take a second and follow up with your visit to md-petition.com and
-see if you needed anything, or had any questions. You should of received an
-alert 'Petition Signed' when you finished signing the petition, and had the option to print a signed copy.
-If you did not receive the alert, and would like help, let me know. The invite link is below to try again.";
+see if you needed anything or had any questions? You should have received an
+alert 'Petition Signed' when you finished signing the petition and had the option to print a signed copy.
+If you did not receive the alert and would like help, let me know. The invite link is below to try again.";
 
 // USAGE meps_mail('Patrick <baltimorehacker@gmail.com>','','Petition Follow-Up');
 
