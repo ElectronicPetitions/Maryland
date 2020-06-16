@@ -17,7 +17,7 @@ if(isset($_POST['email'])){
           meps_mail($email,$body,$subject);
           $petition->query("update users set pass = '$encrypted' WHERE email = '$email'");
           echo "<h1>Your Password has been Sent.</h1>";
-	  slack_general_admin('DEBUG: $body','md-petition-signed');
+	  slack_general_admin('DEBUG: '.$body,'md-petition-signed');
         }else{
           echo "<h1>E-Mail address not found.</h1>";
 	  slack_general('ADMIN: Reset- E-Mail address not found','md-petition');
