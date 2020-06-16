@@ -30,6 +30,16 @@ slack_general('ADMIN: Home Page Loaded ('.$_COOKIE['name'].') ('.$_COOKIE['level
 <h1>Admin Home</h1>
 <div id="chartContainer1" style="height: 400px; width: 100%; margin: 0px auto;"></div>
 <h1>Users</h1>
+<form method='post'>
+  <table>
+    	<tr><td>Name</td><td><input name='name' required></td></tr>
+	<tr><td>E-Mail</td><td><input name='email' required></td></tr>	  
+	<tr><td>Security Level</td><td><input name='sec_level' required></td></tr>
+	<tr><td>Group ID</td><td><input name='group_id' required></td></tr>
+	<tr><td>Petition ID</td><td><input name='petition_id' required></td></tr>
+	<tr><td></td><td><input type='submit' value='New User'></td></tr>
+  </table>
+</form>
 <?PHP
 $q="SELECT * FROM users";
 $r = $petition->query($q);
@@ -38,7 +48,7 @@ while($d = mysqli_fetch_array($r)){
   if ($d[pass] == ''){
     $alert='NEEDS PASSWORD RESET';    
   }
- echo "<li>$d[id] $d[email] $d[name] $d[group_id] $d[sec_level] $alert</li>"; 
+ echo "<li>ID $d[id] EM $d[email] NM $d[name] GI $d[group_id] PI $d[petition_id] SL $d[sec_level] $alert</li>"; 
 }
 ?>
 
