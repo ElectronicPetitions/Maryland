@@ -13,7 +13,7 @@ if(isset($_POST['email'])){
           $encrypted = $hash.':'.$salt;
           //off_world_mail(,,);
 	  $subject = 'MD Petition Login';
-	  $body = 'Login with '.$email.' and your new password '.$pass.' at https://www.md-petition.com/admin/login.php'
+	  $body = 'Login with '.$email.' and your new password '.$pass.' at https://www.md-petition.com/admin/login.php';
           meps_mail($email,$body,$subject);
           $petition->query("update users set pass = '$encrypted' WHERE email = '$email'");
           echo "<h1>Your Password has been Sent.</h1>";
