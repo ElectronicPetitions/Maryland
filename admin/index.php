@@ -10,7 +10,7 @@ if ($_COOKIE['level'] == 'manager'){
   header('Location: manager_home.php');
 }
 include_once('header.php');
-if ($_POST['name']){
+if ($_POST['name']){	
 	$name 		= $petition->real_escape_string($_POST['name']);
 	$email 		= $petition->real_escape_string($_POST['email']);
 	$sec_level 	= $petition->real_escape_string($_POST['sec_level']);
@@ -18,7 +18,18 @@ if ($_POST['name']){
 	$petition_id 	= $petition->real_escape_string($_POST['petition_id']);
 	$q = "insert into users (name, email, sec_level, group_id, petition_id) values ('$name','$email','$sec_level','$group_id','$petition_id') ";
 	$petition->query($q);
-	slack_general_admin('SQL: '.$q,'md-petition');
+	slack_general_admin('SQL: '.$q,'md-petition-signed');
+	  include_once('../email.php');
+	  $pass = rand(1000,9999);
+          $salt = md5(rand(1000,9999));
+          $hash = md5($pass.$salt);
+          $encrypted = $hash.':'.$salt;
+	  $subject = 'MD Petition Login';
+	  $body = 'Login with '.$email.' and your new password '.$pass.' at https://www.md-petition.com/admin/login.php';
+          meps_mail($email,$body,$subject);
+          $petition->query("update users set pass = '$encrypted' WHERE email = '$email'");
+          echo "<h1>Password has been Sent.</h1>";
+	  slack_general_admin('DEBUG: '.$body,'md-petition-signed');
 }
 if(isset($_GET['approve'])){
   $id = $_GET['approve'];
