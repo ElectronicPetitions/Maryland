@@ -9,8 +9,17 @@ if ($_COOKIE['level'] == 'manager'){
   slack_general('ADMIN: Redirect Manager Home ('.$_COOKIE['name'].') ('.$_COOKIE['level'].')','md-petition');
   header('Location: manager_home.php');
 }
-
 include_once('header.php');
+if ($_POST['name']){
+	$name 		= $petition->real_escape_string($_POST['name']);
+	$email 		= $petition->real_escape_string($_POST['email']);
+	$sec_level 	= $petition->real_escape_string($_POST['sec_level']);
+	$group_id 	= $petition->real_escape_string($_POST['group_id']);
+	$petition_id 	= $petition->real_escape_string($_POST['petition_id']);
+	$q = "insert into users (name, email, sec_level, group_id, petition_id) values ('$name','$email','$sec_level','$group_id','$petition_id') ";
+	$petition->query($q);
+	slack_general_admin('SQL: '.$q,'md-petition');
+}
 if(isset($_GET['approve'])){
   $id = $_GET['approve'];
   $petition->query("update petitions set admin_status = 'approved' where petition_id = '$id' ");
