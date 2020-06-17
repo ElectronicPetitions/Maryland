@@ -114,6 +114,7 @@ while($d = mysqli_fetch_array($r)){
 	//echo "<li>$q3</li>";
 	$r3 = $petition->query($q3);
 	$total=0;
+	$total2=0;
 	$goal = $d['signature_goal'];
 	if ($goal == 0){
 		$goal = 10000;
@@ -133,11 +134,14 @@ while($d = mysqli_fetch_array($r)){
 	  $r2 = $petition->query($q2);	
 	  $count  = mysqli_num_rows($r2);
 	  $chart4 .=  '{ label: "'.$just_date.'", y: '.intval($count).' }, ';
+	  $total2 = $total2 + $count;
+	  $chart5 .=  '{ label: "'.$just_date.'", y: '.intval($total2).' }, ';
 	}
 	$chart = rtrim(trim($chart), ",");
 	$chart2 = rtrim(trim($chart2), ",");
 	$chart3 = rtrim(trim($chart3), ",");
 	$chart4 = rtrim(trim($chart4), ",");
+        $chart5 = rtrim(trim($chart5), ",");
 	
 	ob_start(); ?>
 
@@ -173,6 +177,15 @@ while($d = mysqli_fetch_array($r)){
 				<?PHP echo $chart2; ?>
 			]
 		},{
+			type: "line",
+			visible: true,
+			showInLegend: true,
+			yValueFormatString: "#####",
+			name: "Total Follow Up Count",
+			dataPoints: [
+				<?PHP echo $chart5; ?>
+			]
+		},{
 			type: "column",
 			visible: true,
 			showInLegend: true,
@@ -186,7 +199,7 @@ while($d = mysqli_fetch_array($r)){
 			visible: true,
 			showInLegend: true,
 			yValueFormatString: "#####",
-			name: "Follow Up E-Mails",
+			name: "Follow Up Sent",
 			dataPoints: [
 				<?PHP echo $chart4; ?>
 			]
