@@ -236,7 +236,7 @@ if ($d[email_for_follow_up] != ''){
 <table>
   
   <tr>
-  <td valign="top"><?PHP /*
+  <td valign="top" colspan='2'><?PHP /*
 <h2>IP Address</h2>
 <div>Watching for duplicates.</div><ol>
 <?PHP
@@ -247,8 +247,8 @@ while($d = mysqli_fetch_array($r)){
     echo "<li><a href='?ip_address=$d[ip_address]&petition_id=$d[petition_id]'>$d[ip_address]</a> ".id2petition($d['petition_id'])." <b>$d[count]</b> $d[signed_name_as]</li>"; 
   }
 }
-?></ol> */ ?>
-  </td><td valign="top">
+?></ol>
+  </td><td valign="top"> */ ?>
 <h2>VTRID</h2>
 <div>Watching for duplicates.</div><ol>
 <?PHP
@@ -267,7 +267,7 @@ while($d = mysqli_fetch_array($r)){
 <td valign="top">
 <h2>Pre-Sign</h2>
 <div>Follow up requested - never signed.</div>
-<form method='GET'><input name='email'><input type='submit' value='SEARCH E-MAIL'></form><ol>
+<form method='GET'><input name='email'><input type='submit' value='SEARCH E-MAIL'></form><table>
 <?PHP
 $q="SELECT distinct php_session_id FROM presign where presign_status = 'NEW' and email_for_follow_up <> '' order by id desc";
 $r = $petition->query($q);
@@ -275,9 +275,9 @@ while($d = mysqli_fetch_array($r)){
   $q2="SELECT * FROM presign where php_session_id = '$d[php_session_id]' order by id desc";
   $r2 = $petition->query($q2);
   $d2 = mysqli_fetch_array($r2);
-    echo "<li><a href='?php_session_id=$d2[php_session_id]'>$d2[name] $d2[email_for_follow_up] ".id2petition($d2['petition'])." $d2[invite]</a></li>"; 
+    echo "<tr><td>$d2[action_on]</td><td><a href='?php_session_id=$d2[php_session_id]'>$d2[name]</a></td><td>$d2[email_for_follow_up]</td><td>".id2petition($d2['petition'])."</td><td>$d2[invite]</td></tr>"; 
 }
-?></ol>
+?></table>
   </td>
 <td valign="top">
 <h2>Signatures</h2>
