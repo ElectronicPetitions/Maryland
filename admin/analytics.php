@@ -59,8 +59,9 @@ if (isset($_GET['flag_phone'])){
 include_once('header.php');
 if (isset($_GET['ip_address'])){ 
   $ip = $_GET['ip_address']; 
+  $petition_id = $_GET['petition_id']; 
   echo "<h1>Review $ip</h1><table width='100%' border='1' cellpadding='5' cellspacing='5'>";    
-  $q = "SELECT * FROM  signatures where ip_address = '$ip' order by signature_status desc ";
+  $q = "SELECT * FROM signatures where ip_address = '$ip' and signature_status = 'verified' and petition_id = '$petition_id' order by signature_status desc ";
   $r = $petition->query($q);
   while($d = mysqli_fetch_array($r)){
     $color = 'white';
@@ -75,7 +76,6 @@ if (isset($_GET['ip_address'])){
       <td>$d[signed_name_as]</td>
       <td>$d[signed_name_as_circulator]</td>
       <td>$d[contact_phone]</td>
-      <td>$d[signature_status]</td>
       <td>$d[printed_status]</td>
       <td><a href='?flag_invalid_signature=$d[id]'>flag invalid signature</a></td>
       <td><a href='?flag_VTRID=$d[VTRID]'>flag VTRID</a></td>
@@ -188,8 +188,9 @@ if ($d[email_for_follow_up] != ''){
   echo "</table>";
 }elseif (isset($_GET['VTRID'])){ 
   $VTRID = $_GET['VTRID'];
+   $petition_id = $_GET['petition_id']; 
   echo "<h1>Review $VTRID</h1><table width='100%' border='1' cellpadding='5' cellspacing='5'>";   
-  $q = "SELECT * FROM  signatures where VTRID = '$VTRID' and signature_status <> 'deleted' order by petition_id, id DESC ";
+  $q = "SELECT * FROM  signatures where VTRID = '$VTRID' and signature_status = 'verified' and petition_id = '$petition_id' order by petition_id, id DESC ";
   $r = $petition->query($q);
   while($d = mysqli_fetch_array($r)){
     $color = 'white';
@@ -204,7 +205,6 @@ if ($d[email_for_follow_up] != ''){
           <td>$d[signed_name_as]</td>
           <td>$d[signed_name_as_circulator]</td>
           <td>$d[contact_phone]</td>
-          <td>$d[signature_status]</td>
           <td>$d[printed_status]</td>
           <td><a href='?flag_invalid_signature=$d[id]'>flag invalid signature</a></td>
           <td><a href='?flag_VTRID=$d[VTRID]'>flag VTRID</a></td>
