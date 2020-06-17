@@ -12,6 +12,11 @@ if (isset($_GET['clear_php_session_id'])){
   $petition->query("update presign set presign_status = 'DONE' where php_session_id = '$id' ");
   header('Location: analytics.php');
 }
+if (isset($_GET['clear_email'])){
+  $email = $_GET['clear_email'];
+  $petition->query("update presign set presign_status = 'DONE' where email = '$email' ");
+  header('Location: analytics.php');
+}
 if (isset($_GET['sign_php_session_id'])){
   $id = $_GET['sign_php_session_id'];
   $petition->query("update presign set presign_status = 'SIGNED' where php_session_id = '$id' ");
@@ -114,7 +119,7 @@ if (isset($_GET['ip_address'])){
       <td style='white-space:pre;'>$d[browser_string]</td>
     </tr>"; 
   }
-  echo "</table>";
+  echo "</table><a href='?clear_email=$email'>CLEAR ALERT</a>";
 }elseif(isset($_GET['php_session_id']) && empty($_GET['follow_up'])){ 
   $php_session_id = $_GET['php_session_id']; 
   echo "<h1>Review $php_session_id</h1><table width='100%' border='1' cellpadding='5' cellspacing='5'>";    
