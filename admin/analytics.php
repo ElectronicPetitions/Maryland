@@ -185,6 +185,7 @@ if ($d[email_for_follow_up] != ''){
   }
   $petition->query("insert into follow_up (name, email, php_session, petition_id) values ('$name','$email','$php_session_id','$_GET[follow_up]') ");  
   $petition->query("update presign set presign_status = 'DONE' where php_session_id = '$php_session_id' ");
+  $petition->query("update presign set presign_status = 'DONE' where email = '$email' ");
   echo "</table>";
 }elseif (isset($_GET['VTRID'])){ 
   $VTRID = $_GET['VTRID'];
