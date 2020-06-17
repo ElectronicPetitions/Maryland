@@ -132,7 +132,7 @@ while($d = mysqli_fetch_array($r)){
 	  $q2 = "SELECT * FROM follow_up where date_sent = '$just_date'  ";
 	  $r2 = $petition->query($q2);	
 	  $count  = mysqli_num_rows($r2);
-	  $chart4 .=  '{ label: "'.$just_date.'", y: '.intval($goal).' }, ';
+	  $chart4 .=  '{ label: "'.$just_date.'", y: '.intval($count).' }, ';
 	}
 	$chart = rtrim(trim($chart), ",");
 	$chart2 = rtrim(trim($chart2), ",");
