@@ -225,7 +225,7 @@ if ($d[email_for_follow_up] != ''){
 <table>
   
   <tr>
-  <td valign="top">
+  <td valign="top"><?PHP /*
 <h2>IP Address</h2>
 <div>Watching for duplicates.</div><ol>
 <?PHP
@@ -236,7 +236,7 @@ while($d = mysqli_fetch_array($r)){
     echo "<li><a href='?ip_address=$d[ip_address]&petition_id=$d[petition_id]'>$d[ip_address]</a> ".id2petition($d['petition_id'])." <b>$d[count]</b> $d[signed_name_as]</li>"; 
   }
 }
-?></ol>
+?></ol> */ ?>
   </td><td valign="top">
 <h2>VTRID</h2>
 <div>Watching for duplicates.</div><ol>
