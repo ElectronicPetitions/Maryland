@@ -153,7 +153,7 @@ if (isset($_GET['ip_address'])){
   }
   echo "</table><a href='?clear_php_session_id=$php_session_id'>CLEAR SESSION</a> - 
   <a href='?sign_php_session_id=$php_session_id'>SIGNATURE FOUND</a><br> 
-  - <a href='?php_session_id=$php_session_id&follow_up=0'>ADD TO FOLLOW UP LIST Maryland General</a><br>
+  - <a href='?php_session_id=$php_session_id&follow_up=X'>ADD TO FOLLOW UP LIST Maryland General</a><br>
   - <a href='?php_session_id=$php_session_id&follow_up=1'>ADD TO FOLLOW UP LIST MGP</a><br> 
   - <a href='?php_session_id=$php_session_id&follow_up=2'>ADD TO FOLLOW UP LIST MLP</a><br> 
   - <a href='?php_session_id=$php_session_id&follow_up=3'>ADD TO FOLLOW UP LIST BTEC</a><br> 
