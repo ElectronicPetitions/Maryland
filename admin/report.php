@@ -191,7 +191,7 @@ while($d = mysqli_fetch_array($r)){
 </form>
 
 
-
+<?PHP if($_COOKIE['level'] == 'admin'){ ?>
 
 <form id='form5' name='form5' method='POST' action='printer.php'>
 <?PHP
@@ -229,7 +229,7 @@ while($d = mysqli_fetch_array($r)){
     ?>
 </form>
 
-
+<?PHP } ?>
 
 
 <form id='form2' name='form2' method='POST' action='printer.php'>
