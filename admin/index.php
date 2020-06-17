@@ -129,10 +129,15 @@ while($d = mysqli_fetch_array($r)){
 	  $chart2 .=  '{ label: "'.$just_date.'", y: '.intval($total).' }, ';
 	  $goal = $goal - intval($count);
 	  $chart3 .=  '{ label: "'.$just_date.'", y: '.intval($goal).' }, ';
+	  $q2 = "SELECT * FROM follow_up where date_sent = '$just_date'  ";
+	  $r2 = $petition->query($q2);	
+	  $count  = mysqli_num_rows($r2);
+	  $chart4 .=  '{ label: "'.$just_date.'", y: '.intval($goal).' }, ';
 	}
 	$chart = rtrim(trim($chart), ",");
 	$chart2 = rtrim(trim($chart2), ",");
 	$chart3 = rtrim(trim($chart3), ",");
+	$chart4 = rtrim(trim($chart4), ",");
 	
 	ob_start(); ?>
 
@@ -175,6 +180,15 @@ while($d = mysqli_fetch_array($r)){
 			name: "New Daily Signatures",
 			dataPoints: [
 				<?PHP echo $chart; ?>
+			]
+		},{
+			type: "column",
+			visible: true,
+			showInLegend: true,
+			yValueFormatString: "#####",
+			name: "Follow Up E-Mails",
+			dataPoints: [
+				<?PHP echo $chart4; ?>
 			]
 		}]
 	}
