@@ -14,12 +14,12 @@ if (isset($_GET['clear_php_session_id'])){
 }
 if (isset($_GET['clear_email'])){
   $email = $_GET['clear_email'];
-  $petition->query("update presign set presign_status = 'DONE' where email = '$email' ");
+  $petition->query("update presign set presign_status = 'DONE' where email_for_follow_up = '$email' ");
   header('Location: analytics.php');
 }
 if (isset($_GET['sign_email'])){
   $email = $_GET['sign_email'];
-  $petition->query("update presign set presign_status = 'SIGNED' where email = '$email' ");
+  $petition->query("update presign set presign_status = 'SIGNED' where email_for_follow_up = '$email' ");
   header('Location: analytics.php');
 }
 if (isset($_GET['sign_php_session_id'])){
