@@ -222,7 +222,36 @@ if ($d[email_for_follow_up] != ''){
 <h1>Signature Analytics</h1>
 <h2>NEVER NEVER NEVER CALL OR TEXT ANYONE - ONLY EMAIL!!!</h2>
 <h3>SysOp Says: Transparency = Trust</h3>
-<table><tr>
+<table>
+  
+  <tr>
+  <td valign="top">
+<h2>IP Address</h2>
+<div>Watching for duplicates.</div><ol>
+<?PHP
+$q="SELECT ip_address, petition_id,VTRID, COUNT(*) as count FROM signatures where signature_status = 'verified' group by ip_address, petition_id, VTRID";
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){
+  if ($d['count'] > 1){
+    echo "<li><a href='?ip_address=$d[ip_address]&petition_id=$d[petition_id]'>$d[ip_address]</a> ".id2petition($d['petition_id'])." <b>$d[count]</b> $d[signed_name_as]</li>"; 
+  }
+}
+?></ol>
+  </td><td valign="top">
+<h2>VTRID</h2>
+<div>Watching for duplicates.</div><ol>
+<?PHP
+$q="SELECT VTRID, petition_id, COUNT(*) as count FROM signatures where signature_status = 'verified' group by VTRID, petition_id";
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){ 
+  if ($d['count'] > 1){
+    echo "<li><a href='?VTRID=$d[VTRID]&petition_id=$d[petition_id]'>$d[VTRID]</a> ".id2petition($d['petition_id'])." <b>$d[count]</b> $d[signed_name_as]</li>"; 
+  }
+}
+  ?></ol>
+  </td></tr>
+  
+  
 <tr>
 <td valign="top">
 <h2>Pre-Sign</h2>
@@ -252,31 +281,7 @@ while($d = mysqli_fetch_array($r)){
   </td>
 
   </tr>
-  <td valign="top">
-<h2>IP Address</h2>
-<div>Watching for duplicates.</div><ol>
-<?PHP
-$q="SELECT ip_address, petition_id,VTRID, COUNT(*) as count FROM signatures where signature_status = 'verified' group by ip_address, petition_id, VTRID";
-$r = $petition->query($q);
-while($d = mysqli_fetch_array($r)){
-  if ($d['count'] > 1){
-    echo "<li><a href='?ip_address=$d[ip_address]'>$d[ip_address]</a> ".id2petition($d['petition_id'])." <b>$d[count]</b> $d[signed_name_as]</li>"; 
-  }
-}
-?></ol>
-  </td><td valign="top">
-<h2>VTRID</h2>
-<div>Watching for duplicates.</div><ol>
-<?PHP
-$q="SELECT VTRID, petition_id, COUNT(*) as count FROM signatures where signature_status = 'verified' group by VTRID, petition_id";
-$r = $petition->query($q);
-while($d = mysqli_fetch_array($r)){ 
-  if ($d['count'] > 1){
-    echo "<li><a href='?VTRID=$d[VTRID]'>$d[VTRID]</a> ".id2petition($d['petition_id'])." <b>$d[count]</b> $d[signed_name_as]</li>"; 
-  }
-}
-  ?></ol>
-  </td></tr><tr><td valign="top">
+  <tr><td valign="top">
 <h2>VTRID Bugs</h2>
 <div>Watching for 0</div><ol>
 <?PHP
