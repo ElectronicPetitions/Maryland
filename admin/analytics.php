@@ -264,7 +264,7 @@ while($d = mysqli_fetch_array($r)){
   
   
 <tr>
-<td valign="top">
+<td valign="top" colspan='2'>
 <h2>Pre-Sign</h2>
 <div>Follow up requested - never signed.</div>
 <form method='GET'><input name='email'><input type='submit' value='SEARCH E-MAIL'></form><table>
@@ -279,7 +279,9 @@ while($d = mysqli_fetch_array($r)){
 }
 ?></table>
   </td>
-<td valign="top">
+  </tr>
+  <tr>
+<td valign="top" colspan='2'>
 <h2>Signatures</h2>
 <div>Last 10</div><ol>
 <?PHP
