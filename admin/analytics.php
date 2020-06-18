@@ -299,7 +299,7 @@ while($d = mysqli_fetch_array($r)){
     $invite_error = "<b><a href='?clear_email=$d2[email_for_follow_up]'>$d4[invite_error]</a></b>";
   }
   
-  echo "<tr><td><a href='?php_session_id=$d2[php_session_id]'>$d2[action_on]</a></td><td>$presig $sig</td><td>$d2[name]</td><td><a href='?email=$d2[email_for_follow_up]'>$d2[email_for_follow_up]</a></td><td>".id2petition($d2['petition'])."</td><td>$d2[invite]</td></tr>"; 
+  echo "<tr><td><a href='?php_session_id=$d2[php_session_id]'>$d2[action_on]</a></td><td>$presig $sig $invite_error</td><td>$d2[name]</td><td><a href='?email=$d2[email_for_follow_up]'>$d2[email_for_follow_up]</a></td><td>".id2petition($d2['petition'])."</td><td>$d2[invite]</td></tr>"; 
 }
 ?></table>
   </td>
