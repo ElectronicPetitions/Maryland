@@ -280,7 +280,9 @@ while($d = mysqli_fetch_array($r)){
     $q3 = "SELECT date_time_signed FROM signatures where signed_name_as = '$d2[name]'";
     $r3 = $petition->query($q3);
     $d3 = mysqli_fetch_array($r3); 
-    $sig = "<br><b>SIGNATURE $d3[date_time_signed]</b>";
+    if ($d3['date_time_signed'] != ''){
+      $sig = "<br><b><a href='?sign_email=$d2[email_for_follow_up]'>SIGNATURE $d3[date_time_signed]</a></b>";
+    }
   }
   echo "<tr><td><a href='?php_session_id=$d2[php_session_id]'>$d2[action_on]</a></td><td>$d2[name] $sig</td><td><a href='?email=$d2[email_for_follow_up]'>$d2[email_for_follow_up]</a></td><td>".id2petition($d2['petition'])."</td><td>$d2[invite]</td></tr>"; 
 }
