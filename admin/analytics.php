@@ -269,7 +269,7 @@ while($d = mysqli_fetch_array($r)){
 <div>Follow up requested - never signed.</div>
 <form method='GET'><input name='email'><input type='submit' value='SEARCH E-MAIL'></form><table>
 <?PHP
-$q="SELECT distinct php_session_id FROM presign where presign_status = 'NEW' and email_for_follow_up <> '' order by id desc";
+$q="SELECT distinct php_session_id FROM presign where presign_status = 'NEW' and email_for_follow_up <> '' order by id";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
   $q2="SELECT * FROM presign where php_session_id = '$d[php_session_id]' order by id desc";
