@@ -288,9 +288,17 @@ while($d = mysqli_fetch_array($r)){
   $q4="SELECT * FROM presign where email_for_follow_up = '$d2[email_for_follow_up]' and php_page like '/sign.php%'";
   $r4 = $petition->query($q4);
   $d4 = mysqli_fetch_array($r4);
-  if ($d4[action_on]){
+  if ($d4['action_on']){
     $presig = "<b><a href='?sign_email=$d2[email_for_follow_up]'>PRESIG $d4[action_on]</a></b>";
   }
+  $invite_error='';
+  $q4="SELECT * FROM presign where email_for_follow_up = '$d2[email_for_follow_up]' and invite_error <> '' ";
+  $r4 = $petition->query($q4);
+  $d4 = mysqli_fetch_array($r4);
+  if ($d4['invite_error'] != ''){
+    $invite_error = "<b><a href='?clear_email=$d2[email_for_follow_up]'>$d4[invite_error]</a></b>";
+  }
+  
   echo "<tr><td><a href='?php_session_id=$d2[php_session_id]'>$d2[action_on]</a></td><td>$presig $sig</td><td>$d2[name]</td><td><a href='?email=$d2[email_for_follow_up]'>$d2[email_for_follow_up]</a></td><td>".id2petition($d2['petition'])."</td><td>$d2[invite]</td></tr>"; 
 }
 ?></table>
