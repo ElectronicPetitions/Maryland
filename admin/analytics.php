@@ -281,10 +281,17 @@ while($d = mysqli_fetch_array($r)){
     $r3 = $petition->query($q3);
     $d3 = mysqli_fetch_array($r3); 
     if ($d3['date_time_signed'] != ''){
-      $sig = "<br><b><a href='?sign_email=$d2[email_for_follow_up]'>SIGNATURE $d3[date_time_signed]</a></b>";
+      $sig = "<b><a href='?sign_email=$d2[email_for_follow_up]'>SIGNATURE $d3[date_time_signed]</a></b>";
     }
   }
-  echo "<tr><td><a href='?php_session_id=$d2[php_session_id]'>$d2[action_on]</a></td><td>$d2[name] $sig</td><td><a href='?email=$d2[email_for_follow_up]'>$d2[email_for_follow_up]</a></td><td>".id2petition($d2['petition'])."</td><td>$d2[invite]</td></tr>"; 
+  $presig='';
+  $q4="SELECT * FROM presign where php_session_id = '$d[php_session_id]' and php_page like '/sign.php%'";
+  $r4 = $petition->query($q4);
+  $d4 = mysqli_fetch_array($r4);
+  if ($d4[action_on]){
+    $presig = "<b><a href='?sign_email=$d2[email_for_follow_up]'>PRESIG $d4[action_on]</a></b>";
+  }
+  echo "<tr><td><a href='?php_session_id=$d2[php_session_id]'>$d2[action_on]</a></td><td>$presig $sig</td><td>$d2[name]</td><td><a href='?email=$d2[email_for_follow_up]'>$d2[email_for_follow_up]</a></td><td>".id2petition($d2['petition'])."</td><td>$d2[invite]</td></tr>"; 
 }
 ?></table>
   </td>
