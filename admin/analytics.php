@@ -230,7 +230,7 @@ if ($d[email_for_follow_up] != ''){
 }
 ?>
 
-<h1>Signature Analytics</h1>
+<h1>Signature Analytics - Server Clock: <?PHP echo date('r');?></h1>
 <h2>NEVER NEVER NEVER CALL OR TEXT ANYONE - ONLY EMAIL!!!</h2>
 <h3>SysOp Says: Transparency = Trust</h3>
 <table>
