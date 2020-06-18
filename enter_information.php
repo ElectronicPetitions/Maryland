@@ -117,18 +117,23 @@ slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
   <div class='row'>
      <div class='col-sm-3' style='text-align:right; background-color:lightyellow;'><h3>Phone Format</h3></div>
      <div class='col-sm-6' style='text-align:left; background-color:lightyellow;'><h3>443-123-4567</h3></div>
-     <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
+     <div class='col-sm-1' style='text-align:center;'></div>
   </div>
   <div class='row'>
-    <div class='col-sm-3' style='text-align:right;'><h2>House Number</h2></div>
+    <div class='col-sm-3' style='text-align:right;'><h2>Building Number</h2></div>
     <div class='col-sm-6' style='text-align:left;'><input class="form-control input-lg" name='web_house_number' type='number' required oninvalid="this.setCustomValidity('Please enter your house number without street name')" oninput="this.setCustomValidity('')"> </div>
     <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
   </div>  
   <div class='row'>
-     <div class='col-sm-3' style='text-align:right; background-color:lightyellow;'><h3>House Format</h3></div>
-     <div class='col-sm-6' style='text-align:left; background-color:lightyellow;'><h3>321</h3></div>
-     <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
-  </div>     
+     <div class='col-sm-3' style='text-align:right; background-color:lightyellow;'><h3>House: 321 Here St.</h3></div>
+     <div class='col-sm-6' style='text-align:left; background-color:lightyellow;'><h3>Use: 321</h3></div>
+     <div class='col-sm-1' style='text-align:center;'></div>
+  </div>
+  <div class='row'>
+     <div class='col-sm-3' style='text-align:right; background-color:lightyellow;'><h3>Apartment: 21 Here St. Apt 1323</h3></div>
+     <div class='col-sm-6' style='text-align:left; background-color:lightyellow;'><h3>Use: 21</h3></div>
+     <div class='col-sm-1' style='text-align:center;'></div>
+  </div>  
   <div class='row'>
      <div class='col-sm-3' style='text-align:right;'><h2>ZIP Code</h2></div>
      <div class='col-sm-6' style='text-align:left;'><input class="form-control input-lg" name='web_zip_code' type='number' required oninvalid="this.setCustomValidity('Please enter your five digit zip code')" oninput="this.setCustomValidity('')"> </div>
@@ -137,7 +142,7 @@ slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
   <div class='row'>
      <div class='col-sm-3' style='text-align:right; background-color:lightyellow;'><h3>ZIP Code Format</h3></div>
      <div class='col-sm-6' style='text-align:left; background-color:lightyellow;'><h3>55555</h3></div>
-     <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
+     <div class='col-sm-1' style='text-align:center;'></div>
   </div> 
   <div class='row'>
      <div class='col-sm-10' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block"><img alt='Click Here to Continue' class='click_me' src="files/click_here.gif">Next</button></div>
