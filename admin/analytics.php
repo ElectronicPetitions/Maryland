@@ -285,7 +285,7 @@ while($d = mysqli_fetch_array($r)){
     }
   }
   $presig='';
-  $q4="SELECT * FROM presign where php_session_id = '$d[php_session_id]' and php_page like '/sign.php%'";
+  $q4="SELECT * FROM presign where email_for_follow_up = '$d2[email_for_follow_up]' and php_page like '/sign.php%'";
   $r4 = $petition->query($q4);
   $d4 = mysqli_fetch_array($r4);
   if ($d4[action_on]){
