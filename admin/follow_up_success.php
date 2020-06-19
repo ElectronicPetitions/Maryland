@@ -10,6 +10,15 @@ if ($_COOKIE['level'] == 'manager'){
   header('Location: manager_home.php');
 }
 include_once('header.php');
+$list1  = '';
+$list2  = '';
+$list3  = '';
+
+$q="SELECT * FROM follow_up where status = 'NEW'";
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){
+   $list3 .= "<li>$d[email] $d[name]</li>";    
+}
 
 $q="SELECT * FROM follow_up where status <> 'NEW'";
 $r = $petition->query($q);
@@ -36,6 +45,15 @@ while($d = mysqli_fetch_array($r)){
     $list2 .= "<li>$d[date_sent] $d[email] $d[name]</li>";
   }
   
+}
+ob_start();
+echo "<h1>Outbox</h1>";
+echo "<ol>";
+echo $list3;
+echo "</ol>";
+$buffer = ob_get_clean();
+if ($list3 != ''){
+ echo $buffer; 
 }
 echo "<h1>Signed</h1>";
 echo "<ol>";
