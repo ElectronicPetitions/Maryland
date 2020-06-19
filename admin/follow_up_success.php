@@ -10,7 +10,7 @@ if ($_COOKIE['level'] == 'manager'){
   header('Location: manager_home.php');
 }
 include_once('header.php');
-echo "<ol>";
+
 $q="SELECT * FROM follow_up where status <> 'NEW'";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
@@ -30,7 +30,19 @@ while($d = mysqli_fetch_array($r)){
   if ($d4['action_on']){
     $presig = "<b>PRESIG $d4[action_on]</b>";
   }
-  echo "<li>$d[date_sent] $d[email] $presig $d[name] $sig</li>";
+  if ($presig != '' || $sig != ''){ 
+    $list1 .= "<li>$d[email] $presig $d[name] $sig</li>";    
+  }else{
+    $list2 .= "<li>$d[date_sent] $d[email] $d[name]</li>";
+  }
+  
 }
+echo "<h1>Signed</h1>";
+echo "<ol>";
+echo $list1;
+echo "</ol>";
+echo "<h1>Sent</h1>";
+echo "<ol>";
+echo $list2;
 echo "</ol>";
 include_once('footer.php');
