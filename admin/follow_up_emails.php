@@ -32,14 +32,15 @@ while($d = mysqli_fetch_array($r)){
     }
     $invite = "<br><br>Petition: $petition_name at <a href='$link'>$link</a>";
   }
-  $last = "<br><br>Follow up was requested at $visit";
-  $body = $base_message.$invite.$last;
-  $subject = "$petition_name Petition Follow-Up";
-  $to = "$name <$email>";
+  $last             = "<br><br>Follow up was requested at $visit";
+  $body             = $base_message.$invite.$last;
+  $subject          = "$petition_name Petition Follow-Up";
+  $to               = "$name <$email>";
   $feedback_message = "TO: $to SUB: $subject MSG: $body sent on ".date('r')." by ".$_COOKIE['name'];
-  meps_mail($to,$body,$subject);
+  $response         = meps_mail($to,$body,$subject);
   $feedback_message = $petition->real_escape_string($feedback_message);
-  $petition->query("update follow_up set status = 'sent', feedback_message = '$feedback_message' where id = '$d[id]'  ");
+  $response         = $petition->real_escape_string($response);
+  $petition->query("update follow_up set status = 'sent', feedback_message = '$feedback_message', system_response='$response' where id = '$d[id]'  ");
 }
-
+header('Location: /admin/follow_up_success.php');
 ?>
