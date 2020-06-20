@@ -35,5 +35,6 @@ function meps_mail($to,$msg,$sub){
     } else {
        // echo('<p>Message successfully sent!</p>');
     }
+    return $mail->getMessage();
 }
 
