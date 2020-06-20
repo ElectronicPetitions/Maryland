@@ -14,7 +14,7 @@ $group_id = $_COOKIE['group_id'];
 $q="SELECT * FROM users where sec_level='manager' and group_id = '$group_id'";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
- echo "<li>$d[email] $d[name] $d[group_id] $d[sec_level]</li>"; 
+ echo "<li>$d[email] $d[name]</li>"; 
 }
 ?>
 <h1>Users</h1>
@@ -22,6 +22,6 @@ while($d = mysqli_fetch_array($r)){
 $q="SELECT * FROM users where sec_level='user' and group_id = '$group_id'";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
- echo "<li>$d[email] $d[name] $d[group_id] $d[sec_level]</li>"; 
+ echo "<li>$d[email] $d[name]</li>"; 
 }
 include_once('footer.php');
