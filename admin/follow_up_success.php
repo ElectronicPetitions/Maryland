@@ -40,7 +40,7 @@ while($d = mysqli_fetch_array($r)){
   }    
 }
 
-$q="SELECT * FROM follow_up where status <> 'NEW'";
+$q="SELECT * FROM follow_up where status <> 'NEW' order by id DESC";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
   $sig = '';
