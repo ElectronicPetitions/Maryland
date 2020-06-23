@@ -3,6 +3,14 @@ include_once('../slack.php');
 include_once('security.php');
 include_once('/var/www/secure.php'); //outside webserver
 include_once('functions.php');
+
+function js_redirect($page){
+  $base = 'https://www.md-petition.com/admin/';
+  $url = $base.$page;
+  echo "<script>window.location.href = \"$url\";</script>";
+  die(); 
+}
+
 if ($_COOKIE['level'] == 'user'){
   slack_general('ADMIN: Redirect User Home ('.$_COOKIE['name'].') ('.$_COOKIE['level'].')','md-petition');
   header('Location: user_home.php');
@@ -227,6 +235,7 @@ if ($d[email_for_follow_up] != ''){
         </tr>"; 
   }
   echo "</table>";
+  die();
 }
 ?>
 
@@ -254,10 +263,15 @@ while($d = mysqli_fetch_array($r)){
 <?PHP
 $q="SELECT VTRID, petition_id, COUNT(*) as count FROM signatures where signature_status = 'verified' group by VTRID, petition_id";
 $r = $petition->query($q);
+    $i=0;
 while($d = mysqli_fetch_array($r)){ 
   if ($d['count'] > 1){
     echo "<li><a href='?VTRID=$d[VTRID]&petition_id=$d[petition_id]'>$d[VTRID]</a> ".id2petition($d['petition_id'])." <b>$d[count]</b> $d[signed_name_as]</li>"; 
   }
+  if ($i == 1){
+     js_redirect("analytics.php?VTRID=$d[VTRID]&petition_id=$d[petition_id]");
+  }
+  $i++;
 }
   ?></ol>
   </td></tr>
