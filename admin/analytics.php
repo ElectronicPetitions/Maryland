@@ -211,6 +211,7 @@ if ($d[email_for_follow_up] != ''){
   echo "<h1>Review $VTRID</h1><table width='100%' border='1' cellpadding='5' cellspacing='5'>";   
   $q = "SELECT * FROM  signatures where VTRID = '$VTRID' and signature_status = 'verified' and petition_id = '$petition_id' order by petition_id, id DESC ";
   $r = $petition->query($q);
+  $i=0;
   while($d = mysqli_fetch_array($r)){
     $color = 'white';
     $pos = strpos($d['date_time_signed'], date('Y-m-d'));
@@ -232,7 +233,11 @@ if ($d[email_for_follow_up] != ''){
           <td><a href='?flag_phone=$d[contact_phone]'>contact phone</a></td>
           <td><a href='?resign_requested=$d[id]'>resign requested</a></td>
           <td><a href='?bot=$d[id]'>bot</a></td>
-        </tr>"; 
+        </tr>";
+        if ($i == 0){
+          js_redirect("analytics.php?flag_duplicate=$d[id]");
+        }
+        $i++;
   }
   echo "</table>";
   die();
