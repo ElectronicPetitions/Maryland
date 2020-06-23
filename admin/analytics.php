@@ -335,6 +335,15 @@ while($d = mysqli_fetch_array($r)){
     if ($d2['invite'] == 'Ivey'){
       js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=8");
     }
+    if ($d2['invite'] == 'mlp'){
+      js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=2");
+    }
+    if ($d2['invite'] == 'BTEC'){
+      js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=3");
+    }
+    if ($d2['invite'] == 'RestorePGTermLimits'){
+      js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=7");
+    }
   }
 }
 ?></table>
