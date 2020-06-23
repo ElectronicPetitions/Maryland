@@ -263,15 +263,16 @@ while($d = mysqli_fetch_array($r)){
 <?PHP
 $q="SELECT VTRID, petition_id, COUNT(*) as count FROM signatures where signature_status = 'verified' group by VTRID, petition_id";
 $r = $petition->query($q);
-    $i=0;
+$i=0;
 while($d = mysqli_fetch_array($r)){ 
   if ($d['count'] > 1){
     echo "<li><a href='?VTRID=$d[VTRID]&petition_id=$d[petition_id]'>$d[VTRID]</a> ".id2petition($d['petition_id'])." <b>$d[count]</b> $d[signed_name_as]</li>"; 
+    if ($i == 0){
+       js_redirect("analytics.php?VTRID=$d[VTRID]&petition_id=$d[petition_id]");
+    }
+    $i++;
   }
-  if ($i == 1){
-     js_redirect("analytics.php?VTRID=$d[VTRID]&petition_id=$d[petition_id]");
-  }
-  $i++;
+  
 }
   ?></ol>
   </td></tr>
