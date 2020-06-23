@@ -302,6 +302,7 @@ while($d = mysqli_fetch_array($r)){
     $d3 = mysqli_fetch_array($r3); 
     if ($d3['date_time_signed'] != ''){
       $sig = "<b><a href='?sign_email=$d2[email_for_follow_up]'>SIGNATURE $d3[date_time_signed]</a></b><br>";
+      js_redirect("analytics.php?sign_email=$d2[email_for_follow_up]");
     }
   }
   $presig='';
@@ -310,6 +311,7 @@ while($d = mysqli_fetch_array($r)){
   $d4 = mysqli_fetch_array($r4);
   if ($d4['action_on']){
     $presig = "<b><a href='?sign_email=$d2[email_for_follow_up]'>PRESIG $d4[action_on]</a></b><br>";
+    js_redirect("analytics.php?sign_email=$d2[email_for_follow_up]");
   }
   $invite_error='';
   $q4="SELECT * FROM presign where email_for_follow_up = '$d2[email_for_follow_up]' and invite_error <> '' ";
@@ -317,6 +319,7 @@ while($d = mysqli_fetch_array($r)){
   $d4 = mysqli_fetch_array($r4);
   if ($d4['invite_error'] != ''){
     $invite_error = "<b><a href='?clear_email=$d2[email_for_follow_up]'>$d4[invite_error]</a></b><br>";
+    js_redirect("analytics.php?clear_email=$d2[email_for_follow_up]");
   }
   $php_session_id = $d2['php_session_id'];
   echo "<tr><td><a href='?php_session_id=$php_session_id'>$d2[action_on]</a></td><td>$presig $sig $invite_error</td><td>$d2[name]</td><td><a href='?email=$d2[email_for_follow_up]'>$d2[email_for_follow_up]</a></td><td>".id2petition($d2['petition'])."</td><td>$d2[invite]</td>
