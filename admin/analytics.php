@@ -322,13 +322,20 @@ while($d = mysqli_fetch_array($r)){
     js_redirect("analytics.php?clear_email=$d2[email_for_follow_up]");
   }
   $php_session_id = $d2['php_session_id'];
-  echo "<tr><td><a href='?php_session_id=$php_session_id'>$d2[action_on]</a></td><td>$presig $sig $invite_error</td><td>$d2[name]</td><td><a href='?email=$d2[email_for_follow_up]'>$d2[email_for_follow_up]</a></td><td>".id2petition($d2['petition'])."</td><td>$d2[invite]</td>
+  echo "<tr><td><a href='?php_session_id=$php_session_id'>$d2[action_on]</a></td><td>$presig $sig $invite_error</td>
+  <td>$d2[name]</td><td><a href='?email=$d2[email_for_follow_up]'>$d2[email_for_follow_up]</a></td>
+  <td>".id2petition($d2['petition'])."</td><td>$d2[invite]</td>
   <td><a href='?php_session_id=$php_session_id&follow_up=X'>General</a>
   - <a href='?php_session_id=$php_session_id&follow_up=1'>MGP</a> 
   - <a href='?php_session_id=$php_session_id&follow_up=2'>MLP</a>
   - <a href='?php_session_id=$php_session_id&follow_up=3'>BTEC</a>
   - <a href='?php_session_id=$php_session_id&follow_up=7'>PG</a>
   - <a href='?php_session_id=$php_session_id&follow_up=8'>Ivey</a></td></tr>"; 
+  if( $presig == '' && $invite_error == '' && $sig == '' ){
+    if ($d2['invite'] == 'Ivey'){
+      js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=8");
+    }
+  }
 }
 ?></table>
   </td>
