@@ -120,6 +120,7 @@ while($d = mysqli_fetch_array($r)){
 	if ($goal == 0){
 		$goal = 10000;
 	}
+	$trader_sma_timePeriod=0;
 	while ($d3 = mysqli_fetch_array($r3)){
 	  $just_date = $d3['just_date'];
 	  $q2 = "SELECT * FROM signatures where just_date = '$just_date' and signature_status = 'verified'  ";
@@ -141,13 +142,22 @@ while($d = mysqli_fetch_array($r)){
 	  $r2 = $petition->query($q2);	
 	  $count  = mysqli_num_rows($r2);
 	  $chart6 .=  '{ label: "'.$just_date.'", y: '.intval($count).' }, ';
+	  // graph latest sma
+	  $trader_sma_real[] = intval($count);
+	  $trader_sma_timePeriod++;
+	  $trader_sma = trader_sma($trader_sma_real,$trader_sma_timePeriod);
+	  $this_sma = $trader_sma[$trader_sma_timePeriod]; // should be last value?
+	  $chart7 .=  '{ label: "'.$just_date.'", y: '.intval($this_sma).' }, ';	
 	}
 	$chart = rtrim(trim($chart), ",");
 	$chart2 = rtrim(trim($chart2), ",");
 	$chart3 = rtrim(trim($chart3), ",");
 	$chart4 = rtrim(trim($chart4), ",");
         $chart5 = rtrim(trim($chart5), ",");
+	$chart6 = rtrim(trim($chart6), ",");
+
 	
+
 	ob_start(); ?>
 
 	var chart<?PHP echo $pID;?> = new CanvasJS.Chart("chartContainer<?PHP echo $pID;?>", {
