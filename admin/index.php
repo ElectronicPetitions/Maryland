@@ -207,7 +207,36 @@ while($d = mysqli_fetch_array($r)){
 			dataPoints: [
 				<?PHP echo $chart4; ?>
 			]
-		},{
+		}]
+	}
+
+
+				      );
+	chart<?PHP echo $pID; $pID = $pID + 1; ?>.render();
+
+         var chart<?PHP echo $pID;?> = new CanvasJS.Chart("chartContainer<?PHP echo $pID;?>", {
+		theme:"light2",
+		animationEnabled: true,
+		exportEnabled: true,
+		title:{
+			text: "MD-Petition.com Web Monitor"
+		},
+		axisY :{
+			includeZero: false,
+			title: "Number of Pages Loaded",
+			suffix: "",
+	    scaleBreaks: {
+					autoCalculate: true
+				}
+		},
+		toolTip: {
+			shared: "true"
+		},
+		legend:{
+			cursor:"pointer",
+			itemclick : toggleDataSeries
+		},
+		data: [{
 			type: "line",
 			visible: true,
 			showInLegend: true,
