@@ -155,6 +155,7 @@ while($d = mysqli_fetch_array($r)){
 	$chart4 = rtrim(trim($chart4), ",");
         $chart5 = rtrim(trim($chart5), ",");
 	$chart6 = rtrim(trim($chart6), ",");
+$chart7 = rtrim(trim($chart7), ",");
 
 	
 
@@ -255,6 +256,15 @@ while($d = mysqli_fetch_array($r)){
 			name: "Web Activity",
 			dataPoints: [
 				<?PHP echo $chart6; ?>
+			]
+		},{
+			type: "line",
+			visible: true,
+			showInLegend: true,
+			yValueFormatString: "#####",
+			name: "Simple Moving Average",
+			dataPoints: [
+				<?PHP echo $chart7; ?>
 			]
 		}]
 	}
