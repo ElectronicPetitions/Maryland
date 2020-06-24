@@ -136,6 +136,10 @@ while($d = mysqli_fetch_array($r)){
 	  $chart4 .=  '{ label: "'.$just_date.'", y: '.intval($count).' }, ';
 	  $total2 = $total2 + $count;
 	  $chart5 .=  '{ label: "'.$just_date.'", y: '.intval($total2).' }, ';
+	  $q2 = "SELECT * FROM presign where only_date = '$just_date'  ";
+	  $r2 = $petition->query($q2);	
+	  $count  = mysqli_num_rows($r2);
+	  $chart6 .=  '{ label: "'.$just_date.'", y: '.intval($count).' }, ';
 	}
 	$chart = rtrim(trim($chart), ",");
 	$chart2 = rtrim(trim($chart2), ",");
@@ -202,6 +206,15 @@ while($d = mysqli_fetch_array($r)){
 			name: "Follow Up Sent",
 			dataPoints: [
 				<?PHP echo $chart4; ?>
+			]
+		},{
+			type: "line",
+			visible: true,
+			showInLegend: true,
+			yValueFormatString: "#####",
+			name: "Web Activity",
+			dataPoints: [
+				<?PHP echo $chart6; ?>
 			]
 		}]
 	}
