@@ -8,13 +8,15 @@ if ($_COOKIE['level'] != 'admin'){
 include_once('header.php');
 slack_general('ADMIN: browser list loaded ('.$_COOKIE['name'].') ('.$_COOKIE['level'].')','md-petition');
 ?>
-<h1>SEO Known Browsers</h1>
+<h1>SEO Known Browsers count hits over 100</h1>
 <ol>
 <?PHP
-$q="SELECT distinct browser_string FROM presign order by browser_string";
+$q="SELECT browser_string,COUNT(*) as count FROM presign group by browser_string";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
-    echo "<li>$d[browser_string]</li>"; 
+  if ($d['count'] > 100){
+    echo "<li>$d[count] $d[browser_string]</li>"; 
+  }
 }
 ?>
 </ol>
