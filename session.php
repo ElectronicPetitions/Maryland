@@ -21,7 +21,8 @@ function presign(){
   	$ip = $petition->real_escape_string($ip);
   	$browser_string = $petition->real_escape_string($_SERVER['HTTP_USER_AGENT']);
   	$now = $petition->real_escape_string(date('r'));
-  	$petition->query("insert into presign (invite_error,invite,petition,php_session_id,php_page,name,email_for_follow_up,phone_for_validation,ip_address,browser_string,action_on) 
-  values ('$invite_error','$invite','$petition_name','$id','$page','$name','$email','$phone','$ip','$browser_string','$now') "); 
+	$only_date = $petition->real_escape_string(date('Y-m-d'));
+  	$petition->query("insert into presign (only_date,invite_error,invite,petition,php_session_id,php_page,name,email_for_follow_up,phone_for_validation,ip_address,browser_string,action_on) 
+  values ('$only_date','$invite_error','$invite','$petition_name','$id','$page','$name','$email','$phone','$ip','$browser_string','$now') "); 
 }
 ?>
