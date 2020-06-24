@@ -13,6 +13,7 @@
   <?PHP 
   include_once('/var/www/secure.php'); //outside webserver
   include_once('../slack.php');
+  slack_general_admin('Page Loaded','md-petition-admin');
   include_once('../session.php');
   include_once('functions.php');
   ?>
