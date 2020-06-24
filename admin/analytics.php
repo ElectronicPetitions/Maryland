@@ -344,6 +344,9 @@ while($d = mysqli_fetch_array($r)){
     if ($d2['invite'] == 'RestorePGTermLimits'){
       js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=7");
     }
+    if ($d2['invite'] == 'mgp'){
+      js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=1");
+    }
   }
 }
 ?></table>
