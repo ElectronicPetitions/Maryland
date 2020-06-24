@@ -14,7 +14,7 @@
   include_once('/var/www/secure.php'); //outside webserver
   include_once('../slack.php');
   $page = $_SERVER['REQUEST_URI'];
-  $user = $_COOKIE['name'];
+  $name = $_COOKIE['name'];
   slack_general_admin("$name Loaded $page",'md-petition-admin');
   include_once('../session.php');
   include_once('functions.php');
