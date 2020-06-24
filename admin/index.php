@@ -149,13 +149,14 @@ while($d = mysqli_fetch_array($r)){
 	  $this_sma = $trader_sma[$trader_sma_timePeriod]; // should be last value?
 	  $chart7 .=  '{ label: "'.$just_date.'", y: '.intval($this_sma).' }, ';	
 	}
+	print_r($trader_sma);
 	$chart = rtrim(trim($chart), ",");
 	$chart2 = rtrim(trim($chart2), ",");
 	$chart3 = rtrim(trim($chart3), ",");
 	$chart4 = rtrim(trim($chart4), ",");
         $chart5 = rtrim(trim($chart5), ",");
 	$chart6 = rtrim(trim($chart6), ",");
-$chart7 = rtrim(trim($chart7), ",");
+        $chart7 = rtrim(trim($chart7), ",");
 
 	
 
