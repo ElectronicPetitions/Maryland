@@ -138,18 +138,21 @@ while($d = mysqli_fetch_array($r)){
 	  $chart4 .=  '{ label: "'.$just_date.'", y: '.intval($count).' }, ';
 	  $total2 = $total2 + $count;
 	  $chart5 .=  '{ label: "'.$just_date.'", y: '.intval($total2).' }, ';
+	  
 	  $q2 = "SELECT * FROM presign where only_date = '$just_date'  ";
 	  $r2 = $petition->query($q2);	
 	  $count  = mysqli_num_rows($r2);
-	  $chart6 .=  '{ label: "'.$just_date.'", y: '.intval($count).' }, ';
-	  // graph latest sma
-	  $trader_sma_real[] = intval($count);
-	  $trader_sma_timePeriod++;
-	  $trader_sma = trader_sma($trader_sma_real,$trader_sma_timePeriod);
-	  //print_r($trader_sma);
-	  $the_index = $trader_sma_timePeriod - 1;
-	  $this_sma = $trader_sma[$the_index]; // should be last value?
-	  $chart7 .=  '{ label: "'.$just_date.'", y: '.intval($this_sma).' }, ';	
+	  if($count > 0){ // start this graph when there is data
+		  $chart6 .=  '{ label: "'.$just_date.'", y: '.intval($count).' }, ';
+		  // graph latest sma
+		  $trader_sma_real[] = intval($count);
+		  $trader_sma_timePeriod++;
+		  $trader_sma = trader_sma($trader_sma_real,$trader_sma_timePeriod);
+		  //print_r($trader_sma);
+		  $the_index = $trader_sma_timePeriod - 1;
+		  $this_sma = $trader_sma[$the_index]; // should be last value?
+		  $chart7 .=  '{ label: "'.$just_date.'", y: '.intval($this_sma).' }, ';
+	  }
 	}
 	
 	$chart = rtrim(trim($chart), ",");
