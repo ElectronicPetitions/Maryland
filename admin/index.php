@@ -40,6 +40,7 @@ slack_general('ADMIN: Home Page Loaded ('.$_COOKIE['name'].') ('.$_COOKIE['level
 
 <h1>Admin Home</h1>
 <div id="chartContainer1" style="height: 400px; width: 100%; margin: 0px auto;"></div>
+<div id="chartContainer2" style="height: 400px; width: 100%; margin: 0px auto;"></div>
 <h1>Users</h1>
 <form method='post'>
   <table>
