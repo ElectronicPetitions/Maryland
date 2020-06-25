@@ -40,7 +40,7 @@ slack_general('MLP Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
 <style>
   body { color: <?PHP echo $d['web_color_text'];?>; }
   a { color: <?PHP echo $d['web_color_text'];?>; }
-  button { color: <?PHP echo $d['web_color'];?>; background-color: <?PHP echo $d['web_color_text'];?>; }
+  .rev-button { color: <?PHP echo $d['web_color'];?>; background-color: <?PHP echo $d['web_color_text'];?>; }
 </style>
 <div class='row'>
   <div class='col-sm-10' style='text-align:center;'><h1><?PHP echo $d['text_title'];?></h1><img class="rounded float-right" alt="<?PHP echo $d['text_title'];?>" src="<?PHP echo $d['logo_url'];?>"><h2 style='text-align:left;'><?PHP echo $d['text_block'];?></h2></div>
@@ -83,7 +83,7 @@ slack_general('MLP Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
  </div>
    <?PHP } ?>
 <div class='row'>
-  <div class='col-sm-10' style='text-align:center;'><button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='../enter_information.php'"><img alt='Click here to continue' class='click_me' src="../files/click_here.gif"> CLICK HERE TO BEGIN - SIGN <?PHP echo $d['petition_name'];?></button></div>
+  <div class='col-sm-10' style='text-align:center;'><button type="button" class="btn btn-success btn-lg btn-block rev-button" onclick="window.location.href='../enter_information.php'"><img alt='Click here to continue' class='click_me' src="../files/click_here.gif"> CLICK HERE TO BEGIN - SIGN <?PHP echo $d['petition_name'];?></button></div>
  </div> 
 
   
