@@ -69,7 +69,7 @@ $d = mysqli_fetch_array($r);
     <tr><td><b>Required</b></td><td>&nbsp;</td></tr> 
     <tr><td>Web Short Name*</td><td><input name='web_short_name' value='<?PHP echo $d['web_short_name'];?>' required></td></tr>
     <tr><td>Web Color Background</td><td><input type="color" name='web_color' value='<?PHP echo $d['web_color'];?>' required></td></tr> 
-    <tr><td>Web Color Text</td><td><input type="color" name='web_color' value='<?PHP echo $d['web_color'];?>' required></td></tr>
+    <tr><td>Web Color Text</td><td><input type="color" name='web_color_text' value='<?PHP echo $d['web_color_text'];?>' required></td></tr>
     <tr><td>Petition Name</td><td><input name='petition_name' value='<?PHP echo $d['petition_name'];?>' required></td></tr>
     <tr><td>Petition Sign Text Box</td><td><textarea rows='5' cols='50' name='petition_sign_text_box' required><?PHP echo $d['petition_sign_text_box'];?></textarea></td></tr>   
     <tr><td>Petition Circulator Text Box</td><td><textarea rows='5' cols='50' name='petition_circulator_text_box' required><?PHP echo $d['petition_circulator_text_box'];?></textarea></td></tr>
