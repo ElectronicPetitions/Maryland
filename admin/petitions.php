@@ -20,6 +20,7 @@ if(isset($_POST['petition_id']) && isset($_POST['petition_name']) ){ // edit
   $petition_id               = $petition->real_escape_string($_POST['petition_id']);
   $web_short_name               = $petition->real_escape_string($_POST['web_short_name']);
   $web_color                    = $petition->real_escape_string($_POST['web_color']);
+  $web_color_text               = $petition->real_escape_string($_POST['web_color_text']);
   $petition_name                = $petition->real_escape_string($_POST['petition_name']);
   $petition_sign_text_box       = $petition->real_escape_string($_POST['petition_sign_text_box']);
   $petition_circulator_text_box = $petition->real_escape_string($_POST['petition_circulator_text_box']);
@@ -36,7 +37,7 @@ if(isset($_POST['petition_id']) && isset($_POST['petition_name']) ){ // edit
   $text_block       = $petition->real_escape_string($_POST['text_block']);
   $logo_url         = $petition->real_escape_string($_POST['logo_url']);
   
-  $petition->query("update petitions set signature_goal='$signature_goal', logo_url='$logo_url', text_block='$text_block', text_title='$text_title', tab_name='$tab_name', eligibleVoterSigMatch='$eligibleVoterSigMatch', eligibleVoterListWarning='$eligibleVoterListWarning', web_short_name='$web_short_name', web_color='$web_color', petition_name='$petition_name', petition_sign_text_box='$petition_sign_text_box', petition_circulator_text_box='$petition_circulator_text_box', eligibleVoterListEnforce='$eligibleVoterListEnforce', eligibleVoterListField='$eligibleVoterListField', eligibleVoterListEquals='$eligibleVoterListEquals' where petition_id = '$petition_id' ");
+  $petition->query("update petitions set web_color_text='$web_color_text', signature_goal='$signature_goal', logo_url='$logo_url', text_block='$text_block', text_title='$text_title', tab_name='$tab_name', eligibleVoterSigMatch='$eligibleVoterSigMatch', eligibleVoterListWarning='$eligibleVoterListWarning', web_short_name='$web_short_name', web_color='$web_color', petition_name='$petition_name', petition_sign_text_box='$petition_sign_text_box', petition_circulator_text_box='$petition_circulator_text_box', eligibleVoterListEnforce='$eligibleVoterListEnforce', eligibleVoterListField='$eligibleVoterListField', eligibleVoterListEquals='$eligibleVoterListEquals' where petition_id = '$petition_id' ");
   header('Location: petitions.php');
 }
 ?>
