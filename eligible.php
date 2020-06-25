@@ -66,9 +66,9 @@ $my_test = $d[$field];
      $checked = '';
    }
   $available .= "<div class='row'>
-  <div class='col-sm-3' style='background-color:$d2[web_color];'>&#8594;<input onclick='document.getElementById(\"form\").submit();' type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked >&#8592;</div>
-  <div class='col-sm-6' style='background-color:$d2[web_color];'><h3>$d2[petition_name] <br> $field == $pass</h3></div>
-  <div class='col-sm-1' style='background-color:$d2[web_color];'><h3>$d2[eligibleVoterListEnforce]</h3></div>
+  <div class='col-sm-3' style='color: $d2[web_color_text]; background-color:$d2[web_color];'>&#8594;<input onclick='document.getElementById(\"form\").submit();' type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked >&#8592;</div>
+  <div class='col-sm-6' style='color: $d2[web_color_text]; background-color:$d2[web_color];'><h3>$d2[petition_name] <br> $field == $pass</h3></div>
+  <div class='col-sm-1' style='color: $d2[web_color_text]; background-color:$d2[web_color];'><h3>$d2[eligibleVoterListEnforce]</h3></div>
     </div>";
   
    if($_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name'])){
@@ -83,9 +83,9 @@ $my_test = $d[$field];
      $checked = '';
    }
   $available .= "<div class='row'>
-  <div class='col-sm-3' style='background-color:$d2[web_color];'>"; if ($d2['eligibleVoterListEnforce'] == 'NO'){ $available .="&#8594;<input onclick='document.getElementById(\"form\").submit();' type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked >&#8592;"; }else{ $available .= "<h3>Constituents Only</h3>"; } $available .= "</div>
-  <div class='col-sm-6' style='background-color:$d2[web_color];'><h3>$d2[petition_name] <br> $field != $pass ($my_test)</h3></div>
-  <div class='col-sm-1' style='background-color:$d2[web_color];'><h3>$d2[eligibleVoterListEnforce]</h3></div>
+  <div class='col-sm-3' style='color: $d2[web_color_text]; background-color:$d2[web_color];'>"; if ($d2['eligibleVoterListEnforce'] == 'NO'){ $available .="&#8594;<input onclick='document.getElementById(\"form\").submit();' type='radio' id='petition' name='petition' value='$d2[petition_id]' $checked >&#8592;"; }else{ $available .= "<h3>Constituents Only</h3>"; } $available .= "</div>
+  <div class='col-sm-6' style='color: $d2[web_color_text]; background-color:$d2[web_color];'><h3>$d2[petition_name] <br> $field != $pass ($my_test)</h3></div>
+  <div class='col-sm-1' style='color: $d2[web_color_text]; background-color:$d2[web_color];'><h3>$d2[eligibleVoterListEnforce]</h3></div>
     </div>"; 
    if($d2['eligibleVoterListEnforce'] == 'NO' && $_COOKIE['invite'] != '' && strtoupper($_COOKIE['invite']) == strtoupper($d2['web_short_name']) ){
      $available .= '<script>document.getElementById("form").submit();</script>';
