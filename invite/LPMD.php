@@ -37,7 +37,9 @@ setcookie("invite", "mlp", time()+3600, "/"); // we use this later
 <?PHP
 slack_general('MLP Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
 ?>
-
+<style>
+  body { color: <?PHP echo $d['web_color_text'];?>; }
+</style>
 <div class='row'>
   <div class='col-sm-10' style='text-align:center;'><h1><?PHP echo $d['text_title'];?></h1><img class="rounded float-right" alt="<?PHP echo $d['text_title'];?>" src="<?PHP echo $d['logo_url'];?>"><h2 style='text-align:left;'><?PHP echo $d['text_block'];?></h2></div>
   
