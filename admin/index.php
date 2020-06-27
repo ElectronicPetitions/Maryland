@@ -41,6 +41,33 @@ slack_general('ADMIN: Home Page Loaded ('.$_COOKIE['name'].') ('.$_COOKIE['level
 <h1>Admin Home</h1>
 <div id="chartContainer1" style="height: 400px; width: 100%; margin: 0px auto;"></div>
 <div id="chartContainer2" style="height: 400px; width: 100%; margin: 0px auto;"></div>
+
+<table><tr><td>
+<h2>Admin Sessions</h2>
+<div>Last 50</div><ol>
+<?PHP
+$q="SELECT * FROM admin_sessions ORDER BY id DESC LIMIT 50";
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){ 
+    echo "<li>$d[action_on] $d[php_page] $d[username]</li>"; 
+}
+?></ol>	
+	
+	</td><td>
+
+	<h2>User Sessions</h2>
+<div>Last 50</div><ol>
+<?PHP
+$q="SELECT * FROM presign ORDER BY id DESC LIMIT 50";
+$r = $petition->query($q);
+while($d = mysqli_fetch_array($r)){ 
+    echo "<li>$d[action_on] $d[php_page] $d[browser_string]</li>"; 
+}
+?></ol>
+	
+	</td></tr></table>
+
+
 <h1>Users</h1>
 <form method='post'>
   <table>
