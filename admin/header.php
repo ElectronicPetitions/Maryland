@@ -18,6 +18,8 @@
   slack_general_admin("$nameX Loaded $pageX",'md-petition-admin');
   include_once('../session.php');
   include_once('functions.php');
+  $sID = session_id();
+  $petition->query("INSERT INTO admin_sessions (php_session, php_page, loaded_on_date, action_on, username) VALUES ('".$sID."', '$pageX', NOW(), NOW(), '$nameX')");
   ?>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
