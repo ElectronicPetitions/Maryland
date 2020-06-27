@@ -363,15 +363,7 @@ while($d = mysqli_fetch_array($r)){
     echo "<li>$d[date_time_signed] ".id2petition($d['petition_id'])." $d[signed_name_as]</li>"; 
 }
 ?></ol>
-<h2>Sessions</h2>
-<div>Last 50</div><ol>
-<?PHP
-$q="SELECT * FROM presign ORDER BY id DESC LIMIT 50";
-$r = $petition->query($q);
-while($d = mysqli_fetch_array($r)){ 
-    echo "<li>$d[action_on] $d[php_page] $d[browser_string]</li>"; 
-}
-?></ol>
+
   </td>
 
   </tr>
