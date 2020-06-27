@@ -42,18 +42,18 @@ slack_general('ADMIN: Home Page Loaded ('.$_COOKIE['name'].') ('.$_COOKIE['level
 <div id="chartContainer1" style="height: 400px; width: 100%; margin: 0px auto;"></div>
 <div id="chartContainer2" style="height: 400px; width: 100%; margin: 0px auto;"></div>
 
-<table><tr><td>
+<table><tr><td valign='top'>
 <h2>Admin Sessions</h2>
 <div>Last 50</div><ol>
 <?PHP
 $q="SELECT * FROM admin_sessions ORDER BY id DESC LIMIT 50";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
-    echo "<li>$d[action_on] $d[php_page] $d[username]</li>"; 
+    echo "<li title='$d[action_on]'>$d[php_page] $d[username]</li>"; 
 }
 ?></ol>	
 	
-	</td><td>
+	</td><td valign='top'>
 
 	<h2>User Sessions</h2>
 <div>Last 50</div><ol>
@@ -61,7 +61,7 @@ while($d = mysqli_fetch_array($r)){
 $q="SELECT * FROM presign ORDER BY id DESC LIMIT 50";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
-    echo "<li>$d[action_on] $d[php_page] $d[browser_string]</li>"; 
+    echo "<li title='$d[action_on]'>$d[php_page] $d[browser_string]</li>"; 
 }
 ?></ol>
 	
