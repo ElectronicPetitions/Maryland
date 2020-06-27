@@ -19,7 +19,16 @@
   include_once('../session.php');
   include_once('functions.php');
   $sID = session_id();
-  $petition->query("INSERT INTO admin_sessions (php_session, php_page, loaded_on_date, action_on, username) VALUES ('".$sID."', '$pageX', NOW(), NOW(), '$nameX')");
+  if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+		$ip = $_SERVER['HTTP_CLIENT_IP'];
+	} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+		$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+	} else {
+		$ip = $_SERVER['REMOTE_ADDR'];
+	}
+  $ip = $petition->real_escape_string($ip);
+  $browser_string = $petition->real_escape_string($_SERVER['HTTP_USER_AGENT']);
+  $petition->query("INSERT INTO admin_sessions (ip, browser_string, php_session, php_page, loaded_on_date, action_on, username) VALUES ('$ip','$browser_string','".$sID."', '$pageX', NOW(), NOW(), '$nameX')");
   ?>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
