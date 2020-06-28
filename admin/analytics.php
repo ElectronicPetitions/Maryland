@@ -1,4 +1,5 @@
 <?PHP 
+include_once('bots.php');
 include_once('../slack.php');
 include_once('security.php');
 include_once('/var/www/secure.php'); //outside webserver
