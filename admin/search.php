@@ -15,7 +15,7 @@ if($LASTNAME != ''){
   echo "$q";
   $r = $petition->query($q);
   while ($d = mysqli_fetch_array($r,MYSQLI_ASSOC)){
-   echo "<li>$d[FIRSTNAME] House Number: $d[HOUSE_NUMBER] Zip Code: $d[RESIDENTIALZIP5]</li>";
+   echo "<li>'$d[FIRSTNAME]' '$d[LASTNAME]' '$d[HOUSE_NUMBER]' '$d[RESIDENTIALZIP5]'</li>";
   }
   echo "</ol>";
 }
