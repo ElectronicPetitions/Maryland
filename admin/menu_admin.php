@@ -1,3 +1,4 @@
+<li role='presentation' style='background-color:orange;' <?PHP if($_SERVER['SCRIPT_NAME'] == '/admin/search.php'){ echo "class='active'"; } ?> ><a href="search.php">Search</a></li>
 <li role='presentation' style='background-color:orange;' <?PHP if($_SERVER['SCRIPT_NAME'] == '/admin/analytics.php'){ echo "class='active'"; } ?> ><a href="analytics.php">Automated Analytics</a></li>
 <?PHP
 $q="SELECT id FROM follow_up where status = 'NEW'";
