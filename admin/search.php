@@ -17,7 +17,7 @@ if($FIRSTNAME != '' && $LASTNAME != ''){
   $q = "select * from VoterList where FIRSTNAME = '$FIRSTNAME' and LASTNAME = '$LASTNAME' ";
   echo "$q";
   $r = $petition->query($q);
-  while ($d = mysqli_fetch_array($r,MYSQL_ASSOC)){
+  while ($d = mysqli_fetch_array($r,MYSQLI_ASSOC)){
   echo "<li>House Number: $d[HOUSE_NUMBER] Zip Code: $d[RESIDENTIALZIP5]</li>";
   }
 }
