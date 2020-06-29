@@ -10,7 +10,7 @@ if ($_POST['LASTNAME']){
   $LASTNAME=$_POST['LASTNAME'];
 }
 if($LASTNAME != ''){
-  $q = "select * from VoterList where LASTNAME = '$LASTNAME' ";
+  $q = "select * from VoterList where LASTNAME like '%$LASTNAME%' ";
   echo "$q";
   $r = $petition->query($q);
   while ($d = mysqli_fetch_array($r,MYSQLI_ASSOC)){
