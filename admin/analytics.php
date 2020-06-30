@@ -6,9 +6,11 @@ include_once('/var/www/secure.php'); //outside webserver
 include_once('functions.php');
 
 global $sign_email;
-$sign_email = '';
+$sign_email = $_SESSION['sign_email'];
 if (isset($_GET['sign_email'])){
+  // here we use it, if it shows up next run, we block
   $sign_email = $_GET['sign_email'];
+  $_SESSION['sign_email'] = $sign_email;
 }
 
 function js_redirect($page){
