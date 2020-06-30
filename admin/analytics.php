@@ -11,17 +11,18 @@ if (isset($_GET['sign_email'])){
   // here we use it, if it shows up next run, we block
   $sign_email = $_GET['sign_email'];
   $_COOKIE['sign_email'] = $sign_email;
-  slack_general('SETTING COOKIE ('.$_COOKIE['sign_email'].') FROM ('.$_GET['sign_email'].')','md-petition');
+  setcookie("sign_email", $sign_email);
+  slack_general('SETTING COOKIE ('.$_COOKIE['sign_email'].') FROM ('.$_GET['sign_email'].')','md-petition-admin');
 }
 
 function js_redirect($page){
   $base = 'https://www.md-petition.com/admin/';
   $url = $base.$page;
-  $pos = strpos($page, $_SESSION['sign_email']);
+  $pos = strpos($page, $_COOKIE['sign_email']);
   if ($pos === false) {
     // email not found - good to redirect
     echo "<script>window.location.href = \"$url\";</script>";
-    slack_general('CHECK COOKIE ('.$_COOKIE['sign_email'].') PAGE ('.$page.')','md-petition');
+    slack_general('CHECK COOKIE ('.$_COOKIE['sign_email'].') PAGE ('.$page.')','md-petition-admin');
     die(); 
   } else {
     echo "<h1>Automated Loop Detected - Skip</h1>";
