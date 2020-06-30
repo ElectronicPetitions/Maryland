@@ -46,10 +46,10 @@ slack_general('ADMIN: Home Page Loaded ('.$_COOKIE['name'].') ('.$_COOKIE['level
 <h2>Admin Sessions</h2>
 <div>Last 50</div><ol>
 <?PHP
-$q="SELECT * FROM admin_sessions ORDER BY id DESC LIMIT 50";
+$q="SELECT * FROM admin_sessions where name <> 'Patrick McGuire' ORDER BY id DESC LIMIT 50";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
-    echo "<li title='$d[action_on]'>$d[ip] $d[username] $d[php_page] $d[browser_string]</li>"; 
+    echo "<li title='$d[action_on]'>$d[ip] $d[username] $d[php_page]</li>"; 
 }
 ?></ol>	
 	
