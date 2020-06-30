@@ -5,11 +5,25 @@ include_once('security.php');
 include_once('/var/www/secure.php'); //outside webserver
 include_once('functions.php');
 
+global $sign_email;
+$sign_email = '';
+if (isset($_GET['sign_email'])){
+  $sign_email = $_GET['sign_email'];
+}
+
 function js_redirect($page){
+  global $sign_email;
   $base = 'https://www.md-petition.com/admin/';
   $url = $base.$page;
-  echo "<script>window.location.href = \"$url\";</script>";
-  die(); 
+  $pos = strpos($page, $sign_email);
+  if ($pos === false) {
+    // email not found - good to redirect
+    echo "<script>window.location.href = \"$url\";</script>";
+    die(); 
+  } else {
+    echo "<h1>Automated Loop Detected - Skip</h1>";
+  }
+  
 }
 
 if ($_COOKIE['level'] == 'user'){
