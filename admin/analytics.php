@@ -1,7 +1,7 @@
 <?PHP 
-
-
-
+if ($_COOKIE['name'] == ''){
+  die('no name');
+}
 include_once('bots.php');
 include_once('../slack.php');
 include_once('security.php');
