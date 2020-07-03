@@ -1,6 +1,6 @@
 <?PHP
 include_once('../email.php');
-
+include_once('../slack.php');
 $base_message = "I just wanted to take a second and follow up with your visit to md-petition.com and
 see if you needed anything or had any questions? You should have received an
 alert 'Petition Signed' when you finished signing the petition and had the option to print a signed copy.
@@ -41,6 +41,7 @@ while($d = mysqli_fetch_array($r)){
   $feedback_message = $petition->real_escape_string($feedback_message);
   $response         = $petition->real_escape_string($response);
   $petition->query("update follow_up set status = 'sent', feedback_message = '$feedback_message', system_response='$response' where id = '$d[id]'  ");
+  slack_general('Sending Follow Up Email to '.$to,'automation');
 }
 header('Location: /admin/follow_up_success.php');
 ?>
