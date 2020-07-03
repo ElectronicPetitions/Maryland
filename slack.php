@@ -1,6 +1,7 @@
 <?PHP
 include_once('/var/www/secure.php');
 
+include_once('bots.php');
 
 function slack_general_admin($msg,$room){
 	if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
