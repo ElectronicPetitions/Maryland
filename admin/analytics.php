@@ -19,14 +19,15 @@ if (isset($_GET['sign_email'])){
   slack_general('SETTING COOKIE ('.$_COOKIE['sign_email'].') FROM ('.$_GET['sign_email'].')','md-petition-admin');
 }
 
-function js_redirect($page){
+function js_redirect($page){ // now header - prep for full auto
   $base = 'https://www.md-petition.com/admin/';
   $url = $base.$page;
   $pos = strpos($page, $_COOKIE['sign_email']);
   if ($pos === false) {
     // email not found - good to redirect
-    echo "<script>window.location.href = \"$url\";</script>";
-    slack_general('CHECK COOKIE ('.$_COOKIE['sign_email'].') PAGE ('.$page.')','md-petition-admin');
+    //echo "<script>window.location.href = \"$url\";</script>";
+    header('Location: $url');
+    //slack_general('CHECK COOKIE ('.$_COOKIE['sign_email'].') PAGE ('.$page.')','md-petition-admin');
     die(); 
   } else {
     echo "<h1>Automated Loop Detected - Skip</h1>";
@@ -365,6 +366,9 @@ while($d = mysqli_fetch_array($r)){
       js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=3");
     }
     if ($d2['invite'] == 'RestorePGTermLimits'){
+      js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=7");
+    }
+    if (id2petition($d2['petition']) == 'RESTORE TWO TERM (8 YEAR) TERM LIMITS IN PRINCE GEORGE'){
       js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=7");
     }
     if ($d2['invite'] == 'mgp'){
