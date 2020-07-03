@@ -360,22 +360,29 @@ while($d = mysqli_fetch_array($r)){
   if( $presig == '' && $invite_error == '' && $sig == '' ){
     if ($d2['invite'] == 'Ivey'){
       js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=8");
+      die();
     }
     if ($d2['invite'] == 'mlp'){
       js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=2");
+      die();
     }
     if ($d2['invite'] == 'BTEC'){
       js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=3");
+      die();
     }
     if ($d2['invite'] == 'RestorePGTermLimits'){
       js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=7");
+      die();
     }
     if (id2petition($d2['petition']) == 'RESTORE TWO TERM (8 YEAR) TERM LIMITS IN PRINCE GEORGE'){
       js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=7");
+      die();
     }
     if ($d2['invite'] == 'mgp'){
       js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=1");
+      die();
     }
+    js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=X"); // no invite found no petition found - send general follow/up
   }
 }
 ?></table>
