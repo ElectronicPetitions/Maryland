@@ -27,7 +27,7 @@ if (isset($_GET['sign_email'])){
 
 function js_redirect($page){ // now header - prep for full auto
   $base = 'https://www.md-petition.com/admin/';
-  $url = $base.$page;
+  $url = $base.$page.'&run=1';
   $pos = strpos($page, $_COOKIE['sign_email']);
   if ($pos === false) {
     // email not found - good to redirect
