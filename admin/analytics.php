@@ -1,13 +1,19 @@
 <?PHP 
-if ($_COOKIE['name'] == ''){
-  die('no name');
-}
-include_once('bots.php');
-include_once('../slack.php');
-include_once('security.php');
-include_once('/var/www/secure.php'); //outside webserver
-include_once('functions.php');
 
+if (empty($_GET['run'])){
+  if ($_COOKIE['name'] == ''){
+    die('no name');
+  }
+  include_once('bots.php');
+  include_once('../slack.php');
+  include_once('security.php');
+  include_once('/var/www/secure.php'); //outside webserver
+  include_once('functions.php');
+}else{
+  include_once('../slack.php');
+  include_once('/var/www/secure.php'); //outside webserver
+  include_once('functions.php');
+}
 ob_start();
 
 $sign_email = $_COOKIE['sign_email'];
