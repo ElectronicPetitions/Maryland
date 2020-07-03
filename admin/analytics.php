@@ -27,7 +27,7 @@ function js_redirect($page){ // now header - prep for full auto
     // email not found - good to redirect
     //echo "<script>window.location.href = \"$url\";</script>";
     slack_general($url,'automation');
-    header('Location: $url');
+    header('Location: '.$url);
     //slack_general('CHECK COOKIE ('.$_COOKIE['sign_email'].') PAGE ('.$page.')','md-petition-admin');
     die(); 
   } else {
