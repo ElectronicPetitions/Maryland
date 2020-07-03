@@ -1,10 +1,14 @@
 <?PHP 
+
+
+
 include_once('bots.php');
 include_once('../slack.php');
 include_once('security.php');
 include_once('/var/www/secure.php'); //outside webserver
 include_once('functions.php');
 
+ob_start();
 
 $sign_email = $_COOKIE['sign_email'];
 if (isset($_GET['sign_email'])){
@@ -446,5 +450,9 @@ while($d = mysqli_fetch_array($r)){
 
 
 <?PHP
+// allow headers to be sent...
+$html = ob_get_clean();
+echo $html; // run javascript
+
 include_once('footer.php');
 ?>
