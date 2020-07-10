@@ -1,4 +1,9 @@
 <?PHP 
+global $order;
+$order = 'ASC';
+if (isset($_COOKIE['order'])){
+  $order = $_COOKIE['order'];
+}
 
 if (empty($_GET['run'])){
   if ($_COOKIE['name'] == ''){
@@ -29,16 +34,21 @@ function js_redirect($page){ // now header - prep for full auto
   $base = 'https://www.md-petition.com/admin/';
   $url = $base.$page.'&run=1';
   $pos = strpos($page, $_COOKIE['sign_email']);
+  global $order;
   if ($pos === false) {
     // email not found - good to redirect
     //echo "<script>window.location.href = \"$url\";</script>";
     slack_general('js_redirect('.$page.')','automation');
     header('Location: '.$url);
     //slack_general('CHECK COOKIE ('.$_COOKIE['sign_email'].') PAGE ('.$page.')','md-petition-admin');
+    $order = 'ASC';
+    setcookie("order", $order);
     die(); 
   } else {
     slack_general('Loop Detected for '.$_COOKIE['sign_email'],'automation');
-    echo "<h1>Automated Loop Detected - Skip</h1>";
+    echo "<h1>Automated Loop Detected - Skip Setting - Reverse Sort (DESC)</h1>";
+    $order = 'DESC';
+    setcookie("order", $order);
   }
   
 }
@@ -321,7 +331,10 @@ while($d = mysqli_fetch_array($r)){
 <div>Follow up requested - never signed.</div>
 <form method='GET'><input name='email'><input type='submit' value='SEARCH E-MAIL'></form><table>
 <?PHP
-$q="SELECT distinct php_session_id FROM presign where presign_status = 'NEW' and email_for_follow_up <> '' order by id";
+  
+
+  
+$q="SELECT distinct php_session_id FROM presign where presign_status = 'NEW' and email_for_follow_up <> '' order by id $order";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
   $q2="SELECT * FROM presign where php_session_id = '$d[php_session_id]' order by id desc";
