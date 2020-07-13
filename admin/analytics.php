@@ -45,7 +45,7 @@ function js_redirect($page){ // now header - prep for full auto
     setcookie("order", $order);
     die(); 
   } else {
-    slack_general('Loop Detected for '.$_COOKIE['sign_email'],'automation');
+    slack_general('Loop Detected for '.$_COOKIE['sign_email'],'fatal_errors');
     echo "<h1>Automated Loop Detected - Skip Setting - Reverse Sort (DESC)</h1>";
     $order = 'DESC';
     setcookie("order", $order);
