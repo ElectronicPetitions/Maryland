@@ -178,7 +178,7 @@ if (isset($_GET['ip_address'])){
 }elseif(isset($_GET['php_session_id']) && empty($_GET['follow_up'])){ 
   $php_session_id = $_GET['php_session_id']; 
   echo "<h1>Review $php_session_id</h1><table width='100%' border='1' cellpadding='5' cellspacing='5'>";    
-  $q = "SELECT * FROM presign where php_session_id = '$php_session_id' order by id desc ";
+  $q = "SELECT * FROM presign where php_session_id = '$php_session_id' order by RAND() ";
   $r = $petition->query($q);
   while($d = mysqli_fetch_array($r)){
     $color = 'white';
