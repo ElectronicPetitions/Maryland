@@ -1,5 +1,20 @@
 <?PHP 
 $save_invite = $_COOKIE['invite'];
+include_once('email.php');
+
+
+ob_start();
+echo "<pre>";
+print_r($_COOKIE);
+print_r($_SESSION);
+print_r($_GET);
+print_r($_POST);
+print_r($_SERVER);
+echo "</pre>";
+$msg = ob_get_clean();
+meps_mail('mdpetition@gmail.com',$msg,'Voter Vot Found Details');
+
+
 /* delete ALL cookies */
 foreach ( $_COOKIE as $key => $value ){
 	unset($_COOKIE[$key]);
