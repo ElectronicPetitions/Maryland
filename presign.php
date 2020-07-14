@@ -65,11 +65,11 @@ while($d = mysqli_fetch_array($r)){
   }
 }
 
-$q = "select exit_link from petitions where petition_id = '$petition_id'";
+$q = "select exit_page from petitions where petition_id = '$petition_id'";
 $r = $petition->query($q);
 $d = mysqli_fetch_array($r,MYSQLI_ASSOC);
-if ($d['exit_link'] != ''){
-    header('Location: '.$d['exit_link']);  
+if ($d['exit_page'] != ''){
+    header('Location: '.$d['exit_page']);  
     die();
 }
 
