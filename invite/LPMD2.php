@@ -1,6 +1,6 @@
 <?PHP 
 include_once('header.php');
-setcookie("invite", "mlp", time()+3600, "/"); // we use this later
+setcookie("invite", "mlp2", time()+3600, "/"); // we use this later
 ?>
 <!DOCTYPE html>
 <html lang="en">  
