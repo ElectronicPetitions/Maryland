@@ -52,6 +52,10 @@ setcookie("last", $last);
 setcookie("invite_used", $_COOKIE['invite']);
 setcookie("invite", ""); // clear invite
 
+
+
+
+
 $q="SELECT ip_address, petition_id,VTRID, COUNT(*) as count FROM signatures where signature_status = 'verified' group by ip_address, petition_id, VTRID";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){
@@ -60,6 +64,15 @@ while($d = mysqli_fetch_array($r)){
     slack_general_admin($msg,'md-petition-signed');
   }
 }
+
+$q = "select exit_link from petitions where petition_id = '$petition_id'";
+$r = $petition->query($q);
+$d = mysqli_fetch_array($r,MYSQLI_ASSOC);
+if ($d['exit_link'] != ''){
+    header('Location: '.$d['exit_link']);  
+    die();
+}
+
 header('Location: sign.php?s='.$last);
 
 ?>
