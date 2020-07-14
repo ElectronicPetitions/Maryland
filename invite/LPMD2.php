@@ -17,7 +17,7 @@ setcookie("invite", "mlp2", time()+3600, "/"); // we use this later
   <?PHP 
   include_once('/var/www/secure.php'); //outside webserver
   presign(); // requires db connection
-  $q = "select * from petitions where petition_id = '2'";
+  $q = "select * from petitions where petition_id = '9'";
   $r = $petition->query($q);
   $d = mysqli_fetch_array($r);
   include_once('../slack.php');
