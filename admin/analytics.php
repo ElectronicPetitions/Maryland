@@ -334,7 +334,7 @@ while($d = mysqli_fetch_array($r)){
   
 
   
-$q="SELECT distinct php_session_id FROM presign where presign_status = 'NEW' and email_for_follow_up <> '' order by id $order";
+$q="SELECT distinct php_session_id, email_for_follow_up FROM presign where presign_status = 'NEW' and email_for_follow_up <> '' order by id $order";
 $r = $petition->query($q);
 while($d = mysqli_fetch_array($r)){ 
   $q2="SELECT * FROM presign where php_session_id = '$d[php_session_id]' order by id desc";
@@ -347,7 +347,7 @@ while($d = mysqli_fetch_array($r)){
     $d3 = mysqli_fetch_array($r3); 
     if ($d3['date_time_signed'] != ''){
       $sig = "<b><a href='?sign_email=$d2[email_for_follow_up]'>SIGNATURE $d3[date_time_signed]</a></b><br>";
-      js_redirect("analytics.php?sign_email=$d2[email_for_follow_up]");
+      js_redirect("analytics.php?r=1&sign_email=$d2[email_for_follow_up]");
     }
   }
   $presig='';
@@ -356,7 +356,7 @@ while($d = mysqli_fetch_array($r)){
   $d4 = mysqli_fetch_array($r4);
   if ($d4['action_on']){
     $presig = "<b><a href='?sign_email=$d2[email_for_follow_up]'>PRESIG $d4[action_on]</a></b><br>";
-    js_redirect("analytics.php?sign_email=$d2[email_for_follow_up]");
+    js_redirect("analytics.php?r=2&sign_email=$d2[email_for_follow_up]");
   }
   $invite_error='';
   $q4="SELECT * FROM presign where email_for_follow_up = '$d2[email_for_follow_up]' and invite_error <> '' ";
@@ -364,7 +364,7 @@ while($d = mysqli_fetch_array($r)){
   $d4 = mysqli_fetch_array($r4);
   if ($d4['invite_error'] != ''){
     $invite_error = "<b><a href='?clear_email=$d2[email_for_follow_up]'>$d4[invite_error]</a></b><br>";
-    js_redirect("analytics.php?clear_email=$d2[email_for_follow_up]");
+    js_redirect("analytics.php?r=3&clear_email=$d2[email_for_follow_up]");
   }
   $php_session_id = $d2['php_session_id'];
   echo "<tr><td><a href='?php_session_id=$php_session_id'>$d2[action_on]</a></td><td>$presig $sig $invite_error</td>
@@ -378,30 +378,30 @@ while($d = mysqli_fetch_array($r)){
   - <a href='?php_session_id=$php_session_id&follow_up=8'>Ivey</a></td></tr>"; 
   if( $presig == '' && $invite_error == '' && $sig == '' ){
     if ($d2['invite'] == 'Ivey'){
-      js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=8");
+      js_redirect("analytics.php?r=4&php_session_id=$php_session_id&follow_up=8");
       die();
     }
     if ($d2['invite'] == 'mlp'){
-      js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=2");
+      js_redirect("analytics.php?r=5&php_session_id=$php_session_id&follow_up=2");
       die();
     }
     if ($d2['invite'] == 'BTEC'){
-      js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=3");
+      js_redirect("analytics.php?r=6&php_session_id=$php_session_id&follow_up=3");
       die();
     }
     if ($d2['invite'] == 'RestorePGTermLimits'){
-      js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=7");
+      js_redirect("analytics.php?r=7&php_session_id=$php_session_id&follow_up=7");
       die();
     }
     if (id2petition($d2['petition']) == 'RESTORE TWO TERM (8 YEAR) TERM LIMITS IN PRINCE GEORGE'){
-      js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=7");
+      js_redirect("analytics.php?r=8&php_session_id=$php_session_id&follow_up=7");
       die();
     }
     if ($d2['invite'] == 'mgp'){
-      js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=1");
+      js_redirect("analytics.php?r=9&php_session_id=$php_session_id&follow_up=1");
       die();
     }
-    js_redirect("analytics.php?php_session_id=$php_session_id&follow_up=X"); // no invite found no petition found - send general follow/up
+    js_redirect("analytics.php?r=10&php_session_id=$php_session_id&follow_up=X"); // no invite found no petition found - send general follow/up
   }
 }
 ?></table>
