@@ -363,7 +363,7 @@ while($d = mysqli_fetch_array($r)){
   $r4 = $petition->query($q4);
   $d4 = mysqli_fetch_array($r4);
   if ($d4['invite_error'] != ''){
-    $invite_error = "<b><a href='?clear_email=$d2[email_for_follow_up]'>$d4[invite_error]</a></b><br>";
+    $invite_error = "<b><a href='?php_session_id=$php_session_id&follow_up=X'>$d4[invite_error]</a></b><br>";
     //js_redirect("analytics.php?r=3&clear_email=$d2[email_for_follow_up]");
   }
   $php_session_id = $d2['php_session_id'];
