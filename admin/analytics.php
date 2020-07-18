@@ -359,7 +359,7 @@ while($d = mysqli_fetch_array($r)){
     js_redirect("analytics.php?r=2&sign_email=$d2[email_for_follow_up]");
   }
   $invite_error='';
-  $q4="SELECT * FROM presign where email_for_follow_up = '$d2[email_for_follow_up]' and invite_error <> '' ";
+  $q4="SELECT * FROM presign where email_for_follow_up = '$d2[email_for_follow_up]' and invite_error <> '' and email_for_follow_up <> '$_COOKIE[sign_email]' ";
   $r4 = $petition->query($q4);
   $d4 = mysqli_fetch_array($r4);
   if ($d4['invite_error'] != ''){
