@@ -362,11 +362,12 @@ while($d = mysqli_fetch_array($r)){
   $q4="SELECT * FROM presign where email_for_follow_up = '$d2[email_for_follow_up]' and invite_error <> '' and email_for_follow_up <> '$_COOKIE[sign_email]' ";
   $r4 = $petition->query($q4);
   $d4 = mysqli_fetch_array($r4);
+  $php_session_id = $d2['php_session_id'];
   if ($d4['invite_error'] != ''){
-    $invite_error = "<b><a href='?php_session_id=$php_session_id&follow_up=X'>$d4[invite_error]</a></b><br>";
+    $invite_error = "<b>$d4[invite_error]</b><br>";
+    $petition->query("update presign set presign_status = 'DONE' where php_session_id = '$php_session_id' ");
     //js_redirect("analytics.php?r=3&clear_email=$d2[email_for_follow_up]");
   }
-  $php_session_id = $d2['php_session_id'];
   echo "<tr><td><a href='?php_session_id=$php_session_id'>$d2[action_on]</a></td><td>$presig $sig $invite_error</td>
   <td>$d2[name]</td><td><a href='?email=$d2[email_for_follow_up]'>$d2[email_for_follow_up]</a></td>
   <td>".id2petition($d2['petition'])."</td><td>$d2[invite]</td>
