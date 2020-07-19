@@ -9,8 +9,8 @@ $ip_address    = $d['ip_address'];
 $DOB    = $d['date_of_birth'];
 $SIGNED = $d['date_time_signed'];
 $PETITION_ID = $d['petition_id'];
-$signed_name_as = $d['signed_name_as'];
-$signed_name_as_circulator = $d['signed_name_as_circulator'];
+$signed_name_as = ucwords(strtolower($d['signed_name_as']));
+$signed_name_as_circulator = ucwords(strtolower($d['signed_name_as_circulator']));
 if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
     $ip = $_SERVER['HTTP_CLIENT_IP'];
 } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
