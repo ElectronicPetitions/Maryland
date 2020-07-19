@@ -14,8 +14,8 @@ $d = mysqli_fetch_array($r);
 $DOB    = $d['date_of_birth'];
 $SIGNED = $d['date_time_signed'];
 $PETITION_ID = $d['petition_id'];
-$signed_name_as = $d['signed_name_as'];
-$signed_name_as_circulator = $d['signed_name_as_circulator'];
+$signed_name_as = ucwords(strtolower($d['signed_name_as']));
+$signed_name_as_circulator = ucwords(strtolower($d['signed_name_as_circulator']));
 $contact_phone = $d['contact_phone'];
 
 slack_general("$name printing petition $id",'md-petition');
