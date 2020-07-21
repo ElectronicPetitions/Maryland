@@ -82,7 +82,7 @@ function md_voter_lookup($SearchFirstName,$SearchLastName,$DOBMonth,$DOBDay,$DOB
   $html = $petition->real_escape_string($result['html']);
   $petition->query("INSERT INTO `RemoteVoterList` (`date_validated`, `txtSearchFirstName`, `txtSearchLastName`, `txtDOBMonth`, `txtDOBDay`, `txtDOBYear`, `txtSearchZipCode`, `txtSearchHouseNumber`, `txtSearchMiddleInitial`, `sbe_response`)
 VALUES (now(), '$SearchFirstName', '$SearchLastName', '$DOBMonth', '$DOBDay', '$DOBYear', '$SearchZipCode', '$SearchHouseNumber', '$SearchMiddleInitial', '$html')");
-  return $return;
+  return $result['html'];
 }
 /*
 if (isset($_POST['SearchFirstName'])){
