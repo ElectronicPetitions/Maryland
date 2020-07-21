@@ -51,43 +51,71 @@ $post['__VIEWSTATEGENERATOR'] = cut_part_out('id="__VIEWSTATEGENERATOR" value="'
 $post['__VIEWSTATEENCRYPTED'] = cut_part_out('id="__VIEWSTATEENCRYPTED" value="','"',$form['html']);
 $post['__EVENTVALIDATION'] = cut_part_out('id="__EVENTVALIDATION" value="','"',$form['html']);
 // Voter Info Form Elements
-//$post['Languages_field'] = '$ctl00$MainContent$listLanguages';
-$post['Languages'] = "en";
+//$post['Languages_field'] = 'ctl00$MainContent$listLanguages';
+$post['ctl00$MainContent$listLanguages'] = "en";
 if (isset($_POST['SearchFirstName'])){
   //$post['SearchFirstName_field'] = 'ctl00$MainContent$txtSearchFirstName';
-  $post['SearchFirstName'] = $_POST['SearchFirstName'];
+  $post['ctl00$MainContent$txtSearchFirstName'] = $_POST['SearchFirstName'];
+  $post['txtSearchFirstName'] = $_POST['SearchFirstName'];
 }else{
-  $post['SearchFirstName'] = '';
+  $post['ctl00$MainContent$txtSearchFirstName'] = '';
+  $post['txtSearchFirstName']
 }
 if (isset($_POST['SearchLastName'])){
   //$post['SearchLastName_field'] = 'ctl00$MainContent$txtSearchLastName';
-  $post['SearchLastName'] = $_POST['SearchLastName'];
+  $post['ctl00$MainContent$txtSearchLastName'] = $_POST['SearchLastName'];
+  $post['ctl00$MainContent$txtSearchLastName'] = $_POST['SearchLastName'];
 }else{
-  $post['SearchLastName'] = '';
+  $post['ctl00$MainContent$txtSearchLastName'] = '';
+  $post['txtSearchLastName'] = '';
 }
 if (isset($_POST['DOBMonth'])){
   //$post['DOBMonth_field'] = 'ctl00$MainContent$txtDOBMonth';
-  $post['DOBMonth'] = $_POST['DOBMonth'];
+  $post['ctl00$MainContent$txtDOBMonth'] = $_POST['DOBMonth'];
+  $post['txtDOBMonth'] = $_POST['DOBMonth'];
 }else{
-  $post['DOBMonth'] = '';
+  $post['ctl00$MainContent$txtDOBMonth'] = '';
+  $post['txtDOBMonth'] = '';
 }
 if (isset($_POST['DOBDay'])){
   //$post['DOBDay_field'] = 'ctl00$MainContent$txtDOBDay';
-  $post['DOBDay'] = $_POST['DOBDay'];
+  $post['ctl00$MainContent$txtDOBDay'] = $_POST['DOBDay'];
+  $post['txtDOBDay'] = $_POST['DOBDay'];
 }else{
-  $post['DOBDay'] = '';
+  $post['ctl00$MainContent$txtDOBDay'] = '';
+  $post['txtDOBDay'] = '';
 }
 if (isset($_POST['DOBYear'])){
   //$post['DOBYear_field'] = 'ctl00$MainContent$txtDOBYear';
-  $post['DOBYear'] = $_POST['DOBYear'];
+  $post['ctl00$MainContent$txtDOBYear'] = $_POST['DOBYear'];
+  $post['txtDOBYear'] = $_POST['DOBYear'];
 }else{
-  $post['DOBYear'] = '';
+  $post['ctl00$MainContent$txtDOBYear'] = '';
+  $post['txtDOBYear'] = '';
 }
 if (isset($_POST['SearchZipCode'])){
   //$post['SearchZipCode_field'] = 'ctl00$MainContent$txtSearchZipCode';
-  $post['SearchZipCode'] = $_POST['SearchZipCode'];
+  $post['ctl00$MainContent$txtSearchZipCode'] = $_POST['SearchZipCode'];
+  $post['txtSearchZipCode'] = $_POST['SearchZipCode'];
 }else{
-  $post['SearchZipCode'] = '';
+  $post['ctl00$MainContent$txtSearchZipCode'] = '';
+  $post['txtSearchZipCode'] = '';
+}
+if (isset($_POST['SearchHouseNumber'])){
+  //$post['SearchZipCode_field'] = 'ctl00$MainContent$txtSearchZipCode';
+  $post['ctl00$MainContent$txtSearchHouseNumber'] = $_POST['SearchHouseNumber'];
+  $post['txtSearchHouseNumber'] = $_POST['SearchHouseNumber'];
+}else{
+  $post['ctl00$MainContent$txtSearchHouseNumber'] = '';
+  $post['txtSearchHouseNumber'] = '';
+}
+if (isset($_POST['SearchMiddleInitial'])){
+  //$post['SearchZipCode_field'] = 'ctl00$MainContent$txtSearchZipCode';
+  $post['ctl00$MainContent$txtSearchMiddleInitial'] = $_POST['SearchMiddleInitial'];
+  $post['txtSearchMiddleInitial'] = $_POST['SearchMiddleInitial'];
+}else{
+  $post['ctl00$MainContent$txtSearchMiddleInitial'] = '';
+  $post['txtSearchMiddleInitial'] = '';
 }
 // debug - show full response make sure we have the cookie
 echo "<li>COOKIE ASP.NET_SessionId $cookie</li>";
@@ -124,13 +152,13 @@ echo '<hr><hr><hr>';
     <td>SearchZipCode</td><td><input name='SearchZipCode'></td>
   </tr>
   <tr>
-    <td>SearchHouseNumber</td><td>n/a</td>
+    <td>SearchHouseNumber*</td><td><input name='SearchHouseNumber'></td>
   </tr>
   <tr>
-    <td>SearchMiddleInitial</td><td>n/a</td>
+    <td>SearchMiddleInitial*</td><td><input name='SearchMiddleInitial'></td>
   </tr>
   <tr>
-    <td></td><td><input type='submit'></td>
+    <td>*Optional</td><td><input type='submit'></td>
   </tr>
 </table>  
 </form>
