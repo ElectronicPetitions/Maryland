@@ -48,14 +48,37 @@ $VIEWSTATE = cut_part_out('id="__VIEWSTATE" value="','"',$form['html']);
 $VIEWSTATEGENERATOR = cut_part_out('id="__VIEWSTATEGENERATOR" value="','"',$form['html']);
 $VIEWSTATEENCRYPTED = cut_part_out('id="__VIEWSTATEENCRYPTED" value="','"',$form['html']);
 $EVENTVALIDATION = cut_part_out('id="__EVENTVALIDATION" value="','"',$form['html']);
-
+// Voter Info Form Elements
+$ctl00$MainContent$listLanguages = "en";
+if ($_POST['SearchFirstName']){
+  $SearchFirstName_field = 'ctl00$MainContent$txtSearchFirstName';
+  $SearchFirstName = $_POST['SearchFirstName'];
+}
+if ($_POST['SearchLastName']){
+  $SearchLastName_field = 'ctl00$MainContent$txtSearchLastName';
+  $SearchLastName = $_POST['SearchLastName'];
+}
+if ($_POST['DOBMonth']){
+  $DOBMonth_field = 'ctl00$MainContent$txtDOBMonth';
+  $DOBMonth = $_POST['DOBMonth'];
+}
+if ($_POST['DOBDay']){
+  $DOBDay_field = 'ctl00$MainContent$txtDOBDay';
+  $DOBDay = $_POST['DOBDay'];
+}
+if ($_POST['DOBYear']){
+  $DOBYear_field = 'ctl00$MainContent$txtDOBYear';
+  $DOBYear = $_POST['DOBYear'];
+}
+if ($_POST['SearchZipCode']){
+  $SearchZipCode_field = 'ctl00$MainContent$txtSearchZipCode';
+  $SearchZipCode = $_POST['SearchZipCode'];
+}
 // hidden Form Elements
 //__VIEWSTATE
 //__VIEWSTATEGENERATOR
 //__VIEWSTATEENCRYPTED
 //__EVENTVALIDATION
-
-//ctl00$MainContent$listLanguages = en <- may not be needed
 
 // debug - show full response make sure we have the cookie
 echo "<li>COOKIE ASP.NET_SessionId $cookie</li>";
@@ -63,8 +86,45 @@ echo "<li>POST VIEWSTATE $VIEWSTATE</li>";
 echo "<li>POST VIEWSTATEGENERATOR $VIEWSTATEGENERATOR</li>";
 echo "<li>POST VIEWSTATEENCRYPTED $VIEWSTATEENCRYPTED</li>";
 echo "<li>POST EVENTVALIDATION $EVENTVALIDATION</li>";
-
+echo "<li>POST SearchFirstName $SearchFirstName</li>";
+echo "<li>POST SearchLastName $SearchLastName</li>";
+echo "<li>POST DOBMonth $DOBMonth</li>";
+echo "<li>POST DOBDay $DOBDay</li>";
+echo "<li>POST DOBYear $DOBYear</li>";
+echo "<li>POST SearchZipCode $SearchZipCode</li>";
 echo "<hr><hr><hr>";
 echo htmlspecialchars($form['html']);
 echo '<hr><hr><hr><h1>Rendered</h1>';
-echo $form['html'];
+//echo $form['html'];
+?>
+<form method='POST'>
+<table>
+  <tr>
+    <td>SearchFirstName</td><td><input name='SearchFirstName'></td>
+  </tr>
+  <tr>
+    <td>SearchLastName</td><td><input name='SearchLastName'></td>
+  </tr>
+  <tr>
+    <td>DOBMonth</td><td><input name='DOBMonth'></td>
+  </tr>
+  <tr>
+    <td>DOBDay</td><td><input name='DOBDay'></td>
+  </tr>
+  <tr>
+    <td>DOBYear</td><td><input name='DOBYear'></td>
+  </tr>
+  <tr>
+    <td>SearchZipCode</td><td><input name='SearchZipCode'></td>
+  </tr>
+  <tr>
+    <td>SearchHouseNumber</td><td>n/a</td>
+  </tr>
+  <tr>
+    <td>SearchMiddleInitial</td><td>n/a</td>
+  </tr>
+  <tr>
+    <td></td><td><input type='submit'></td>
+  </tr>
+</table>  
+</form>
