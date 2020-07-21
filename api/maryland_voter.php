@@ -17,7 +17,7 @@ if (isset($_POST['SearchFirstName'])){
 if (isset($_POST['SearchLastName'])){
   //$post['SearchLastName_field'] = 'ctl00$MainContent$txtSearchLastName';
   $post['ctl00$MainContent$txtSearchLastName'] = $_POST['SearchLastName'];
-  $post['ctl00$MainContent$txtSearchLastName'] = $_POST['SearchLastName'];
+  $post['txtSearchLastName'] = $_POST['SearchLastName'];
 }else{
   $post['ctl00$MainContent$txtSearchLastName'] = '';
   $post['txtSearchLastName'] = '';
