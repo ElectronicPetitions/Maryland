@@ -27,12 +27,19 @@ $year     		= date('Y',strtotime($DOB));
 $error = 'Based on what you entered, we were unable to find any information.';
 $sbe_response = md_voter_lookup($web_first_name,$web_last_name,$month,$day,$year,$web_zip_code,'','');
 $pos = strpos($sbe_response, $error);
-if ($pos === false) {
-    meps_mail('mdpetition@gmail.com',$sbe_response,'Voter v2 ** Data Found! **');
-} else {
-    meps_mail('mdpetition@gmail.com',$sbe_response,'Voter v2 Still Missing');
+if ($pos !== false) {
+   meps_mail('mdpetition@gmail.com',$sbe_response,'Voter API v2 Fail: '.$error);
 }
-
+$error2 = 'MISSING NAME';
+$pos = strpos($sbe_response, $error2);
+if ($pos !== false) {
+   meps_mail('mdpetition@gmail.com',$sbe_response,'Voter API v2 Fail: '.$error2);
+}
+$error3 = 'My Voter Registration Record';
+$pos = strpos($sbe_response, $error3);
+if ($pos !== false) {
+   meps_mail('mdpetition@gmail.com',$sbe_response,'Voter API v2 Success: '.$error3);
+}
 
 /* delete ALL cookies */
 foreach ( $_COOKIE as $key => $value ){
