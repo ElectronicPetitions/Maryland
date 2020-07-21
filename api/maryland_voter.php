@@ -54,26 +54,38 @@ $Languages = "en";
 if (isset($_POST['SearchFirstName'])){
   $SearchFirstName_field = 'ctl00$MainContent$txtSearchFirstName';
   $SearchFirstName = $_POST['SearchFirstName'];
+}else{
+  $SearchFirstName = '';
 }
 if (isset($_POST['SearchLastName'])){
   $SearchLastName_field = 'ctl00$MainContent$txtSearchLastName';
   $SearchLastName = $_POST['SearchLastName'];
+}else{
+  $SearchLastName = '';
 }
 if (isset($_POST['DOBMonth'])){
   $DOBMonth_field = 'ctl00$MainContent$txtDOBMonth';
   $DOBMonth = $_POST['DOBMonth'];
+}else{
+  $DOBMonth = '';
 }
 if (isset($_POST['DOBDay'])){
   $DOBDay_field = 'ctl00$MainContent$txtDOBDay';
   $DOBDay = $_POST['DOBDay'];
+}else{
+  $DOBDay = '';
 }
 if (isset($_POST['DOBYear'])){
   $DOBYear_field = 'ctl00$MainContent$txtDOBYear';
   $DOBYear = $_POST['DOBYear'];
+}else{
+  $DOBYear = '';
 }
 if (isset($_POST['SearchZipCode'])){
   $SearchZipCode_field = 'ctl00$MainContent$txtSearchZipCode';
   $SearchZipCode = $_POST['SearchZipCode'];
+}else{
+  $SearchZipCode = '';
 }
 // debug - show full response make sure we have the cookie
 echo "<li>COOKIE ASP.NET_SessionId $cookie</li>";
