@@ -52,7 +52,7 @@ $post['__VIEWSTATEENCRYPTED'] = cut_part_out('id="__VIEWSTATEENCRYPTED" value="'
 $post['__EVENTVALIDATION'] = cut_part_out('id="__EVENTVALIDATION" value="','"',$form['html']);
 // Voter Info Form Elements
 //$post['Languages_field'] = '$ctl00$MainContent$listLanguages';
-$post['$ctl00$MainContent$listLanguages'] = "en";
+$post['ctl00$MainContent$listLanguages'] = "en";
 if (isset($_POST['SearchFirstName'])){
   //$post['SearchFirstName_field'] = 'ctl00$MainContent$txtSearchFirstName';
   $post['ctl00$MainContent$txtSearchFirstName'] = $_POST['SearchFirstName'];
@@ -138,6 +138,8 @@ echo '<hr><hr><hr>';
 if ($post['ctl00$MainContent$txtSearchFirstName'] != ''){
   $result['html'] = getPage($form['url'],$cookie,$post);
   echo "<hr><hr><hr><h1>SBE API RESULTS</h1>";
-  echo htmlspecialchars($form['html']);
+  echo htmlspecialchars($result['html']);
+  echo '<hr><hr><hr>';
+  echo $result['html'];
 }
 ?>
