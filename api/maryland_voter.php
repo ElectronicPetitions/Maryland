@@ -15,23 +15,22 @@ function getPage($url){
   curl_setopt ($curl, CURLOPT_HEADER, 1);
   curl_setopt ($curl, CURLOPT_SSL_VERIFYPEER, 0);
   curl_setopt ($curl, CURLOPT_FOLLOWLOCATION, true);
-  curl_setopt ($curl, CURLOPT_COOKIEJAR, dirname(__FILE__) . '/cookie.txt'); // save cookies
+  //curl_setopt ($curl, CURLOPT_COOKIEJAR, dirname(__FILE__) . '/cookie.txt'); // save cookies
   //curl_setopt ($curl, CURLOPT_HTTPHEADER, array("Cookie: ASP.NET_SessionId=true")); // use cookies
   $html = curl_exec ($curl);
   curl_close ($curl);
   return $html;
 }
 
-$form['cookies_file'] = dirname(__FILE__) . '/cookie.txt';
+// start a session to get a cookie
 $form['url']  = 'https://voterservices.elections.maryland.gov/VoterSearch';
 $form['html'] = getPage($form['url']);
 
-$cookies = '';
-if (file_exists($form['cookies_file'])) {
-  ob_start();
-  readfile($form['cookies_file']);
-  $cookies = ob_get_clean();
-}
-echo '<h1>Cookies</h1>'.$cookies;
-echo '<h1>RAW</h1>'.htmlspecialchars($form['html']).'<hr>';
+// extract the cookie form the header (see CURLOPT_HEADER)
+$parts = explode ('ASP.NET_SessionId=',$form['html']);
+$subparts = explode (';',$parts[1]);
+$cookie = $subparts[0];
+
+// debug - show full response make sure we have the cookie
+echo "<h1>RAW - $cookie </h1>".htmlspecialchars($form['html']).'<hr><h1>Rendered</h1>';
 echo $form['html'];
