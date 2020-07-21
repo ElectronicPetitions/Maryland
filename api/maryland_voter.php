@@ -49,7 +49,8 @@ $VIEWSTATEGENERATOR = cut_part_out('id="__VIEWSTATEGENERATOR" value="','"',$form
 $VIEWSTATEENCRYPTED = cut_part_out('id="__VIEWSTATEENCRYPTED" value="','"',$form['html']);
 $EVENTVALIDATION = cut_part_out('id="__EVENTVALIDATION" value="','"',$form['html']);
 // Voter Info Form Elements
-$ctl00$MainContent$listLanguages = "en";
+$Languages_field = '$ctl00$MainContent$listLanguages';
+$Languages = "en";
 if ($_POST['SearchFirstName']){
   $SearchFirstName_field = 'ctl00$MainContent$txtSearchFirstName';
   $SearchFirstName = $_POST['SearchFirstName'];
@@ -74,12 +75,6 @@ if ($_POST['SearchZipCode']){
   $SearchZipCode_field = 'ctl00$MainContent$txtSearchZipCode';
   $SearchZipCode = $_POST['SearchZipCode'];
 }
-// hidden Form Elements
-//__VIEWSTATE
-//__VIEWSTATEGENERATOR
-//__VIEWSTATEENCRYPTED
-//__EVENTVALIDATION
-
 // debug - show full response make sure we have the cookie
 echo "<li>COOKIE ASP.NET_SessionId $cookie</li>";
 echo "<li>POST VIEWSTATE $VIEWSTATE</li>";
@@ -92,7 +87,7 @@ echo "<li>POST DOBMonth $DOBMonth</li>";
 echo "<li>POST DOBDay $DOBDay</li>";
 echo "<li>POST DOBYear $DOBYear</li>";
 echo "<li>POST SearchZipCode $SearchZipCode</li>";
-echo "<hr><hr><hr>";
+echo "<hr><hr><hr><h1>Voter Form</h1>";
 echo htmlspecialchars($form['html']);
 echo '<hr><hr><hr><h1>Rendered</h1>';
 //echo $form['html'];
