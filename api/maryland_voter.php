@@ -79,7 +79,7 @@ function md_voter_lookup($SearchFirstName,$SearchLastName,$DOBMonth,$DOBDay,$DOB
   //echo "<h1>STEP 2: SBE RESULTS</h1>";
   $return['debug'] = htmlspecialchars($result['html']);
   $return['html']  = $result['html']; 
-  $html = $mysqli->real_escape_string($result['html']);
+  $html = $petition->real_escape_string($result['html']);
   $petition->query("INSERT INTO `RemoteVoterList` (`date_validated`, `txtSearchFirstName`, `txtSearchLastName`, `txtDOBMonth`, `txtDOBDay`, `txtDOBYear`, `txtSearchZipCode`, `txtSearchHouseNumber`, `txtSearchMiddleInitial`, `sbe_response`)
 VALUES (now(), '$SearchFirstName', '$SearchLastName', '$DOBMonth', '$DOBDay', '$DOBYear', '$SearchZipCode', '$SearchHouseNumber', '$SearchMiddleInitial', '$html')");
   return $return;
