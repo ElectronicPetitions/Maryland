@@ -43,18 +43,28 @@ $form['html'] = getPage($form['url']);
 
 // extract the cookie from the header (see CURLOPT_HEADER)
 $cookie = cut_part_out('ASP.NET_SessionId=',';',$form['html']);
+// extract the form elements we will need to post with our data
 $VIEWSTATE = cut_part_out('id="__VIEWSTATE" value="','"',$form['html']);
-// Found Form Elements
+$VIEWSTATEGENERATOR = cut_part_out('id="__VIEWSTATEGENERATOR" value="','"',$form['html']);
+$VIEWSTATEENCRYPTED = cut_part_out('id="__VIEWSTATEENCRYPTED" value="','"',$form['html']);
+$EVENTVALIDATION = cut_part_out('id="__EVENTVALIDATION" value="','"',$form['html']);
+
+// hidden Form Elements
 //__VIEWSTATE
 //__VIEWSTATEGENERATOR
 //__VIEWSTATEENCRYPTED
 //__EVENTVALIDATION
-//ctl00$MainContent$listLanguages = en
+
+//ctl00$MainContent$listLanguages = en <- may not be needed
 
 // debug - show full response make sure we have the cookie
 echo "<li>COOKIE ASP.NET_SessionId $cookie</li>";
 echo "<li>POST VIEWSTATE $VIEWSTATE</li>";
+echo "<li>POST VIEWSTATEGENERATOR $VIEWSTATEGENERATOR</li>";
+echo "<li>POST VIEWSTATEENCRYPTED $VIEWSTATEENCRYPTED</li>";
+echo "<li>POST EVENTVALIDATION $EVENTVALIDATION</li>";
 
+echo "<hr><hr><hr>";
 echo htmlspecialchars($form['html']);
-echo '<hr><h1>Rendered</h1>';
+echo '<hr><hr><hr><h1>Rendered</h1>';
 echo $form['html'];
