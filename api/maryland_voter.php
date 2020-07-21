@@ -52,42 +52,42 @@ $post['__VIEWSTATEENCRYPTED'] = cut_part_out('id="__VIEWSTATEENCRYPTED" value="'
 $post['__EVENTVALIDATION'] = cut_part_out('id="__EVENTVALIDATION" value="','"',$form['html']);
 // Voter Info Form Elements
 //$post['Languages_field'] = '$ctl00$MainContent$listLanguages';
-$post['ctl00$MainContent$listLanguages'] = "en";
+$post['Languages'] = "en";
 if (isset($_POST['SearchFirstName'])){
   //$post['SearchFirstName_field'] = 'ctl00$MainContent$txtSearchFirstName';
-  $post['ctl00$MainContent$txtSearchFirstName'] = $_POST['SearchFirstName'];
+  $post['SearchFirstName'] = $_POST['SearchFirstName'];
 }else{
-  $post['ctl00$MainContent$txtSearchFirstName'] = '';
+  $post['SearchFirstName'] = '';
 }
 if (isset($_POST['SearchLastName'])){
   //$post['SearchLastName_field'] = 'ctl00$MainContent$txtSearchLastName';
-  $post['ctl00$MainContent$txtSearchLastName'] = $_POST['SearchLastName'];
+  $post['SearchLastName'] = $_POST['SearchLastName'];
 }else{
-  $post['ctl00$MainContent$txtSearchLastName'] = '';
+  $post['SearchLastName'] = '';
 }
 if (isset($_POST['DOBMonth'])){
   //$post['DOBMonth_field'] = 'ctl00$MainContent$txtDOBMonth';
-  $post['ctl00$MainContent$txtDOBMonth'] = $_POST['DOBMonth'];
+  $post['DOBMonth'] = $_POST['DOBMonth'];
 }else{
-  $post['ctl00$MainContent$txtDOBMonth'] = '';
+  $post['DOBMonth'] = '';
 }
 if (isset($_POST['DOBDay'])){
   //$post['DOBDay_field'] = 'ctl00$MainContent$txtDOBDay';
-  $post['ctl00$MainContent$txtDOBDay'] = $_POST['DOBDay'];
+  $post['DOBDay'] = $_POST['DOBDay'];
 }else{
-  $post['ctl00$MainContent$txtDOBDay'] = '';
+  $post['DOBDay'] = '';
 }
 if (isset($_POST['DOBYear'])){
   //$post['DOBYear_field'] = 'ctl00$MainContent$txtDOBYear';
-  $post['ctl00$MainContent$txtDOBYear'] = $_POST['DOBYear'];
+  $post['DOBYear'] = $_POST['DOBYear'];
 }else{
-  $post['ctl00$MainContent$txtDOBYear'] = '';
+  $post['DOBYear'] = '';
 }
 if (isset($_POST['SearchZipCode'])){
   //$post['SearchZipCode_field'] = 'ctl00$MainContent$txtSearchZipCode';
-  $post['ctl00$MainContent$txtSearchZipCode'] = $_POST['SearchZipCode'];
+  $post['SearchZipCode'] = $_POST['SearchZipCode'];
 }else{
-  $post['ctl00$MainContent$txtSearchZipCode'] = '';
+  $post['SearchZipCode'] = '';
 }
 // debug - show full response make sure we have the cookie
 echo "<li>COOKIE ASP.NET_SessionId $cookie</li>";
@@ -135,7 +135,7 @@ echo '<hr><hr><hr>';
 </table>  
 </form>
 <?PHP
-if ($post['ctl00$MainContent$txtSearchFirstName'] != ''){
+if ($post['SearchFirstName'] != ''){
   $result['html'] = getPage($form['url'],$cookie,$post);
   echo "<hr><hr><hr><h1>SBE API RESULTS</h1>";
   echo htmlspecialchars($result['html']);
