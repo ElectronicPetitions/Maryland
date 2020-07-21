@@ -53,13 +53,14 @@ $post['__EVENTVALIDATION'] = cut_part_out('id="__EVENTVALIDATION" value="','"',$
 // Voter Info Form Elements
 //$post['Languages_field'] = 'ctl00$MainContent$listLanguages';
 $post['ctl00$MainContent$listLanguages'] = "en";
+$post['listLanguages'] = "en";
 if (isset($_POST['SearchFirstName'])){
   //$post['SearchFirstName_field'] = 'ctl00$MainContent$txtSearchFirstName';
   $post['ctl00$MainContent$txtSearchFirstName'] = $_POST['SearchFirstName'];
   $post['txtSearchFirstName'] = $_POST['SearchFirstName'];
 }else{
   $post['ctl00$MainContent$txtSearchFirstName'] = '';
-  $post['txtSearchFirstName']
+  $post['txtSearchFirstName'];
 }
 if (isset($_POST['SearchLastName'])){
   //$post['SearchLastName_field'] = 'ctl00$MainContent$txtSearchLastName';
