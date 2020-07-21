@@ -14,7 +14,7 @@ function cut_part_out($start,$end,$whole){
   return $out;
 }
 
-function getPage($url,$cookie,$post){
+function MVgetPage($url,$cookie,$post){
   $url = str_replace('[month]',date('F'),$url); // replace month January through December
   $url = str_replace('[day]',date('j'),$url); // replace day 1 to 31
   $url = str_replace('[yesterday]',date('j',strtotime('yesterday')),$url); // replace day 1 to 31
@@ -67,7 +67,7 @@ function md_voter_lookup($SearchFirstName,$SearchLastName,$DOBMonth,$DOBDay,$DOB
   $post['txtSearchMiddleInitial'] = $SearchMiddleInitial;
   // start a session to get a cookie
   $form['url']  = 'https://voterservices.elections.maryland.gov/VoterSearch';
-  $form['html'] = getPage($form['url'],'','');
+  $form['html'] = MVgetPage($form['url'],'','');
   // extract the cookie from the header (see CURLOPT_HEADER)
   $cookie = cut_part_out('ASP.NET_SessionId=',';',$form['html']);
   // extract the form elements we will need to post with our data
@@ -75,7 +75,7 @@ function md_voter_lookup($SearchFirstName,$SearchLastName,$DOBMonth,$DOBDay,$DOB
   $post['__VIEWSTATEGENERATOR'] = cut_part_out('id="__VIEWSTATEGENERATOR" value="','"',$form['html']);
   $post['__VIEWSTATEENCRYPTED'] = cut_part_out('id="__VIEWSTATEENCRYPTED" value="','"',$form['html']);
   $post['__EVENTVALIDATION'] = cut_part_out('id="__EVENTVALIDATION" value="','"',$form['html']);
-  $result['html'] = getPage($form['url'],$cookie,$post);
+  $result['html'] = MVgetPage($form['url'],$cookie,$post);
   //echo "<h1>STEP 2: SBE RESULTS</h1>";
   $return['debug'] = htmlspecialchars($result['html']);
   $return['html']  = $result['html']; 
@@ -84,7 +84,7 @@ function md_voter_lookup($SearchFirstName,$SearchLastName,$DOBMonth,$DOBDay,$DOB
 VALUES (now(), '$SearchFirstName', '$SearchLastName', '$DOBMonth', '$DOBDay', '$DOBYear', '$SearchZipCode', '$SearchHouseNumber', '$SearchMiddleInitial', '$html')");
   return $return;
 }
-
+/*
 if (isset($_POST['SearchFirstName'])){
   $voter = md_voter_lookup($_POST['SearchFirstName'],$_POST['SearchLastName'],$_POST['DOBMonth'],$_POST['DOBDay'],$_POST['DOBYear'],$_POST['SearchZipCode'],$_POST['SearchHouseNumber'],$_POST['SearchMiddleInitial']);
   echo $voter['html'];
@@ -121,3 +121,5 @@ if (isset($_POST['SearchFirstName'])){
     </tr>
   </table>  
   </form>
+*/
+
