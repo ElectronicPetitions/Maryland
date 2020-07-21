@@ -60,7 +60,7 @@ if (isset($_POST['SearchFirstName'])){
   $post['txtSearchFirstName'] = $_POST['SearchFirstName'];
 }else{
   $post['ctl00$MainContent$txtSearchFirstName'] = '';
-  $post['txtSearchFirstName'];
+  $post['txtSearchFirstName'] = '';
 }
 if (isset($_POST['SearchLastName'])){
   //$post['SearchLastName_field'] = 'ctl00$MainContent$txtSearchLastName';
@@ -164,7 +164,7 @@ echo '<hr><hr><hr>';
 </table>  
 </form>
 <?PHP
-if ($post['SearchFirstName'] != ''){
+if ($post['txtSearchFirstName'] != ''){
   $result['html'] = getPage($form['url'],$cookie,$post);
   echo "<hr><hr><hr><h1>SBE API RESULTS</h1>";
   echo htmlspecialchars($result['html']);
