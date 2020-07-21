@@ -12,6 +12,7 @@ function getPage($url){
   curl_setopt ($curl, CURLOPT_URL, $url);
   curl_setopt ($curl, CURLOPT_USERAGENT, sprintf("McGuire MEPS https://www.md-petition.com/ /%d.0",rand(4,50)));
   curl_setopt ($curl, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt ($curl, CURLOPT_HEADER, 1);
   curl_setopt ($curl, CURLOPT_SSL_VERIFYPEER, 0);
   curl_setopt ($curl, CURLOPT_FOLLOWLOCATION, true);
   curl_setopt ($curl, CURLOPT_COOKIEJAR, dirname(__FILE__) . '/cookie.txt'); // save cookies
