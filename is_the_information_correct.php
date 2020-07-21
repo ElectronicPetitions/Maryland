@@ -27,19 +27,19 @@ $sbe_response = md_voter_lookup($web_first_name,$web_last_name,$month,$day,$year
 $pos = strpos($sbe_response, $error);
 if ($pos !== false) {
    slack_general_admin("Voter API v2 Fail: $error",'md-petition-api');
-   meps_mail('mdpetition@gmail.com',$sbe_response,'Voter API v2 Fail: '.$error);
+   //meps_mail('mdpetition@gmail.com',$sbe_response,'Voter API v2 Fail: '.$error);
 }
 $error2 = 'MISSING NAME';
 $pos = strpos($sbe_response, $error2);
 if ($pos !== false) {
    slack_general_admin("Voter API v2 Fail: $error2",'md-petition-api');
-   meps_mail('mdpetition@gmail.com',$sbe_response,'Voter API v2 Fail: '.$error2);
+  // meps_mail('mdpetition@gmail.com',$sbe_response,'Voter API v2 Fail: '.$error2);
 }
 $error3 = 'My Voter Registration Record';
 $pos = strpos($sbe_response, $error3);
 if ($pos !== false) {
    slack_general_admin("Voter API v2 Success: $error3",'md-petition-api');
-   meps_mail('mdpetition@gmail.com',$sbe_response,'Voter API v2 Success: '.$error3);
+  // meps_mail('mdpetition@gmail.com',$sbe_response,'Voter API v2 Success: '.$error3);
 }
 
 // V1 API - Local
