@@ -2,7 +2,8 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
+$post['ctl00$MainContent$btnSearch'] = "Search";
+$post['btnSearch'] = "Search";
 $post['ctl00$MainContent$listLanguages'] = "en";
 $post['listLanguages'] = "en";
 if (isset($_POST['SearchFirstName'])){
