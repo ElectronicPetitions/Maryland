@@ -51,27 +51,27 @@ $EVENTVALIDATION = cut_part_out('id="__EVENTVALIDATION" value="','"',$form['html
 // Voter Info Form Elements
 $Languages_field = '$ctl00$MainContent$listLanguages';
 $Languages = "en";
-if ($_POST['SearchFirstName']){
+if (isset($_POST['SearchFirstName'])){
   $SearchFirstName_field = 'ctl00$MainContent$txtSearchFirstName';
   $SearchFirstName = $_POST['SearchFirstName'];
 }
-if ($_POST['SearchLastName']){
+if (isset($_POST['SearchLastName'])){
   $SearchLastName_field = 'ctl00$MainContent$txtSearchLastName';
   $SearchLastName = $_POST['SearchLastName'];
 }
-if ($_POST['DOBMonth']){
+if (isset($_POST['DOBMonth'])){
   $DOBMonth_field = 'ctl00$MainContent$txtDOBMonth';
   $DOBMonth = $_POST['DOBMonth'];
 }
-if ($_POST['DOBDay']){
+if (isset($_POST['DOBDay'])){
   $DOBDay_field = 'ctl00$MainContent$txtDOBDay';
   $DOBDay = $_POST['DOBDay'];
 }
-if ($_POST['DOBYear']){
+if (isset($_POST['DOBYear'])){
   $DOBYear_field = 'ctl00$MainContent$txtDOBYear';
   $DOBYear = $_POST['DOBYear'];
 }
-if ($_POST['SearchZipCode']){
+if (isset($_POST['SearchZipCode'])){
   $SearchZipCode_field = 'ctl00$MainContent$txtSearchZipCode';
   $SearchZipCode = $_POST['SearchZipCode'];
 }
