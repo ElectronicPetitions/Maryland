@@ -10,12 +10,21 @@ function getPage($url){
   curl_setopt ($curl, CURLOPT_RETURNTRANSFER, 1);
   curl_setopt ($curl, CURLOPT_SSL_VERIFYPEER, 0);
   curl_setopt ($curl, CURLOPT_FOLLOWLOCATION, true);
-  //curl_setopt ($curl, CURLOPT_HTTPHEADER, array("Cookie: policy_accepted=true"));
+  curl_setopt ($curl, CURLOPT_COOKIEJAR, dirname(__FILE__) . '/cookie.txt'); // save cookies
+  //curl_setopt ($curl, CURLOPT_HTTPHEADER, array("Cookie: ASP.NET_SessionId=true")); // use cookies
   $html = curl_exec ($curl);
   curl_close ($curl);
   return $html;
 }
+$form['cookies_file'] = dirname(__FILE__) . '/cookie.txt';
 $form['url']  = 'https://voterservices.elections.maryland.gov/VoterSearch';
 $form['html'] = getPage($form['url']);
+$cookies = '';
+if (file_exists($form['cookies_file'])) {
+  ob_start();
+  readfile($form['cookies_file']);
+  $cookies = ob_get_clean();
+}
+echo '<h1>Cookies</h1>'.$cookies;
 echo '<h1>RAW</h1>'.htmlspecialchars($form['html']).'<hr>';
 echo $form['html'];
