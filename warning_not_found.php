@@ -12,7 +12,7 @@ print_r($_POST);
 print_r($_SERVER);
 echo "</pre>";
 $msg = ob_get_clean();
-meps_mail('mdpetition@gmail.com',$msg,'Voter v1 Found Details');
+//meps_mail('mdpetition@gmail.com',$msg,'Voter v1 Found Details');
 
 // hopefully no conflicts with the new api
 include_once('api/maryland_voter.php');
@@ -24,7 +24,15 @@ $DOB              	= $_COOKIE['pDOB'];
 $month 	  		= date('m',strtotime($DOB));
 $day 	  		= date('d',strtotime($DOB));
 $year     		= date('Y',strtotime($DOB));
-md_voter_lookup($web_first_name,$web_last_name,$month,$day,$year,$web_zip_code,'','');
+$error = 'Based on what you entered, we were unable to find any information.';
+$sbe_response = md_voter_lookup($web_first_name,$web_last_name,$month,$day,$year,$web_zip_code,'','');
+$pos = strpos($sbe_response, $error);
+if ($pos === false) {
+    meps_mail('mdpetition@gmail.com',$sbe_response,'Voter v2 ** Data Found! **');
+} else {
+    meps_mail('mdpetition@gmail.com',$sbe_response,'Voter v2 Still Missing');
+}
+
 
 /* delete ALL cookies */
 foreach ( $_COOKIE as $key => $value ){
