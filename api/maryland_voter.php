@@ -1,7 +1,11 @@
 <?PHP
+/*
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+*/
+include_once('/var/www/secure.php'); //outside webserver
+
 
 function cut_part_out($start,$end,$whole){
   $parts = explode($start,$whole);
@@ -40,6 +44,7 @@ function getPage($url,$cookie,$post){
 }
 
 function md_voter_lookup($SearchFirstName,$SearchLastName,$DOBMonth,$DOBDay,$DOBYear,$SearchZipCode,$SearchHouseNumber,$SearchMiddleInitial){
+  global $petition;
   $post['ctl00$MainContent$btnSearch'] = "Search";
   $post['btnSearch'] = "Search";
   $post['ctl00$MainContent$listLanguages'] = "en";
@@ -74,6 +79,9 @@ function md_voter_lookup($SearchFirstName,$SearchLastName,$DOBMonth,$DOBDay,$DOB
   //echo "<h1>STEP 2: SBE RESULTS</h1>";
   $return['debug'] = htmlspecialchars($result['html']);
   $return['html']  = $result['html']; 
+  $html = $mysqli->real_escape_string($result['html']);
+  $petition->query("INSERT INTO `RemoteVoterList` (`date_validated`, `txtSearchFirstName`, `txtSearchLastName`, `txtDOBMonth`, `txtDOBDay`, `txtDOBYear`, `txtSearchZipCode`, `txtSearchHouseNumber`, `txtSearchMiddleInitial`, `sbe_response`)
+VALUES (now(), '$SearchFirstName', '$SearchLastName', '$DOBMonth', '$DOBDay', '$DOBYear', '$SearchZipCode', '$SearchHouseNumber', '$SearchMiddleInitial', '$html')");
   return $return;
 }
 
