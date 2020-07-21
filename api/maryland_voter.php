@@ -88,7 +88,7 @@ function md_voter_lookup($SearchFirstName,$SearchLastName,$DOBMonth,$DOBDay,$DOB
 }
 
 if (isset($_POST['SearchFirstName'])){
-  $voter = md_voter_lookup($_POST['SearchFirstName'],$_POST['SearchLastName'],$_POST['DOBMonth'],$_POST['DOBDay'],$_POST['DOBYear'],$_POST['SearchZipCode'],$_POST['SearchHouseNumber'],$_POST['SearchMiddleInitial'])
+  $voter = md_voter_lookup($_POST['SearchFirstName'],$_POST['SearchLastName'],$_POST['DOBMonth'],$_POST['DOBDay'],$_POST['DOBYear'],$_POST['SearchZipCode'],$_POST['SearchHouseNumber'],$_POST['SearchMiddleInitial']);
   echo $voter['html'];
 }
 ?>
