@@ -166,14 +166,14 @@ echo "<li>POST EVENTVALIDATION $post[__EVENTVALIDATION]</li>";
 echo "<pre>";
 echo print_r($post);
 echo "</pre>";
-echo "<hr><hr><hr><h1>Voter Form</h1>";
+echo "<hr><hr><hr><h1>STEP 1: Input Form</h1>";
 echo htmlspecialchars($form['html']);
 echo '<hr><hr><hr>';
 echo $form['html'];
 
 if ($post['txtSearchFirstName'] != ''){
   $result['html'] = getPage($form['url'],$cookie,$post);
-  echo "<hr><hr><hr><h1>SBE API RESULTS</h1>";
+  echo "<hr><hr><hr><h1>STEP 2: SBE RESULTS</h1>";
   echo htmlspecialchars($result['html']);
   echo '<hr><hr><hr>';
   echo $result['html'];
