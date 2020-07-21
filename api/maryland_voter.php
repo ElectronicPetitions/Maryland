@@ -1,4 +1,8 @@
 <?PHP
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 function getPage($url){
   $url = str_replace('[month]',date('F'),$url); // replace month January through December
   $url = str_replace('[day]',date('j'),$url); // replace day 1 to 31
@@ -16,9 +20,11 @@ function getPage($url){
   curl_close ($curl);
   return $html;
 }
+
 $form['cookies_file'] = dirname(__FILE__) . '/cookie.txt';
 $form['url']  = 'https://voterservices.elections.maryland.gov/VoterSearch';
 $form['html'] = getPage($form['url']);
+
 $cookies = '';
 if (file_exists($form['cookies_file'])) {
   ob_start();
