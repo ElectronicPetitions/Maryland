@@ -16,6 +16,33 @@ if ($web_first_name != '' && $web_last_name != '' && $web_house_number != '' && 
 }else{
   header('Location: warning_incomplete.php');
 }
+
+// V2 API - Remote
+include_once('api/maryland_voter.php');
+$month 	  		= date('m',strtotime($DOB));
+$day 	  		  = date('d',strtotime($DOB));
+$year     		= date('Y',strtotime($DOB));
+$error = 'Based on what you entered, we were unable to find any information.';
+$sbe_response = md_voter_lookup($web_first_name,$web_last_name,$month,$day,$year,$web_zip_code,'','');
+$pos = strpos($sbe_response, $error);
+if ($pos !== false) {
+   slack_general_admin("Voter API v2 Fail: $error",'md-petition-api');
+   meps_mail('mdpetition@gmail.com',$sbe_response,'Voter API v2 Fail: '.$error);
+}
+$error2 = 'MISSING NAME';
+$pos = strpos($sbe_response, $error2);
+if ($pos !== false) {
+   slack_general_admin("Voter API v2 Fail: $error2",'md-petition-api');
+   meps_mail('mdpetition@gmail.com',$sbe_response,'Voter API v2 Fail: '.$error2);
+}
+$error3 = 'My Voter Registration Record';
+$pos = strpos($sbe_response, $error3);
+if ($pos !== false) {
+   slack_general_admin("Voter API v2 Success: $error3",'md-petition-api');
+   meps_mail('mdpetition@gmail.com',$sbe_response,'Voter API v2 Success: '.$error3);
+}
+
+// V1 API - Local
 $q = "select * from VoterList where LASTNAME = '$web_last_name' and FIRSTNAME = '$web_first_name' and HOUSE_NUMBER = '$web_house_number' and RESIDENTIALZIP5 = '$web_zip_code'";
 $r = $petition->query($q);
 $d = mysqli_fetch_array($r);
