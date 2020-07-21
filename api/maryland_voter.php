@@ -49,6 +49,9 @@ function md_voter_lookup($SearchFirstName,$SearchLastName,$DOBMonth,$DOBDay,$DOB
   $post['btnSearch'] = "Search";
   $post['ctl00$MainContent$listLanguages'] = "en";
   $post['listLanguages'] = "en";
+  if ($SearchFirstName == ''){
+    die(); 
+  }
   $post['ctl00$MainContent$txtSearchFirstName'] = $SearchFirstName;
   $post['txtSearchFirstName'] = $SearchFirstName;
   $post['ctl00$MainContent$txtSearchLastName'] = $SearchLastName;
