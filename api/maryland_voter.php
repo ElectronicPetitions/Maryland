@@ -70,16 +70,6 @@ function md_voter_lookup($SearchFirstName,$SearchLastName,$DOBMonth,$DOBDay,$DOB
   $post['__VIEWSTATEGENERATOR'] = cut_part_out('id="__VIEWSTATEGENERATOR" value="','"',$form['html']);
   $post['__VIEWSTATEENCRYPTED'] = cut_part_out('id="__VIEWSTATEENCRYPTED" value="','"',$form['html']);
   $post['__EVENTVALIDATION'] = cut_part_out('id="__EVENTVALIDATION" value="','"',$form['html']);
-  /*
-  echo "<li>COOKIE ASP.NET_SessionId $cookie</li>";
-  echo "<li>POST VIEWSTATE $post[__VIEWSTATE]</li>";
-  echo "<li>POST VIEWSTATEGENERATOR $post[__VIEWSTATEGENERATOR]</li>";
-  echo "<li>POST VIEWSTATEENCRYPTED $post[__VIEWSTATEENCRYPTED]</li>";
-  echo "<li>POST EVENTVALIDATION $post[__EVENTVALIDATION]</li>";
-  echo "<pre>";
-  echo print_r($post);
-  echo "</pre>";
-  */
   $result['html'] = getPage($form['url'],$cookie,$post);
   //echo "<h1>STEP 2: SBE RESULTS</h1>";
   $return['debug'] = htmlspecialchars($result['html']);
@@ -123,6 +113,3 @@ if (isset($_POST['SearchFirstName'])){
     </tr>
   </table>  
   </form>
-  */
-  
-  ?>
