@@ -45,7 +45,7 @@ function md_voter_lookup($SearchFirstName,$SearchLastName,$DOBMonth,$DOBDay,$DOB
   $post['ctl00$MainContent$listLanguages'] = "en";
   $post['listLanguages'] = "en";
   $post['ctl00$MainContent$txtSearchFirstName'] = $SearchFirstName;
-  $post['txtSearchFirstName'] = ;
+  $post['txtSearchFirstName'] = $SearchFirstName;
   $post['ctl00$MainContent$txtSearchLastName'] = $SearchLastName;
   $post['txtSearchLastName'] = $SearchLastName;
   $post['ctl00$MainContent$txtDOBMonth'] = $DOBMonth;
