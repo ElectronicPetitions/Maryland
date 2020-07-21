@@ -2,112 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-$post['ctl00$MainContent$btnSearch'] = "Search";
-$post['btnSearch'] = "Search";
-$post['ctl00$MainContent$listLanguages'] = "en";
-$post['listLanguages'] = "en";
-if (isset($_POST['SearchFirstName'])){
-  //$post['SearchFirstName_field'] = 'ctl00$MainContent$txtSearchFirstName';
-  $post['ctl00$MainContent$txtSearchFirstName'] = $_POST['SearchFirstName'];
-  $post['txtSearchFirstName'] = $_POST['SearchFirstName'];
-}else{
-  $post['ctl00$MainContent$txtSearchFirstName'] = '';
-  $post['txtSearchFirstName'] = '';
-}
-if (isset($_POST['SearchLastName'])){
-  //$post['SearchLastName_field'] = 'ctl00$MainContent$txtSearchLastName';
-  $post['ctl00$MainContent$txtSearchLastName'] = $_POST['SearchLastName'];
-  $post['txtSearchLastName'] = $_POST['SearchLastName'];
-}else{
-  $post['ctl00$MainContent$txtSearchLastName'] = '';
-  $post['txtSearchLastName'] = '';
-}
-if (isset($_POST['DOBMonth'])){
-  //$post['DOBMonth_field'] = 'ctl00$MainContent$txtDOBMonth';
-  $post['ctl00$MainContent$txtDOBMonth'] = $_POST['DOBMonth'];
-  $post['txtDOBMonth'] = $_POST['DOBMonth'];
-}else{
-  $post['ctl00$MainContent$txtDOBMonth'] = '';
-  $post['txtDOBMonth'] = '';
-}
-if (isset($_POST['DOBDay'])){
-  //$post['DOBDay_field'] = 'ctl00$MainContent$txtDOBDay';
-  $post['ctl00$MainContent$txtDOBDay'] = $_POST['DOBDay'];
-  $post['txtDOBDay'] = $_POST['DOBDay'];
-}else{
-  $post['ctl00$MainContent$txtDOBDay'] = '';
-  $post['txtDOBDay'] = '';
-}
-if (isset($_POST['DOBYear'])){
-  //$post['DOBYear_field'] = 'ctl00$MainContent$txtDOBYear';
-  $post['ctl00$MainContent$txtDOBYear'] = $_POST['DOBYear'];
-  $post['txtDOBYear'] = $_POST['DOBYear'];
-}else{
-  $post['ctl00$MainContent$txtDOBYear'] = '';
-  $post['txtDOBYear'] = '';
-}
-if (isset($_POST['SearchZipCode'])){
-  //$post['SearchZipCode_field'] = 'ctl00$MainContent$txtSearchZipCode';
-  $post['ctl00$MainContent$txtSearchZipCode'] = $_POST['SearchZipCode'];
-  $post['txtSearchZipCode'] = $_POST['SearchZipCode'];
-}else{
-  $post['ctl00$MainContent$txtSearchZipCode'] = '';
-  $post['txtSearchZipCode'] = '';
-}
-if (isset($_POST['SearchHouseNumber'])){
-  //$post['SearchZipCode_field'] = 'ctl00$MainContent$txtSearchZipCode';
-  $post['ctl00$MainContent$txtSearchHouseNumber'] = $_POST['SearchHouseNumber'];
-  $post['txtSearchHouseNumber'] = $_POST['SearchHouseNumber'];
-}else{
-  $post['ctl00$MainContent$txtSearchHouseNumber'] = '';
-  $post['txtSearchHouseNumber'] = '';
-}
-if (isset($_POST['SearchMiddleInitial'])){
-  //$post['SearchZipCode_field'] = 'ctl00$MainContent$txtSearchZipCode';
-  $post['ctl00$MainContent$txtSearchMiddleInitial'] = $_POST['SearchMiddleInitial'];
-  $post['txtSearchMiddleInitial'] = $_POST['SearchMiddleInitial'];
-}else{
-  $post['ctl00$MainContent$txtSearchMiddleInitial'] = '';
-  $post['txtSearchMiddleInitial'] = '';
-}
 
-
-?>
-
-<form method='POST'>
-<table>
-  <tr>
-    <td>SearchFirstName</td><td><input name='SearchFirstName' value='<?PHP echo $post['txtSearchFirstName'];?>'></td>
-  </tr>
-  <tr>
-    <td>SearchLastName</td><td><input name='SearchLastName' value='<?PHP echo $post['txtSearchLastName'];?>'></td>
-  </tr>
-  <tr>
-    <td>DOBMonth</td><td><input name='DOBMonth' value='<?PHP echo $post['txtDOBMonth'];?>'></td>
-  </tr>
-  <tr>
-    <td>DOBDay</td><td><input name='DOBDay' value='<?PHP echo $post['txtDOBDay'];?>'></td>
-  </tr>
-  <tr>
-    <td>DOBYear</td><td><input name='DOBYear' value='<?PHP echo $post['txtDOBYear'];?>'></td>
-  </tr>
-  <tr>
-    <td>SearchZipCode</td><td><input name='SearchZipCode' value='<?PHP echo $post['txtSearchZipCode'];?>'></td>
-  </tr>
-  <tr>
-    <td>SearchHouseNumber*</td><td><input name='SearchHouseNumber' value='<?PHP echo $post['txtSearchHouseNumber'];?>'></td>
-  </tr>
-  <tr>
-    <td>SearchMiddleInitial*</td><td><input name='SearchMiddleInitial' value='<?PHP echo $post['txtSearchMiddleInitial'];?>'></td>
-  </tr>
-  <tr>
-    <td>*Optional</td><td><input type='submit'></td>
-  </tr>
-</table>  
-</form>
-
-
-<?PHP
 function cut_part_out($start,$end,$whole){
   $parts = explode($start,$whole);
   $subparts = explode($end,$parts[1]);
@@ -144,38 +39,90 @@ function getPage($url,$cookie,$post){
   return $html;
 }
 
-// start a session to get a cookie
-$form['url']  = 'https://voterservices.elections.maryland.gov/VoterSearch';
-$form['html'] = getPage($form['url'],'','');
-
-// extract the cookie from the header (see CURLOPT_HEADER)
-$cookie = cut_part_out('ASP.NET_SessionId=',';',$form['html']);
-// extract the form elements we will need to post with our data
-$post['__VIEWSTATE'] = cut_part_out('id="__VIEWSTATE" value="','"',$form['html']);
-$post['__VIEWSTATEGENERATOR'] = cut_part_out('id="__VIEWSTATEGENERATOR" value="','"',$form['html']);
-$post['__VIEWSTATEENCRYPTED'] = cut_part_out('id="__VIEWSTATEENCRYPTED" value="','"',$form['html']);
-$post['__EVENTVALIDATION'] = cut_part_out('id="__EVENTVALIDATION" value="','"',$form['html']);
-// Voter Info Form Elements
-//$post['Languages_field'] = 'ctl00$MainContent$listLanguages';
-
-// debug - show full response make sure we have the cookie
-echo "<li>COOKIE ASP.NET_SessionId $cookie</li>";
-echo "<li>POST VIEWSTATE $post[__VIEWSTATE]</li>";
-echo "<li>POST VIEWSTATEGENERATOR $post[__VIEWSTATEGENERATOR]</li>";
-echo "<li>POST VIEWSTATEENCRYPTED $post[__VIEWSTATEENCRYPTED]</li>";
-echo "<li>POST EVENTVALIDATION $post[__EVENTVALIDATION]</li>";
-echo "<pre>";
-echo print_r($post);
-echo "</pre>";
-
-if ($post['txtSearchFirstName'] != ''){
+function md_voter_lookup($SearchFirstName,$SearchLastName,$DOBMonth,$DOBDay,$DOBYear,$SearchZipCode,$SearchHouseNumber,$SearchMiddleInitial){
+  $post['ctl00$MainContent$btnSearch'] = "Search";
+  $post['btnSearch'] = "Search";
+  $post['ctl00$MainContent$listLanguages'] = "en";
+  $post['listLanguages'] = "en";
+  $post['ctl00$MainContent$txtSearchFirstName'] = $SearchFirstName;
+  $post['txtSearchFirstName'] = ;
+  $post['ctl00$MainContent$txtSearchLastName'] = $SearchLastName;
+  $post['txtSearchLastName'] = $SearchLastName;
+  $post['ctl00$MainContent$txtDOBMonth'] = $DOBMonth;
+  $post['txtDOBMonth'] = $DOBMonth;
+  $post['ctl00$MainContent$txtDOBDay'] = $DOBDay;
+  $post['txtDOBDay'] = $DOBDay;
+  $post['ctl00$MainContent$txtDOBYear'] = $DOBYear;
+  $post['txtDOBYear'] = $DOBYear;
+  $post['ctl00$MainContent$txtSearchZipCode'] = $SearchZipCode;
+  $post['txtSearchZipCode'] = $SearchZipCode;
+  $post['ctl00$MainContent$txtSearchHouseNumber'] = $SearchHouseNumber;
+  $post['txtSearchHouseNumber'] = $SearchHouseNumber;
+  $post['ctl00$MainContent$txtSearchMiddleInitial'] = $SearchMiddleInitial;
+  $post['txtSearchMiddleInitial'] = $SearchMiddleInitial;
+  // start a session to get a cookie
+  $form['url']  = 'https://voterservices.elections.maryland.gov/VoterSearch';
+  $form['html'] = getPage($form['url'],'','');
+  // extract the cookie from the header (see CURLOPT_HEADER)
+  $cookie = cut_part_out('ASP.NET_SessionId=',';',$form['html']);
+  // extract the form elements we will need to post with our data
+  $post['__VIEWSTATE'] = cut_part_out('id="__VIEWSTATE" value="','"',$form['html']);
+  $post['__VIEWSTATEGENERATOR'] = cut_part_out('id="__VIEWSTATEGENERATOR" value="','"',$form['html']);
+  $post['__VIEWSTATEENCRYPTED'] = cut_part_out('id="__VIEWSTATEENCRYPTED" value="','"',$form['html']);
+  $post['__EVENTVALIDATION'] = cut_part_out('id="__EVENTVALIDATION" value="','"',$form['html']);
+  /*
+  echo "<li>COOKIE ASP.NET_SessionId $cookie</li>";
+  echo "<li>POST VIEWSTATE $post[__VIEWSTATE]</li>";
+  echo "<li>POST VIEWSTATEGENERATOR $post[__VIEWSTATEGENERATOR]</li>";
+  echo "<li>POST VIEWSTATEENCRYPTED $post[__VIEWSTATEENCRYPTED]</li>";
+  echo "<li>POST EVENTVALIDATION $post[__EVENTVALIDATION]</li>";
+  echo "<pre>";
+  echo print_r($post);
+  echo "</pre>";
+  */
   $result['html'] = getPage($form['url'],$cookie,$post);
-  echo "<h1>STEP 2: SBE RESULTS</h1>";
-  echo htmlspecialchars($result['html']);
-  echo $result['html'];
-}else{
-  echo "<h1>STEP 1: Input Form</h1>";
-  echo htmlspecialchars($form['html']);
-  echo $form['html'];
+  //echo "<h1>STEP 2: SBE RESULTS</h1>";
+  $return['debug'] = htmlspecialchars($result['html']);
+  $return['html']  = $result['html']; 
+  return $return;
+}
+
+if (isset($_POST['SearchFirstName'])){
+  $voter = md_voter_lookup($_POST['SearchFirstName'],$_POST['SearchLastName'],$_POST['DOBMonth'],$_POST['DOBDay'],$_POST['DOBYear'],$_POST['SearchZipCode'],$_POST['SearchHouseNumber'],$_POST['SearchMiddleInitial'])
+  echo $voter['html'];
 }
 ?>
+  <form method='POST'>
+  <table>
+    <tr>
+      <td>SearchFirstName</td><td><input name='SearchFirstName'></td>
+    </tr>
+    <tr>
+      <td>SearchLastName</td><td><input name='SearchLastName'></td>
+    </tr>
+    <tr>
+      <td>DOBMonth</td><td><input name='DOBMonth'></td>
+    </tr>
+    <tr>
+      <td>DOBDay</td><td><input name='DOBDay'></td>
+    </tr>
+    <tr>
+      <td>DOBYear</td><td><input name='DOBYear'></td>
+    </tr>
+    <tr>
+      <td>SearchZipCode</td><td><input name='SearchZipCode'></td>
+    </tr>
+    <tr>
+      <td>SearchHouseNumber*</td><td><input name='SearchHouseNumber'></td>
+    </tr>
+    <tr>
+      <td>SearchMiddleInitial*</td><td><input name='SearchMiddleInitial'></td>
+    </tr>
+    <tr>
+      <td>*Optional</td><td><input type='submit'></td>
+    </tr>
+  </table>  
+  </form>
+  */
+  
+  ?>
