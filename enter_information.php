@@ -21,7 +21,7 @@ if (isset($_POST['web_first_name'])){
   // new DOB form
    if (isset($_POST['web_dob_day'])){
     if ($_POST['web_dob_day'] != ''){
-       $DOB = $_POST['web_dob_year'].'-'.$_POST['web_dob_month'].'-'.$_POST['web_dob_day'];
+       $DOB = intval($_POST['web_dob_year']).'-'.intval($_POST['web_dob_month']).'-'.intval($_POST['web_dob_day']);
        setcookie("pDOB", $DOB);
        setcookie("web_dob_month", $_POST['web_dob_month']);
        setcookie("web_dob_year", $_POST['web_dob_year']);
@@ -48,14 +48,14 @@ if (isset($_POST['web_first_name'])){
   $web_house_number='';
   if (isset($_POST['web_house_number'])){
     if ($_POST['web_house_number'] != ''){
-     $web_house_number = $_POST['web_house_number'];
+     $web_house_number = intval($_POST['web_house_number']);
      setcookie("web_house_number", $web_house_number);
     }
   }
   $web_zip_code='';
   if (isset($_POST['web_zip_code'])){
     if ($_POST['web_zip_code'] != ''){
-     $web_zip_code = $_POST['web_zip_code'];
+     $web_zip_code = substr(intval($_POST['web_zip_code']),0,5);
      setcookie("web_zip_code", $web_zip_code);
     }
   }
@@ -71,19 +71,13 @@ if (isset($_POST['web_first_name'])){
 include_once('header.php');
 slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
 ?>
-
-
    <link id="bsdp-css" href="files/bootstrap-datepicker3.min.css" rel="stylesheet">
    <script src="files/bootstrap-datepicker.min.js"></script>
-
-
-<?PHP
+  <?PHP
  $qX = "select * from website_text where id = '2'";
  $rX = $petition->query($qX);
  $dX = mysqli_fetch_array($rX);
 ?>
-
-
 <script>document.title = "MEPS - Enter Information";</script>
 <form method='POST'>
     
