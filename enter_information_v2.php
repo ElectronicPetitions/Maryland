@@ -11,10 +11,21 @@ if (isset($_POST['web_first_name'])){
     }
   }
    $DOB='';
-  if (isset($_POST['DOB'])){
+  // old DOB form
+   if (isset($_POST['DOB'])){
     if ($_POST['DOB'] != ''){
      $DOB = $_POST['DOB'];
      setcookie("pDOB", $DOB);
+    }
+  }
+  // new DOB form
+   if (isset($_POST['web_dob_day'])){
+    if ($_POST['web_dob_day'] != ''){
+       $DOB = $_POST['web_dob_year'].'-'.$_POST['web_dob_month'].'-'.$_POST['web_dob_day'];
+       setcookie("pDOB", $DOB);
+       setcookie("web_dob_month", $_POST['web_dob_month']);
+       setcookie("web_dob_year", $_POST['web_dob_year']);
+       setcookie("web_dob_day", $_POST['web_dob_day']);
     }
   }
   $web_first_name='';
@@ -97,7 +108,9 @@ slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
      
   <div class='row'>
      <div class='col-sm-3' style='text-align:right;'><h2>Date of Birth</h2></div>
-     <div class='col-sm-6' style='text-align:left;'><input type='number' class="form-control input-lg" name='web_dob_day' required oninvalid="this.setCustomValidity('Please the day you were born.')" oninput="this.setCustomValidity('')"><input type='number' class="form-control input-lg" name='web_dob_month' required oninvalid="this.setCustomValidity('Please enter the month you were born.')" oninput="this.setCustomValidity('')"><input type='number' class="form-control input-lg" name='web_dob_year' required oninvalid="this.setCustomValidity('Please enter the year you were born.')" oninput="this.setCustomValidity('')"></div>
+     <div class='col-sm-2' style='text-align:left;'><input type='number' class="form-control input-lg" name='web_dob_day' required oninvalid="this.setCustomValidity('Please the day you were born.')" oninput="this.setCustomValidity('')"></div>
+     <div class='col-sm-2' style='text-align:left;'><input type='number' class="form-control input-lg" name='web_dob_month' required oninvalid="this.setCustomValidity('Please enter the month you were born.')" oninput="this.setCustomValidity('')"></div>
+     <div class='col-sm-2' style='text-align:left;'><input type='number' class="form-control input-lg" name='web_dob_year' required oninvalid="this.setCustomValidity('Please enter the year you were born.')" oninput="this.setCustomValidity('')"></div>
      <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
   </div> 
   <div class='row'>
