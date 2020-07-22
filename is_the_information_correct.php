@@ -25,7 +25,7 @@ $year     		= date('Y',strtotime($DOB));
 $error = 'Based on what you entered, we were unable to find any information.';
 $error2 = 'MISSING NAME';
 $error3 = 'My Voter Registration Record';
-$error4 = 'Your search cannot be processed at this time. Please contact the State Board of Elections.';
+$error4 = 'Your search cannot be processed at this time';
 $sbe_response = md_voter_lookup($web_first_name,$web_last_name,$month,$day,$year,$web_zip_code,'','');
 $pos = strpos($sbe_response, $error4);
 if ($pos !== false) {
