@@ -15,28 +15,15 @@ function cut_part_out($start,$end,$whole){
 }
 
 function MVgetPage($url,$cookie,$post){
-  // spoof https://topic.alibabacloud.com/a/php-curl-fake-ip-address-and-header-information-code-instance_1_34_10139121.html
-  $randIP = "".mt_rand(0,255).".".mt_rand(0,255).".".mt_rand(0,255).".".mt_rand(0,255);
-  $headers['CLIENT-IP'] = $randIP;
-  $headers['X-FORWARDED-FOR'] = $randIP;
-  $headerArr = array();
-  foreach( $headers as $n => $v ) {
-    $headerArr[] = $n .':' . $v;
-  }
-  // end
   $url = str_replace('[month]',date('F'),$url); // replace month January through December
   $url = str_replace('[day]',date('j'),$url); // replace day 1 to 31
   $url = str_replace('[yesterday]',date('j',strtotime('yesterday')),$url); // replace day 1 to 31
   $url = str_replace('[year]',date('Y'),$url); // replace year Examples: 1999 or 2003
   $curl = curl_init();
   curl_setopt ($curl, CURLOPT_URL, $url);
-  //curl_setopt ($curl, CURLOPT_USERAGENT, sprintf("McGuire MEPS https://www.md-petition.com/ /%d.0",rand(4,50)));
+  curl_setopt ($curl, CURLOPT_USERAGENT, sprintf("McGuire MEPS https://www.md-petition.com/ /%d.0",rand(4,50)));
   curl_setopt ($curl, CURLOPT_RETURNTRANSFER, 1);
   curl_setopt ($curl, CURLOPT_HEADER, 1);
-  // spoof
-  curl_setopt ($curl, CURLOPT_HTTPHEADER , $headerArr ); //Structure IP
-  curl_setopt ($curl, CURLOPT_REFERER, $url); //Structure
-  // end
   curl_setopt ($curl, CURLOPT_SSL_VERIFYPEER, 0);
   curl_setopt ($curl, CURLOPT_FOLLOWLOCATION, true);
   if ($cookie != ''){
