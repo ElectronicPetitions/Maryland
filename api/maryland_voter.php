@@ -57,6 +57,7 @@ function MVgetPage($url,$cookie,$post){
 }
 
 function md_voter_lookup($SearchFirstName,$SearchLastName,$DOBMonth,$DOBDay,$DOBYear,$SearchZipCode,$SearchHouseNumber,$SearchMiddleInitial){
+  return 'OFFLINE';
   global $petition;
   $post['ctl00$MainContent$btnSearch'] = "Search";
   $post['btnSearch'] = "Search";
