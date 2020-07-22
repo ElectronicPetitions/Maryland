@@ -93,18 +93,22 @@ slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
      <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
   </div> 
    
-  
-     
   <div class='row'>
      <div class='col-sm-3' style='text-align:right;'><h2>Date of Birth</h2></div>
-     <div class='col-sm-6' style='text-align:left;'><input type='number' class="form-control input-lg" name='web_dob_day' required oninvalid="this.setCustomValidity('Please the day you were born.')" oninput="this.setCustomValidity('')"><input type='number' class="form-control input-lg" name='web_dob_month' required oninvalid="this.setCustomValidity('Please enter the month you were born.')" oninput="this.setCustomValidity('')"><input type='number' class="form-control input-lg" name='web_dob_year' required oninvalid="this.setCustomValidity('Please enter the year you were born.')" oninput="this.setCustomValidity('')"></div>
+     <div class='col-sm-6'>
+            <div class="input-group date">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span><input name='DOB' type="text" class="form-control input-lg" required oninvalid="this.setCustomValidity('Please enter your date of birth in the format month month slash day day slash year year year year')" oninput="this.setCustomValidity('')">
+            </div>
+         <script>
+               var $d = jQuery.noConflict();
+               $d('.input-group.date').datepicker({
+                   format: "mm/dd/yyyy",
+                   clearBtn: true
+               });
+         </script>
+       </div>
      <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
   </div> 
-  <div class='row'>
-     <div class='col-sm-3' style='text-align:right; background-color:lightyellow;'><h3>Date of Birth Format</h3></div>
-     <div class='col-sm-6' style='text-align:left; background-color:lightyellow;'><h3>MM DD YYYY</h3></div>
-     <div class='col-sm-1' style='text-align:center;'></div>
-  </div>
   <div class='row'>
       <div class='col-sm-3' style='text-align:right;'><h2>Phone Number**</h2></div>
       <div class='col-sm-6' style='text-align:left;'><input class="form-control input-lg" id="contact_phone" name="contact_phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required oninvalid="this.setCustomValidity('please enter your phone number with area code with hyphens like 1 2 3 dash 4 5 6 dash 7 8 9 0')" oninput="this.setCustomValidity('')"></div>
