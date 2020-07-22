@@ -23,25 +23,27 @@ $month 	  		= date('m',strtotime($DOB));
 $day 	  		  = date('d',strtotime($DOB));
 $year     		= date('Y',strtotime($DOB));
 $error = 'Based on what you entered, we were unable to find any information.';
-$sbe_response = md_voter_lookup($web_first_name,$web_last_name,$month,$day,$year,$web_zip_code,'','');
-$pos = strpos($sbe_response, $error);
-if ($pos !== false) {
-   slack_general_admin("Voter API v2 Fail: $web_first_name,$web_last_name,$month,$day,$year,$web_zip_code $error",'md-petition-api');
-   //meps_mail('mdpetition@gmail.com',$sbe_response,'Voter API v2 Fail: '.$error);
-}
 $error2 = 'MISSING NAME';
-$pos = strpos($sbe_response, $error2);
-if ($pos !== false) {
-   slack_general_admin("Voter API v2 Fail: $web_first_name,$web_last_name,$month,$day,$year,$web_zip_code $error2",'md-petition-api');
-  // meps_mail('mdpetition@gmail.com',$sbe_response,'Voter API v2 Fail: '.$error2);
-}
 $error3 = 'My Voter Registration Record';
-$pos = strpos($sbe_response, $error3);
+$error4 = 'Your search cannot be processed at this time. Please contact the State Board of Elections.';
+$sbe_response = md_voter_lookup($web_first_name,$web_last_name,$month,$day,$year,$web_zip_code,'','');
+$pos = strpos($sbe_response, $error4);
 if ($pos !== false) {
-   slack_general_admin("Voter API v2 Success: $web_first_name,$web_last_name,$month,$day,$year,$web_zip_code $error3",'md-petition-api');
-  // meps_mail('mdpetition@gmail.com',$sbe_response,'Voter API v2 Success: '.$error3);
+   slack_general_admin("Voter API v2 Block: $web_first_name,$web_last_name,$month,$day,$year,$web_zip_code $error4",'md-petition-api');
+}else{
+  $pos = strpos($sbe_response, $error);
+  if ($pos !== false) {
+     slack_general_admin("Voter API v2 Fail: $web_first_name,$web_last_name,$month,$day,$year,$web_zip_code $error",'md-petition-api');
+  }
+  $pos = strpos($sbe_response, $error2);
+  if ($pos !== false) {
+     slack_general_admin("Voter API v2 Fail: $web_first_name,$web_last_name,$month,$day,$year,$web_zip_code $error2",'md-petition-api');
+  }
+  $pos = strpos($sbe_response, $error3);
+  if ($pos !== false) {
+     slack_general_admin("Voter API v2 Success: $web_first_name,$web_last_name,$month,$day,$year,$web_zip_code $error3",'md-petition-api');
+  }
 }
-
 // V1 API - Local
 $q = "select * from VoterList where LASTNAME = '$web_last_name' and FIRSTNAME = '$web_first_name' and HOUSE_NUMBER = '$web_house_number' and RESIDENTIALZIP5 = '$web_zip_code'";
 $r = $petition->query($q);
