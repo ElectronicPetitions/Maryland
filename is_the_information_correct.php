@@ -19,26 +19,26 @@ if ($web_first_name != '' && $web_last_name != '' && $web_house_number != '' && 
 
 // V2 API - Remote
 include_once('api/maryland_voter.php');
-$month 	  		= date('m',strtotime($DOB));
-$day 	  		  = date('d',strtotime($DOB));
-$year     		= date('Y',strtotime($DOB));
+$month 	  		= $_COOKIE['web_dob_month'];
+$day 	  		  = $_COOKIE['web_dob_year'];
+$year     		= $_COOKIE['web_dob_day'];
 $error = 'Based on what you entered, we were unable to find any information.';
 $sbe_response = md_voter_lookup($web_first_name,$web_last_name,$month,$day,$year,$web_zip_code,'','');
 $pos = strpos($sbe_response, $error);
 if ($pos !== false) {
-   slack_general_admin("Voter API v2 Fail: $error",'md-petition-api');
+   slack_general_admin("Voter API v2 Fail: ($web_first_name,$web_last_name,$month,$day,$year,$web_zip_code) $error",'md-petition-api');
    //meps_mail('mdpetition@gmail.com',$sbe_response,'Voter API v2 Fail: '.$error);
 }
 $error2 = 'MISSING NAME';
 $pos = strpos($sbe_response, $error2);
 if ($pos !== false) {
-   slack_general_admin("Voter API v2 Fail: $error2",'md-petition-api');
+   slack_general_admin("Voter API v2 Fail: ($web_first_name,$web_last_name,$month,$day,$year,$web_zip_code) $error2",'md-petition-api');
   // meps_mail('mdpetition@gmail.com',$sbe_response,'Voter API v2 Fail: '.$error2);
 }
 $error3 = 'My Voter Registration Record';
 $pos = strpos($sbe_response, $error3);
 if ($pos !== false) {
-   slack_general_admin("Voter API v2 Success: $error3",'md-petition-api');
+   slack_general_admin("Voter API v2 Success: ($web_first_name,$web_last_name,$month,$day,$year,$web_zip_code) $error3",'md-petition-api');
   // meps_mail('mdpetition@gmail.com',$sbe_response,'Voter API v2 Success: '.$error3);
 }
 
@@ -74,9 +74,9 @@ if ($d['VTRID'] != ''){
   setcookie("pADDRESS2", "$RESIDENTIALCITY MD $RESIDENTIALZIP5");
   setcookie("pVTRID", $VTRID);
   setcookie("signature_status", 'verified');
-  slack_general('MATCH: Is the information correct ('.$FIRSTNAME.' '.$LASTNAME.' '.$RESIDENTIALCITY.') ('.$_COOKIE['invite'].')','md-petition');
+  slack_general("API v1: SUCCESS ($web_first_name,$web_last_name,$month,$day,$year,$web_zip_code) ($_COOKIE['invite'])",'md-petition-api');
 }else{
-  slack_general('MISS: Is the information correct ('.$web_first_name.' '.$web_last_name.' '.$PHONE.') ('.$_COOKIE['invite'].')','md-petition');
+  slack_general("API v1: FAIL ($web_first_name,$web_last_name,$month,$day,$year,$web_zip_code) ($_COOKIE['invite'])",'md-petition-api');
    setcookie("signature_status", 'notfound');
    header('Location: warning_not_found.php');
 }
