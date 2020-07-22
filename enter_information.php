@@ -11,21 +11,10 @@ if (isset($_POST['web_first_name'])){
     }
   }
    $DOB='';
-  // old DOB form
-   if (isset($_POST['DOB'])){
+  if (isset($_POST['DOB'])){
     if ($_POST['DOB'] != ''){
      $DOB = $_POST['DOB'];
      setcookie("pDOB", $DOB);
-    }
-  }
-  // new DOB form
-   if (isset($_POST['web_dob_day'])){
-    if ($_POST['web_dob_day'] != ''){
-       $DOB = intval($_POST['web_dob_year']).'-'.intval($_POST['web_dob_month']).'-'.intval($_POST['web_dob_day']);
-       setcookie("pDOB", $DOB);
-       setcookie("web_dob_month", $_POST['web_dob_month']);
-       setcookie("web_dob_year", $_POST['web_dob_year']);
-       setcookie("web_dob_day", $_POST['web_dob_day']);
     }
   }
   $web_first_name='';
@@ -48,14 +37,14 @@ if (isset($_POST['web_first_name'])){
   $web_house_number='';
   if (isset($_POST['web_house_number'])){
     if ($_POST['web_house_number'] != ''){
-     $web_house_number = intval($_POST['web_house_number']);
+     $web_house_number = $_POST['web_house_number'];
      setcookie("web_house_number", $web_house_number);
     }
   }
   $web_zip_code='';
   if (isset($_POST['web_zip_code'])){
     if ($_POST['web_zip_code'] != ''){
-     $web_zip_code = substr(intval($_POST['web_zip_code']),0,5);
+     $web_zip_code = $_POST['web_zip_code'];
      setcookie("web_zip_code", $web_zip_code);
     }
   }
@@ -103,18 +92,17 @@ slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
      <div class='col-sm-6' style='text-align:left;'><input class="form-control input-lg" name='web_last_name' required oninvalid="this.setCustomValidity('Please enter only your last name')" oninput="this.setCustomValidity('')"></div>
      <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
   </div> 
+   
+  
+     
   <div class='row'>
      <div class='col-sm-3' style='text-align:right;'><h2>Date of Birth</h2></div>
-     <div class='col-sm-2' style='text-align:left;'><input type='number' class="form-control input-lg" name='web_dob_month' required oninvalid="this.setCustomValidity('Please enter the month you were born.')" oninput="this.setCustomValidity('')"></div>
-     <div class='col-sm-2' style='text-align:left;'><input type='number' class="form-control input-lg" name='web_dob_day' required oninvalid="this.setCustomValidity('Please the day you were born.')" oninput="this.setCustomValidity('')"></div>
-     <div class='col-sm-2' style='text-align:left;'><input type='number' class="form-control input-lg" name='web_dob_year' required oninvalid="this.setCustomValidity('Please enter the year you were born.')" oninput="this.setCustomValidity('')"></div>
+     <div class='col-sm-6' style='text-align:left;'><input type='number' class="form-control input-lg" name='web_dob_day' required oninvalid="this.setCustomValidity('Please the day you were born.')" oninput="this.setCustomValidity('')"><input type='number' class="form-control input-lg" name='web_dob_month' required oninvalid="this.setCustomValidity('Please enter the month you were born.')" oninput="this.setCustomValidity('')"><input type='number' class="form-control input-lg" name='web_dob_year' required oninvalid="this.setCustomValidity('Please enter the year you were born.')" oninput="this.setCustomValidity('')"></div>
      <div class='col-sm-1' style='text-align:center;'><button type="submit" class="btn btn-success btn-lg btn-block">↴</button></div>
   </div> 
   <div class='row'>
      <div class='col-sm-3' style='text-align:right; background-color:lightyellow;'><h3>Date of Birth Format</h3></div>
-     <div class='col-sm-2' style='text-align:left; background-color:lightyellow;'><h3>MM</h3></div>
-     <div class='col-sm-2' style='text-align:left; background-color:lightyellow;'><h3>DD</h3></div>
-     <div class='col-sm-2' style='text-align:left; background-color:lightyellow;'><h3>YYYY</h3></div>
+     <div class='col-sm-6' style='text-align:left; background-color:lightyellow;'><h3>MM DD YYYY</h3></div>
      <div class='col-sm-1' style='text-align:center;'></div>
   </div>
   <div class='row'>
@@ -159,7 +147,7 @@ slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
      <div class='col-sm-10' style='text-align:center;'><button type="reset" class="btn btn-warning btn-lg btn-block not_me">Clear</button></div>
   </div>
   <div class='row'>
-     <div class='col-sm-10' style='text-align:center;'>* E-Mail is not required, it will only be used internally to reach you. It will never sold or given out.</div>
+     <div class='col-sm-10' style='text-align:center;'>* E-Mail is not required, and will only be used internally, if we need to reach you. It will never sold or given out.</div>
   </div>
      <div class='row'>
      <div class='col-sm-10' style='text-align:center;'>** PHONE NUMBER IS REQUIRED BY STATE OF MARYLAND. WE WILL NEVER USE YOUR PHONE NUMBER - NEVER CALL - NEVER FOR TEXT MESSAGES.</div>
