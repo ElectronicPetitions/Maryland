@@ -174,7 +174,7 @@ while($d = mysqli_fetch_array($r)){
 		  // graph latest sma
 		  $trader_sma_real[] = intval($count);
 		  $trader_sma_timePeriod++;
-		  $trader_sma = trader_sma($trader_sma_real,$trader_sma_timePeriod);
+		  $trader_sma = trader_sma($trader_sma_real,7);
 		  //print_r($trader_sma);
 		  $the_index = $trader_sma_timePeriod - 1;
 		  $this_sma = $trader_sma[$the_index]; // should be last value?
@@ -295,7 +295,7 @@ while($d = mysqli_fetch_array($r)){
 			visible: true,
 			showInLegend: true,
 			yValueFormatString: "#####",
-			name: "Simple Moving Average",
+			name: "7 Day Simple Moving Average",
 			dataPoints: [
 				<?PHP echo $chart7; ?>
 			]
