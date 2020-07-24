@@ -17,7 +17,7 @@ function secondsToDHMS($seconds) {
     $per_minute = intval($_GET['last']) - $row_cnt;
     $left = $expected - $row_cnt;
     $minutes = round($left/$per_minute);
-    $human = secondsToDHMS($minutes*60)
+    $human = secondsToDHMS($minutes*60);
     echo '<h1>'.date('r').'</h1><h1>'.number_format($row_cnt).' out of '.number_format($expected).' '.$p.'% done</h1>
     <h3>$per_minute Per Minute</h3>
 <h3>$left row Left</h3>
