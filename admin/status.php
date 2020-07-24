@@ -16,10 +16,10 @@ function secondsToDHMS($seconds) {
     $p = number_format($c,2)*100;
     $per_minute = intval($_GET['last']) - $row_cnt;
     $left = $expected - $row_cnt;
-    $minutes = round($left/$per_minute);
+    $minutes = abs(round($left/$per_minute));
     $human = secondsToDHMS($minutes*60);
     echo '<h1>'.date('r').'</h1><h1>'.number_format($row_cnt).' out of '.number_format($expected).' '.$p.'% done</h1>';
-    echo "<h3>$per_minute Per Minute</h3><h3>$left Rows Left</h3><h3>$human Left</h3>";
+    echo "<h3>$per_minute Per Minute</h3><h3>$left Rows Left</h3><h3>$human Left ($minutes minutes)</h3>";
     echo '<title>'.$p.'% loaded</title>';
   } 
 
