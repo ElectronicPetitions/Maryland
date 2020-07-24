@@ -19,7 +19,7 @@ function secondsToDHMS($seconds) {
     $minutes = abs(round($left/$per_minute));
     $human = secondsToDHMS($minutes*60);
     echo '<h1>'.date('r').'</h1><h1>'.number_format($row_cnt).' out of '.number_format($expected).' '.$p.'% done</h1>';
-    echo "<h3>$per_minute Per Minute</h3><h3>$left Rows Left</h3><h3>$human Left ($minutes minutes)</h3>";
+    echo "<h3>$per_minute Per Minute</h3><h3>$left Rows Left</h3><h3>$human Left ($minutes minutes)</h3><h1>Complete Around: ".date('r',strtotime("+ $minutes minutes"))."</h1>";
     echo '<title>'.$p.'% loaded</title>';
   } 
 
