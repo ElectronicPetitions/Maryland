@@ -2,6 +2,7 @@
 ob_start();
 include_once('header.php'); 
 $head = ob_get_clean();
+$VoterList_table   = $_COOKIE['VoterList_table'];
 $web_first_name   = $_COOKIE['web_first_name'];
 $web_last_name    = $_COOKIE['web_last_name'];
 $web_house_number = $_COOKIE['web_house_number'];
@@ -18,7 +19,7 @@ if ($web_first_name != '' && $web_last_name != '' && $web_house_number != '' && 
   // we should NEVER hit this page anymore
   header('Location: warning_incomplete.php');
 }
-$q = "select * from VoterList where LASTNAME = '$web_last_name' and FIRSTNAME = '$web_first_name' and HOUSE_NUMBER = '$web_house_number' and RESIDENTIALZIP5 = '$web_zip_code'";
+$q = "select * from $VoterList_table where LASTNAME = '$web_last_name' and FIRSTNAME = '$web_first_name' and HOUSE_NUMBER = '$web_house_number' and RESIDENTIALZIP5 = '$web_zip_code'";
 $r = $petition->query($q);
 $d = mysqli_fetch_array($r);
 if ($d['VTRID'] != ''){
