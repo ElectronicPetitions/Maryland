@@ -46,58 +46,62 @@ if ($pos !== false) {
 }
 
 // v3 update to VoterList
-
 $q = "select * from VoterList2 where LASTNAME = '$web_last_name' and FIRSTNAME = '$web_first_name' and HOUSE_NUMBER = '$web_house_number' and RESIDENTIALZIP5 = '$web_zip_code'";
 $r = $petition->query($q);
 $d = mysqli_fetch_array($r);
 if ($d['VTRID'] != ''){
   slack_general_admin("VoterList2 Search Found",'md-petition-api');
+  $VoterList_table = 'VoterList2';
 }else{
-  slack_general_admin("VoterList2 Search Not Found",'md-petition-api');
+  $q = "select * from VoterList where LASTNAME = '$web_last_name' and FIRSTNAME = '$web_first_name' and HOUSE_NUMBER = '$web_house_number' and RESIDENTIALZIP5 = '$web_zip_code'";
+  $r = $petition->query($q);
+  $d = mysqli_fetch_array($r);
+  if ($d['VTRID'] != ''){
+    slack_general_admin("VoterList Search Found",'md-petition-api');
+    $VoterList_table = 'VoterList';
+  }else{
+    slack_general_admin("VoterList and VoterList2 Search Not Found",'md-petition-api'); 
+    //slack_general('MISS: Is the information correct ('.$web_first_name.' '.$web_last_name.' '.$PHONE.') ('.$_COOKIE['invite'].')','md-petition');
+    setcookie("signature_status", 'notfound');
+    header('Location: warning_not_found.php');
+    die();
+  }
 }
-
-
-// V1 API - Local
-$q = "select * from VoterList where LASTNAME = '$web_last_name' and FIRSTNAME = '$web_first_name' and HOUSE_NUMBER = '$web_house_number' and RESIDENTIALZIP5 = '$web_zip_code'";
+setcookie("VoterList_table", $VoterList_table);
+$q = "select * from $VoterList_table where LASTNAME = '$web_last_name' and FIRSTNAME = '$web_first_name' and HOUSE_NUMBER = '$web_house_number' and RESIDENTIALZIP5 = '$web_zip_code'";
 $r = $petition->query($q);
 $d = mysqli_fetch_array($r);
-if ($d['VTRID'] != ''){
-   $VTRID      = $d['VTRID'];
-   $FIRSTNAME  = $d['FIRSTNAME'];
-   $MIDDLENAME = $d['MIDDLENAME'];
-  if ($MIDDLENAME == ''){
-    slack_general_admin("WARN: Blank Middle Name Detected",'md-petition-signed');
-  }
-   $LASTNAME   = $d['LASTNAME'];
-    $pos = strpos($LASTNAME, '-');
-    if ($pos !== false) {
-         slack_general_admin("WARN: Hyphen in Last Name Detected",'md-petition-signed');
-    } 
-   $ADDRESS    = $d['ADDRESS'];
-   $RESIDENTIALCITY   = $d['RESIDENTIALCITY'];
-   $COUNTY            = $d['COUNTY'];
-   $RESIDENTIALZIP5   = $d['RESIDENTIALZIP5'];
-  // set cookies for hard_copy.php
-  setcookie("pCOUNTY", $COUNTY);
-  if ($MIDDLENAME == ''){
-    setcookie("pNAME", "$FIRSTNAME $LASTNAME");
-  }else{
-    setcookie("pNAME", "$FIRSTNAME $MIDDLENAME $LASTNAME");
-  }
-  setcookie("pADDRESS", "$ADDRESS $RESIDENTIALCITY $RESIDENTIALZIP5");
-  setcookie("pADDRESS1", "$ADDRESS");
-  setcookie("pADDRESS2", "$RESIDENTIALCITY MD $RESIDENTIALZIP5");
-  setcookie("pVTRID", $VTRID);
-  setcookie("signature_status", 'verified');
-  slack_general('MATCH: Is the information correct ('.$FIRSTNAME.' '.$LASTNAME.' '.$RESIDENTIALCITY.') ('.$_COOKIE['invite'].')','md-petition');
-}else{
-  slack_general('MISS: Is the information correct ('.$web_first_name.' '.$web_last_name.' '.$PHONE.') ('.$_COOKIE['invite'].')','md-petition');
-   setcookie("signature_status", 'notfound');
-   header('Location: warning_not_found.php');
+$VTRID      = $d['VTRID'];
+$FIRSTNAME  = $d['FIRSTNAME'];
+$MIDDLENAME = $d['MIDDLENAME'];
+if ($MIDDLENAME == ''){
+   slack_general_admin("WARN: Blank Middle Name Detected",'md-petition-signed');
 }
+$LASTNAME   = $d['LASTNAME'];
+$pos = strpos($LASTNAME, '-');
+if ($pos !== false) {
+  slack_general_admin("WARN: Hyphen in Last Name Detected",'md-petition-signed');
+} 
+$ADDRESS    = $d['ADDRESS'];
+$RESIDENTIALCITY   = $d['RESIDENTIALCITY'];
+$COUNTY            = $d['COUNTY'];
+$RESIDENTIALZIP5   = $d['RESIDENTIALZIP5'];
+// set cookies for hard_copy.php
+setcookie("pCOUNTY", $COUNTY);
+if ($MIDDLENAME == ''){
+  setcookie("pNAME", "$FIRSTNAME $LASTNAME");
+}else{
+  setcookie("pNAME", "$FIRSTNAME $MIDDLENAME $LASTNAME");
+}
+setcookie("pADDRESS", "$ADDRESS $RESIDENTIALCITY $RESIDENTIALZIP5");
+setcookie("pADDRESS1", "$ADDRESS");
+setcookie("pADDRESS2", "$RESIDENTIALCITY MD $RESIDENTIALZIP5");
+setcookie("pVTRID", $VTRID);
+setcookie("signature_status", 'verified');
+slack_general('MATCH: Is the information correct ('.$FIRSTNAME.' '.$LASTNAME.' '.$RESIDENTIALCITY.') ('.$_COOKIE['invite'].')','md-petition');
 $qX = "select * from website_text where id = '6'";
- $rX = $petition->query($qX);
- $dX = mysqli_fetch_array($rX);
+$rX = $petition->query($qX);
+$dX = mysqli_fetch_array($rX);
 ?>
 <script>document.title = "MEPS - Confirm information";</script>
 <div class='row'>
