@@ -11,7 +11,7 @@ if ($_POST['LASTNAME']){
 }
 if($LASTNAME != ''){
   echo "<ol>";
-  $q = "select * from VoterList where LASTNAME like '%$LASTNAME%' limit 0, 5000 ";
+  $q = "select * from VoterList2 where LASTNAME like '%$LASTNAME%' limit 0, 5000 ";
   echo "$q";
   $r = $petition->query($q);
   while ($d = mysqli_fetch_array($r,MYSQLI_ASSOC)){
