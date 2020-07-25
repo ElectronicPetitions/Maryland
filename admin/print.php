@@ -17,9 +17,10 @@ $PETITION_ID = $d['petition_id'];
 $signed_name_as = ucwords(strtolower($d['signed_name_as']));
 $signed_name_as_circulator = ucwords(strtolower($d['signed_name_as_circulator']));
 $contact_phone = $d['contact_phone'];
+$VoterList_table = $d['VoterList_table'];
 
-slack_general("$name printing petition $id",'md-petition');
-$q2 = "select * from VoterList where VTRID = '$d[VTRID]' ";
+slack_general("$name printing $VoterList_table petition $id",'md-petition');
+$q2 = "select * from $VoterList_table where VTRID = '$d[VTRID]' ";
 $r2 = $petition->query($q2);
 $d2 = mysqli_fetch_array($r2);
  $FIRSTNAME         = $d2['FIRSTNAME'];
