@@ -9,6 +9,7 @@ $ip_address    = $d['ip_address'];
 $DOB    = $d['date_of_birth'];
 $SIGNED = $d['date_time_signed'];
 $PETITION_ID = $d['petition_id'];
+$VoterList_table = $d['VoterList_table'];
 $signed_name_as = ucwords(strtolower($d['signed_name_as']));
 $signed_name_as_circulator = ucwords(strtolower($d['signed_name_as_circulator']));
 if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
@@ -23,7 +24,7 @@ if ($ip != $d['ip_address']){
  die('Error #294');
 }
 
-$q2 = "select * from VoterList where VTRID = '$d[VTRID]' ";
+$q2 = "select * from $VoterList_table where VTRID = '$d[VTRID]' ";
 $r2 = $petition->query($q2);
 $d2 = mysqli_fetch_array($r2);
  $FIRSTNAME         = $d2['FIRSTNAME'];
