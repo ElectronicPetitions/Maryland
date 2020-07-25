@@ -44,6 +44,19 @@ if ($pos !== false) {
      slack_general_admin("Voter API v2 Success: $web_first_name,$web_last_name,$month,$day,$year,$web_zip_code $error3",'md-petition-api');
   }
 }
+
+// v3 update to VoterList
+
+$q = "select * from VoterList2 where LASTNAME = '$web_last_name' and FIRSTNAME = '$web_first_name' and HOUSE_NUMBER = '$web_house_number' and RESIDENTIALZIP5 = '$web_zip_code'";
+$r = $petition->query($q);
+$d = mysqli_fetch_array($r);
+if ($d['VTRID'] != ''){
+  slack_general_admin("VoterList2 Search Found",'md-petition-api');
+}else{
+  slack_general_admin("VoterList2 Search Not Found",'md-petition-api');
+}
+
+
 // V1 API - Local
 $q = "select * from VoterList where LASTNAME = '$web_last_name' and FIRSTNAME = '$web_first_name' and HOUSE_NUMBER = '$web_house_number' and RESIDENTIALZIP5 = '$web_zip_code'";
 $r = $petition->query($q);
