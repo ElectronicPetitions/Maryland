@@ -151,7 +151,7 @@ slack_general('Enter Information ('.$_COOKIE['invite'].')','md-petition');
      <div class='col-sm-10' style='text-align:center;'><button type="reset" class="btn btn-warning btn-lg btn-block not_me">Clear</button></div>
   </div>
   <div class='row'>
-     <div class='col-sm-10' style='text-align:center;'>* E-Mail is not required, and will only be used internally, if we need to reach you. It will never sold or given out.</div>
+     <div class='col-sm-10' style='text-align:center;'>* E-Mail is not required, and will only be used with the petitioners to reach you. It will never be sold.</div>
   </div>
      <div class='row'>
      <div class='col-sm-10' style='text-align:center;'>** PHONE NUMBER IS REQUIRED BY STATE OF MARYLAND. WE WILL NEVER USE YOUR PHONE NUMBER - NEVER CALL - NEVER FOR TEXT MESSAGES.</div>
