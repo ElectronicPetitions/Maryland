@@ -11,11 +11,13 @@ if (empty($_GET['run'])){
   }
   include_once('bots.php');
   include_once('../slack.php');
+  slack_general('run 1','meps-auto');
   include_once('security.php');
   include_once('/var/www/secure.php'); //outside webserver
   include_once('functions.php');
 }else{
   include_once('../slack.php');
+  slack_general('run 2','meps-auto');
   include_once('/var/www/secure.php'); //outside webserver
   include_once('functions.php');
 }
@@ -486,6 +488,6 @@ while($d = mysqli_fetch_array($r)){
 // allow headers to be sent...
 $html = ob_get_clean();
 echo $html; // run javascript
-slack_general('automation complete','md-petition-admin');
+slack_general('done','meps-auto');
 include_once('footer.php');
 ?>
