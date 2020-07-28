@@ -486,6 +486,6 @@ while($d = mysqli_fetch_array($r)){
 // allow headers to be sent...
 $html = ob_get_clean();
 echo $html; // run javascript
-
+slack_general('automation complete','md-petition-admin');
 include_once('footer.php');
 ?>
