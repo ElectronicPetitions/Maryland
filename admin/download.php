@@ -6,9 +6,9 @@ function mysqli_field_name($result, $field_offset)
     return is_object($properties) ? $properties->name : null;
 }
 if ($_COOKIE['level'] == 'admin'){
-  $q = "SELECT date_time_signed, signed_name_as, VTRID, petition_id, VoterList_table FROM signatures where signature_status = 'verified' ORDER BY id";
+  $q = "SELECT date_time_signed, signed_name_as, VTRID, shared_email, petition_id, VoterList_table FROM signatures where signature_status = 'verified' ORDER BY id";
 }else{
-  $q = "SELECT date_time_signed, signed_name_as, VTRID, VoterList_table FROM signatures where petition_id = '$_COOKIE[petition_id]' and signature_status = 'verified' ORDER BY id";
+  $q = "SELECT date_time_signed, signed_name_as, VTRID, shared_email, VoterList_table FROM signatures where petition_id = '$_COOKIE[petition_id]' and signature_status = 'verified' ORDER BY id";
 }
 
 $r = $petition->query($q);
