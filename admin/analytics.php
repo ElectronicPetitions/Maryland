@@ -33,6 +33,7 @@ if (isset($_GET['sign_email'])){
 }
 
 function js_redirect($page){ // now header - prep for full auto
+  global $petition;
   $base = 'https://www.md-petition.com/admin/';
   $url = $base.$page.'&run=1';
   $pos = strpos($page, $_COOKIE['sign_email']);
@@ -47,7 +48,12 @@ function js_redirect($page){ // now header - prep for full auto
     setcookie("order", $order);
     die(); 
   } else {
-    slack_general('Loop Detected for '.$_COOKIE['sign_email'],'fatal_errors');
+    $q = "select * from presign where email_for_follow_up <> '' and presign_status = 'NEW' limit 0,1 ";
+    $r = $petition->query($q);
+    $d = mysqli_fetch_array($r);
+    $php_session_id = $d['php_session_id']; 
+    $petition->query("update presign set presign_status = 'LOOP' where php_session_id = '$php_session_id'");
+    slack_general('Loop Detected for '.$_COOKIE['sign_email'].' clearing '.$id,'fatal_errors');
     echo "<h1>Automated Loop Detected - Skip Setting - Reverse Sort (DESC)</h1>";
     $order = 'DESC';
     setcookie("order", $order);
