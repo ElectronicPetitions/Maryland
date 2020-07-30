@@ -27,7 +27,7 @@ if (empty($_COOKIE['start_time'])){
   <meta property="og:title"         content="Maryland Electronic Petition Software" />
   <meta property="og:description"   content="Socially Distant Petitions" />
   <meta property="fb:app_id"        content="3170466243046869" />
-  <meta property="og:image"         content="https://www.md-petition.com/files/maryland-flag-graphic.png" />
+  <meta property="og:image"         content="http://www.md-petition.com/files/maryland-flag-graphic.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
