@@ -26,11 +26,35 @@ if (empty($_COOKIE['start_time'])){
   <meta property="og:type"          content="website" />
   <meta property="og:title"         content="Maryland Electronic Petition Software" />
   <meta property="og:description"   content="Socially Distant Petitions" />
+  <meta property="fb:app_id"        content="3170466243046869" />
   <meta property="og:image"         content="http://md-petition.com/files/maryland-flag-graphic.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '3170466243046869',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v7.0'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+  
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165887820-1"></script>
   <script>
