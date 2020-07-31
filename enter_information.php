@@ -1,4 +1,12 @@
 <?PHP
+if (isset($_COOKIE['form_version'])){
+  if ($_COOKIE['form_version'] == '2'){ 
+   header('Location: enter_information_v2.php');
+  } 
+  if ($_COOKIE['form_version'] == '3'){ 
+    header('Location: enter_information_v2.php'); 
+  }  
+}
 if (empty($_COOKIE['signature_status'])){
    setcookie("signature_status", 'unverified');
 }
