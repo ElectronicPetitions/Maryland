@@ -10,6 +10,11 @@ if (isset($_GET['debug'])){
     header('Location: index.php'); 
   }
 }  
+if (isset($_GET['form_version'])){
+  if ($_GET['form_version'] == '2'){ 
+    setcookie("form_version", '2'); 
+  } 
+}  
 global $time_on_site;
 if (empty($_COOKIE['start_time'])){
   setcookie("start_time", time());
