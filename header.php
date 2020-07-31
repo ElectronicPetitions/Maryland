@@ -14,6 +14,9 @@ if (isset($_GET['form_version'])){
   if ($_GET['form_version'] == '2'){ 
     setcookie("form_version", '2'); 
   } 
+  if ($_GET['form_version'] == '3'){ 
+    setcookie("form_version", '3'); 
+  }
 }  
 global $time_on_site;
 if (empty($_COOKIE['start_time'])){
