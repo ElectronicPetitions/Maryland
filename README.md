@@ -1,3 +1,13 @@
+# Preparing for 2021 Update
+
+## Discord Server
+* Invite: https://discord.gg/DDdRpn9g
+
+## Backend Project Status
+* Blockchain - working, need to install
+* Invites - working on
+* New data format - looking at a fresh table over modifying the old one
+
 # User Flow 
 * http://md-petition.com/index.php 
 ## to 
