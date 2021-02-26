@@ -1,4 +1,4 @@
-# Preparing for 2021 Update
+# 2021 Update Status
 
 ## Discord Server
 * Invite: https://discord.gg/DDdRpn9g
