@@ -2,14 +2,7 @@
 
 ## Discord Server
 * Invite: https://discord.gg/DDdRpn9g
-
-## Backend Project Status
-* Blockchain - working, need to install
-* Invites - working on
-* New data format - looking at a fresh table over modifying the old one
-
-# giggles
-To make the webhook display messages properly, it's really really really REALLY really important that you append '/github' at the end of it. Yes, like five-reallys important.
+* Link: https://discord.com/channels/814685066122100757/
 
 # User Flow 
 * http://md-petition.com/index.php 
