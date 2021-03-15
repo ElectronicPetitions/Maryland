@@ -11,13 +11,13 @@ if ($_COOKIE['invite'] != ''){
 <?PHP } ?>
 
 <div class='row'>
- <div class='col-sm-4' style='text-align:center;'>
-  <a target='_Blank' href='https://discord.gg/9buewCs5Rd'><img  class='img-responsive' alt='JOIN DISCORD SERVER' src='/files/discord-logo-discord-11563258075bqnd0dtabo.png' /></a>
+ <div class='col-sm-7' style='text-align:center;'>
+  <a target='_Blank' href='https://discord.gg/9buewCs5Rd'><img  class='img-responsive' alt='JOIN DISCORD SERVER' src='/files/discord-wide.png' /></a>
  </div>
  <div class='col-sm-2' style='text-align:center;'>
   <a target='_Blank' href='https://www.youtube.com/watch?v=PFVN97kfUD8'><img alt='Click Here for a youtube instructional video' class='img-responsive' src='files/img-help_button.png'></a>
  </div>
- <div class='col-sm-4' style='text-align:center;'>
+ <div class='col-sm-1' style='text-align:center;'>
   
  </div>
 </div>
