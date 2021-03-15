@@ -64,14 +64,14 @@ if (empty($_COOKIE['start_time'])){
 </script>
   
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165887820-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TY6C66ZWMX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    gtag('config', 'UA-165887820-1');
-  </script>
+  gtag('config', 'G-TY6C66ZWMX');
+</script>
   <?PHP 
   include_once('/var/www/secure.php'); //outside webserver
   presign(); // requires db connection
