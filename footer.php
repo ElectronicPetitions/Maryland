@@ -12,13 +12,13 @@ if ($_COOKIE['invite'] != ''){
 
 <div class='row'>
  <div class='col-sm-7' style='text-align:center;'>
-  <a target='_Blank' href='https://discord.gg/9buewCs5Rd'><img  class='img-responsive' alt='JOIN DISCORD SERVER' src='/files/discord-wide.png' /></a>
+  <iframe src="https://discordapp.com/widget?id=814685066122100757&theme=dark" width="500" height="350" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
  </div>
  <div class='col-sm-2' style='text-align:center;'>
   <a target='_Blank' href='https://www.youtube.com/watch?v=PFVN97kfUD8'><img alt='Click Here for a youtube instructional video' class='img-responsive' src='files/img-help_button.png'></a>
  </div>
  <div class='col-sm-1' style='text-align:center;'>
-  
+  <a target='_Blank' href='https://discord.gg/9buewCs5Rd'>Discord</a>
  </div>
 </div>
 
