@@ -12,7 +12,7 @@ if ($_COOKIE['invite'] != ''){
 
 <div class='row'>
  <div class='col-sm-4' style='text-align:center;'>
-  <a target='_Blank' href='https://discord.gg/9buewCs5Rd'>JOIN DISCORD SERVER</a>
+  <a target='_Blank' href='https://discord.gg/9buewCs5Rd'><img  class='img-responsive' alt='JOIN DISCORD SERVER' src='/files/discord-logo-discord-11563258075bqnd0dtabo.png' /></a>
  </div>
  <div class='col-sm-2' style='text-align:center;'>
   <a target='_Blank' href='https://www.youtube.com/watch?v=PFVN97kfUD8'><img alt='Click Here for a youtube instructional video' class='img-responsive' src='files/img-help_button.png'></a>
