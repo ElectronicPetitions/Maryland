@@ -26,7 +26,14 @@ if(isset($_POST['email'])){
 	slack_general('ADMIN: reset.php','md-petition');	
 }
 ?>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TY6C66ZWMX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-TY6C66ZWMX');
+</script>
 <form action="reset.php" method="post" accept-charset="utf-8">	<table>
 		<tbody><tr>
 			<td>E-Mail Address</td>
