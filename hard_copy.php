@@ -13,6 +13,11 @@ $offset_y = $d['offset_y_cords'];
 $offset_x_circulator = $d['offset_x_cords_circulator'];
 $offset_y_circulator = $d['offset_y_cords_circulator'];
 
+  $petition_party_line1 = $d['petition_party_line1'];
+  $petition_party_line2 = $d['petition_party_line2'];
+  $petition_party_line3 = $d['petition_party_line3'];
+
+
 
 //Set the Content Type
 header('Content-type: image/jpeg');
