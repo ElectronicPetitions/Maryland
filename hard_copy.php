@@ -53,10 +53,10 @@ if ($hide_county == 'NO'){
 }
 
 // Party Information
-imagettftext($jpg_image, 50, 0, 200, 500, $black, $font_path, $petition_party_line1 );
-imagettftext($jpg_image, 50, 0, 400, 550, $black, $font_path, $petition_party_line2 );
-imagettftext($jpg_image, 50, 0, 350, 600, $black, $font_path, $petition_party_line3 );
-imagettftext($jpg_image, 50, 0, 350, 650, $black, $font_path, $petition_party_line4 );
+imagettftext($jpg_image, 50, 0, 200, 600, $black, $font_path, $petition_party_line1 );
+imagettftext($jpg_image, 50, 0, 900, 750, $black, $font_path, $petition_party_line2 );
+imagettftext($jpg_image, 50, 0, 350, 800, $black, $font_path, $petition_party_line3 );
+imagettftext($jpg_image, 50, 0, 350, 850, $black, $font_path, $petition_party_line4 );
 
 
 
