@@ -37,7 +37,14 @@ if (isset($_POST['email']) && isset($_POST['password'])){
 }
 
 ?>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TY6C66ZWMX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-TY6C66ZWMX');
+</script>
 <div class="slate">
   <form method="post" accept-charset="utf-8">
     <table>
