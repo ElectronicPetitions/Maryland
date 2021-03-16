@@ -16,7 +16,7 @@ $offset_y_circulator = $d['offset_y_cords_circulator'];
   $petition_party_line1 = $d['petition_party_line1'];
   $petition_party_line2 = $d['petition_party_line2'];
   $petition_party_line3 = $d['petition_party_line3'];
-
+  $petition_party_line4 = $d['petition_party_line4'];
 
 
 //Set the Content Type
@@ -51,6 +51,15 @@ if ($hide_county == 'NO'){
     imagettftext($jpg_image, $array[0], $array[1], $array[2], $array[3], $black, $font_path, str_replace('County','',$_COOKIE['pCOUNTY']) );
   }
 }
+
+// Party Information
+imagettftext($jpg_image, 50, 0, 300, 1000, $black, $font_path, $petition_party_line1 );
+imagettftext($jpg_image, 50, 0, 300, 1100, $black, $font_path, $petition_party_line2 );
+imagettftext($jpg_image, 50, 0, 300, 1200, $black, $font_path, $petition_party_line3 );
+imagettftext($jpg_image, 50, 0, 300, 1300, $black, $font_path, $petition_party_line4 );
+
+
+
 // name
 imagettftext($jpg_image, 50, 0, 350+$offset_x, 1070+$offset_y, $black, $font_path, $_COOKIE['pNAME']);
 //imagettftext($jpg_image, 50, 0, 350, 1070, $black, $font_path, $debug);
