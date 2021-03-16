@@ -139,10 +139,10 @@ slack_general('MGP Home Page Loaded ('.$_COOKIE['invite'].')','md-petition');
   href="https://twitter.com/intent/tweet"
   data-size="large"
   data-text="Can you spare a minute to sign <?PHP echo $d['petition_name'];?>"
-  data-url="https://www.md-petition.com/invite/mgp.php">
+  data-url="https://www.md-petition.com/invite/mgp2021.php">
      Tweet</a></td>
-   <td><input type='text' size='50' value='http://md-petition.com/invite/mgp.php' id='mgp'><button onclick='myFunction("mgp")'>Copy Link</button></td>
-   <td><a href='../printable_qr_code.php?short=<?PHP echo $d['web_short_name'];?>'><img src='https://www.md-petition.com/qrcode.php?s=qrl&d=https://www.md-petition.com/invite/mgp.php'></a></td>
+   <td><input type='text' size='50' value='http://md-petition.com/invite/mgp2021.php' id='mgp'><button onclick='myFunction("mgp2021")'>Copy Link</button></td>
+   <td><a href='../printable_qr_code.php?short=<?PHP echo $d['web_short_name'];?>'><img src='https://www.md-petition.com/qrcode.php?s=qrl&d=https://www.md-petition.com/invite/mgp2021.php'></a></td>
    </tr>
  </table>
 </center>
