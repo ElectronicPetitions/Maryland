@@ -1,4 +1,4 @@
-name: PHP Linting
+name: Check for PHP Warnings and Errors
 on: 
   push:
       branches:
