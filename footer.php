@@ -10,13 +10,22 @@ if ($_COOKIE['invite'] != ''){
  </div>
 <?PHP } ?>
 
+
+<div class='row'>
+ <div class='col-sm-10' style='text-align:center;'>
+  <?PHP echo $copy;?>
+ </div>
+</div>
+
+<br><br>
+
 <div class='row'>
   <div class='col-sm-1' style='text-align:center;'>
   
  </div>
 
  <div class='col-sm-8' style='text-align:center;'>
-  <img src='sponsor.png'>  
+  <a target='_Blank' href='https://www.bmorecoin.com/wallet.php'><img src='sponsor.png'></a>  
  </div>
 
  
@@ -24,12 +33,6 @@ if ($_COOKIE['invite'] != ''){
   
  </div>
 
-</div>
-
-<div class='row'>
- <div class='col-sm-10' style='text-align:center;'>
-  <?PHP echo $copy;?>
- </div>
 </div>
 
 
