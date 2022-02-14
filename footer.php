@@ -15,6 +15,10 @@ if ($_COOKIE['invite'] != ''){
   
  </div>
 
+ <div class='col-sm-8' style='text-align:center;'>
+  <img src='sponsor.png'>  
+ </div>
+
  
  <div class='col-sm-1' style='text-align:center;'>
   
