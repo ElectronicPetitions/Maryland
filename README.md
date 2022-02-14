@@ -1,5 +1,6 @@
 # 2022 Updates
 * [![Check for PHP Warnings and Errors](https://github.com/insidenothing/MarylandElectronicPetitionSignature/actions/workflows/lint.yml/badge.svg)](https://github.com/insidenothing/MarylandElectronicPetitionSignature/actions/workflows/lint.yml)
+* [![Deploy to Webserver](https://github.com/ElectronicPetitions/Maryland/actions/workflows/main.yml/badge.svg)](https://github.com/ElectronicPetitions/Maryland/actions/workflows/main.yml)
 # 2021 Update Status
 
 ## Discord Server
