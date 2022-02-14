@@ -14,9 +14,8 @@ if ($_COOKIE['invite'] != ''){
   <div class='col-sm-1' style='text-align:center;'>
   
  </div>
- <div class='col-sm-8' style='text-align:center;'>
-  <iframe src="https://discordapp.com/widget?id=814685066122100757&theme=light" width="600" height="300" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
- </div>
+
+ 
  <div class='col-sm-1' style='text-align:center;'>
   
  </div>
