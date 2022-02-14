@@ -1,15 +1,15 @@
-name: Docker Build
+name: Deploy to Webserver
 on: 
   push:
       branches:
         - master
 jobs:
 
-  build_web:
-    name: Build Webserver
+  deploy:
+    name: Deploy to Webserver
     runs-on: ubuntu-latest
     steps:
-    - name: executing remote docker build over ssh using password
+    - name: executing remote code pull over ssh using password
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
