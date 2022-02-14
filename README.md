@@ -1,6 +1,6 @@
 # 2022 Updates
 * [![Check for PHP Warnings and Errors](https://github.com/insidenothing/MarylandElectronicPetitionSignature/actions/workflows/lint.yml/badge.svg)](https://github.com/insidenothing/MarylandElectronicPetitionSignature/actions/workflows/lint.yml)
-* [![Deploy to Webserver](https://github.com/ElectronicPetitions/Maryland/actions/workflows/main.yml/badge.svg)](https://github.com/ElectronicPetitions/Maryland/actions/workflows/main.yml)
+* [![Deploy to Webserver](https://github.com/ElectronicPetitions/Maryland/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/ElectronicPetitions/Maryland/actions/workflows/main.yml)
 * [![pages-build-deployment](https://github.com/ElectronicPetitions/Maryland/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/ElectronicPetitions/Maryland/actions/workflows/pages/pages-build-deployment)
 # 2021 Update Status
 
