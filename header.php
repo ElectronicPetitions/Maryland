@@ -40,7 +40,7 @@ if (empty($_COOKIE['start_time'])){
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-  <script data-ad-client="ca-pub-2410355655106377" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
 <script>
   window.fbAsyncInit = function() {
     FB.init({
