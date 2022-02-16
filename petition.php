@@ -21,6 +21,7 @@ if (isset($_POST['petition'])){
 setcookie("pJPG", $d['petition_jpg']);
 ?>
 <script>
+  window.onload = function() { window.print(); }
   document.title = "MEPS - Sign <?PHP echo $d['petition_name'];?>";
 $(document).ready(function() {
   $('#myText').keypress(function(event){
