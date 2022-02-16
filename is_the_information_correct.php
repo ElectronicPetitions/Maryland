@@ -14,7 +14,7 @@ if ($web_first_name != '' && $web_last_name != '' && $web_house_number != '' && 
   $DOB              = $petition->real_escape_string($DOB);
   $PHONE            = $petition->real_escape_string($PHONE);
 }else{
-  header('Location: warning_incomplete.php');
+  //header('Location: warning_incomplete.php');
 }
 
 // V2 API - Remote
@@ -63,8 +63,8 @@ if ($d['VTRID'] != ''){
     slack_general_admin("VoterList and VoterList2 Search Not Found",'md-petition-api'); 
     //slack_general('MISS: Is the information correct ('.$web_first_name.' '.$web_last_name.' '.$PHONE.') ('.$_COOKIE['invite'].')','md-petition');
     setcookie("signature_status", 'notfound');
-    header('Location: warning_not_found.php');
-    die();
+    //header('Location: warning_not_found.php');
+    //die();
   }
 }
 setcookie("VoterList_table", $VoterList_table);
