@@ -102,6 +102,22 @@ slack_general('MATCH: Is the information correct ('.$FIRSTNAME.' '.$LASTNAME.' '
 $qX = "select * from website_text where id = '6'";
 $rX = $petition->query($qX);
 $dX = mysqli_fetch_array($rX);
+
+
+// if lookup fails use form data now
+if($FIRSTNAME == ''){
+ $FIRSTNAME = $web_first_name; 
+}
+if($LASTNAME == ''){
+ $LASTNAME = $web_last_name; 
+}
+if($ADDRESS == ''){
+ $ADDRESS = $web_house_number.' '.$web_zip_code; 
+}
+if($RESIDENTIALZIP5 == ''){
+ $RESIDENTIALZIP5 = $web_zip_code; 
+}
+
 ?>
 <script>document.title = "MEPS - Confirm information";</script>
 <div class='row'>
