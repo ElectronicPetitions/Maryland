@@ -2,23 +2,31 @@
 ob_start();
 include_once('header.php'); 
 $head = ob_get_clean();
-$VoterList_table   = $_COOKIE['VoterList_table'];
+$VoterList_table  = $_COOKIE['VoterList_table'];
 $web_first_name   = $_COOKIE['web_first_name'];
+$web_middle_name  = $_COOKIE['web_middle_name'];
 $web_last_name    = $_COOKIE['web_last_name'];
 $web_house_number = $_COOKIE['web_house_number'];
+$web_stree_name   = $_COOKIE['web_street_name'];
 $web_zip_code     = $_COOKIE['web_zip_code'];
-if ($web_first_name != '' && $web_last_name != '' && $web_house_number != '' && $web_zip_code != ''){
-  include_once('header.php'); 
-  $web_first_name   = $petition->real_escape_string($web_first_name);
-  $web_last_name    = $petition->real_escape_string($web_last_name);
-  $web_house_number = $petition->real_escape_string($web_house_number);
-  $web_zip_code     = $petition->real_escape_string($web_zip_code);
-  $DOB              = $petition->real_escape_string($DOB);
-  $PHONE            = $petition->real_escape_string($PHONE);
-}else{
+$web_city         = $_COOKIE['web_zip_code'];
+$web_county       = $_COOKIE['web_zip_code'];
+//if ($web_first_name != '' && $web_last_name != '' && $web_house_number != '' && $web_zip_code != ''){
+include_once('header.php'); 
+$web_first_name   = $petition->real_escape_string($web_first_name);
+$web_middle_name  = $petition->real_escape_string($web_middle_name);
+$web_last_name    = $petition->real_escape_string($web_last_name);
+$web_house_number = $petition->real_escape_string($web_house_number);
+$web_street_name  = $petition->real_escape_string($web_street_name);
+$web_zip_code     = $petition->real_escape_string($web_zip_code);
+$web_city         = $petition->real_escape_string($web_city);
+$web_county       = $petition->real_escape_string($web_county);
+$DOB              = $petition->real_escape_string($DOB);
+$PHONE            = $petition->real_escape_string($PHONE);
+//}else{
   // we should NEVER hit this page anymore
-  header('Location: warning_incomplete.php');
-}
+//  header('Location: warning_incomplete.php');
+//}
 $q = "select * from $VoterList_table where LASTNAME = '$web_last_name' and FIRSTNAME = '$web_first_name' and HOUSE_NUMBER = '$web_house_number' and RESIDENTIALZIP5 = '$web_zip_code'";
 $r = $petition->query($q);
 $d = mysqli_fetch_array($r);
@@ -34,7 +42,7 @@ if ($d['VTRID'] != ''){
   slack_general('MATCH: eligible ('.$FIRSTNAME.' '.$LASTNAME.' '.$RESIDENTIALCITY.') ('.$_COOKIE['invite'].')','md-petition');
 }else{
   slack_general('MISS: eligible ('.$web_first_name.' '.$web_last_name.' '.$PHONE.') ('.$_COOKIE['invite'].')','md-petition');
-  header('Location: warning_not_found.php');
+  //header('Location: warning_not_found.php');
 }
 
 if (isset($_GET['remove'])){
