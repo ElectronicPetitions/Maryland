@@ -123,7 +123,7 @@ if($LASTNAME == ''){
  $LASTNAME = $web_last_name; 
 }
 if($ADDRESS == ''){
- $ADDRESS = $web_house_number.' '$web_street_name.' '$web_city.', MD '.$web_zip_code; 
+ $ADDRESS = $web_house_number.' '.$web_street_name.' '.$web_city.', MD '.$web_zip_code; 
 }
 if($RESIDENTIALZIP5 == ''){
  $RESIDENTIALZIP5 = $web_zip_code; 
