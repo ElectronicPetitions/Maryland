@@ -1,21 +1,29 @@
 <?PHP
 $web_first_name   = $_COOKIE['web_first_name'];
+$web_middle_name  = $_COOKIE['web_middle_name'];
 $web_last_name    = $_COOKIE['web_last_name'];
 $web_house_number = $_COOKIE['web_house_number'];
+$web_street_name  = $_COOKIE['web_street_name'];
 $web_zip_code     = $_COOKIE['web_zip_code'];
+$web_city         = $_COOKIE['web_city'];
+$web_county       = $_COOKIE['web_county'];
 $DOB              = $_COOKIE['pDOB'];
-$PHONE             = $_COOKIE['pPHONE'];
-if ($web_first_name != '' && $web_last_name != '' && $web_house_number != '' && $web_zip_code != ''){
-  include_once('header.php'); 
-  $web_first_name   = $petition->real_escape_string($web_first_name);
-  $web_last_name    = $petition->real_escape_string($web_last_name);
-  $web_house_number = $petition->real_escape_string($web_house_number);
-  $web_zip_code     = $petition->real_escape_string($web_zip_code);
-  $DOB              = $petition->real_escape_string($DOB);
-  $PHONE            = $petition->real_escape_string($PHONE);
-}else{
+$PHONE            = $_COOKIE['pPHONE'];
+//if ($web_first_name != '' && $web_last_name != '' && $web_house_number != '' && $web_zip_code != ''){
+include_once('header.php'); 
+$web_first_name   = $petition->real_escape_string($web_first_name);
+$web_middle_name  = $petition->real_escape_string($web_middle_name);
+$web_last_name    = $petition->real_escape_string($web_last_name);
+$web_house_number = $petition->real_escape_string($web_house_number);
+$web_street_name  = $petition->real_escape_string($web_street_name);
+$web_zip_code     = $petition->real_escape_string($web_zip_code);
+$web_city         = $petition->real_escape_string($web_city);
+$web_county       = $petition->real_escape_string($web_county);
+$DOB              = $petition->real_escape_string($DOB);
+$PHONE            = $petition->real_escape_string($PHONE);
+//}else{
   //header('Location: warning_incomplete.php');
-}
+//}
 
 // V2 API - Remote
 include_once('api/maryland_voter.php');
@@ -108,16 +116,24 @@ $dX = mysqli_fetch_array($rX);
 if($FIRSTNAME == ''){
  $FIRSTNAME = $web_first_name; 
 }
+if($MIDDLENAME == ''){
+ $MIDDLENAME = $web_middle_name; 
+}
 if($LASTNAME == ''){
  $LASTNAME = $web_last_name; 
 }
 if($ADDRESS == ''){
- $ADDRESS = $web_house_number.' '.$web_zip_code; 
+ $ADDRESS = $web_house_number.' '$web_street_name.' '$web_city.', MD '.$web_zip_code; 
 }
 if($RESIDENTIALZIP5 == ''){
  $RESIDENTIALZIP5 = $web_zip_code; 
 }
-
+if($RESIDENTIALCITY == ''){
+ $RESIDENTIALCITY = $web_city; 
+}
+if($COUNTY == ''){
+ $COUNTY = $web_county; 
+}
 ?>
 <script>document.title = "MEPS - Confirm information";</script>
 <div class='row'>
