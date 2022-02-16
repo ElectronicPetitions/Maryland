@@ -35,7 +35,7 @@ if (isset($_POST['web_first_name'])){
   $web_middle_name='';
   if (isset($_POST['web_middle_name'])){
     if ($_POST['web_middle_name'] != ''){
-     $web_first_name = $_POST['web_middle_name'];
+     $web_middle_name = $_POST['web_middle_name'];
      setcookie("web_middle_name", $web_middle_name);
     }
   }
