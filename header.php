@@ -102,12 +102,12 @@ input:focus {
       $q = "select * from petitions where web_short_name = '$invite'";
       $r = $petition->query($q);
       $d = mysqli_fetch_array($r);
-      echo "<div class='row'><div class='col-sm-10' style='text-align:center;'><h1 style='text-align:center; color:$d[web_color_text]; background-color:$d[web_color];'>$d[petition_name]</h1></div></div>";
+      echo "<div class='row no-print'><div class='col-sm-10' style='text-align:center;'><h1 style='text-align:center; color:$d[web_color_text]; background-color:$d[web_color];'>$d[petition_name]</h1></div></div>";
       if ($d['social_phone'] != ''){
-        echo "<div class='row'><div class='col-sm-10' style='text-align:center;'><h3 style='text-align:center; color:$d[web_color_text]; background-color:$d[web_color];'>Support: <a style='color:$d[web_color_text];' href='tel:".$d['social_phone']."'>".$d['social_phone']."</a> <a style='color:$d[web_color_text];' href='mailto:".$d['social_email']."'>".$d['social_email']."</a></h3></div></div>";
+        echo "<div class='row no-print'><div class='col-sm-10' style='text-align:center;'><h3 style='text-align:center; color:$d[web_color_text]; background-color:$d[web_color];'>Support: <a style='color:$d[web_color_text];' href='tel:".$d['social_phone']."'>".$d['social_phone']."</a> <a style='color:$d[web_color_text];' href='mailto:".$d['social_email']."'>".$d['social_email']."</a></h3></div></div>";
       }
       if ($d['social_email'] != '' && $d['social_phone'] == ''){
-        echo "<div class='row'><div class='col-sm-10' style='text-align:center;'><h3 style='text-align:center; color:$d[web_color_text]; background-color:$d[web_color];'>Support: <a style='color:$d[web_color_text];' href='mailto:".$d['social_email']."'>".$d['social_email']."</a></h3></div></div>";
+        echo "<div class='row no-print'><div class='col-sm-10' style='text-align:center;'><h3 style='text-align:center; color:$d[web_color_text]; background-color:$d[web_color];'>Support: <a style='color:$d[web_color_text];' href='mailto:".$d['social_email']."'>".$d['social_email']."</a></h3></div></div>";
       }
       } 
     ?>
