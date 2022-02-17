@@ -124,14 +124,6 @@ imagedestroy($jpg_image);
 
 
 
-// we now are going to record this as signed
-$petition->query("insert into signatures (shared_email,VoterList_table,php_session_id,bot_check,VTRID,ip_address,date_of_birth,date_time_signed,just_date,petition_id,signed_name_as,signed_name_as_circulator,contact_phone,signature_status)
-values ('$shared_email','$VoterList_table','$php_session_id','$bot_check','$VTRID','$ip','$date_of_birth',NOW(),NOW(),'$petition_id','$signed_name_as','$signed_name_as_circulator','$contact_phone','$signature_status')") or die(mysqli_error($petition));
-
-$last = $petition->insert_id;
-
-$petition->query("update presign set presign_status = 'SIGNED' where php_session_id = '$php_session_id' and presign_status = 'NEW' ");
-
 
 
 ?>
