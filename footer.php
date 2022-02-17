@@ -1,6 +1,6 @@
 <style> @media print { .no-print, .no-print * { display: none !important; } } </style>
 <?PHP
-$copy = '&copy; 2020 Patrick McGuire';
+$copy = '&copy; 2020 - '.date('Y').' Patrick McGuire';
 if ($_COOKIE['invite'] != ''){
  $copy = '&copy; 2020 - '.date('Y').' Patrick McGuire - '.strtoupper($_COOKIE['invite']); 
 }  
