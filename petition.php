@@ -137,7 +137,7 @@ $signature_status           = $petition->real_escape_string('SIGNED');
 $bot_check                  = $petition->real_escape_string($_SERVER['HTTP_USER_AGENT']);
 $VoterList_table           = $petition->real_escape_string($_COOKIE['VoterList_table']);
 $php_session_id             = session_id();
-
+$VTRID 			= $_COOKIE['pVTRID'];
 
 if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
     $ip = $_SERVER['HTTP_CLIENT_IP'];
