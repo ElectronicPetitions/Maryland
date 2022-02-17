@@ -38,9 +38,9 @@ if (trim($_COOKIE['pADDRESS1']) == ''){
   $address1 = $_COOKIE['web_house_number'].' '.$_COOKIE['web_street_name'];
 }
 // city state zip
-$address2 = $_COOKIE['pADDRESS2'];
+$address2 = '1'.$_COOKIE['pADDRESS2'];
 if (trim($_COOKIE['pADDRESS2']) == ''){
-  $address2 = $_COOKIE['web_city'].', MD '.$_COOKIE['web_zip'];
+  $address2 = '1'.$_COOKIE['web_city'].', MD '.$_COOKIE['web_zip'];
 }  
 $full_address = $_COOKIE['pADDRESS'];
 if (trim($_COOKIE['pADDRESS']) == ''){
