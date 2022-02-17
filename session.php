@@ -7,6 +7,9 @@ function presign(){
 	$page   = $petition->real_escape_string($_SERVER['REQUEST_URI']);
 	$email  = $petition->real_escape_string($_COOKIE['email']);
 	$name   = $petition->real_escape_string($_COOKIE['pNAME']);
+	if(trim($name) == ''){
+		$name = $petition->real_escape_string($_COOKIE['web_first_name'].' '.$_COOKIE['web_middle_name'].' '.$_COOKIE['web_last_name']);
+	}
 	$phone  = $petition->real_escape_string($_COOKIE['pPHONE']);
 	if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
 		$ip = $_SERVER['HTTP_CLIENT_IP'];
