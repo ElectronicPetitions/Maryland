@@ -24,23 +24,23 @@ $offset_y_circulator = $d['offset_y_cords_circulator'];
 
 $county = $_COOKIE['pCOUNTY'];
 if (trim($_COOKIE['pCOUNTY']) == ''){
-  $county = ucwords($_COOKIE['web_county']);
+  $county = strtoupper($_COOKIE['web_county']);
 }
 
 $name = $_COOKIE['pNAME'];
 if (trim($_COOKIE['pNAME']) == ''){
- $name = ucwords($_COOKIE['web_first_name'].' '.$_COOKIE['web_middle_name'].' '.$_COOKIE['web_last_name']);
+ $name = strtoupper($_COOKIE['web_first_name'].' '.$_COOKIE['web_middle_name'].' '.$_COOKIE['web_last_name']);
 }
 
 // street address
 $address1 = $_COOKIE['pADDRESS1'];
 if (trim($_COOKIE['pADDRESS1']) == ''){
-  $address1 = $_COOKIE['web_house_number'].' '.ucwords($_COOKIE['web_street_name']);
+  $address1 = strtoupper($_COOKIE['web_house_number'].' '.$_COOKIE['web_street_name']);
 }
 // city state zip
 $address2 = $_COOKIE['pADDRESS2'];
 if (trim($_COOKIE['pADDRESS2']) == 'MD'){
-  $address2 = ucwords($_COOKIE['web_city']).', MD '.$_COOKIE['web_zip_code'];
+  $address2 = strtoupper($_COOKIE['web_city']).', MD '.$_COOKIE['web_zip_code'];
 }  
 $full_address = $_COOKIE['pADDRESS'];
 if (trim($_COOKIE['pADDRESS']) == ''){
