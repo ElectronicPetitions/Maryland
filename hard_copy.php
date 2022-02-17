@@ -65,10 +65,13 @@ imagettftext($jpg_image, 50, 0, 700, 700, $black, $font_path, $petition_party_li
 imagettftext($jpg_image, 50, 0, 340, 790, $black, $font_path, $petition_party_line3 );
 imagettftext($jpg_image, 50, 0, 340, 870, $black, $font_path, $petition_party_line4 );
 
-
+$name = $_COOKIE['pNAME'];
+if ($_COOKIE['pNAME'] == ''){
+ $name = ucwords($_COOKIE['web_first_name'].' '.$_COOKIE['web_middle_name'].' '.$_COOKIE['web_last_name']);
+}
 
 // name
-imagettftext($jpg_image, 50, 0, 350+$offset_x, 1070+$offset_y, $black, $font_path, $_COOKIE['pNAME']);
+imagettftext($jpg_image, 50, 0, 350+$offset_x, 1070+$offset_y, $black, $font_path, $name);
 //imagettftext($jpg_image, 50, 0, 350, 1070, $black, $font_path, $debug);
 
 // address
