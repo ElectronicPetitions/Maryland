@@ -171,7 +171,7 @@ while($d = mysqli_fetch_array($r)){
   unset($hide);
   $hide = array();
   $pID = $d['petition_id'];
-  $q2="SELECT * FROM signatures where petition_id = '$pID' and printed_status = '' and signature_status = 'verified' order by signature_status, id desc";
+  $q2="SELECT * FROM signatures where petition_id = '$pID' and printed_status = '' and ( signature_status = 'verified' or  signature_status = 'unverified' ) order by signature_status, id desc";
   $r2 = $petition->query($q2);
   while($d2 = mysqli_fetch_array($r2)){
     if ($d2['signature_status'] == 'verified'){
