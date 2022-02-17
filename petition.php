@@ -139,6 +139,12 @@ $VoterList_table           = $petition->real_escape_string($_COOKIE['VoterList_t
 $php_session_id             = session_id();
 $VTRID 			= $_COOKIE['pVTRID'];
 
+$status = 'unverified';
+if ($VTRID > 0){
+$status = 'verified';
+}
+ 
+
 if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
     $ip = $_SERVER['HTTP_CLIENT_IP'];
 } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
