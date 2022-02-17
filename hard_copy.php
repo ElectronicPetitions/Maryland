@@ -24,7 +24,7 @@ $offset_y_circulator = $d['offset_y_cords_circulator'];
 
 $county = $_COOKIE['pCOUNTY'];
 if (trim($_COOKIE['pCOUNTY']) == ''){
-  $county = strtoupper($_COOKIE['web_county']);
+  $county = ucwords($_COOKIE['web_county']);
 }
 
 $name = $_COOKIE['pNAME'];
