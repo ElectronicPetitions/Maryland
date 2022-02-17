@@ -14,7 +14,7 @@ if ($_COOKIE['invite'] != ''){
 
 <div class='row no-print'>
  <div class='col-sm-10' style='text-align:center;'>
-  <?PHP echo $copy;?>
+  <?PHP echo $copy;?><br>Users Connected to Petitioners: 9,132<br>Verified Voters Signing: 7,231.<br>Total Petitions Signed: 10,446.  
  </div>
 </div>
 
