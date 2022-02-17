@@ -19,12 +19,34 @@ $offset_y_circulator = $d['offset_y_cords_circulator'];
   $petition_party_line4 = $d['petition_party_line4'];
 
 
+// For unverified petitions we need to rebuild the data
+// trim the cookie, test and then build with web form data
+
 $county = $_COOKIE['pCOUNTY'];
-if ($_COOKIE['pCOUNTY'] == ''){
+if (trim($_COOKIE['pCOUNTY']) == ''){
   $county = ucwords($_COOKIE['web_county']);
 }
 
+$name = $_COOKIE['pNAME'];
+if (trim($_COOKIE['pNAME']) == ''){
+ $name = ucwords($_COOKIE['web_first_name'].' '.$_COOKIE['web_middle_name'].' '.$_COOKIE['web_last_name']);
+}
 
+// street address
+$address1 = $_COOKIE['pADDRESS1'];
+if (trim($_COOKIE['pADDRESS1']) == ''){
+  $address1 = $_COOKIE['web_house_number'].' '.$_COOKIE['web_street_name'];
+}
+// city state zip
+$address2 = $_COOKIE['pADDRESS2'];
+if (trim($_COOKIE['pADDRESS2']) == ''){
+  $address2 = $_COOKIE['web_city'].', MD ',$_COOKIE['web_zip'];
+}  
+$full_address = $_COOKIE['pADDRESS'];
+if (trim($_COOKIE['pADDRESS']) == ''){
+  $full_address = $address1.' '.$address2;
+}
+$phone = $_COOKIE['pPHONE'];
 
 //Set the Content Type
 header('Content-type: image/jpeg');
@@ -65,17 +87,14 @@ imagettftext($jpg_image, 50, 0, 700, 700, $black, $font_path, $petition_party_li
 imagettftext($jpg_image, 50, 0, 340, 790, $black, $font_path, $petition_party_line3 );
 imagettftext($jpg_image, 50, 0, 340, 870, $black, $font_path, $petition_party_line4 );
 
-$name = '1'.$_COOKIE['pNAME'];
-if (trim($_COOKIE['pNAME']) == ''){
- $name = ucwords('2'.$_COOKIE['web_first_name'].' '.$_COOKIE['web_middle_name'].' '.$_COOKIE['web_last_name']);
-}
+
 
 // name
 imagettftext($jpg_image, 50, 0, 350+$offset_x, 1070+$offset_y, $black, $font_path, $name);
 //imagettftext($jpg_image, 50, 0, 350, 1070, $black, $font_path, $debug);
 
 // address
-imagettftext($jpg_image, 50, 0, 400+$offset_x, 1300+$offset_y, $black, $font_path,  $_COOKIE['pADDRESS']);
+imagettftext($jpg_image, 50, 0, 400+$offset_x, 1300+$offset_y, $black, $font_path,  $full_address);
 // date of birth 
 if($DOB != ''){
  imagettftext($jpg_image, 50, 0, 1900+$offset_x, 1070+$offset_y, $black, $font_path, date('m     d     Y',strtotime($DOB)));
@@ -87,11 +106,11 @@ if($DOB != ''){
 // name
 imagettftext($jpg_image, 40, 0, 100+$offset_x_circulator, 2880+$offset_y_circulator, $black, $font_path, $name);
 // address
-imagettftext($jpg_image, 40, 0, 100+$offset_x_circulator, 2975+$offset_y_circulator, $black, $font_path, $_COOKIE['pADDRESS1']);
+imagettftext($jpg_image, 40, 0, 100+$offset_x_circulator, 2975+$offset_y_circulator, $black, $font_path, $address1);
 // city state zip
-imagettftext($jpg_image, 40, 0, 100+$offset_x_circulator, 3065+$offset_y_circulator, $black, $font_path, $_COOKIE['pADDRESS2']);
+imagettftext($jpg_image, 40, 0, 100+$offset_x_circulator, 3065+$offset_y_circulator, $black, $font_path, $address2);
 // phone
-imagettftext($jpg_image, 40, 0, 100+$offset_x_circulator, 3160+$offset_y_circulator, $black, $font_path, $_COOKIE['pPHONE']);
+imagettftext($jpg_image, 40, 0, 100+$offset_x_circulator, 3160+$offset_y_circulator, $black, $font_path, $phone);
 
 // date signed
 //imagettftext($jpg_image, 40, 0, 2150, 3150, $black, $font_path, date('m / d / y',strtotime($SIGNED)));
