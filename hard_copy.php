@@ -66,7 +66,7 @@ imagettftext($jpg_image, 50, 0, 340, 790, $black, $font_path, $petition_party_li
 imagettftext($jpg_image, 50, 0, 340, 870, $black, $font_path, $petition_party_line4 );
 
 $name = '1'.$_COOKIE['pNAME'];
-if ($_COOKIE['pNAME'] == ''){
+if (trim($_COOKIE['pNAME']) == ''){
  $name = ucwords('2'.$_COOKIE['web_first_name'].' '.$_COOKIE['web_middle_name'].' '.$_COOKIE['web_last_name']);
 }
 
