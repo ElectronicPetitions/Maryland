@@ -2,7 +2,7 @@
 <?PHP
 $copy = '&copy; 2020 Patrick McGuire';
 if ($_COOKIE['invite'] != ''){
- $copy = '&copy; 2020 Patrick McGuire - '.strtoupper($_COOKIE['invite']); 
+ $copy = '&copy; 2020 - '.date('Y').' Patrick McGuire - '.strtoupper($_COOKIE['invite']); 
 }  
 ?>
 <?PHP if ($_SERVER['SCRIPT_NAME'] != '/share.php'){ ?>  
