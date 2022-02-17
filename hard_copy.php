@@ -19,6 +19,13 @@ $offset_y_circulator = $d['offset_y_cords_circulator'];
   $petition_party_line4 = $d['petition_party_line4'];
 
 
+$county = $_COOKIE['pCOUNTY'];
+if ($_COOKIE['pCOUNTY'] == ''){
+  $county = ucwords($_COOKIE['web_county']);
+}
+
+
+
 //Set the Content Type
 header('Content-type: image/jpeg');
 
@@ -38,7 +45,7 @@ $DOB = $_COOKIE['pDOB'];
 $SIGNED = date('Y-m-d');
 
 if ($hide_county == 'NO'){
-  if ( $_COOKIE['pCOUNTY'] == 'Baltimore City' || $_COOKIE['debug'] == 'on'){
+  if ( $county == 'Baltimore City' || $_COOKIE['debug'] == 'on'){
     // City Checkbox
     $cord = $d['text_cord_cityX'];
     $array = explode(",",$cord);
@@ -48,7 +55,7 @@ if ($hide_county == 'NO'){
     // County on Petition
     $cord = $d['text_cord_county'];
     $array = explode(",",$cord);
-    imagettftext($jpg_image, $array[0], $array[1], $array[2], $array[3], $black, $font_path, str_replace('County','',$_COOKIE['pCOUNTY']) );
+    imagettftext($jpg_image, $array[0], $array[1], $array[2], $array[3], $black, $font_path, str_replace('County','',$county) );
   }
 }
 
