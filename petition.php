@@ -121,3 +121,39 @@ if(isset($_POST['signed_name_as'])){
  slack_general('*Step 1* ('.$d['petition_name'].') ('.$_COOKIE['invite'].')','md-petition'); 
 }
 include_once('footer.php');
+
+
+$name   = $petition->real_escape_string($_COOKIE['pNAME']);
+	if(trim($name) == ''){
+		$name = $petition->real_escape_string($_COOKIE['web_first_name'].' '.$_COOKIE['web_middle_name'].' '.$_COOKIE['web_last_name']);
+	}
+
+$signed_name_as             = $petition->real_escape_string($name);
+$date_of_birth              = $petition->real_escape_string($_COOKIE['pDOB']);
+$signed_name_as_circulator  = $petition->real_escape_string($name);
+$contact_phone              = $petition->real_escape_string($_COOKIE['pPHONE']);
+$shared_email               = $petition->real_escape_string($_COOKIE['email']);
+$signature_status           = $petition->real_escape_string('SIGNED');
+$bot_check                  = $petition->real_escape_string($_SERVER['HTTP_USER_AGENT']);
+$VoterList_table           = $petition->real_escape_string($_COOKIE['VoterList_table']);
+$php_session_id             = session_id();
+
+
+if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+    $ip = $_SERVER['HTTP_CLIENT_IP'];
+} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+} else {
+    $ip = $_SERVER['REMOTE_ADDR'];
+}
+
+// we now are going to record this as signed
+$petition->query("insert into signatures (shared_email,VoterList_table,php_session_id,bot_check,VTRID,ip_address,date_of_birth,date_time_signed,just_date,petition_id,signed_name_as,signed_name_as_circulator,contact_phone,signature_status)
+values ('$shared_email','$VoterList_table','$php_session_id','$bot_check','$VTRID','$ip','$date_of_birth',NOW(),NOW(),'$petition_id','$signed_name_as','$signed_name_as_circulator','$contact_phone','$signature_status')") or die(mysqli_error($petition));
+
+$last = $petition->insert_id;
+
+$petition->query("update presign set presign_status = 'SIGNED' where php_session_id = '$php_session_id' and presign_status = 'NEW' ");
+
+
+
