@@ -154,8 +154,8 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
 }
 $petition_id = $id;
 // we now are going to record this as signed
-$petition->query("insert into signatures (signature_status,shared_email,VoterList_table,php_session_id,bot_check,VTRID,ip_address,date_of_birth,date_time_signed,just_date,petition_id,signed_name_as,signed_name_as_circulator,contact_phone,signature_status)
-values ('$signature_status','$shared_email','$VoterList_table','$php_session_id','$bot_check','$VTRID','$ip','$date_of_birth',NOW(),NOW(),'$petition_id','$signed_name_as','$signed_name_as_circulator','$contact_phone','$signature_status')") or die(mysqli_error($petition));
+$petition->query("insert into signatures (signature_status,shared_email,VoterList_table,php_session_id,bot_check,VTRID,ip_address,date_of_birth,date_time_signed,just_date,petition_id,signed_name_as,signed_name_as_circulator,contact_phone)
+values ('$signature_status','$shared_email','$VoterList_table','$php_session_id','$bot_check','$VTRID','$ip','$date_of_birth',NOW(),NOW(),'$petition_id','$signed_name_as','$signed_name_as_circulator','$contact_phone')") or die(mysqli_error($petition));
 
 $last = $petition->insert_id;
 
