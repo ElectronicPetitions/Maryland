@@ -14,9 +14,9 @@ if(isset($_POST['email'])){
           //off_world_mail(,,);
 	  $subject = 'MD Petition Login';
 	  $body = 'Login with '.$email.' and your new password '.$pass.' at https://www.md-petition.com/admin/login.php';
-          meps_mail($email,$body,$subject);
+          $status = meps_mail($email,$body,$subject);
           $petition->query("update users set pass = '$encrypted' WHERE email = '$email'");
-          echo "<h1>Your Password has been Sent.</h1>";
+          echo "<h1>Your Password has been Sent. $status</h1>";
 	  slack_general_admin('DEBUG: '.$body,'md-petition-signed');
         }else{
           echo "<h1>E-Mail address not found.</h1>";
